@@ -89,6 +89,26 @@ h6 {
   }
 }
 
+/* Glow shimmer for hero bottom line */
+@keyframes shimmer {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Infinite ticker/marquee */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+
+.animate-ticker {
+  animation: ticker 55s linear infinite;
+}
+
 @layer utilities {
   .bg-primary {
     background-color: var(--color-primary);

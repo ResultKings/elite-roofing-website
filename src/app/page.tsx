@@ -87,7 +87,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/60 to-[#0f172a]/15" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-[#0f172a]/20 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pb-[13vh]">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pb-[15vh]">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.12)} className="max-w-3xl">
           <motion.div variants={fadeUp} className="flex items-center gap-3 mb-7">
             <div className="w-10 h-px bg-[#b59b74]" />
@@ -122,26 +122,121 @@ function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Animated review bar pinned to bottom of hero */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        {/* Glowing shimmer line */}
+        <div className="relative h-px overflow-hidden">
+          <div className="absolute inset-0 bg-white/10" />
+          <div className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-[#b59b74] to-transparent animate-shimmer" />
+        </div>
+        <div className="bg-[#0f172a]/50 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-3.5 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-[#b59b74] text-[#b59b74]" />
+                ))}
+              </div>
+              <span className="font-sans text-xs text-white/55">
+                <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white/30">Scroll</span>
+              <div className="w-px h-3.5 bg-white/20" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
 
 // â”€â”€â”€ Credentials (replaces icon-heavy trust badges) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+function TickerBanner() {
+  const items = [
+    { type: 'service', text: 'Residential Roofing' },
+    { type: 'badge',   text: '5★ Rated' },
+    { type: 'service', text: 'Commercial Roofing' },
+    { type: 'location',text: 'Mississauga, Ontario' },
+    { type: 'service', text: 'Roof Repair' },
+    { type: 'badge',   text: 'GAF Master Elite' },
+    { type: 'service', text: 'Storm Damage Restoration' },
+    { type: 'location',text: 'GTA & Ontario' },
+    { type: 'service', text: 'Gutter Systems' },
+    { type: 'badge',   text: '500+ Reviews' },
+    { type: 'service', text: 'Skylight Installation' },
+    { type: 'badge',   text: 'Licensed & Insured' },
+    { type: 'service', text: 'Residential' },
+    { type: 'location',text: 'Toronto · Oakville · Vaughan' },
+    { type: 'service', text: 'Commercial' },
+    { type: 'badge',   text: '25-Year Warranty' },
+  ]
+  const doubled = [...items, ...items]
+
+  return (
+    <div className="bg-[#080d14] border-b border-white/5 overflow-hidden py-3.5 select-none">
+      <div className="flex animate-ticker whitespace-nowrap">
+        {doubled.map((item, i) => (
+          <span key={i} className="inline-flex items-center gap-2 flex-shrink-0 px-5">
+            <span
+              className={[
+                'text-[9px]',
+                item.type === 'badge' ? 'text-[#b59b74]' : item.type === 'location' ? 'text-white/25' : 'text-white/20',
+              ].join(' ')}
+            >
+              {item.type === 'badge' ? '◆' : item.type === 'location' ? '◎' : '●'}
+            </span>
+            <span
+              className={[
+                'font-sans text-[10px] tracking-[0.22em] uppercase',
+                item.type === 'badge' ? 'text-[#b59b74]/70 font-semibold' : item.type === 'location' ? 'text-white/30' : 'text-white/40',
+              ].join(' ')}
+            >
+              {item.text}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function StandardSection() {
   return (
-    <section className="py-20 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
-      <div className="max-w-7xl mx-auto">
-        <FadeIn>
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      {/* Background image anchored right */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1200&fit=crop&q=85&auto=format"
+          alt="Elite Roofing craftsmanship"
+          fill
+          sizes="100vw"
+          className="object-cover object-right"
+        />
+        {/* Strong left-to-right fade so text sits on dark */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080d14] via-[#080d14]/88 to-[#080d14]/25" />
+        {/* Subtle top-to-bottom vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/60 via-transparent to-[#080d14]/30" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-28 w-full">
+        <FadeIn className="max-w-2xl">
           <p className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-8">
             The Standard
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-[1.05]">
-            We don&apos;t just fix roofs.
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-[5.25rem] font-bold text-white mb-8 leading-[1.04]">
+            We don&apos;t just<br />fix roofs.
             <br />
-            We restore them.
+            <span className="text-[#b59b74]">We restore them.</span>
           </h2>
-          <div className="flex flex-wrap gap-x-10 gap-y-4">
+          <p className="font-sans text-base md:text-lg text-white/50 leading-relaxed mb-12 max-w-md">
+            Every project is treated with the same precision and care — whether a single-family home in Oakville or a commercial complex in Mississauga.
+          </p>
+
+          <div className="flex flex-wrap gap-x-10 gap-y-4 mb-16">
             {[
               'Licensed and Fully Insured',
               'GAF Master Elite Certified',
@@ -150,6 +245,24 @@ function StandardSection() {
               <div key={item} className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#b59b74] flex-shrink-0" />
                 <span className="font-sans text-sm text-white/60 tracking-wide">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/10">
+            {[
+              { value: '5.0', label: 'Google Rating' },
+              { value: '500+', label: 'Five-Star Reviews' },
+              { value: '20+', label: 'Years in Ontario' },
+            ].map(stat => (
+              <div key={stat.label}>
+                <div className="font-serif text-3xl md:text-4xl font-bold text-[#b59b74] mb-1.5">
+                  {stat.value}
+                </div>
+                <div className="font-sans text-[10px] text-white/30 tracking-widest uppercase">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -593,6 +706,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TickerBanner />
       <StandardSection />
       <CredentialsSection />
       <ServicesSection />
