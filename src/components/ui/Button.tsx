@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import Link from 'next/link'
@@ -33,13 +33,13 @@ type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#b59b74] text-[#0f172a] border-2 border-[#b59b74] hover:bg-[#9a8260] hover:border-[#9a8260] shadow-sm hover:shadow-md rounded-full',
+    'bg-[#c9a55a] text-[#0f172a] border-2 border-[#c9a55a] hover:bg-[#a87d3a] hover:border-[#a87d3a] shadow-sm hover:shadow-md rounded-full',
   secondary:
     'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-full',
   outline:
     'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-full',
   ghost:
-    'bg-transparent text-[#b59b74] border-2 border-transparent hover:border-[#b59b74] hover:bg-[#b59b74]/5 rounded-full',
+    'bg-transparent text-[#c9a55a] border-2 border-transparent hover:border-[#c9a55a] hover:bg-[#c9a55a]/5 rounded-full',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -52,7 +52,7 @@ function getClasses(variant: ButtonVariant, size: ButtonSize, className?: string
   return [
     'inline-flex items-center justify-center gap-2',
     'font-sans font-medium uppercase transition-all duration-300',
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b59b74] focus-visible:ring-offset-2',
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a55a] focus-visible:ring-offset-2',
     variantClasses[variant],
     sizeClasses[size],
     disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer',

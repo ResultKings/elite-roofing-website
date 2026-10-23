@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -76,17 +76,17 @@ export default function BlogPostPage({ params }: PageProps) {
             <div className="flex items-center gap-2 mb-8">
               <Link
                 href="/blog"
-                className="flex items-center gap-1.5 font-sans text-xs text-white/40 hover:text-[#b59b74] transition-colors duration-200"
+                className="flex items-center gap-1.5 font-sans text-xs text-white/40 hover:text-[#c9a55a] transition-colors duration-200"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 All Articles
               </Link>
               <span className="text-white/20">/</span>
-              <span className="font-sans text-xs text-[#b59b74]">{post.category}</span>
+              <span className="font-sans text-xs text-[#c9a55a]">{post.category}</span>
             </div>
 
             {/* Category badge */}
-            <span className="inline-flex items-center px-3 py-1 bg-[#b59b74]/15 border border-[#b59b74]/30 text-[#b59b74] font-sans text-[10px] font-semibold tracking-[0.3em] uppercase mb-5">
+            <span className="inline-flex items-center px-3 py-1 bg-[#c9a55a]/15 border border-[#c9a55a]/30 text-[#c9a55a] font-sans text-[10px] font-semibold tracking-[0.3em] uppercase mb-5">
               {post.category}
             </span>
 
@@ -147,7 +147,7 @@ export default function BlogPostPage({ params }: PageProps) {
                 <div key={i} className="mb-8">
                   {section.heading && (
                     <h2 className="font-serif text-2xl font-bold text-[#0f172a] mb-4 flex items-start gap-3">
-                      <span className="text-[#b59b74] font-serif text-lg mt-1 flex-shrink-0">—</span>
+                      <span className="text-[#c9a55a] font-serif text-lg mt-1 flex-shrink-0">â€”</span>
                       {section.heading}
                     </h2>
                   )}
@@ -157,7 +157,7 @@ export default function BlogPostPage({ params }: PageProps) {
 
               {/* Conclusion */}
               <div className="mt-10 pt-10 border-t border-[#e7e5e4]">
-                <div className="bg-[#b59b74]/8 border-l-4 border-[#b59b74] pl-6 py-5 pr-5">
+                <div className="bg-[#c9a55a]/8 border-l-4 border-[#c9a55a] pl-6 py-5 pr-5">
                   <p className="font-serif text-base text-[#0f172a] leading-relaxed italic">
                     {content.conclusion}
                   </p>
@@ -175,11 +175,11 @@ export default function BlogPostPage({ params }: PageProps) {
           {post.tags.length > 0 && (
             <div className="mt-10 pt-8 border-t border-[#e7e5e4]">
               <div className="flex flex-wrap items-center gap-3">
-                <Tag className="w-3.5 h-3.5 text-[#b59b74]" />
+                <Tag className="w-3.5 h-3.5 text-[#c9a55a]" />
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 bg-white border border-[#e7e5e4] font-sans text-xs text-[#64748b] hover:border-[#b59b74]/40 hover:text-[#b59b74] transition-colors cursor-default"
+                    className="px-3 py-1.5 bg-white border border-[#e7e5e4] font-sans text-xs text-[#64748b] hover:border-[#c9a55a]/40 hover:text-[#c9a55a] transition-colors cursor-default"
                   >
                     {tag}
                   </span>
@@ -195,7 +195,7 @@ export default function BlogPostPage({ params }: PageProps) {
                 <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
               </div>
               <div>
-                <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#b59b74] mb-1">
+                <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-1">
                   About the Author
                 </p>
                 <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-1">{post.author}</h3>
@@ -214,12 +214,12 @@ export default function BlogPostPage({ params }: PageProps) {
               {prevPost ? (
                 <Link
                   href={`/blog/${prevPost.slug}`}
-                  className="group p-5 bg-white border border-[#e7e5e4] hover:border-[#b59b74]/40 transition-all duration-300"
+                  className="group p-5 bg-white border border-[#e7e5e4] hover:border-[#c9a55a]/40 transition-all duration-300"
                 >
                   <p className="flex items-center gap-1.5 font-sans text-[10px] text-[#94a3b8] uppercase tracking-wider mb-2">
                     <ArrowLeft className="w-3 h-3" /> Previous
                   </p>
-                  <p className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#b59b74] transition-colors leading-snug line-clamp-2">
+                  <p className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug line-clamp-2">
                     {prevPost.title}
                   </p>
                 </Link>
@@ -229,12 +229,12 @@ export default function BlogPostPage({ params }: PageProps) {
               {nextPost ? (
                 <Link
                   href={`/blog/${nextPost.slug}`}
-                  className="group p-5 bg-white border border-[#e7e5e4] hover:border-[#b59b74]/40 transition-all duration-300 text-right"
+                  className="group p-5 bg-white border border-[#e7e5e4] hover:border-[#c9a55a]/40 transition-all duration-300 text-right"
                 >
                   <p className="flex items-center justify-end gap-1.5 font-sans text-[10px] text-[#94a3b8] uppercase tracking-wider mb-2">
                     Next <ArrowRight className="w-3 h-3" />
                   </p>
-                  <p className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#b59b74] transition-colors leading-snug line-clamp-2">
+                  <p className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug line-clamp-2">
                     {nextPost.title}
                   </p>
                 </Link>
@@ -251,13 +251,13 @@ export default function BlogPostPage({ params }: PageProps) {
         <section className="py-16 px-4 md:px-8 lg:px-16 bg-white border-t border-[#e7e5e4]">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-serif text-2xl font-bold text-[#0f172a] mb-2">Related Articles</h2>
-            <div className="w-10 h-[2px] bg-[#b59b74] mb-8" />
+            <div className="w-10 h-[2px] bg-[#c9a55a] mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((related) => (
                 <Link
                   key={related.id}
                   href={`/blog/${related.slug}`}
-                  className="group flex gap-5 bg-white border border-[#e7e5e4] p-5 hover:border-[#b59b74]/40 hover:shadow-md transition-all duration-300"
+                  className="group flex gap-5 bg-white border border-[#e7e5e4] p-5 hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
                 >
                   <div className="relative w-28 h-20 flex-shrink-0 overflow-hidden">
                     <Image
@@ -268,10 +268,10 @@ export default function BlogPostPage({ params }: PageProps) {
                     />
                   </div>
                   <div>
-                    <span className="font-sans text-[10px] font-semibold text-[#b59b74] tracking-wider uppercase">
+                    <span className="font-sans text-[10px] font-semibold text-[#c9a55a] tracking-wider uppercase">
                       {related.category}
                     </span>
-                    <h3 className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#b59b74] transition-colors leading-snug mt-1 line-clamp-2">
+                    <h3 className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug mt-1 line-clamp-2">
                       {related.title}
                     </h3>
                     <p className="flex items-center gap-1.5 font-sans text-xs text-[#94a3b8] mt-2">
@@ -289,7 +289,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#b59b74] mb-2">
+            <p className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-2">
               Ready to Take Action?
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-white">
@@ -298,7 +298,7 @@ export default function BlogPostPage({ params }: PageProps) {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#b59b74] text-white font-sans text-xs font-medium tracking-[0.25em] uppercase hover:bg-[#9a8260] transition-colors duration-300 flex-shrink-0"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.25em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 flex-shrink-0"
           >
             Schedule Inspection <ArrowRight className="w-4 h-4" />
           </Link>

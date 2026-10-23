@@ -30,7 +30,7 @@ export default function Footer() {
               { title: 'A+ BBB Accredited', sub: 'Better Business Bureau' },
               { title: '4.9 Star Rating', sub: '300+ Verified Reviews' },
             ].map(({ title, sub }) => (
-              <div key={title} className="border-l border-[#b59b74]/30 pl-4">
+              <div key={title} className="border-l border-[#c9a55a]/30 pl-4">
                 <div className="font-serif text-sm font-semibold text-white leading-tight">{title}</div>
                 <div className="font-sans text-[10px] text-white/35 tracking-wider mt-0.5 uppercase">{sub}</div>
               </div>
@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex flex-col leading-none mb-6">
               <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
-              <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mt-0.5">
+              <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mt-0.5">
                 ROOFING
               </span>
             </div>
@@ -60,34 +60,34 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 bg-white/5 hover:bg-[#b59b74]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/5 hover:bg-[#c9a55a]/20 flex items-center justify-center transition-colors duration-300"
               >
-                <Facebook className="w-4 h-4 text-white/40 hover:text-[#b59b74]" />
+                <Facebook className="w-4 h-4 text-white/40 hover:text-[#c9a55a]" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 bg-white/5 hover:bg-[#b59b74]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/5 hover:bg-[#c9a55a]/20 flex items-center justify-center transition-colors duration-300"
               >
-                <Instagram className="w-4 h-4 text-white/40 hover:text-[#b59b74]" />
+                <Instagram className="w-4 h-4 text-white/40 hover:text-[#c9a55a]" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-9 h-9 bg-white/5 hover:bg-[#b59b74]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/5 hover:bg-[#c9a55a]/20 flex items-center justify-center transition-colors duration-300"
               >
-                <Youtube className="w-4 h-4 text-white/40 hover:text-[#b59b74]" />
+                <Youtube className="w-4 h-4 text-white/40 hover:text-[#c9a55a]" />
               </a>
             </div>
           </div>
 
           {/* Column 2 â€” Services */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#b59b74] mb-6">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -95,9 +95,9 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-white/50 hover:text-[#b59b74] transition-colors duration-300 flex items-center gap-2 group"
+                    className="font-sans text-sm text-white/50 hover:text-[#c9a55a] transition-colors duration-300 flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#b59b74]/40 group-hover:bg-[#b59b74] transition-colors flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-[#c9a55a]/40 group-hover:bg-[#c9a55a] transition-colors flex-shrink-0" />
                     {link.label}
                   </Link>
                 </li>
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Column 3 â€” Quick Links */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#b59b74] mb-6">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -115,22 +115,22 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-white/50 hover:text-[#b59b74] transition-colors duration-300 flex items-center gap-2 group"
+                    className="font-sans text-sm text-white/50 hover:text-[#c9a55a] transition-colors duration-300 flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#b59b74]/40 group-hover:bg-[#b59b74] transition-colors flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-[#c9a55a]/40 group-hover:bg-[#c9a55a] transition-colors flex-shrink-0" />
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 p-4 border border-[#b59b74]/20 bg-[#b59b74]/5">
+            <div className="mt-8 p-4 border border-[#c9a55a]/20 bg-[#c9a55a]/5">
               <p className="font-sans text-xs text-white/40 uppercase tracking-wider mb-1">
                 Emergency Service
               </p>
               <a
                 href="tel:+19055550198"
-                className="font-serif text-lg font-semibold text-[#b59b74] hover:text-[#cdb99a] transition-colors"
+                className="font-serif text-lg font-semibold text-[#c9a55a] hover:text-[#d4b86e] transition-colors"
               >
                 (905) 555-0198
               </a>
@@ -139,12 +139,12 @@ export default function Footer() {
 
           {/* Column 4 â€” Contact */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#b59b74] mb-6">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Contact Us
             </h3>
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#b59b74] mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
                 <span className="font-sans text-sm text-white/50 leading-relaxed">
                   3250 Ridgeway Dr, Unit 12
                   <br />
@@ -152,19 +152,19 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#b59b74] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
                 <a
                   href="tel:+19055550198"
-                  className="font-sans text-sm text-white/50 hover:text-[#b59b74] transition-colors"
+                  className="font-sans text-sm text-white/50 hover:text-[#c9a55a] transition-colors"
                 >
                   (905) 555-0198
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#b59b74] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
                 <a
                   href="mailto:info@eliteroofingon.ca"
-                  className="font-sans text-sm text-white/50 hover:text-[#b59b74] transition-colors"
+                  className="font-sans text-sm text-white/50 hover:text-[#c9a55a] transition-colors"
                 >
                   info@eliteroofingon.ca
                 </a>

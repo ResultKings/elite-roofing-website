@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -136,10 +136,10 @@ export default function ContactForm() {
             transition={{ delay: 0.15, type: 'spring', stiffness: 180, damping: 18 }}
             className="relative w-24 h-24 mb-8"
           >
-            <div className="absolute inset-0 rounded-full bg-[#b59b74]/10" />
-            <div className="absolute inset-2 rounded-full bg-[#b59b74]/15" />
+            <div className="absolute inset-0 rounded-full bg-[#c9a55a]/10" />
+            <div className="absolute inset-2 rounded-full bg-[#c9a55a]/15" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <CheckCircle className="w-12 h-12 text-[#b59b74]" />
+              <CheckCircle className="w-12 h-12 text-[#c9a55a]" />
             </div>
           </motion.div>
 
@@ -148,7 +148,7 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            <p className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#8c6d41] mb-3">
+            <p className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#8a6928] mb-3">
               Inquiry Received
             </p>
             <h3 className="font-serif text-3xl font-bold text-[#0f172a] mb-4">
@@ -162,16 +162,16 @@ export default function ContactForm() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 border-t border-[#e7e5e4]">
               <a
                 href="tel:+19055550198"
-                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#b59b74] transition-colors"
+                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#c9a55a] transition-colors"
               >
-                <Phone className="w-4 h-4 text-[#b59b74]" />
+                <Phone className="w-4 h-4 text-[#c9a55a]" />
                 (905) 555-0198
               </a>
               <a
                 href="mailto:info@eliteroofingon.ca"
-                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#b59b74] transition-colors"
+                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#c9a55a] transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#b59b74]" />
+                <Mail className="w-4 h-4 text-[#c9a55a]" />
                 info@eliteroofingon.ca
               </a>
             </div>
@@ -243,7 +243,7 @@ export default function ContactForm() {
                   name="roofType"
                   value={formData.roofType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3.5 bg-white border border-[#e7e5e4] font-sans text-sm text-[#0f172a] focus:outline-none focus:border-[#b59b74] focus:ring-2 focus:ring-[#b59b74]/20 hover:border-[#b59b74]/50 transition-all duration-200 appearance-none cursor-pointer pr-10"
+                  className="w-full px-4 py-3.5 bg-white border border-[#e7e5e4] font-sans text-sm text-[#0f172a] focus:outline-none focus:border-[#c9a55a] focus:ring-2 focus:ring-[#c9a55a]/20 hover:border-[#c9a55a]/50 transition-all duration-200 appearance-none cursor-pointer pr-10"
                 >
                   <option value="">Select a service...</option>
                   <option value="residential">Residential Roofing</option>

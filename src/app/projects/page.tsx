@@ -69,7 +69,7 @@ function ProjectCard({
 
           {/* Category badge */}
           <div className="absolute top-3 left-3 z-10 pointer-events-none">
-            <span className="px-2.5 py-1 bg-[#b59b74] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
+            <span className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
               {project.category}
             </span>
           </div>
@@ -167,7 +167,7 @@ export default function ProjectsPage() {
       <section className="px-6 md:px-8 lg:px-16 mb-14">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
               Portfolio
             </span>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -175,7 +175,7 @@ export default function ProjectsPage() {
                 <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-4 leading-[1.05]">
                   Our Work
                 </h1>
-                <div className="w-12 h-[2px] bg-[#b59b74] mb-5" />
+                <div className="w-12 h-[2px] bg-[#c9a55a] mb-5" />
                 <p className="font-sans text-base text-[#64748b] leading-relaxed max-w-lg">
                   Every project reflects the same commitment to precision, premium materials, and lasting protection for Ontario homes and businesses.
                 </p>
@@ -243,7 +243,7 @@ export default function ProjectsPage() {
               </div>
               <a
                 href="/contact"
-                className="flex-shrink-0 inline-flex items-center px-8 py-3.5 bg-[#b59b74] text-white font-sans text-xs font-semibold tracking-[0.25em] uppercase hover:bg-[#9a8260] transition-colors duration-300"
+                className="flex-shrink-0 inline-flex items-center px-8 py-3.5 bg-[#c9a55a] text-white font-sans text-xs font-semibold tracking-[0.25em] uppercase hover:bg-[#a87d3a] transition-colors duration-300"
               >
                 Get Free Quote
               </a>

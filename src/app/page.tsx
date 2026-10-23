@@ -73,7 +73,7 @@ function Stagger({
 
 function HeroSection() {
   return (
-    <section className="relative h-screen flex flex-col justify-end overflow-hidden">
+    <section className="relative h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=1920&h=1080&fit=crop&q=85&auto=format"
@@ -84,35 +84,44 @@ function HeroSection() {
           className="object-cover object-center"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/60 to-[#0f172a]/15" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-[#0f172a]/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080d14]/85 via-[#080d14]/65 to-[#080d14]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#080d14]/70 via-[#080d14]/30 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pb-[15vh]">
-        <motion.div initial="hidden" animate="visible" variants={stagger(0.12)} className="max-w-3xl">
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-7">
-            <div className="w-10 h-px bg-[#b59b74]" />
-            <span className="font-sans text-[11px] font-medium tracking-[0.45em] uppercase text-[#b59b74]">
-              Ontario&apos;s Premier Roofer
+      <div className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pt-28 md:pt-32 flex flex-col justify-center pb-16">
+        <motion.div initial="hidden" animate="visible" variants={stagger(0.1)}>
+          {/* Top label row */}
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6 md:mb-8">
+            <span className="font-sans text-[9px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
+              Ontario &middot; GTA
+            </span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-6 h-px bg-white/25" />
+              <div className="w-1 h-1 rounded-full bg-white/20" />
+              <div className="w-6 h-px bg-white/25" />
+            </div>
+            <span className="font-sans text-[9px] font-semibold tracking-[0.4em] uppercase text-white/35">
+              Residential &amp; Commercial
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.06] mb-8 uppercase tracking-tight"
-          >
-            Master Craftsmanship.
-            <br />
-            <span className="text-[#b59b74]">Premium Results.</span>
+          {/* Giant display heading */}
+          <motion.h1 variants={fadeUp} className="mb-8 md:mb-10 leading-[0.88] tracking-[-0.02em]">
+            <span className="block font-display font-black uppercase text-[clamp(3rem,8.5vw,10rem)] text-[#f0ece4]">
+              Master Craftsmanship.
+            </span>
+            <span className="block font-display font-black uppercase text-[clamp(3rem,8.5vw,10rem)] text-white/20">
+              Premium Results.
+            </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-lg"
+            className="font-sans text-sm md:text-base text-white/50 leading-relaxed mb-8 max-w-sm"
           >
             Exceptional skill and premium materials to every project across Ontario.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
               Get Free Inspection
             </Button>
@@ -124,18 +133,17 @@ function HeroSection() {
       </div>
 
       {/* Animated review bar pinned to bottom of hero */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        {/* Glowing shimmer line */}
+      <div className="relative z-10">
         <div className="relative h-px overflow-hidden">
           <div className="absolute inset-0 bg-white/10" />
-          <div className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-[#b59b74] to-transparent animate-shimmer" />
+          <div className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-[#c9a55a] to-transparent animate-shimmer" />
         </div>
-        <div className="bg-[#0f172a]/50 backdrop-blur-sm">
+        <div className="bg-[#080d14]/60 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-3.5 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#b59b74] text-[#b59b74]" />
+                  <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
                 ))}
               </div>
               <span className="font-sans text-xs text-white/55">
@@ -177,22 +185,17 @@ function TickerBanner() {
   const doubled = [...items, ...items]
 
   return (
-    <div className="bg-[#080d14] border-b border-white/5 overflow-hidden py-3.5 select-none">
+    <div className="bg-[#080d14] border-b border-white/5 overflow-hidden py-4 select-none">
       <div className="flex animate-ticker whitespace-nowrap">
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-2 flex-shrink-0 px-5">
-            <span
-              className={[
-                'text-[9px]',
-                item.type === 'badge' ? 'text-[#b59b74]' : item.type === 'location' ? 'text-white/25' : 'text-white/20',
-              ].join(' ')}
-            >
-              {item.type === 'badge' ? '◆' : item.type === 'location' ? '◎' : '●'}
+          <span key={i} className="inline-flex items-center gap-2.5 flex-shrink-0 px-6">
+            <span className={['text-[8px]', item.type === 'badge' ? 'text-[#c9a55a]' : 'text-white/30'].join(' ')}>
+              ●
             </span>
             <span
               className={[
-                'font-sans text-[10px] tracking-[0.22em] uppercase',
-                item.type === 'badge' ? 'text-[#b59b74]/70 font-semibold' : item.type === 'location' ? 'text-white/30' : 'text-white/40',
+                'font-sans text-[10px] font-semibold tracking-[0.25em] uppercase',
+                item.type === 'badge' ? 'text-[#c9a55a]' : 'text-white/80',
               ].join(' ')}
             >
               {item.text}
@@ -206,7 +209,7 @@ function TickerBanner() {
 
 function StandardSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[67vh] flex items-center overflow-hidden">
       {/* Background image anchored right */}
       <div className="absolute inset-0">
         <Image
@@ -216,52 +219,49 @@ function StandardSection() {
           sizes="100vw"
           className="object-cover object-right"
         />
-        {/* Strong left-to-right fade so text sits on dark */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080d14] via-[#080d14]/88 to-[#080d14]/25" />
-        {/* Subtle top-to-bottom vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/60 via-transparent to-[#080d14]/30" />
+        {/* Black left side fading at 50% across */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black from-[40%] via-black/70 via-[55%] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-28 w-full">
-        <FadeIn className="max-w-2xl">
-          <p className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-16 md:py-20 w-full">
+        <FadeIn className="max-w-[52%]">
+          <p className="font-sans text-[9px] font-semibold tracking-[0.45em] uppercase text-[#8a6928] mb-5">
             The Standard
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-[5.25rem] font-bold text-white mb-8 leading-[1.04]">
-            We don&apos;t just<br />fix roofs.
-            <br />
-            <span className="text-[#b59b74]">We restore them.</span>
-          </h2>
-          <p className="font-sans text-base md:text-lg text-white/50 leading-relaxed mb-12 max-w-md">
-            Every project is treated with the same precision and care — whether a single-family home in Oakville or a commercial complex in Mississauga.
-          </p>
 
-          <div className="flex flex-wrap gap-x-10 gap-y-4 mb-16">
-            {[
-              'Licensed and Fully Insured',
-              'GAF Master Elite Certified',
-              '25-Year Warranty Available',
-            ].map(item => (
-              <div key={item} className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#b59b74] flex-shrink-0" />
-                <span className="font-sans text-sm text-white/60 tracking-wide">{item}</span>
-              </div>
-            ))}
+          <h2 className="font-display font-black uppercase text-[clamp(2rem,4.5vw,5rem)] leading-[0.9] tracking-[-0.02em] text-white mb-7">
+            We don&apos;t just<br />
+            <span className="text-[#c9a55a]">fix roofs.</span><br />
+            We restore them.
+          </h2>
+
+          {/* Two-column body text */}
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            <p className="font-sans text-[13px] text-white/50 leading-relaxed">
+              Every project receives the same precision and care — whether a single-family home in Oakville or a commercial complex in Mississauga.
+            </p>
+            <p className="font-sans text-[13px] text-white/40 leading-relaxed">
+              Our GAF Master Elite certification and 25-year warranty guarantee that premium results aren&apos;t a promise — they&apos;re our standard.
+            </p>
           </div>
 
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/10">
+          {/* Stats with vertical dividers */}
+          <div className="flex items-center gap-0 pt-7 border-t border-white/10">
             {[
               { value: '5.0', label: 'Google Rating' },
               { value: '500+', label: 'Five-Star Reviews' },
               { value: '20+', label: 'Years in Ontario' },
-            ].map(stat => (
-              <div key={stat.label}>
-                <div className="font-serif text-3xl md:text-4xl font-bold text-[#b59b74] mb-1.5">
-                  {stat.value}
-                </div>
-                <div className="font-sans text-[10px] text-white/30 tracking-widest uppercase">
-                  {stat.label}
+            ].map((stat, i) => (
+              <div key={stat.label} className="flex items-stretch">
+                {i > 0 && <div className="w-px bg-white/15 mx-7 self-stretch" />}
+                <div>
+                  <div className="font-display font-black text-2xl md:text-3xl text-[#c9a55a] leading-none mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="font-sans text-[9px] text-white/30 tracking-widest uppercase">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             ))}
@@ -278,7 +278,7 @@ function CredentialsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
           <FadeIn>
-            <div className="border-l-2 border-[#b59b74] pl-7">
+            <div className="border-l-2 border-[#c9a55a] pl-7">
               <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
                 GAF Master Elite
               </div>
@@ -288,7 +288,7 @@ function CredentialsSection() {
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <div className="border-l-2 border-[#b59b74] pl-7">
+            <div className="border-l-2 border-[#c9a55a] pl-7">
               <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
                 10-Year Guarantee
               </div>
@@ -298,7 +298,7 @@ function CredentialsSection() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="border-l-2 border-[#b59b74] pl-7">
+            <div className="border-l-2 border-[#c9a55a] pl-7">
               <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
                 300+ Five-Star Reviews
               </div>
@@ -320,13 +320,13 @@ function ServicesSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
             What We Do
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             Our Services
           </h2>
-          <div className="w-12 h-[2px] bg-[#b59b74]" />
+          <div className="w-12 h-[2px] bg-[#c9a55a]" />
         </FadeIn>
 
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -334,7 +334,7 @@ function ServicesSection() {
             <motion.div key={service.id} variants={fadeUp}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#b59b74]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5"
+                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
                   <Image
@@ -347,13 +347,13 @@ function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 to-transparent" />
                 </div>
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#b59b74] transition-colors duration-300">
+                  <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#c9a55a] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-6 flex-1">
                     {service.shortDescription}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-[#b59b74] tracking-[0.2em] uppercase group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-[#c9a55a] tracking-[0.2em] uppercase group-hover:gap-3 transition-all duration-300">
                     Explore <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -391,7 +391,7 @@ function ProcessSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-16">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
             How It Works
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
@@ -402,7 +402,7 @@ function ProcessSection() {
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-12" delay={0.12}>
           {steps.map(step => (
             <motion.div key={step.number} variants={fadeUp}>
-              <div className="font-serif text-7xl font-bold text-[#b59b74]/12 mb-5 leading-none select-none">
+              <div className="font-serif text-7xl font-bold text-[#c9a55a]/12 mb-5 leading-none select-none">
                 {step.number}
               </div>
               <h3 className="font-serif text-2xl font-semibold text-white mb-4">{step.title}</h3>
@@ -425,13 +425,13 @@ function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-14">
           <div>
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
               Recent Work
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
               Featured Projects
             </h2>
-            <div className="w-12 h-[2px] bg-[#b59b74]" />
+            <div className="w-12 h-[2px] bg-[#c9a55a]" />
           </div>
           <Button href="/projects" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
             View All Projects
@@ -451,12 +451,12 @@ function ProjectsSection() {
                 />
                 <div className="absolute inset-0 bg-[#0f172a]/0 group-hover:bg-[#0f172a]/25 transition-colors duration-400" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#b59b74] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
+                  <span className="px-3 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
                     {project.category}
                   </span>
                 </div>
               </div>
-              <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-1 group-hover:text-[#b59b74] transition-colors duration-300">
+              <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-1 group-hover:text-[#c9a55a] transition-colors duration-300">
                 {project.title}
               </h3>
               <p className="font-sans text-xs text-[#94a3b8]">
@@ -477,16 +477,16 @@ function TestimonialsSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             What Our Clients Say
           </h2>
-          <div className="w-12 h-[2px] bg-[#b59b74] mx-auto mb-5" />
+          <div className="w-12 h-[2px] bg-[#c9a55a] mx-auto mb-5" />
           <div className="flex items-center justify-center gap-0.5 mb-2">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-[#b59b74] text-[#b59b74]" />
+              <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
             ))}
           </div>
           <p className="font-sans text-xs text-[#94a3b8] tracking-wide">
@@ -503,7 +503,7 @@ function TestimonialsSection() {
             >
               <div className="flex gap-0.5 mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-[#b59b74] text-[#b59b74]" />
+                  <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
                 ))}
               </div>
               <blockquote className="font-serif text-base md:text-[1.05rem] text-[#0f172a] leading-relaxed mb-6 flex-1 italic">
@@ -571,13 +571,13 @@ function FAQSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-4 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             Frequently Asked
           </h2>
-          <div className="w-12 h-[2px] bg-[#b59b74] mx-auto" />
+          <div className="w-12 h-[2px] bg-[#c9a55a] mx-auto" />
         </FadeIn>
 
         <div className="space-y-2">
@@ -588,7 +588,7 @@ function FAQSection() {
                 <div
                   className={[
                     'border transition-colors duration-300',
-                    isOpen ? 'border-[#b59b74]/50' : 'border-[#e7e5e4] hover:border-[#b59b74]/30',
+                    isOpen ? 'border-[#c9a55a]/50' : 'border-[#e7e5e4] hover:border-[#c9a55a]/30',
                   ].join(' ')}
                 >
                   <button
@@ -604,7 +604,7 @@ function FAQSection() {
                       transition={{ duration: 0.25 }}
                       className="flex-shrink-0"
                     >
-                      <ChevronDown className="w-5 h-5 text-[#b59b74]" />
+                      <ChevronDown className="w-5 h-5 text-[#c9a55a]" />
                     </motion.span>
                   </button>
 
@@ -636,7 +636,7 @@ function FAQSection() {
           <p className="font-sans text-sm text-[#94a3b8] mb-4">Have a question not listed here?</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#b59b74] hover:text-[#9a8260] transition-colors"
+            className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#c9a55a] hover:text-[#a87d3a] transition-colors"
           >
             Ask us directly <ChevronRight className="w-4 h-4" />
           </Link>
@@ -664,7 +664,7 @@ function CTASection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-5 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-5 block">
             Start Today
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -684,7 +684,7 @@ function CTASection() {
               href="tel:+19055550198"
               className="inline-flex items-center gap-3 font-sans text-sm text-white/50 hover:text-white transition-colors duration-300"
             >
-              <Phone className="w-4 h-4 text-[#b59b74]" />
+              <Phone className="w-4 h-4 text-[#c9a55a]" />
               (905) 555-0198
             </a>
           </div>

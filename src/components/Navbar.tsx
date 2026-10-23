@@ -62,12 +62,12 @@ export default function Navbar() {
                 >
                   ELITE
                 </span>
-                <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] -mt-0.5">
+                <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] -mt-0.5">
                   ROOFING
                 </span>
               </div>
-              <div className="w-px h-8 bg-[#b59b74]/40 ml-1" />
-              <div className="w-1 h-1 rounded-full bg-[#b59b74] ml-1" />
+              <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
+              <div className="w-1 h-1 rounded-full bg-[#c9a55a] ml-1" />
             </Link>
 
             {/* Desktop Nav */}
@@ -80,15 +80,15 @@ export default function Navbar() {
                     href={link.href}
                     className={[
                       'relative font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300',
-                      'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#b59b74]',
+                      'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                       isTransparent
                         ? isActive
-                          ? 'text-[#b59b74]'
+                          ? 'text-[#c9a55a]'
                           : 'text-white/80 hover:text-white'
                         : isActive
-                        ? 'text-[#b59b74]'
+                        ? 'text-[#c9a55a]'
                         : 'text-[#0f172a]/70 hover:text-[#0f172a]',
                     ].join(' ')}
                   >
@@ -104,7 +104,7 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className={[
                   'flex items-center gap-2 font-sans text-xs font-medium transition-colors duration-300',
-                  isTransparent ? 'text-white/70 hover:text-white' : 'text-[#0f172a]/60 hover:text-[#b59b74]',
+                  isTransparent ? 'text-white/70 hover:text-white' : 'text-[#0f172a]/60 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
                 <Phone className="w-3.5 h-3.5" />
@@ -112,7 +112,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2.5 bg-[#b59b74] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors duration-300 rounded-full"
+                className="inline-flex items-center px-6 py-2.5 bg-[#c9a55a] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full"
               >
                 Free Quote
               </Link>
@@ -157,7 +157,7 @@ export default function Navbar() {
                       href={link.href}
                       className={[
                         'block py-4 border-b border-white/10 font-serif text-2xl font-medium transition-colors duration-200',
-                        isActive ? 'text-[#b59b74]' : 'text-white hover:text-[#b59b74]',
+                        isActive ? 'text-[#c9a55a]' : 'text-white hover:text-[#c9a55a]',
                       ].join(' ')}
                     >
                       {link.label}
@@ -177,12 +177,12 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className="flex items-center gap-3 text-white/60 font-sans text-sm"
               >
-                <Phone className="w-4 h-4 text-[#b59b74]" />
+                <Phone className="w-4 h-4 text-[#c9a55a]" />
                 (905) 555-0198
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#b59b74] text-[#0f172a] font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors rounded-full"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#c9a55a] text-[#0f172a] font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors rounded-full"
               >
                 Get Free Quote
               </Link>

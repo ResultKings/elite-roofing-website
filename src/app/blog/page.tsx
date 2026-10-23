@@ -88,7 +88,7 @@ export default function BlogPage() {
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(45deg, #b59b74 0, #b59b74 1px, transparent 0, transparent 50%)',
+              'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
             backgroundSize: '12px 12px',
           }}
         />
@@ -99,8 +99,8 @@ export default function BlogPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
-              <div className="w-6 h-px bg-[#b59b74]" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41]">
+              <div className="w-6 h-px bg-[#c9a55a]" />
+              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928]">
                 Resources & Insights
               </span>
             </motion.div>
@@ -110,7 +110,7 @@ export default function BlogPage() {
             >
               Roofing Knowledge
               <br />
-              <span className="text-[#b59b74]">From the Experts.</span>
+              <span className="text-[#c9a55a]">From the Experts.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
               Practical guidance, honest comparisons, and industry expertise â€” written by our
@@ -126,7 +126,7 @@ export default function BlogPage() {
 
           {/* Featured Post */}
           <FadeIn className="mb-16">
-            <Link href={`/blog/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-2 bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#b59b74]/40 hover:shadow-lg transition-all duration-300">
+            <Link href={`/blog/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-2 bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/40 hover:shadow-lg transition-all duration-300">
               {/* Image */}
               <div className="relative overflow-hidden aspect-[16/10] lg:aspect-auto min-h-[320px]">
                 <Image
@@ -137,7 +137,7 @@ export default function BlogPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-5 left-5">
-                  <span className="inline-flex items-center px-3 py-1 bg-[#b59b74] text-white font-sans text-[10px] font-semibold tracking-wider uppercase">
+                  <span className="inline-flex items-center px-3 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-wider uppercase">
                     Featured
                   </span>
                 </div>
@@ -145,10 +145,10 @@ export default function BlogPage() {
 
               {/* Content */}
               <div className="p-8 md:p-12 flex flex-col justify-center">
-                <span className="inline-flex items-center px-3 py-1 bg-[#b59b74]/10 text-[#b59b74] font-sans text-[10px] font-semibold tracking-wider uppercase w-fit mb-4">
+                <span className="inline-flex items-center px-3 py-1 bg-[#c9a55a]/10 text-[#c9a55a] font-sans text-[10px] font-semibold tracking-wider uppercase w-fit mb-4">
                   {featured.category}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] group-hover:text-[#b59b74] transition-colors leading-snug mb-4">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug mb-4">
                   {featured.title}
                 </h2>
                 <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-6">
@@ -173,7 +173,7 @@ export default function BlogPage() {
                     </span>
                     <span className="font-sans text-xs text-[#94a3b8]">{formatDate(featured.date)}</span>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#b59b74] group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#c9a55a] group-hover:gap-3 transition-all duration-300">
                     Read Article <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -191,8 +191,8 @@ export default function BlogPage() {
                 className={[
                   'px-4 py-2 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300',
                   activeCategory === cat
-                    ? 'bg-[#b59b74] text-white'
-                    : 'bg-white border border-[#e7e5e4] text-[#64748b] hover:border-[#b59b74]/40 hover:text-[#b59b74]',
+                    ? 'bg-[#c9a55a] text-white'
+                    : 'bg-white border border-[#e7e5e4] text-[#64748b] hover:border-[#c9a55a]/40 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
                 {cat}
@@ -206,7 +206,7 @@ export default function BlogPage() {
               <motion.div key={post.id} variants={fadeUp}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#b59b74]/40 hover:shadow-md transition-all duration-300"
+                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden aspect-[16/10]">
@@ -217,7 +217,7 @@ export default function BlogPage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center px-2.5 py-1 bg-white/90 backdrop-blur-sm font-sans text-[10px] font-semibold text-[#b59b74] tracking-wider uppercase">
+                      <span className="inline-flex items-center px-2.5 py-1 bg-white/90 backdrop-blur-sm font-sans text-[10px] font-semibold text-[#c9a55a] tracking-wider uppercase">
                         {post.category}
                       </span>
                     </div>
@@ -225,7 +225,7 @@ export default function BlogPage() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="font-serif text-lg font-semibold text-[#0f172a] group-hover:text-[#b59b74] transition-colors leading-snug mb-3">
+                    <h3 className="font-serif text-lg font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug mb-3">
                       {post.title}
                     </h3>
                     <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-5 line-clamp-2">
@@ -263,7 +263,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <FadeIn className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-md">
-              <p className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8c6d41] mb-3">
+              <p className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-3">
                 Expert Advice
               </p>
               <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-3">

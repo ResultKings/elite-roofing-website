@@ -42,15 +42,15 @@ export default function ServicesPage() {
       <section className="px-4 md:px-8 lg:px-16 mb-20">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl">
-            <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8c6d41] mb-4 block">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-4 block">
               What We Do
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-5 leading-[1.05]">
               Premium Roofing
               <br />
-              <span className="text-[#b59b74]">Services</span> for Every Need
+              <span className="text-[#c9a55a]">Services</span> for Every Need
             </h1>
-            <div className="w-14 h-[2px] bg-[#b59b74] mb-6" />
+            <div className="w-14 h-[2px] bg-[#c9a55a] mb-6" />
             <p className="font-sans text-base text-[#64748b] leading-relaxed">
               From complete residential replacements to commercial systems, emergency storm
               repairs, and precision skylight installations. Elite Roofing delivers master
@@ -71,7 +71,7 @@ export default function ServicesPage() {
                 <Link
                   key={service.id}
                   href={`/services/${service.slug}`}
-                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#b59b74]/40 hover:shadow-lg transition-all duration-300 rounded-sm"
+                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/40 hover:shadow-lg transition-all duration-300 rounded-sm"
                 >
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#e7e5e4]">
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 to-transparent" />
                     {/* Icon badge */}
                     <div className="absolute bottom-4 left-4">
-                      <div className="w-9 h-9 bg-[#b59b74] flex items-center justify-center">
+                      <div className="w-9 h-9 bg-[#c9a55a] flex items-center justify-center">
                         <Icon className="w-4 h-4 text-white" />
                       </div>
                     </div>
@@ -93,7 +93,7 @@ export default function ServicesPage() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h2 className="font-serif text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#b59b74] transition-colors duration-300">
+                    <h2 className="font-serif text-xl font-semibold text-[#0f172a] mb-2 group-hover:text-[#c9a55a] transition-colors duration-300">
                       {service.title}
                     </h2>
                     <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-5">
@@ -105,7 +105,7 @@ export default function ServicesPage() {
                       <ul className="space-y-1.5 mb-5">
                         {service.features.slice(0, 3).map((feature) => (
                           <li key={feature} className="flex items-center gap-2">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#b59b74] flex-shrink-0" />
+                            <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />
                             <span className="font-sans text-xs text-[#64748b]">{feature}</span>
                           </li>
                         ))}
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                     )}
 
                     {/* CTA */}
-                    <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#b59b74] uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
+                    <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#c9a55a] uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
                       Explore Service <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
       <section className="px-4 md:px-8 lg:px-16 mb-20 bg-[#fafaf9] py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8c6d41] mb-4 block">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-4 block">
               The Elite Difference
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
@@ -151,7 +151,7 @@ export default function ServicesPage() {
               },
             ].map(({ title, desc }) => (
               <div key={title} className="flex flex-col">
-                <div className="w-10 h-1 bg-[#b59b74] mb-5" />
+                <div className="w-10 h-1 bg-[#c9a55a] mb-5" />
                 <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-3">{title}</h3>
                 <p className="font-sans text-sm text-[#64748b] leading-relaxed">{desc}</p>
               </div>
@@ -165,11 +165,11 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="relative overflow-hidden bg-[#0f172a] p-10 md:p-16">
             {/* Decorative */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#b59b74]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#b59b74]/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#c9a55a]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#c9a55a]/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative z-10 max-w-2xl">
-              <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8c6d41] mb-5 block">
+              <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-5 block">
                 Free Consultation
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
@@ -183,7 +183,7 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#b59b74] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors duration-300"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300"
                 >
                   Schedule Free Inspection <ArrowRight className="w-3.5 h-3.5" />
                 </Link>

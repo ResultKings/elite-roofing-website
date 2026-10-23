@@ -14,13 +14,13 @@ export default function TermsOfServicePage() {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8c6d41] mb-4 block">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-4 block">
             Legal
           </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
             Terms of Service
           </h1>
-          <div className="w-14 h-[2px] bg-[#b59b74] mb-5" />
+          <div className="w-14 h-[2px] bg-[#c9a55a] mb-5" />
           <p className="font-sans text-sm text-[#64748b]">
             Last updated: October 1, 2024
           </p>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p>
               By accessing or using the website at{' '}
-              <span className="text-[#b59b74]">www.eliteroofingon.ca</span> (the
+              <span className="text-[#c9a55a]">www.eliteroofingon.ca</span> (the
               &ldquo;Site&rdquo;) or engaging Elite Roofing LLC (&ldquo;Elite Roofing,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
               &ldquo;our&rdquo;) for roofing services, you agree to be bound by these Terms of
               Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use
@@ -59,7 +59,7 @@ export default function TermsOfServicePage() {
                 'Use automated tools to scrape, crawl, or extract data from the Site.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b59b74] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -182,7 +182,7 @@ export default function TermsOfServicePage() {
               <p>3250 Ridgeway Dr, Unit 12, Mississauga, ON L5L 5Z9</p>
               <p>
                 Phone:{' '}
-                <a href="tel:+19055550198" className="text-[#b59b74] hover:underline">
+                <a href="tel:+19055550198" className="text-[#c9a55a] hover:underline">
                   (905) 555-0198
                 </a>
               </p>
@@ -190,7 +190,7 @@ export default function TermsOfServicePage() {
                 Email:{' '}
                 <a
                   href="mailto:info@eliteroofingon.ca"
-                  className="text-[#b59b74] hover:underline"
+                  className="text-[#c9a55a] hover:underline"
                 >
                   info@eliteroofingon.ca
                 </a>
@@ -203,7 +203,7 @@ export default function TermsOfServicePage() {
         <div className="mt-12 pt-8 border-t border-[#e7e5e4]">
           <Link
             href="/"
-            className="font-sans text-sm text-[#64748b] hover:text-[#b59b74] transition-colors"
+            className="font-sans text-sm text-[#64748b] hover:text-[#c9a55a] transition-colors"
           >
             â† Back to home
           </Link>

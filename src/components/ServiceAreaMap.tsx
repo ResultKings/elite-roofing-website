@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
@@ -21,7 +21,7 @@ function goldIcon() {
     className: '',
     html: `<div style="
       width:14px;height:14px;
-      background:#b59b74;
+      background:#c9a55a;
       border-radius:50%;
       border:2.5px solid #fff;
       box-shadow:0 2px 10px rgba(0,0,0,0.55);
@@ -75,7 +75,7 @@ export default function ServiceAreaMap() {
               <div style={{ fontWeight: 700, fontSize: '13px', color: '#0f172a', marginBottom: '2px' }}>
                 {name}
               </div>
-              <div style={{ fontSize: '11px', color: '#8c6d41', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+              <div style={{ fontSize: '11px', color: '#8a6928', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                 {region}
               </div>
               <div style={{ marginTop: '6px', fontSize: '11px', color: '#64748b', borderTop: '1px solid #e7e5e4', paddingTop: '5px' }}>

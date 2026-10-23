@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+﻿import React, { forwardRef } from 'react'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
@@ -17,8 +17,8 @@ const baseInputClasses = [
   'bg-white border border-[#e7e5e4]',
   'font-sans text-[#0f172a] text-sm placeholder:text-[#94a3b8]',
   'transition-all duration-200',
-  'focus:outline-none focus:border-[#b59b74] focus:ring-2 focus:ring-[#b59b74]/20',
-  'hover:border-[#b59b74]/50',
+  'focus:outline-none focus:border-[#c9a55a] focus:ring-2 focus:ring-[#c9a55a]/20',
+  'hover:border-[#c9a55a]/50',
 ].join(' ')
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
           >
             {label}
-            {props.required && <span className="text-[#b59b74] ml-1">*</span>}
+            {props.required && <span className="text-[#c9a55a] ml-1">*</span>}
           </label>
         )}
         <input
@@ -71,7 +71,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
           >
             {label}
-            {props.required && <span className="text-[#b59b74] ml-1">*</span>}
+            {props.required && <span className="text-[#c9a55a] ml-1">*</span>}
           </label>
         )}
         <textarea

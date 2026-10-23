@@ -78,7 +78,7 @@ export default function ContactPage() {
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(45deg, #b59b74 0, #b59b74 1px, transparent 0, transparent 50%)',
+              'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
             backgroundSize: '12px 12px',
           }}
         />
@@ -90,8 +90,8 @@ export default function ContactPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
-              <div className="w-6 h-px bg-[#b59b74]" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41]">
+              <div className="w-6 h-px bg-[#c9a55a]" />
+              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928]">
                 Get In Touch
               </span>
             </motion.div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
             >
               Let&apos;s Talk About
               <br />
-              <span className="text-[#b59b74]">Your Project.</span>
+              <span className="text-[#c9a55a]">Your Project.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
               Whether you need a free inspection, have questions about materials, or are ready
@@ -123,13 +123,13 @@ export default function ContactPage() {
                 <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
                   Contact Details
                 </h2>
-                <div className="w-10 h-[2px] bg-[#b59b74] mb-8" />
+                <div className="w-10 h-[2px] bg-[#c9a55a] mb-8" />
 
                 <div className="space-y-7">
                   {contactDetails.map(({ icon: Icon, label, value, href, note }) => (
                     <div key={label} className="flex items-start gap-4 group">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#b59b74]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#b59b74]/20 transition-colors duration-300">
-                        <Icon className="w-4 h-4 text-[#b59b74]" />
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#c9a55a]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#c9a55a]/20 transition-colors duration-300">
+                        <Icon className="w-4 h-4 text-[#c9a55a]" />
                       </div>
                       <div>
                         <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#64748b] mb-1">
@@ -139,7 +139,7 @@ export default function ContactPage() {
                           href={href}
                           target={href.startsWith('http') ? '_blank' : undefined}
                           rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="font-sans text-sm font-medium text-[#0f172a] hover:text-[#b59b74] transition-colors duration-200 leading-snug"
+                          className="font-sans text-sm font-medium text-[#0f172a] hover:text-[#c9a55a] transition-colors duration-200 leading-snug"
                         >
                           {value}
                         </a>
@@ -154,7 +154,7 @@ export default function ContactPage() {
               <FadeIn delay={0.1}>
                 <div className="border-t border-[#e7e5e4] pt-8">
                   <div className="flex items-center gap-3 mb-5">
-                    <Clock className="w-4 h-4 text-[#b59b74]" />
+                    <Clock className="w-4 h-4 text-[#c9a55a]" />
                     <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#0f172a]">
                       Business Hours
                     </h3>
@@ -177,7 +177,7 @@ export default function ContactPage() {
               {/* Why Elite Roofing â€” light, cohesive styling */}
               <FadeIn delay={0.15}>
                 <div className="bg-slate-50 border border-[#e7e5e4] p-6">
-                  <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#b59b74] mb-5">
+                  <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
                     Why Elite Roofing
                   </p>
                   <ul className="space-y-3.5">
@@ -189,7 +189,7 @@ export default function ContactPage() {
                       '300+ five-star Google reviews',
                     ].map((text) => (
                       <li key={text} className="flex items-start gap-3">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b59b74] flex-shrink-0" />
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
                         <span className="font-sans text-sm text-[#475569] leading-snug">{text}</span>
                       </li>
                     ))}
@@ -205,7 +205,7 @@ export default function ContactPage() {
                   <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
                     Request a Free Inspection
                   </h2>
-                  <div className="w-10 h-[2px] bg-[#b59b74] mb-4" />
+                  <div className="w-10 h-[2px] bg-[#c9a55a] mb-4" />
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
                     Fill out the form below and a specialist will reach out within one
                     business day to schedule your no-obligation roof assessment.
@@ -223,13 +223,13 @@ export default function ContactPage() {
       <section className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#b59b74] mb-3 block">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
               Where We Work
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-3">
               Proudly Serving Ontario
             </h2>
-            <div className="w-10 h-[2px] bg-[#b59b74] mx-auto" />
+            <div className="w-10 h-[2px] bg-[#c9a55a] mx-auto" />
           </div>
 
           {/* Map container â€” ssr:false component renders inside */}
