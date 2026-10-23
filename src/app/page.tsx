@@ -73,7 +73,7 @@ function Stagger({
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-end overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=1920&h=1080&fit=crop&q=85&auto=format"
@@ -84,12 +84,12 @@ function HeroSection() {
           className="object-cover object-center"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/70 to-[#0f172a]/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/60 to-[#0f172a]/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-[#0f172a]/20 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pt-32 pb-44">
-        <motion.div initial="hidden" animate="visible" variants={stagger(0.12)} className="max-w-2xl">
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pb-[13vh]">
+        <motion.div initial="hidden" animate="visible" variants={stagger(0.12)} className="max-w-3xl">
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-7">
             <div className="w-10 h-px bg-[#b59b74]" />
             <span className="font-sans text-[11px] font-medium tracking-[0.45em] uppercase text-[#b59b74]">
               Ontario&apos;s Premier Roofer
@@ -98,7 +98,7 @@ function HeroSection() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-serif text-5xl md:text-6xl lg:text-[5.25rem] font-bold text-white leading-[1.04] mb-7"
+            className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.06] mb-8 uppercase tracking-tight"
           >
             Master Craftsmanship.
             <br />
@@ -109,12 +109,10 @@ function HeroSection() {
             variants={fadeUp}
             className="font-sans text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-lg"
           >
-            Elite Roofing brings exceptional skill and premium materials to every project
-            across Ontario. Twenty years of proven expertise, backed by a
-            satisfaction guarantee we have never had to break.
+            Exceptional skill and premium materials to every project across Ontario.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
               Get Free Inspection
             </Button>
@@ -122,38 +120,44 @@ function HeroSection() {
               View Our Work
             </Button>
           </motion.div>
-
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-x-8 gap-y-2">
-            {['Licensed and Fully Insured', 'GAF Master Elite Certified', '25-Year Warranty Available'].map(item => (
-              <span key={item} className="font-sans text-xs text-white/35 tracking-wide">{item}</span>
-            ))}
-          </motion.div>
         </motion.div>
-      </div>
-
-      {/* Stats strip */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-white/5 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-            {[
-              { value: '20+', label: 'Years of Excellence' },
-              { value: '500+', label: 'Projects Completed' },
-              { value: '4.9', label: 'Google Star Rating' },
-              { value: '100%', label: 'Satisfaction Rate' },
-            ].map(stat => (
-              <div key={stat.label} className="text-center px-4 py-2">
-                <div className="font-serif text-2xl md:text-3xl font-bold text-[#b59b74]">{stat.value}</div>
-                <div className="font-sans text-[10px] text-white/35 tracking-widest mt-0.5 uppercase">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
 }
 
 // â”€â”€â”€ Credentials (replaces icon-heavy trust badges) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+function StandardSection() {
+  return (
+    <section className="py-20 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
+      <div className="max-w-7xl mx-auto">
+        <FadeIn>
+          <p className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8c6d41] mb-8">
+            The Standard
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-[1.05]">
+            We don&apos;t just fix roofs.
+            <br />
+            We restore them.
+          </h2>
+          <div className="flex flex-wrap gap-x-10 gap-y-4">
+            {[
+              'Licensed and Fully Insured',
+              'GAF Master Elite Certified',
+              '25-Year Warranty Available',
+            ].map(item => (
+              <div key={item} className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#b59b74] flex-shrink-0" />
+                <span className="font-sans text-sm text-white/60 tracking-wide">{item}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  )
+}
 
 function CredentialsSection() {
   return (
@@ -589,6 +593,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <StandardSection />
       <CredentialsSection />
       <ServicesSection />
       <ProcessSection />

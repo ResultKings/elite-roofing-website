@@ -33,13 +33,13 @@ type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#b59b74] text-white border-2 border-[#b59b74] hover:bg-[#9a8260] hover:border-[#9a8260] shadow-sm hover:shadow-md',
+    'bg-[#b59b74] text-[#0f172a] border-2 border-[#b59b74] hover:bg-[#9a8260] hover:border-[#9a8260] shadow-sm hover:shadow-md rounded-full',
   secondary:
-    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md',
+    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-full',
   outline:
-    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a]',
+    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-full',
   ghost:
-    'bg-transparent text-[#b59b74] border-2 border-transparent hover:border-[#b59b74] hover:bg-[#b59b74]/5',
+    'bg-transparent text-[#b59b74] border-2 border-transparent hover:border-[#b59b74] hover:bg-[#b59b74]/5 rounded-full',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {

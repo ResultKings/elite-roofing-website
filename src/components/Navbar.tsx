@@ -112,7 +112,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2.5 bg-[#b59b74] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors duration-300"
+                className="inline-flex items-center px-6 py-2.5 bg-[#b59b74] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors duration-300 rounded-full"
               >
                 Free Quote
               </Link>
@@ -182,7 +182,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#b59b74] text-white font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#b59b74] text-[#0f172a] font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#9a8260] transition-colors rounded-full"
               >
                 Get Free Quote
               </Link>
