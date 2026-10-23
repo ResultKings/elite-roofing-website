@@ -90,33 +90,29 @@ function HeroSection() {
       <div className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pt-28 md:pt-32 flex flex-col justify-center pb-16">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.1)}>
           {/* Top label row */}
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6 md:mb-8">
-            <span className="font-sans text-[9px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
+          <motion.div variants={fadeUp} className="flex items-center gap-2 mb-6 md:mb-8">
+            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
               Ontario &middot; GTA
             </span>
-            <div className="flex items-center gap-1.5">
-              <div className="w-6 h-px bg-white/25" />
-              <div className="w-1 h-1 rounded-full bg-white/20" />
-              <div className="w-6 h-px bg-white/25" />
-            </div>
-            <span className="font-sans text-[9px] font-semibold tracking-[0.4em] uppercase text-white/35">
-              Residential &amp; Commercial
+            <div className="w-5 h-px bg-white/25" />
+            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
+              Premium Roofing
             </span>
           </motion.div>
 
-          {/* Giant display heading */}
-          <motion.h1 variants={fadeUp} className="mb-8 md:mb-10 leading-[0.88] tracking-[-0.02em]">
-            <span className="block font-display font-black uppercase text-[clamp(3rem,8.5vw,10rem)] text-[#f0ece4]">
+          {/* Display heading */}
+          <motion.h1 variants={fadeUp} className="mb-8 md:mb-10 leading-[0.9] tracking-[-0.02em]">
+            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#f0ece4]">
               Master Craftsmanship.
             </span>
-            <span className="block font-display font-black uppercase text-[clamp(3rem,8.5vw,10rem)] text-white/20">
+            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white/20">
               Premium Results.
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-sm md:text-base text-white/50 leading-relaxed mb-8 max-w-sm"
+            className="font-sans text-sm md:text-base text-white leading-relaxed mb-8 max-w-sm"
           >
             Exceptional skill and premium materials to every project across Ontario.
           </motion.p>
@@ -132,28 +128,25 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Animated review bar pinned to bottom of hero */}
+      {/* Review bar — transparent, thin accent line above content */}
       <div className="relative z-10">
-        <div className="relative h-px overflow-hidden">
-          <div className="absolute inset-0 bg-white/10" />
-          <div className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-[#c9a55a] to-transparent animate-shimmer" />
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16">
+          <div className="w-28 h-px bg-gradient-to-r from-[#c9a55a]/50 to-transparent" />
         </div>
-        <div className="bg-[#080d14]/60 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-3.5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
-                ))}
-              </div>
-              <span className="font-sans text-xs text-white/55">
-                <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
-              </span>
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
+              ))}
             </div>
-            <div className="flex items-center gap-3">
-              <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white/30">Scroll</span>
-              <div className="w-px h-3.5 bg-white/20" />
-            </div>
+            <span className="font-sans text-xs text-white/55">
+              <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white/30">Scroll</span>
+            <div className="w-px h-3.5 bg-white/20" />
           </div>
         </div>
       </div>
@@ -226,22 +219,21 @@ function StandardSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-16 md:py-20 w-full">
         <FadeIn className="max-w-[52%]">
-          <p className="font-sans text-[9px] font-semibold tracking-[0.45em] uppercase text-[#8a6928] mb-5">
+          <p className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-5">
             The Standard
           </p>
 
-          <h2 className="font-display font-black uppercase text-[clamp(2rem,4.5vw,5rem)] leading-[0.9] tracking-[-0.02em] text-white mb-7">
-            We don&apos;t just<br />
-            <span className="text-[#c9a55a]">fix roofs.</span><br />
+          <h2 className="font-display font-black text-[clamp(2rem,4.5vw,5rem)] leading-[0.9] tracking-[-0.02em] text-white mb-7">
+            We don&apos;t just <span className="text-[#c9a55a]">fix roofs.</span><br />
             We restore them.
           </h2>
 
           {/* Two-column body text */}
           <div className="grid grid-cols-2 gap-6 mb-8">
-            <p className="font-sans text-[13px] text-white/50 leading-relaxed">
+            <p className="font-sans text-[14px] font-medium text-white leading-relaxed">
               Every project receives the same precision and care — whether a single-family home in Oakville or a commercial complex in Mississauga.
             </p>
-            <p className="font-sans text-[13px] text-white/40 leading-relaxed">
+            <p className="font-sans text-[14px] font-medium text-white/70 leading-relaxed">
               Our GAF Master Elite certification and 25-year warranty guarantee that premium results aren&apos;t a promise — they&apos;re our standard.
             </p>
           </div>
@@ -272,46 +264,6 @@ function StandardSection() {
   )
 }
 
-function CredentialsSection() {
-  return (
-    <section className="py-20 px-6 md:px-8 lg:px-16 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
-          <FadeIn>
-            <div className="border-l-2 border-[#c9a55a] pl-7">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
-                GAF Master Elite
-              </div>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                Top 2% of roofing contractors nationally. This certification requires ongoing training and financial stability, unlocking the industry&apos;s best manufacturer warranties for our clients.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="border-l-2 border-[#c9a55a] pl-7">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
-                10-Year Guarantee
-              </div>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                Every installation comes with our written workmanship warranty in addition to the manufacturer material coverage. No exceptions. No fine print.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="border-l-2 border-[#c9a55a] pl-7">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
-                300+ Five-Star Reviews
-              </div>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                A 4.9-star average across verified Google reviews from homeowners and businesses throughout Ontario. Our reputation speaks for itself.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 // â”€â”€â”€ Services â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
@@ -320,7 +272,7 @@ function ServicesSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
             What We Do
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
@@ -391,7 +343,7 @@ function ProcessSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-16">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
@@ -425,7 +377,7 @@ function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-14">
           <div>
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
               Recent Work
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
@@ -477,7 +429,7 @@ function TestimonialsSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
@@ -571,7 +523,7 @@ function FAQSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
@@ -664,7 +616,7 @@ function CTASection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-5 block">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-5 block">
             Start Today
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -708,7 +660,6 @@ export default function HomePage() {
       <HeroSection />
       <TickerBanner />
       <StandardSection />
-      <CredentialsSection />
       <ServicesSection />
       <ProcessSection />
       <ProjectsSection />

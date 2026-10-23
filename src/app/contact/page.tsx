@@ -89,9 +89,8 @@ export default function ContactPage() {
             animate="visible"
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
-            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
-              <div className="w-6 h-px bg-[#c9a55a]" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928]">
+            <motion.div variants={fadeUp} className="mb-5">
+              <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
                 Get In Touch
               </span>
             </motion.div>

@@ -167,7 +167,7 @@ export default function ProjectsPage() {
       <section className="px-6 md:px-8 lg:px-16 mb-14">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] mb-4 block">
+            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
               Portfolio
             </span>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
