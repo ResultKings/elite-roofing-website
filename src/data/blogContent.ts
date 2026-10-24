@@ -1,4 +1,4 @@
-export interface ArticleSection {
+﻿export interface ArticleSection {
   heading?: string
   text: string
 }
@@ -12,7 +12,7 @@ export interface ArticleContent {
 const blogContent: Record<string, ArticleContent> = {
   'signs-you-need-roof-replacement': {
     intro:
-      'Your roof is the most critical structural component of your home, yet it\'s also the easiest to overlook — until something goes wrong. Most homeowners only discover roofing problems after a leak has already caused interior damage. Knowing the warning signs early can save you from a minor repair spiraling into a six-figure structural nightmare.',
+      'Your roof is the most critical structural component of your home, yet it\'s also the easiest to overlook, until something goes wrong. Most homeowners only discover roofing problems after a leak has already caused interior damage. Knowing the warning signs early can save you from a minor repair spiraling into a six-figure structural nightmare.',
     sections: [
       {
         heading: '1. Your Roof Is 20+ Years Old',
@@ -20,7 +20,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '2. Shingles Are Curling, Cracking, or Missing',
-        text: 'Examine your roof from the ground on a sunny day. Shingles that curl upward at the edges (cupping) or curl back from the center (clawing) have lost their moisture balance — a sign of advanced aging or poor ventilation. Cracked or missing shingles expose the underlayment directly to UV radiation and rainfall. Once 20% or more of shingles show these signs, repair becomes impractical and replacement is the economical long-term choice.',
+        text: 'Examine your roof from the ground on a sunny day. Shingles that curl upward at the edges (cupping) or curl back from the center (clawing) have lost their moisture balance, a sign of advanced aging or poor ventilation. Cracked or missing shingles expose the underlayment directly to UV radiation and rainfall. Once 20% or more of shingles show these signs, repair becomes impractical and replacement is the economical long-term choice.',
       },
       {
         heading: '3. Granules Are Filling Your Gutters',
@@ -28,15 +28,15 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '4. Daylight Showing Through the Attic',
-        text: 'On a clear day, access your attic and turn off all lights. Any visible daylight penetrating the roof deck indicates gaps, holes, or deteriorated flashing — all of which also let in water. While you\'re up there, check for soft spots in the decking, dark staining, or a damp smell, which signal ongoing water infiltration even if active dripping isn\'t present.',
+        text: 'On a clear day, access your attic and turn off all lights. Any visible daylight penetrating the roof deck indicates gaps, holes, or deteriorated flashing, all of which also let in water. While you\'re up there, check for soft spots in the decking, dark staining, or a damp smell, which signal ongoing water infiltration even if active dripping isn\'t present.',
       },
       {
         heading: '5. The Roofline Is Sagging',
-        text: 'A sagging roofline is a serious structural warning sign that should prompt immediate professional evaluation. Sagging can indicate damaged rafters, rotted sheathing, or a compromised ridge beam. Unlike surface-level shingle wear, structural sagging is a safety hazard. Do not delay — the longer it\'s left, the greater the risk of catastrophic failure and substantially higher repair costs.',
+        text: 'A sagging roofline is a serious structural warning sign that should prompt immediate professional evaluation. Sagging can indicate damaged rafters, rotted sheathing, or a compromised ridge beam. Unlike surface-level shingle wear, structural sagging is a safety hazard. Do not delay, the longer it\'s left, the greater the risk of catastrophic failure and substantially higher repair costs.',
       },
       {
         heading: '6. Flashing Is Deteriorated or Improperly Sealed',
-        text: 'Flashing — the metal strips sealing transitions around chimneys, skylights, vents, and roof valleys — is responsible for a disproportionate share of roof leaks. Deteriorated, lifted, or improperly installed flashing allows water to bypass shingles and penetrate directly into the structure. Significant flashing failure across multiple locations often makes wholesale replacement more cost-effective than repeated targeted repairs.',
+        text: 'Flashing, the metal strips sealing transitions around chimneys, skylights, vents, and roof valleys, is responsible for a disproportionate share of roof leaks. Deteriorated, lifted, or improperly installed flashing allows water to bypass shingles and penetrate directly into the structure. Significant flashing failure across multiple locations often makes wholesale replacement more cost-effective than repeated targeted repairs.',
       },
       {
         heading: '7. You\'re Repairing It Every Year',
@@ -44,12 +44,12 @@ const blogContent: Record<string, ArticleContent> = {
       },
     ],
     conclusion:
-      'If you recognize two or more of these signs on your roof, the wise step is to schedule a professional inspection before the next major weather event. At Elite Roofing, we offer free, comprehensive roof assessments with no sales pressure — just an honest evaluation and a clear recommendation. Contact us today to book your inspection.',
+      'If you recognize two or more of these signs on your roof, the wise step is to schedule a professional inspection before the next major weather event. At Elite Roofing, we offer free, comprehensive roof assessments with no sales pressure, just an honest evaluation and a clear recommendation. Contact us today to book your inspection.',
   },
 
   'metal-vs-shingle-roofing': {
     intro:
-      'Choosing between metal roofing and asphalt shingles is one of the most consequential decisions you\'ll make during a roof replacement. Both materials are excellent in the right context — but the wrong choice for your climate, budget, or home style can mean decades of frustration. Here\'s the complete comparison you need to make an informed decision.',
+      'Choosing between metal roofing and asphalt shingles is one of the most consequential decisions you\'ll make during a roof replacement. Both materials are excellent in the right context, but the wrong choice for your climate, budget, or home style can mean decades of frustration. Here\'s the complete comparison you need to make an informed decision.',
     sections: [
       {
         heading: 'Durability and Lifespan',
@@ -69,7 +69,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Installation and Maintenance',
-        text: 'Asphalt shingles are faster and simpler to install, reflected in their lower labor cost. Metal roofing requires specialized installers — thermal expansion and contraction must be properly accommodated or fastener failure occurs over time. On the maintenance side, metal\'s advantage returns: it requires virtually no maintenance beyond annual gutter cleaning.',
+        text: 'Asphalt shingles are faster and simpler to install, reflected in their lower labor cost. Metal roofing requires specialized installers, thermal expansion and contraction must be properly accommodated or fastener failure occurs over time. On the maintenance side, metal\'s advantage returns: it requires virtually no maintenance beyond annual gutter cleaning.',
       },
       {
         heading: 'Weather and Sound Performance',
@@ -82,15 +82,15 @@ const blogContent: Record<string, ArticleContent> = {
 
   'storm-damage-insurance-guide': {
     intro:
-      'A severe storm can leave your roof looking completely different by morning — missing shingles, damaged flashing, granule-stripped sections, or worse. The damage assessment and insurance claim process can feel overwhelming. Having navigated hundreds of claims alongside our clients, we\'ve developed this guide to help you document damage properly and maximize your reimbursement.',
+      'A severe storm can leave your roof looking completely different by morning, missing shingles, damaged flashing, granule-stripped sections, or worse. The damage assessment and insurance claim process can feel overwhelming. Having navigated hundreds of claims alongside our clients, we\'ve developed this guide to help you document damage properly and maximize your reimbursement.',
     sections: [
       {
         heading: 'Step 1: Document Everything Before Touching Anything',
-        text: 'Before you or anyone else gets on the roof, document the damage from the ground with your smartphone. Take photographs from every angle around the house, noting the date and time. If large debris is present, photograph it in place before removal. This initial documentation is crucial — once you begin cleanup, evidence of the storm event is diminished and claims become harder to support.',
+        text: 'Before you or anyone else gets on the roof, document the damage from the ground with your smartphone. Take photographs from every angle around the house, noting the date and time. If large debris is present, photograph it in place before removal. This initial documentation is crucial, once you begin cleanup, evidence of the storm event is diminished and claims become harder to support.',
       },
       {
         heading: 'Step 2: Call Your Insurer Within 24 Hours',
-        text: 'Most homeowners insurance policies have reporting time requirements — often as short as 24–72 hours after the loss event. Waiting longer risks a denial on timeliness grounds. When you call, report only what you know for certain and avoid speculating on the extent of damage. Request a claim number immediately and ask for the timeline for an adjuster visit.',
+        text: 'Most homeowners insurance policies have reporting time requirements, often as short as 24–72 hours after the loss event. Waiting longer risks a denial on timeliness grounds. When you call, report only what you know for certain and avoid speculating on the extent of damage. Request a claim number immediately and ask for the timeline for an adjuster visit.',
       },
       {
         heading: 'Step 3: Get a Professional Inspection Before the Adjuster Arrives',
@@ -98,7 +98,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Step 4: Prevent Further Damage (Keep All Receipts)',
-        text: 'You are legally obligated under most homeowners policies to take reasonable steps to prevent further damage after a covered loss. This means emergency tarping of exposed areas and protecting interior contents. Save every receipt from emergency mitigation work — these costs are typically recoverable under your policy\'s temporary repair provisions. Don\'t make permanent repairs until after the adjuster has visited and the scope is agreed.',
+        text: 'You are legally obligated under most homeowners policies to take reasonable steps to prevent further damage after a covered loss. This means emergency tarping of exposed areas and protecting interior contents. Save every receipt from emergency mitigation work, these costs are typically recoverable under your policy\'s temporary repair provisions. Don\'t make permanent repairs until after the adjuster has visited and the scope is agreed.',
       },
       {
         heading: 'Step 5: Review the Adjuster\'s Report Line-by-Line',
@@ -106,7 +106,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Step 6: Supplement and Appeal if Necessary',
-        text: 'If the insurer\'s settlement offer doesn\'t cover the legitimate scope of repair, you can submit a "supplement" — a formal written dispute with supporting documentation. Your roofing contractor can prepare this on your behalf. If you and your insurer cannot agree, most policies include an appraisal clause allowing each party to appoint an independent appraiser whose agreement becomes binding.',
+        text: 'If the insurer\'s settlement offer doesn\'t cover the legitimate scope of repair, you can submit a "supplement", a formal written dispute with supporting documentation. Your roofing contractor can prepare this on your behalf. If you and your insurer cannot agree, most policies include an appraisal clause allowing each party to appoint an independent appraiser whose agreement becomes binding.',
       },
     ],
     conclusion:
@@ -115,19 +115,19 @@ const blogContent: Record<string, ArticleContent> = {
 
   'roof-ventilation-guide': {
     intro:
-      'If there\'s one roofing topic that generates more confusion among homeowners than any other, it\'s ventilation. Most people understand that a roof protects against rain and wind. Far fewer understand that what happens inside the roof system — specifically the movement of air through the attic — has an enormous impact on how long that roof lasts and how efficiently your home performs year-round.',
+      'If there\'s one roofing topic that generates more confusion among homeowners than any other, it\'s ventilation. Most people understand that a roof protects against rain and wind. Far fewer understand that what happens inside the roof system, specifically the movement of air through the attic, has an enormous impact on how long that roof lasts and how efficiently your home performs year-round.',
     sections: [
       {
         heading: 'Why Ventilation Matters',
-        text: 'A properly ventilated attic serves two distinct seasonal purposes. In summer, ventilation exhausts superheated attic air (which can exceed 160°F in unventilated spaces) that would otherwise radiate heat downward into living areas and literally cook the underside of your shingles — accelerating granule loss and reducing flexibility. In winter, ventilation removes warm, moisture-laden air before it condenses on cold roof sheathing, which causes rot, mold, and ice dams at eaves.',
+        text: 'A properly ventilated attic serves two distinct seasonal purposes. In summer, ventilation exhausts superheated attic air (which can exceed 160°F in unventilated spaces) that would otherwise radiate heat downward into living areas and literally cook the underside of your shingles, accelerating granule loss and reducing flexibility. In winter, ventilation removes warm, moisture-laden air before it condenses on cold roof sheathing, which causes rot, mold, and ice dams at eaves.',
       },
       {
         heading: 'The Code Minimum (And Why It\'s Often Not Enough)',
-        text: 'Building codes typically require 1 square foot of net free ventilation area for every 150 square feet of attic floor area. These are minimums — they represent the threshold below which problems become likely, not the optimal target. Homes with complex roof geometry, high occupancy, or in extreme climates often require significantly more than code minimums to maintain a healthy attic environment.',
+        text: 'Building codes typically require 1 square foot of net free ventilation area for every 150 square feet of attic floor area. These are minimums, they represent the threshold below which problems become likely, not the optimal target. Homes with complex roof geometry, high occupancy, or in extreme climates often require significantly more than code minimums to maintain a healthy attic environment.',
       },
       {
         heading: 'Intake vs. Exhaust: The Balanced System',
-        text: 'Effective ventilation requires both intake at low points (typically soffit vents) and exhaust at or near the ridge (ridge vents or power attic ventilators). Air enters cold and low, warms as it rises, and exits at the peak — driven by thermal convection and wind. A common mistake is installing ridge vents without adequate soffit intake, creating negative pressure that pulls conditioned air from living spaces rather than from outside.',
+        text: 'Effective ventilation requires both intake at low points (typically soffit vents) and exhaust at or near the ridge (ridge vents or power attic ventilators). Air enters cold and low, warms as it rises, and exits at the peak, driven by thermal convection and wind. A common mistake is installing ridge vents without adequate soffit intake, creating negative pressure that pulls conditioned air from living spaces rather than from outside.',
       },
       {
         heading: 'Identifying Ventilation Problems',
@@ -139,7 +139,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
     ],
     conclusion:
-      'When Elite Roofing replaces a roof, we conduct a full ventilation assessment as part of our standard process. We\'ve seen too many 5-year-old roof replacements show premature failure because ventilation was neglected. Proper ventilation isn\'t an add-on — it\'s an integral part of a roof system that performs as warranted. Contact us for a free ventilation assessment on your home.',
+      'When Elite Roofing replaces a roof, we conduct a full ventilation assessment as part of our standard process. We\'ve seen too many 5-year-old roof replacements show premature failure because ventilation was neglected. Proper ventilation isn\'t an add-on, it\'s an integral part of a roof system that performs as warranted. Contact us for a free ventilation assessment on your home.',
   },
 
   'choosing-roofing-contractor': {
@@ -148,11 +148,11 @@ const blogContent: Record<string, ArticleContent> = {
     sections: [
       {
         heading: '1. Are You Licensed, Bonded, and Insured in This State?',
-        text: 'This is non-negotiable. A licensed contractor has met your state\'s minimum competency requirements. Bonding protects you financially if the contractor fails to complete work. General liability insurance (minimum $1M) protects your property from accidental damage. Workers\' compensation insurance protects you if a worker is injured on your property. Ask for certificates of insurance naming you as additionally insured — not just a verbal assurance.',
+        text: 'This is non-negotiable. A licensed contractor has met your state\'s minimum competency requirements. Bonding protects you financially if the contractor fails to complete work. General liability insurance (minimum $1M) protects your property from accidental damage. Workers\' compensation insurance protects you if a worker is injured on your property. Ask for certificates of insurance naming you as additionally insured, not just a verbal assurance.',
       },
       {
         heading: '2. How Long Have You Been in Business Under This Name?',
-        text: 'The roofing industry has a significant population of "storm chasers" — out-of-state operations that follow severe weather events, produce high-volume work of variable quality, and disappear within two years. Ask specifically how long the company has operated under its current business name in your area. Legitimate local contractors have community reputation, local references, and a physical address.',
+        text: 'The roofing industry has a significant population of "storm chasers", out-of-state operations that follow severe weather events, produce high-volume work of variable quality, and disappear within two years. Ask specifically how long the company has operated under its current business name in your area. Legitimate local contractors have community reputation, local references, and a physical address.',
       },
       {
         heading: '3. What Manufacturer Certifications Do You Hold?',
@@ -164,19 +164,19 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '5. Is the Work Subcontracted, and If So, to Whom?',
-        text: 'Many roofing companies operate primarily as sales organizations that subcontract installation work to crews whose quality they cannot fully control. Ask directly whether the installers who\'ll work on your home are company employees or subcontractors. If subcontracted, ask for the subcontractor\'s insurance certificates — you\'re not protected by the general contractor\'s insurance if a subcontractor\'s crew causes damage.',
+        text: 'Many roofing companies operate primarily as sales organizations that subcontract installation work to crews whose quality they cannot fully control. Ask directly whether the installers who\'ll work on your home are company employees or subcontractors. If subcontracted, ask for the subcontractor\'s insurance certificates, you\'re not protected by the general contractor\'s insurance if a subcontractor\'s crew causes damage.',
       },
       {
         heading: '6. What Does Your Workmanship Warranty Cover?',
-        text: 'There are typically two warranties: a manufacturer\'s material warranty (covers shingle defects) and a contractor\'s workmanship warranty (covers installation-related failures). The workmanship warranty is critical — most roof leaks are caused by installation errors, not material defects. Ask specifically: how long does it last, what does it cover, and who do you contact if there\'s a problem in year 8?',
+        text: 'There are typically two warranties: a manufacturer\'s material warranty (covers shingle defects) and a contractor\'s workmanship warranty (covers installation-related failures). The workmanship warranty is critical, most roof leaks are caused by installation errors, not material defects. Ask specifically: how long does it last, what does it cover, and who do you contact if there\'s a problem in year 8?',
       },
       {
         heading: '7. What\'s Included in the Tear-Off and Disposal?',
-        text: 'A complete professional installation includes removing all existing roofing material down to the deck, inspecting and replacing deteriorated decking, installing new underlayment, installing ice-and-water shield in valleys and eaves, and full cleanup. "Roofing over" existing shingles is almost never acceptable practice — it voids most warranties, adds weight, and hides deck problems.',
+        text: 'A complete professional installation includes removing all existing roofing material down to the deck, inspecting and replacing deteriorated decking, installing new underlayment, installing ice-and-water shield in valleys and eaves, and full cleanup. "Roofing over" existing shingles is almost never acceptable practice, it voids most warranties, adds weight, and hides deck problems.',
       },
       {
         heading: '8. How Do You Protect My Property During Installation?',
-        text: 'A responsible contractor will use tarps to protect exterior plantings and equipment, magnetic rollers to collect dropped nails, and perform daily cleanup to maintain a safe working environment. Ask what their specific process is — if they don\'t have a clear answer, their crew practices likely reflect that level of care.',
+        text: 'A responsible contractor will use tarps to protect exterior plantings and equipment, magnetic rollers to collect dropped nails, and perform daily cleanup to maintain a safe working environment. Ask what their specific process is, if they don\'t have a clear answer, their crew practices likely reflect that level of care.',
       },
       {
         heading: '9. What Is the Full Payment Schedule?',
@@ -184,11 +184,11 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '10. Will You Pull the Necessary Permits?',
-        text: 'In most jurisdictions, a complete roof replacement requires a building permit. Contractors who suggest skipping the permit to save time or money are exposing you to significant liability — unpermitted work can complicate home sales, void your homeowners insurance, and result in fines requiring the work to be redone. A contractor unwilling to pull permits should be disqualified immediately.',
+        text: 'In most jurisdictions, a complete roof replacement requires a building permit. Contractors who suggest skipping the permit to save time or money are exposing you to significant liability, unpermitted work can complicate home sales, void your homeowners insurance, and result in fines requiring the work to be redone. A contractor unwilling to pull permits should be disqualified immediately.',
       },
     ],
     conclusion:
-      'Elite Roofing answers "yes" to every item on this list — and we welcome the questions. We\'re fully licensed, GAF Master Elite certified, have served Ontario for 20 years, and back every installation with a written 10-year workmanship warranty. Schedule a free consultation with our team and experience the difference genuine expertise makes.',
+      'Elite Roofing answers "yes" to every item on this list, and we welcome the questions. We\'re fully licensed, GAF Master Elite certified, have served Ontario for 20 years, and back every installation with a written 10-year workmanship warranty. Schedule a free consultation with our team and experience the difference genuine expertise makes.',
   },
 }
 

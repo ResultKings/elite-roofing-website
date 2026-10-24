@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: 'en_CA',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Elite Roofing: Premium Roofing Solutions in Ontario',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'Elite Roofing | Premium Roofing Solutions in Ontario',
     description:
       "Ontario's premier roofing specialist. Master craftsmanship, premium materials, lasting protection.",
-    images: ['/og-image.jpg'],
+    images: ['/og-image.webp'],
   },
   robots: {
     index: true,

@@ -263,7 +263,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <FadeIn className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-md">
-              <p className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-3">
+              <p className="font-sans text-[12px] font-semibold tracking-[0.3em] uppercase text-[#8a6928] mb-3">
                 Expert Advice
               </p>
               <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-3">

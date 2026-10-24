@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
 
@@ -14,35 +14,17 @@ const serviceLinks = [
 const quickLinks = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Our Projects' },
-  { href: '/contact', label: 'Get Free Quote' },
+  { href: '/contact', label: 'Get Free Inspection' },
+  { href: '/contact#service-area', label: 'Service Area' },
 ]
 
 export default function Footer() {
   return (
     <footer className="bg-[#0f172a] text-white">
-      {/* Credentials strip */}
-      <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { title: 'GAF Master Elite', sub: 'Certified Contractor' },
-              { title: 'Licensed and Insured', sub: 'Ontario Provincial License' },
-              { title: 'A+ BBB Accredited', sub: 'Better Business Bureau' },
-              { title: '4.9 Star Rating', sub: '300+ Verified Reviews' },
-            ].map(({ title, sub }) => (
-              <div key={title} className="border-l border-[#c9a55a]/30 pl-4">
-                <div className="font-serif text-sm font-semibold text-white leading-tight">{title}</div>
-                <div className="font-sans text-[10px] text-white/35 tracking-wider mt-0.5 uppercase">{sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 â€” Company */}
+          {/* Column 1 â€" Company */}
           <div className="lg:col-span-1">
             <div className="flex flex-col leading-none mb-6">
               <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
@@ -85,7 +67,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 â€” Services */}
+          {/* Column 2 â€" Services */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Our Services
@@ -105,7 +87,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 â€” Quick Links */}
+          {/* Column 3 â€" Quick Links */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Quick Links
@@ -124,20 +106,9 @@ export default function Footer() {
               ))}
             </ul>
 
-            <div className="mt-8 p-4 border border-[#c9a55a]/20 bg-[#c9a55a]/5">
-              <p className="font-sans text-xs text-white/40 uppercase tracking-wider mb-1">
-                Emergency Service
-              </p>
-              <a
-                href="tel:+19055550198"
-                className="font-serif text-lg font-semibold text-[#c9a55a] hover:text-[#d4b86e] transition-colors"
-              >
-                (905) 555-0198
-              </a>
-            </div>
           </div>
 
-          {/* Column 4 â€” Contact */}
+          {/* Column 4 â€" Contact */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Contact Us
@@ -146,9 +117,9 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
                 <span className="font-sans text-sm text-white/50 leading-relaxed">
-                  3250 Ridgeway Dr, Unit 12
+                  100 Queens Park, Toronto, ON
                   <br />
-                  Mississauga, ON L5L 5Z9
+                  M5S 2C6, Canada
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -183,9 +154,19 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-sans text-xs text-white/30">
-            &copy; {new Date().getFullYear()} Elite Roofing LLC. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="font-sans text-xs text-white/30">
+              &copy; {new Date().getFullYear()} Elite Roofing LLC. All rights reserved.
+            </p>
+            <a
+              href="https://resultkings.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-xs text-white/30 hover:text-white/60 transition-colors"
+            >
+              Built by Result Kings
+            </a>
+          </div>
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
@@ -199,6 +180,14 @@ export default function Footer() {
             >
               Terms of Service
             </Link>
+            <a
+              href="https://customerreviews.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-xs text-white/30 hover:text-white/60 transition-colors"
+            >
+              Leave a Google Review
+            </a>
           </div>
         </div>
       </div>

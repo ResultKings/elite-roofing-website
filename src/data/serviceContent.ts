@@ -1,4 +1,4 @@
-export interface ServiceFAQ {
+﻿export interface ServiceFAQ {
   question: string
   answer: string
 }
@@ -223,12 +223,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'Are gutter guards worth the investment?',
         answer:
-          'Quality gutter guards — specifically micro-mesh systems with 50-micron stainless mesh — are highly effective and we stand behind them. They eliminate routine cleaning for most homeowners and are particularly worthwhile on homes with difficult roof access. We do not install reverse-curve or screen-type guards, which create more problems than they solve. We only install the MasterShield micro-mesh system.',
+          'Quality gutter guards, specifically micro-mesh systems with 50-micron stainless mesh, are highly effective and we stand behind them. They eliminate routine cleaning for most homeowners and are particularly worthwhile on homes with difficult roof access. We do not install reverse-curve or screen-type guards, which create more problems than they solve. We only install the MasterShield micro-mesh system.',
       },
       {
         question: 'What gutter materials do you offer?',
         answer:
-          "We install 0.032\" and 0.040\" aluminum seamless gutters in 5\" K-style, 6\" K-style, and half-round profiles, in 30+ factory finishes. For premium applications, we install copper gutters with hand-soldered miters and end caps — the traditional choice for historic homes, slate roofs, and properties where the gutter is a visible architectural feature. We also install commercial-grade steel gutters for industrial properties.",
+          "We install 0.032\" and 0.040\" aluminum seamless gutters in 5\" K-style, 6\" K-style, and half-round profiles, in 30+ factory finishes. For premium applications, we install copper gutters with hand-soldered miters and end caps, the traditional choice for historic homes, slate roofs, and properties where the gutter is a visible architectural feature. We also install commercial-grade steel gutters for industrial properties.",
       },
       {
         question: 'How do I know when gutters need replacing versus cleaning?',
@@ -258,12 +258,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'Will a skylight cause leaks?',
         answer:
-          'A properly installed skylight with correct flashing will not leak. The leading cause of skylight leaks is improper flashing — specifically, installers who use sealant instead of purpose-built step and saddle flashing systems. Every skylight we install uses manufacturer-specified curb flashing kits with no exposed caulk at the primary waterline. We back every installation with a written 10-year leak-free guarantee.',
+          'A properly installed skylight with correct flashing will not leak. The leading cause of skylight leaks is improper flashing, specifically, installers who use sealant instead of purpose-built step and saddle flashing systems. Every skylight we install uses manufacturer-specified curb flashing kits with no exposed caulk at the primary waterline. We back every installation with a written 10-year leak-free guarantee.',
       },
       {
         question: 'What types of skylights do you install?',
         answer:
-          'We install fixed skylights (light-only), manually venting skylights, solar-powered venting skylights (no electrician required), tubular daylighting devices (for small spaces and closets), and custom unit skylights for architectural applications. We work exclusively with Velux and Solatube — the two manufacturers with the best long-term performance records and parts availability.',
+          'We install fixed skylights (light-only), manually venting skylights, solar-powered venting skylights (no electrician required), tubular daylighting devices (for small spaces and closets), and custom unit skylights for architectural applications. We work exclusively with Velux and Solatube, the two manufacturers with the best long-term performance records and parts availability.',
       },
       {
         question: 'Can skylights improve my home\'s energy efficiency?',
@@ -273,12 +273,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'How long does skylight installation take?',
         answer:
-          'A single standard skylight installation takes 4–6 hours: opening the roof, installing the curb, flashing, and glazing, then patching the interior ceiling. Multiple skylights or larger custom units take proportionally longer. We always complete the weatherproofing in a single day — we never leave a partially installed skylight overnight. Interior finishing (drywall, painting around the light shaft) is a separate step often done by the homeowner.',
+          'A single standard skylight installation takes 4–6 hours: opening the roof, installing the curb, flashing, and glazing, then patching the interior ceiling. Multiple skylights or larger custom units take proportionally longer. We always complete the weatherproofing in a single day, we never leave a partially installed skylight overnight. Interior finishing (drywall, painting around the light shaft) is a separate step often done by the homeowner.',
       },
       {
         question: 'Are there skylights suitable for low-slope or flat roofs?',
         answer:
-          "Yes. For low-slope roofs (below 15 degrees), we install curb-mounted skylights — the skylight unit sits on a raised curb that provides proper drainage. Solatube tubular skylights can also be adapted for low-slope conditions with special flat-roof flashing kits. We assess roof pitch as part of every skylight consultation and recommend the appropriate mounting system for your specific roof.",
+          "Yes. For low-slope roofs (below 15 degrees), we install curb-mounted skylights, the skylight unit sits on a raised curb that provides proper drainage. Solatube tubular skylights can also be adapted for low-slope conditions with special flat-roof flashing kits. We assess roof pitch as part of every skylight consultation and recommend the appropriate mounting system for your specific roof.",
       },
     ],
   },

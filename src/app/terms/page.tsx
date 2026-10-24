@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#8a6928] mb-4 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.3em] uppercase text-[#8a6928] mb-4 block">
             Legal
           </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">

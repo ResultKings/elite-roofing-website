@@ -32,7 +32,7 @@ const iconMap: Record<string, React.ElementType> = {
 // â”€â”€â”€ FAQ Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <div className="space-y-3">
@@ -122,7 +122,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="flex items-center gap-2 mb-5 text-white/50 font-sans text-xs">
             <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-white/80 transition-colors">Services</Link>
+            <Link href="/#services" className="hover:text-white/80 transition-colors">Services</Link>
             <span>/</span>
             <span className="text-white/80">{service.title}</span>
           </div>
@@ -131,7 +131,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <div className="w-12 h-12 bg-[#c9a55a] flex items-center justify-center flex-shrink-0">
               <Icon className="w-5 h-5 text-white" />
             </div>
-            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a]">
+            <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a]">
               Elite Roofing Services
             </span>
           </div>
@@ -150,13 +150,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-4 block">
                 Overview
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-6 leading-tight">
                 What to Expect
               </h2>
-              <div className="w-12 h-[2px] bg-[#c9a55a] mb-6" />
               <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-6">
                 {service.fullDescription}
               </p>
@@ -173,13 +172,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </div>
 
             <div>
-              <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-4 block">
                 Why Elite Roofing
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-6 leading-tight">
                 Our Commitment
               </h2>
-              <div className="w-12 h-[2px] bg-[#c9a55a] mb-6" />
               <ul className="space-y-4">
                 {content.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-4 p-4 border border-[#e7e5e4] bg-[#fafaf9]">
@@ -218,22 +216,63 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-4 block">
               Questions & Answers
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-5">
               Common Questions About {service.title}
             </h2>
-            <div className="w-12 h-[2px] bg-[#c9a55a] mx-auto" />
           </div>
           <FAQAccordion faqs={content.faqs} />
+        </div>
+      </section>
+
+      {/* Other services */}
+      <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-serif text-2xl font-bold text-[#0f172a]">Other Services</h2>
+            <Link
+              href="/#services"
+              className="font-sans text-xs font-medium text-[#c9a55a] hover:text-[#a87d3a] transition-colors flex items-center gap-1"
+            >
+              View All <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {services
+              .filter((s) => s.slug !== params.slug)
+              .slice(0, 3)
+              .map((s) => {
+                const OtherIcon = iconMap[s.icon] ?? Home
+                return (
+                  <Link
+                    key={s.id}
+                    href={`/services/${s.slug}`}
+                    className="group flex items-start gap-4 p-5 bg-white border border-[#e7e5e4] hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 bg-[#c9a55a]/10 group-hover:bg-[#c9a55a]/20 flex items-center justify-center transition-colors duration-300">
+                      <OtherIcon className="w-4 h-4 text-[#c9a55a]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors mb-1">
+                        {s.title}
+                      </h3>
+                      <p className="font-sans text-xs text-[#64748b] line-clamp-2 leading-relaxed">
+                        {s.shortDescription}
+                      </p>
+                    </div>
+                  </Link>
+                )
+              })}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+          <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-5 block">
             Get Started
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
@@ -267,48 +306,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 <span className="font-sans text-xs text-white/40">{item}</span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Other services */}
-      <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-serif text-2xl font-bold text-[#0f172a]">Other Services</h2>
-            <Link
-              href="/services"
-              className="font-sans text-xs font-medium text-[#c9a55a] hover:text-[#a87d3a] transition-colors flex items-center gap-1"
-            >
-              View All <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services
-              .filter((s) => s.slug !== params.slug)
-              .slice(0, 3)
-              .map((s) => {
-                const OtherIcon = iconMap[s.icon] ?? Home
-                return (
-                  <Link
-                    key={s.id}
-                    href={`/services/${s.slug}`}
-                    className="group flex items-start gap-4 p-5 bg-white border border-[#e7e5e4] hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 bg-[#c9a55a]/10 group-hover:bg-[#c9a55a]/20 flex items-center justify-center transition-colors duration-300">
-                      <OtherIcon className="w-4 h-4 text-[#c9a55a]" />
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors mb-1">
-                        {s.title}
-                      </h3>
-                      <p className="font-sans text-xs text-[#64748b] line-clamp-2 leading-relaxed">
-                        {s.shortDescription}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
           </div>
         </div>
       </section>

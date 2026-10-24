@@ -68,8 +68,7 @@ export const services: Service[] = [
       'Energy-efficient materials',
       'Full warranty coverage',
     ],
-    image:
-      'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
+    image: '/residential-roofing.webp',
   },
   {
     id: '2',
@@ -88,8 +87,7 @@ export const services: Service[] = [
       'Minimal business disruption',
       'Preventive maintenance programs',
     ],
-    image:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
+    image: '/commercial-roofing.jpg',
   },
   {
     id: '3',
@@ -108,8 +106,7 @@ export const services: Service[] = [
       'Fascia and soffit repairs',
       'Workmanship guarantee',
     ],
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
+    image: '/roof-repair.webp',
   },
   {
     id: '4',
@@ -128,8 +125,7 @@ export const services: Service[] = [
       'Complete roof replacement when needed',
       'Direct insurance billing available',
     ],
-    image:
-      'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
+    image: '/storm-damage.webp',
   },
   {
     id: '5',
@@ -148,8 +144,7 @@ export const services: Service[] = [
       'Gutter cleaning and maintenance',
       'Custom colors to match your home',
     ],
-    image:
-      'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
+    image: '/gutter-systems.jpg',
   },
   {
     id: '6',
@@ -168,8 +163,7 @@ export const services: Service[] = [
       'Integrated blinds available',
       'Sun tunnel installation',
     ],
-    image:
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&auto=format',
+    image: '/skylight-installation.webp',
   },
 ]
 

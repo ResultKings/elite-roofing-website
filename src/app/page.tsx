@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
@@ -8,7 +8,7 @@ import { ArrowRight, Star, Phone, ChevronDown, ChevronRight } from 'lucide-react
 import Button from '@/components/ui/Button'
 import { services, testimonials, projects } from '@/data/mockData'
 
-// â”€â”€â”€ Animation helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Animation helpers â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -69,35 +69,49 @@ function Stagger({
   )
 }
 
-// â”€â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Hero â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function HeroSection() {
   return (
-    <section className="relative h-screen flex flex-col overflow-hidden">
+    <section className="relative h-screen flex flex-col overflow-hidden bg-[#080d14]">
       <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=1920&h=1080&fit=crop&q=85&auto=format"
-          alt="Luxury Ontario home with premium roofing"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080d14]/85 via-[#080d14]/65 to-[#080d14]/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#080d14]/70 via-[#080d14]/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/60 via-transparent to-transparent" />
 
-      <div className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-6 md:px-8 lg:px-16 pt-28 md:pt-32 flex flex-col justify-center pb-16">
+      <div className="relative z-10 flex-1 pl-12 md:pl-16 lg:pl-24 w-full pt-28 md:pt-32 flex flex-col justify-center">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.1)}>
-          {/* Top label row */}
-          <motion.div variants={fadeUp} className="flex items-center gap-2 mb-6 md:mb-8">
-            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
-              Ontario &middot; GTA
-            </span>
-            <div className="w-5 h-px bg-white/25" />
-            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
-              Premium Roofing
-            </span>
+          {/* Social proof row */}
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6 md:mb-8">
+            <div className="flex -space-x-2">
+              {[
+                'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
+                'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
+                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
+              ].map((src, i) => (
+                <div key={i} className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-[#080d14] flex-shrink-0">
+                  <Image src={src} alt="Client" fill sizes="32px" className="object-cover" />
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
+                ))}
+              </div>
+              <span className="font-sans text-xs text-white/70">
+                <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
+              </span>
+            </div>
           </motion.div>
 
           {/* Display heading */}
@@ -105,14 +119,14 @@ function HeroSection() {
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#f0ece4]">
               Master Craftsmanship.
             </span>
-            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white/20">
+            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#c9a55a]">
               Premium Results.
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-sm md:text-base text-white leading-relaxed mb-8 max-w-sm"
+            className="font-sans text-base md:text-lg text-white leading-relaxed mb-8 max-w-sm"
           >
             Exceptional skill and premium materials to every project across Ontario.
           </motion.p>
@@ -128,33 +142,18 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Review bar — transparent, thin accent line above content */}
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16">
-          <div className="w-28 h-px bg-gradient-to-r from-[#c9a55a]/50 to-transparent" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
-              ))}
-            </div>
-            <span className="font-sans text-xs text-white/55">
-              <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white/30">Scroll</span>
-            <div className="w-px h-3.5 bg-white/20" />
-          </div>
+      {/* Scroll indicator */}
+      <div className="relative z-10 pr-8 md:pr-12 py-4 flex justify-end">
+        <div className="flex items-center gap-3">
+          <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white">Scroll</span>
+          <div className="w-px h-3.5 bg-white/50" />
         </div>
       </div>
     </section>
   )
 }
 
-// â”€â”€â”€ Credentials (replaces icon-heavy trust badges) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Credentials (replaces icon-heavy trust badges) â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function TickerBanner() {
   const items = [
@@ -206,52 +205,48 @@ function StandardSection() {
       {/* Background image anchored right */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1200&fit=crop&q=85&auto=format"
+          src="/standard-bg.webp"
           alt="Elite Roofing craftsmanship"
           fill
           sizes="100vw"
-          className="object-cover object-right"
+          className="object-cover"
+          style={{ objectPosition: '30% center' }}
         />
         {/* Black left side fading at 50% across */}
         <div className="absolute inset-0 bg-gradient-to-r from-black from-[40%] via-black/70 via-[55%] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-16 md:py-20 w-full">
-        <FadeIn className="max-w-[52%]">
-          <p className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-5">
+      <div className="relative z-10 pl-12 md:pl-16 lg:pl-24 py-16 md:py-20 w-full">
+        <FadeIn className="max-w-[40%]">
+          <p className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
             The Standard
           </p>
 
-          <h2 className="font-display font-black text-[clamp(2rem,4.5vw,5rem)] leading-[0.9] tracking-[-0.02em] text-white mb-7">
-            We don&apos;t just <span className="text-[#c9a55a]">fix roofs.</span><br />
-            We restore them.
+          <h2 className="font-display font-bold text-[clamp(2.4rem,4.2vw,5.2rem)] leading-[0.92] tracking-[-0.02em] mb-8">
+            <span className="text-white">We don&apos;t just fix roofs.</span><br />
+            <span className="text-[#c9a55a]">We restore them.</span>
           </h2>
 
-          {/* Two-column body text */}
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            <p className="font-sans text-[14px] font-medium text-white leading-relaxed">
-              Every project receives the same precision and care — whether a single-family home in Oakville or a commercial complex in Mississauga.
-            </p>
-            <p className="font-sans text-[14px] font-medium text-white/70 leading-relaxed">
-              Our GAF Master Elite certification and 25-year warranty guarantee that premium results aren&apos;t a promise — they&apos;re our standard.
-            </p>
-          </div>
+          {/* Body text */}
+          <p className="font-sans text-[15px] text-white/70 leading-relaxed mb-10 max-w-[85%]">
+            Our GAF Master Elite certification and 25-year warranty guarantee that premium results aren&apos;t a promise, they&apos;re our standard.
+          </p>
 
-          {/* Stats with vertical dividers */}
-          <div className="flex items-center gap-0 pt-7 border-t border-white/10">
+          {/* Stats */}
+          <div className="flex items-start gap-14 pt-7 border-t border-white/10">
             {[
               { value: '5.0', label: 'Google Rating' },
               { value: '500+', label: 'Five-Star Reviews' },
               { value: '20+', label: 'Years in Ontario' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-stretch">
-                {i > 0 && <div className="w-px bg-white/15 mx-7 self-stretch" />}
+                {i > 0 && <div className="w-px bg-white/15 mr-14 self-stretch" />}
                 <div>
-                  <div className="font-display font-black text-2xl md:text-3xl text-[#c9a55a] leading-none mb-1">
+                  <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#c9a55a] leading-none mb-2">
                     {stat.value}
                   </div>
-                  <div className="font-sans text-[9px] text-white/30 tracking-widest uppercase">
+                  <div className="font-sans text-[12px] text-white/40 tracking-widest uppercase">
                     {stat.label}
                   </div>
                 </div>
@@ -265,20 +260,19 @@ function StandardSection() {
 }
 
 
-// â”€â”€â”€ Services â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Services â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ServicesSection() {
   return (
-    <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
+    <section id="services" className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-14">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             What We Do
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             Our Services
           </h2>
-          <div className="w-12 h-[2px] bg-[#c9a55a]" />
         </FadeIn>
 
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -318,7 +312,7 @@ function ServicesSection() {
   )
 }
 
-// â”€â”€â”€ Process â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Process â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ProcessSection() {
   const steps = [
@@ -343,7 +337,7 @@ function ProcessSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-16">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
@@ -367,7 +361,7 @@ function ProcessSection() {
   )
 }
 
-// â”€â”€â”€ Featured Projects â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Featured Projects â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ProjectsSection() {
   const featured = projects.filter(p => p.featured).slice(0, 3)
@@ -375,19 +369,13 @@ function ProjectsSection() {
   return (
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
-        <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-14">
-          <div>
-            <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
-              Recent Work
-            </span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
-              Featured Projects
-            </h2>
-            <div className="w-12 h-[2px] bg-[#c9a55a]" />
-          </div>
-          <Button href="/projects" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
-            View All Projects
-          </Button>
+        <FadeIn className="mb-14">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            Recent Work
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
+            Featured Projects
+          </h2>
         </FadeIn>
 
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -417,25 +405,30 @@ function ProjectsSection() {
             </motion.div>
           ))}
         </Stagger>
+
+        <FadeIn className="flex justify-center mt-10">
+          <Button href="/projects" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+            View All Projects
+          </Button>
+        </FadeIn>
       </div>
     </section>
   )
 }
 
-// â”€â”€â”€ Testimonials â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Testimonials â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function TestimonialsSection() {
   return (
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             What Our Clients Say
           </h2>
-          <div className="w-12 h-[2px] bg-[#c9a55a] mx-auto mb-5" />
           <div className="flex items-center justify-center gap-0.5 mb-2">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
@@ -481,12 +474,23 @@ function TestimonialsSection() {
             </motion.div>
           ))}
         </Stagger>
+
+        <div className="flex justify-center mt-14">
+          <a
+            href="https://customerreviews.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-[#c9a55a]/50 text-[#c9a55a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#c9a55a] hover:text-white transition-all duration-300"
+          >
+            Leave a Google Review
+          </a>
+        </div>
       </div>
     </section>
   )
 }
 
-// â”€â”€â”€ FAQ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ FAQ â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const homeFAQs = [
   {
@@ -523,13 +527,12 @@ function FAQSection() {
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             Frequently Asked
           </h2>
-          <div className="w-12 h-[2px] bg-[#c9a55a] mx-auto" />
         </FadeIn>
 
         <div className="space-y-2">
@@ -598,7 +601,7 @@ function FAQSection() {
   )
 }
 
-// â”€â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ CTA â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function CTASection() {
   return (
@@ -616,7 +619,7 @@ function CTASection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-5 block">
+          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
             Start Today
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -652,7 +655,7 @@ function CTASection() {
   )
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Page â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 export default function HomePage() {
   return (

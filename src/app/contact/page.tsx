@@ -1,20 +1,9 @@
-﻿'use client'
+'use client'
 
 import React, { useRef } from 'react'
-import dynamic from 'next/dynamic'
 import { motion, useInView } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
-
-// Leaflet must not render on the server
-const ServiceAreaMap = dynamic(() => import('@/components/ServiceAreaMap'), {
-  ssr: false,
-  loading: () => (
-    <div className="h-full w-full bg-[#1a2035] flex items-center justify-center">
-      <span className="font-sans text-xs text-white/30 tracking-widest uppercase">Loading mapâ€¦</span>
-    </div>
-  ),
-})
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -62,7 +51,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: 'Office',
-    value: '3250 Ridgeway Dr, Unit 12, Mississauga, ON',
+    value: '100 Queens Park, Toronto, ON M5S 2C6',
     href: 'https://maps.google.com',
     note: 'Serving the Greater Toronto Area',
   },
@@ -90,7 +79,7 @@ export default function ContactPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Get In Touch
               </span>
             </motion.div>
@@ -122,7 +111,6 @@ export default function ContactPage() {
                 <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
                   Contact Details
                 </h2>
-                <div className="w-10 h-[2px] bg-[#c9a55a] mb-8" />
 
                 <div className="space-y-7">
                   {contactDetails.map(({ icon: Icon, label, value, href, note }) => (
@@ -173,7 +161,7 @@ export default function ContactPage() {
                 </div>
               </FadeIn>
 
-              {/* Why Elite Roofing â€” light, cohesive styling */}
+              {/* Why Elite Roofing â€" light, cohesive styling */}
               <FadeIn delay={0.15}>
                 <div className="bg-slate-50 border border-[#e7e5e4] p-6">
                   <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
@@ -204,7 +192,6 @@ export default function ContactPage() {
                   <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
                     Request a Free Inspection
                   </h2>
-                  <div className="w-10 h-[2px] bg-[#c9a55a] mb-4" />
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
                     Fill out the form below and a specialist will reach out within one
                     business day to schedule your no-obligation roof assessment.
@@ -219,7 +206,7 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Service Area Map */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
+      <section id="service-area" className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
@@ -228,16 +215,23 @@ export default function ContactPage() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-3">
               Proudly Serving Ontario
             </h2>
-            <div className="w-10 h-[2px] bg-[#c9a55a] mx-auto" />
           </div>
 
-          {/* Map container â€” ssr:false component renders inside */}
-          <div className="h-[420px] overflow-hidden border border-white/10">
-            <ServiceAreaMap />
+          <div className="overflow-hidden border border-white/10">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d180.3786994732265!2d-79.39488790894833!3d43.667738770083346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34bb1c457495%3A0x4bf5c6bc31e2ce69!2s100%20Queens%20Park%2C%20Toronto%2C%20ON%20M5S%202C6%2C%20Canada!5e0!3m2!1sen!2sch!4v1792867006689!5m2!1sen!2sch"
+              width="100%"
+              height="420"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Elite Roofing location map"
+            />
           </div>
 
           <p className="text-center font-sans text-xs text-white/30 mt-5 tracking-wide">
-            Click a marker to see service area details &middot; Scroll or pinch to zoom
+            Scroll or pinch to zoom &middot; Click to open in Google Maps
           </p>
         </div>
       </section>

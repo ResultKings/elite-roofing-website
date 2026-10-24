@@ -289,7 +289,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-2">
+            <p className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-2">
               Ready to Take Action?
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-white">
