@@ -267,22 +267,34 @@ function ServicesSection() {
     <section id="services" className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-14">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-            What We Do
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
-            Our Services
-          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
+            <div>
+              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                What We Do
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a]">
+                Our Roofing Services in Ontario
+              </h2>
+            </div>
+            <div>
+              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
+                <strong className="font-semibold text-[#0f172a]">Elite Roofing</strong> provides roofing services throughout Ontario, including{' '}
+                <Link href="/services/roof-inspection" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">inspections</Link>,{' '}
+                <Link href="/services/roof-repair" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">repairs</Link>, and{' '}
+                <Link href="/services/roof-replacement" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">full roof replacements</Link>. With our skilled team, exceptional workmanship, high-quality materials, and reliable service, we help safeguard your home or business while enhancing its value. Count on us for roofing services that protect your investment.
+              </p>
+            </div>
+          </div>
         </FadeIn>
 
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map(service => (
-            <motion.div key={service.id} variants={fadeUp}>
+            <motion.div key={service.id} variants={fadeUp} className="h-full">
               <Link
                 href={`/services/${service.slug}`}
-                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5"
+                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5 h-full min-h-[380px]"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a] flex-shrink-0">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -296,12 +308,14 @@ function ServicesSection() {
                   <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#c9a55a] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-6 flex-1">
+                  <p className="font-sans text-sm text-[#64748b] leading-relaxed flex-1">
                     {service.shortDescription}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-[#c9a55a] tracking-[0.2em] uppercase group-hover:gap-3 transition-all duration-300">
-                    Explore <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                  <div className="border-t border-[#e7e5e4] pt-4 mt-5">
+                    <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-[#0f172a] tracking-[0.15em] uppercase group-hover:text-[#c9a55a] group-hover:gap-3 transition-all duration-300">
+                      {service.title} <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             </motion.div>

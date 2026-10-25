@@ -16,6 +16,12 @@ import {
   Droplets,
   Sun,
   Phone,
+  Search,
+  Zap,
+  Layers,
+  Building,
+  RefreshCw,
+  Shield,
 } from 'lucide-react'
 import { services } from '@/data/mockData'
 import serviceContent from '@/data/serviceContent'
@@ -27,6 +33,12 @@ const iconMap: Record<string, React.ElementType> = {
   Cloud,
   Droplets,
   Sun,
+  Search,
+  Zap,
+  Layers,
+  Building,
+  RefreshCw,
+  Shield,
 }
 
 // â”€â”€â”€ FAQ Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
