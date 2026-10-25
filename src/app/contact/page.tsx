@@ -101,7 +101,7 @@ export default function ContactPage() {
             >
               Let&apos;s Talk About
               <br />
-              <span className="text-[#c9a55a]">Your Project.</span>
+              <span className="text-[#c9a55a]">Your Roof.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
               Whether you need a free inspection, have questions about materials, or are ready

@@ -273,7 +273,7 @@ function ServicesSection() {
                 What We Do
               </span>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a]">
-                Our Roofing Services in Ontario
+                Our Roofing Services<br />in Ontario
               </h2>
             </div>
             <div>
@@ -292,9 +292,9 @@ function ServicesSection() {
             <motion.div key={service.id} variants={fadeUp} className="h-full">
               <Link
                 href={`/services/${service.slug}`}
-                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5 h-full min-h-[380px]"
+                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5 h-full min-h-[380px] rounded-xl"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a] flex-shrink-0">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a] flex-shrink-0 rounded-t-xl">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -305,13 +305,13 @@ function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 to-transparent" />
                 </div>
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 group-hover:text-[#c9a55a] transition-colors duration-300">
+                  <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed flex-1">
                     {service.shortDescription}
                   </p>
-                  <div className="border-t border-[#e7e5e4] pt-4 mt-5">
+                  <div className="border-t border-[#e7e5e4] pt-4 mt-5 flex justify-center">
                     <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-[#0f172a] tracking-[0.15em] uppercase group-hover:text-[#c9a55a] group-hover:gap-3 transition-all duration-300">
                       {service.title} <ArrowRight className="w-3.5 h-3.5" />
                     </span>
@@ -348,13 +348,23 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#0f172a]">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 md:px-8 lg:px-16 overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/process-bg.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#0a1120]/85" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="mb-16">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mt-3">
             Simple. Transparent. Reliable.
           </h2>
         </FadeIn>
@@ -370,6 +380,12 @@ function ProcessSection() {
             </motion.div>
           ))}
         </Stagger>
+
+        <FadeIn className="mt-14 flex justify-center">
+          <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            Get Free Inspection
+          </Button>
+        </FadeIn>
       </div>
     </section>
   )
