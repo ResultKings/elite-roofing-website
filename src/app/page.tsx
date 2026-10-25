@@ -348,7 +348,7 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="relative py-24 px-6 md:px-8 lg:px-16 overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center px-6 md:px-8 lg:px-16 overflow-hidden py-24">
       <div className="absolute inset-0">
         <Image
           src="/process-bg.webp"
@@ -359,7 +359,7 @@ function ProcessSection() {
         />
         <div className="absolute inset-0 bg-[#0a1120]/85" />
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
         <FadeIn className="mb-16">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
@@ -372,9 +372,6 @@ function ProcessSection() {
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-12" delay={0.12}>
           {steps.map(step => (
             <motion.div key={step.number} variants={fadeUp}>
-              <div className="font-serif text-7xl font-bold text-[#c9a55a]/12 mb-5 leading-none select-none">
-                {step.number}
-              </div>
               <h3 className="font-serif text-2xl font-semibold text-white mb-4">{step.title}</h3>
               <p className="font-sans text-sm text-white/45 leading-relaxed">{step.desc}</p>
             </motion.div>
@@ -382,9 +379,12 @@ function ProcessSection() {
         </Stagger>
 
         <FadeIn className="mt-14 flex justify-center">
-          <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-            Get Free Inspection
-          </Button>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-white hover:text-[#0f172a] transition-colors duration-300"
+          >
+            Get Free Inspection <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </FadeIn>
       </div>
     </section>
@@ -448,7 +448,84 @@ function ProjectsSection() {
 
 // â"€â"€â"€ Testimonials â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
+const extraTestimonials = [
+  {
+    id: 4,
+    name: 'James Patterson',
+    location: 'Oakville, ON',
+    rating: 5,
+    quote: 'Elite Roofing replaced our 25-year-old roof in two days. The crew was professional, clean, and communicated every step. Our new roof looks stunning and we feel confident it will last for decades.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
+  },
+  {
+    id: 5,
+    name: 'Sandra Kim',
+    location: 'Vaughan, ON',
+    rating: 5,
+    quote: 'After hail damage, Elite Roofing came out the very next day and covered our roof with tarps to prevent further damage. The insurance claim process was seamless with their documentation. Truly above and beyond.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
+  },
+  {
+    id: 6,
+    name: 'Michael Torres',
+    location: 'Brampton, ON',
+    rating: 5,
+    quote: 'I got three quotes and Elite Roofing was not the cheapest, but their inspection report was the most detailed and their warranty terms were the best. Six months in and the roof looks and performs perfectly.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&auto=format',
+  },
+  {
+    id: 7,
+    name: 'Linda Bergstrom',
+    location: 'Mississauga, ON',
+    rating: 5,
+    quote: 'The team was respectful of our property, cleaned up completely each day, and finished on time. The project manager kept us informed every morning. I would recommend Elite Roofing to anyone in the GTA.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&auto=format',
+  },
+  {
+    id: 8,
+    name: 'David Chen',
+    location: 'Markham, ON',
+    rating: 5,
+    quote: 'Elite Roofing identified a ventilation issue during inspection that two other companies missed. Fixing it alongside the new shingles has dramatically reduced our attic moisture. Exceptional knowledge and honest advice.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
+  },
+  {
+    id: 9,
+    name: 'Rachel Moore',
+    location: 'Burlington, ON',
+    rating: 5,
+    quote: 'We had a flat roof that was causing ongoing leaks into our commercial space. Elite Roofing installed a new TPO membrane system and solved the problem permanently. Their warranty gives us complete peace of mind.',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&auto=format',
+  },
+]
+
+function TestimonialCard({ t }: { t: { name: string; location: string; rating: number; quote: string; image: string } }) {
+  return (
+    <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300">
+      <div className="flex gap-0.5 mb-6">
+        {Array.from({ length: t.rating }).map((_, i) => (
+          <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
+        ))}
+      </div>
+      <blockquote className="font-serif text-base md:text-[1.05rem] text-[#0f172a] leading-relaxed mb-6 flex-1 italic">
+        &ldquo;{t.quote}&rdquo;
+      </blockquote>
+      <div className="flex items-center gap-3 pt-5 border-t border-[#f1f5f9]">
+        <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-[#e7e5e4]">
+          <Image src={t.image} alt={t.name} fill sizes="40px" className="object-cover" />
+        </div>
+        <div>
+          <div className="font-sans text-sm font-semibold text-[#0f172a] leading-tight">{t.name}</div>
+          <div className="font-sans text-xs text-[#94a3b8] mt-0.5">{t.location}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function TestimonialsSection() {
+  const [showMore, setShowMore] = useState(false)
+
   return (
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
@@ -471,39 +548,40 @@ function TestimonialsSection() {
 
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.slice(0, 3).map(t => (
-            <motion.div
-              key={t.id}
-              variants={fadeUp}
-              className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex gap-0.5 mb-6">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
-                ))}
-              </div>
-              <blockquote className="font-serif text-base md:text-[1.05rem] text-[#0f172a] leading-relaxed mb-6 flex-1 italic">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="flex items-center gap-3 pt-5 border-t border-[#f1f5f9]">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-[#e7e5e4]">
-                  <Image
-                    src={t.image}
-                    alt={t.name}
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="font-sans text-sm font-semibold text-[#0f172a] leading-tight">
-                    {t.name}
-                  </div>
-                  <div className="font-sans text-xs text-[#94a3b8] mt-0.5">{t.location}</div>
-                </div>
-              </div>
+            <motion.div key={t.id} variants={fadeUp}>
+              <TestimonialCard t={t} />
             </motion.div>
           ))}
         </Stagger>
+
+        {/* Show More toggle */}
+        <div className="flex justify-center mt-10 mb-2">
+          <button
+            onClick={() => setShowMore(prev => !prev)}
+            className="inline-flex items-center gap-3 px-8 py-3 border border-[#c9a55a]/40 rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-[#c9a55a] hover:border-[#c9a55a] transition-colors duration-200"
+          >
+            <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
+            Show More Reviews
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {showMore && (
+            <motion.div
+              key="extra-reviews"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }}
+              exit={{ height: 0, opacity: 0, transition: { duration: 0 } }}
+              className="overflow-hidden"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+                {extraTestimonials.map(t => (
+                  <TestimonialCard key={t.id} t={t} />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="flex justify-center mt-14">
           <a
