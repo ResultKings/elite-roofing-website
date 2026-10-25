@@ -13,6 +13,12 @@ const serviceLinks = [
   { href: '/services/storm-damage-restoration', label: 'Storm Damage Restoration' },
   { href: '/services/gutter-systems', label: 'Gutter Systems' },
   { href: '/services/skylight-installation', label: 'Skylight Installation' },
+  { href: '/services/roof-inspection', label: 'Roof Inspection' },
+  { href: '/services/emergency-roofing', label: 'Emergency Roofing' },
+  { href: '/services/flat-roofing', label: 'Flat Roofing' },
+  { href: '/services/multi-family-roofing', label: 'Multi-Family Roofing' },
+  { href: '/services/roof-replacement', label: 'Roof Replacement' },
+  { href: '/services/roof-tarping', label: 'Roof Tarping' },
 ]
 
 const navLinks = [
@@ -134,7 +140,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute top-full left-0 mt-3 w-56 bg-white shadow-xl border border-[#e7e5e4] py-2 z-50"
+                      className="absolute top-full left-0 mt-3 w-64 bg-white shadow-xl border border-[#e7e5e4] py-2 z-50"
                     >
                       {serviceLinks.map((sl) => (
                         <Link

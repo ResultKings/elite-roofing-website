@@ -348,7 +348,7 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="relative min-h-[85vh] flex items-center px-6 md:px-8 lg:px-16 overflow-hidden py-24">
+    <section className="relative px-6 md:px-8 lg:px-16 overflow-hidden py-32">
       <div className="absolute inset-0">
         <Image
           src="/process-bg.webp"
@@ -359,7 +359,7 @@ function ProcessSection() {
         />
         <div className="absolute inset-0 bg-[#0a1120]/85" />
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="mb-16">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
@@ -379,12 +379,9 @@ function ProcessSection() {
         </Stagger>
 
         <FadeIn className="mt-14 flex justify-center">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-white hover:text-[#0f172a] transition-colors duration-300"
-          >
-            Get Free Inspection <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            Get Free Inspection
+          </Button>
         </FadeIn>
       </div>
     </section>
@@ -529,21 +526,33 @@ function TestimonialsSection() {
   return (
     <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
-        <FadeIn className="text-center mb-14">
+        <FadeIn className="text-center mb-10">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
             What Our Clients Say
           </h2>
-          <div className="flex items-center justify-center gap-0.5 mb-2">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
-            ))}
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="flex items-center gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+              ))}
+            </div>
+            <p className="font-sans text-xs text-[#94a3b8] tracking-wide">
+              4.9 out of 5 across 300 Google reviews
+            </p>
           </div>
-          <p className="font-sans text-xs text-[#94a3b8] tracking-wide">
-            4.9 out of 5 across 300 Google reviews
-          </p>
+          <div className="flex justify-center">
+            <a
+              href="https://customerreviews.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-all duration-300"
+            >
+              Leave a Google Review
+            </a>
+          </div>
         </FadeIn>
 
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -558,7 +567,7 @@ function TestimonialsSection() {
         <div className="flex justify-center mt-10 mb-2">
           <button
             onClick={() => setShowMore(prev => !prev)}
-            className="inline-flex items-center gap-3 px-8 py-3 border border-[#c9a55a]/40 rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-[#c9a55a] hover:border-[#c9a55a] transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-3 border border-[#0f172a]/30 rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-[#0f172a] hover:border-[#0f172a] transition-colors duration-200"
           >
             <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
             Show More Reviews
@@ -583,16 +592,6 @@ function TestimonialsSection() {
           )}
         </AnimatePresence>
 
-        <div className="flex justify-center mt-14">
-          <a
-            href="https://customerreviews.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-[#c9a55a]/50 text-[#c9a55a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#c9a55a] hover:text-white transition-all duration-300"
-          >
-            Leave a Google Review
-          </a>
-        </div>
       </div>
     </section>
   )
