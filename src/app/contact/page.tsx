@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
@@ -62,7 +63,18 @@ export default function ContactPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="relative pt-40 pb-24 px-4 md:px-8 lg:px-16 bg-[#0f172a] overflow-hidden">
+      <section className="relative pt-40 pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/contact-hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#0f172a]/80" />
+        </div>
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -206,33 +218,46 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Service Area Map */}
-      <section id="service-area" className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
-              Where We Work
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-3">
-              Proudly Serving Ontario
-            </h2>
-          </div>
+      <section id="service-area" className="relative py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/toronto-skyline.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#0f172a]/65" />
+        </div>
 
-          <div className="overflow-hidden border border-white/10">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d180.3786994732265!2d-79.39488790894833!3d43.667738770083346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34bb1c457495%3A0x4bf5c6bc31e2ce69!2s100%20Queens%20Park%2C%20Toronto%2C%20ON%20M5S%202C6%2C%20Canada!5e0!3m2!1sen!2sch!4v1792867006689!5m2!1sen!2sch"
-              width="100%"
-              height="420"
-              style={{ border: 0, display: 'block' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="Elite Roofing location map"
-            />
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="text-center pt-10 pb-6 px-8">
+              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
+                Where We Work
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
+                Proudly Serving Ontario
+              </h2>
+            </div>
 
-          <p className="text-center font-sans text-xs text-white/30 mt-5 tracking-wide">
-            Scroll or pinch to zoom &middot; Click to open in Google Maps
-          </p>
+            <div className="overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5770!2d-79.39488790894833!3d43.667738770083346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f12!3m3!1m2!1s0x882b34bb1c457495%3A0x4bf5c6bc31e2ce69!2s100%20Queens%20Park%2C%20Toronto%2C%20ON%20M5S%202C6%2C%20Canada!5e0!3m2!1sen!2sch!4v1792867006689!5m2!1sen!2sch"
+                width="100%"
+                height="420"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Elite Roofing location map"
+              />
+            </div>
+
+            <p className="text-center font-sans text-xs text-[#94a3b8] py-4 px-8 tracking-wide">
+              Scroll or pinch to zoom &middot; Click to open in Google Maps
+            </p>
+          </div>
         </div>
       </section>
     </>
