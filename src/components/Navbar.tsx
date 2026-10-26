@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
@@ -74,7 +75,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 group flex-shrink-0 mr-4">
               <div className="flex flex-col leading-none">
                 <span
                   className={[
@@ -84,12 +85,14 @@ export default function Navbar() {
                 >
                   ELITE
                 </span>
-                <span className="font-sans text-[10px] font-extrabold tracking-[0.4em] uppercase text-[#8a6928] -mt-0.5">
+                <span className="font-sans text-[10px] font-black tracking-[0.4em] uppercase text-[#c9a55a] -mt-0.5">
                   ROOFING
                 </span>
               </div>
               <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c9a55a] ml-1" />
+              <div className="relative w-6 h-6 ml-1 flex-shrink-0" style={{ mixBlendMode: 'multiply' }}>
+                <Image src="/er-logo.webp" alt="" fill sizes="24px" className="object-contain" />
+              </div>
             </Link>
 
             {/* Desktop Nav */}

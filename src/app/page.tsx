@@ -118,8 +118,8 @@ function HeroSection() {
 
           {/* Social proof + stats row */}
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 md:gap-10">
-            {/* Stars + photos */}
-            <div className="flex items-center gap-3">
+            {/* Stars + photos — links to testimonials */}
+            <Link href="/testimonials" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
               <div className="flex -space-x-2">
                 {[
                   'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
@@ -141,7 +141,7 @@ function HeroSection() {
                   <span className="text-white font-semibold">5.0</span> on Google
                 </span>
               </div>
-            </div>
+            </Link>
 
             {/* Divider */}
             <div className="hidden sm:block w-px h-8 bg-white/20" />
@@ -266,9 +266,9 @@ function StandardSection() {
           {/* Stats */}
           <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-white/10">
             {[
-              { value: '5.0', label: 'Google Rating' },
+              { value: '2,400+', label: 'Roofs Completed' },
               { value: '500+', label: 'Five-Star Reviews' },
-              { value: '20+', label: 'Years in Ontario' },
+              { value: '20+', label: 'Years in Business' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-stretch">
                 {i > 0 && <div className="hidden lg:block w-px bg-white/15 mr-14 self-stretch" />}
@@ -798,10 +798,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StandardSection />
       <ServicesSection />
       <ProcessSection />
       <ProjectsSection />
+      <StandardSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
 
 const exploreLinks = [
@@ -26,11 +27,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 — Company */}
           <div className="lg:col-span-1">
-            <div className="flex flex-col leading-none mb-6">
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
-              <span className="font-sans text-[10px] font-extrabold tracking-[0.4em] uppercase text-[#8a6928] mt-0.5">
-                ROOFING
-              </span>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="relative w-9 h-9 flex-shrink-0" style={{ mixBlendMode: 'multiply' }}>
+                <Image src="/er-logo.webp" alt="" fill sizes="36px" className="object-contain" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
+                <span className="font-sans text-[10px] font-black tracking-[0.4em] uppercase text-[#c9a55a] mt-0.5">
+                  ROOFING
+                </span>
+              </div>
             </div>
             <p className="font-sans text-sm text-white/50 leading-relaxed mb-6">
               Ontario&apos;s premier roofing specialist. Delivering master craftsmanship, premium
