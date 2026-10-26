@@ -15,7 +15,7 @@ const serviceLinks = [
   { href: '/services/gutter-systems', label: 'Gutter Systems' },
   { href: '/services/skylight-installation', label: 'Skylight Installation' },
   { href: '/services/roof-inspection', label: 'Roof Inspection' },
-  { href: '/services/emergency-roofing', label: 'Emergency Roofing' },
+  { href: '/services/metal-roofing', label: 'Metal Roofing' },
   { href: '/services/flat-roofing', label: 'Flat Roofing' },
   { href: '/services/multi-family-roofing', label: 'Multi-Family Roofing' },
   { href: '/services/roof-replacement', label: 'Roof Replacement' },

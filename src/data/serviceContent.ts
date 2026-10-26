@@ -322,41 +322,41 @@ const serviceContent: Record<string, ServicePageContent> = {
     ],
   },
 
-  'emergency-roofing': {
-    slug: 'emergency-roofing',
-    heroImage: 'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=1400&h=800&fit=crop&auto=format',
+  'metal-roofing': {
+    slug: 'metal-roofing',
+    heroImage: '/service-metal-roofing.webp',
     galleryImages: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
-      'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'When every minute matters, we answer.',
+    tagline: 'Built to last 50+ years. The last roof you\'ll ever need.',
     highlights: [
-      '24/7 emergency dispatch — real people, not voicemail',
-      'On-site within 4 hours for active emergencies',
-      'Fully equipped emergency vehicles on standby',
-      'Insurance documentation completed on-site',
+      'Standing-seam and metal shingle systems available',
+      'Steel, aluminum, and copper — we install them all',
+      '50-year finish warranty on premium systems',
+      'Engineered for Ontario freeze-thaw and heavy snow loads',
     ],
     faqs: [
       {
-        question: 'What counts as a roofing emergency?',
-        answer: 'Any situation where your roof is actively allowing water into the structure, where structural members are exposed or compromised, or where safety is at risk counts as an emergency. This includes active leaks during rainstorms, wind damage that has lifted or removed roofing material, fallen trees or branches that have penetrated the roof, and ice dam overflow causing interior water damage.',
+        question: 'How long does a metal roof last?',
+        answer: 'A properly installed metal roof typically lasts 40 to 70 years depending on the material — steel and aluminum systems commonly exceed 50 years, while copper roofs can last over a century. This compares favourably to asphalt shingles, which average 20 to 30 years in Ontario\'s climate. Most premium metal roofing products carry a 50-year paint and finish warranty.',
       },
       {
-        question: 'How quickly can you respond to an emergency call?',
-        answer: 'For active emergencies within our primary service area (Greater Toronto, Hamilton, and surrounding Ontario communities), our target response time is 4 hours or less, 7 days a week, 24 hours a day. We maintain a dedicated emergency dispatch line and always have crews available for same-day deployment. Call (905) 555-0198 for immediate dispatch.',
+        question: 'Is metal roofing noisy in the rain?',
+        answer: 'When installed over a solid roof deck with proper insulation and underlayment — which is our standard installation method — metal roofing is no louder than asphalt shingles. The solid decking and insulation layers absorb sound effectively. Many homeowners report that their home is actually quieter after switching to metal.',
       },
       {
-        question: 'What happens after the emergency is stabilized?',
-        answer: 'Once your property is secured and further damage is stopped, we conduct a full damage assessment and provide a written permanent repair or replacement proposal. For insurance claims, we complete all required documentation on-site. Most emergency temporary repairs are converted to permanent solutions within 1–2 weeks, depending on material availability and weather.',
+        question: 'What metal roofing systems do you install?',
+        answer: 'We install the full range of metal roofing systems: concealed-fastener standing-seam panels, exposed-fastener corrugated panels, stone-coated metal shingles, and custom copper roofing. We work with steel, aluminum, and copper substrates and offer a wide range of profiles and finishes to match any architectural style.',
       },
       {
-        question: 'Does emergency roofing cost more?',
-        answer: 'After-hours and weekend emergency service does carry a premium for dispatch and crew availability. However, the cost of a timely emergency response is almost always a fraction of the interior damage — flooring, drywall, insulation, personal property — that accumulates with every hour of uncontrolled water intrusion. We provide upfront pricing before any work begins.',
+        question: 'Can metal roofing be installed over my existing shingles?',
+        answer: 'In many cases, yes — metal roofing can be installed over one existing layer of asphalt shingles, which avoids the cost and mess of a full tear-off. However, we always inspect the deck condition first. If there is moisture damage, soft spots, or structural concerns, a full tear-off is required to ensure the new roof performs correctly and the warranty remains valid.',
       },
       {
-        question: 'Will my insurance cover emergency roofing services?',
-        answer: 'In most cases, yes — if the damage was caused by a sudden covered peril (storm, wind, hail, fallen tree). Emergency tarping and temporary protection measures are typically covered under the same claim as the permanent repair. We provide all required documentation, including photographs, material invoices, and a written damage narrative suitable for insurance submission.',
+        question: 'How does metal roofing perform in Ontario winters?',
+        answer: 'Metal roofing is exceptionally well-suited to Ontario\'s climate. The slick surface sheds snow naturally, reducing ice dam formation and structural snow load. It is not susceptible to freeze-thaw cracking the way asphalt shingles are, and it will not curl, blister, or granule-shed over its lifespan. We select materials and profiles specifically rated for high snow-load regions.',
       },
     ],
   },
