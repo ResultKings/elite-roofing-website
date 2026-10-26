@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Star, Phone, ChevronDown, ChevronRight } from 'lucide-react'
+import { ArrowRight, Star, Phone, ChevronDown, ChevronRight, Shield, Users, BadgeCheck, Award } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { services, testimonials, projects } from '@/data/mockData'
 
@@ -72,12 +72,10 @@ function Stagger({
 // â"€â"€â"€ Hero â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const credentialItems = [
-  { label: 'GAF Master Elite Certified' },
-  { label: 'Licensed in Ontario' },
-  { label: '$5M Liability Insurance' },
-  { label: 'WSIB Covered' },
-  { label: '10-Year Workmanship Warranty' },
-  { label: 'BBB Accredited Business' },
+  { label: 'Licensed in Ontario', Icon: Shield },
+  { label: '$5M Liability Insurance', Icon: BadgeCheck },
+  { label: 'WSIB Covered', Icon: Users },
+  { label: 'BBB Accredited Business', Icon: Award },
 ]
 
 function HeroSection() {
@@ -103,19 +101,19 @@ function HeroSection() {
 
           {/* Display heading */}
           <motion.h1 variants={fadeUp} className="mb-7 md:mb-8 leading-[0.9] tracking-[-0.02em]">
-            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#f0ece4]">
-              Trusted Roofing Company
+            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white">
+              Ontario Roofing Company
             </span>
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#c9a55a]">
-              Near Me ON
+              You Can Trust
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-sm md:text-base text-white/80 leading-relaxed mb-10 max-w-md"
+            className="font-sans text-base md:text-lg text-white leading-relaxed mb-10 max-w-lg"
           >
-            Professional roofing company and property service across Ontario. Licensed teams for residential roofs, apartments, Multifamily homes, offices, and more. Always completed with our guaranteed professional result.
+            Professional roofing company across Ontario. Licensed teams for residential, multifamily, and commercial roofing. Always completed with our guaranteed professional result.
           </motion.p>
 
           {/* Social proof + stats row */}
@@ -167,14 +165,14 @@ function HeroSection() {
       </div>
 
       {/* Credentials bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#080d14]/80 backdrop-blur-sm border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-3.5">
-          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            {credentialItems.map((item, i) => (
-              <div key={i} className="flex items-center gap-2 flex-shrink-0">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
-                <span className="font-sans text-[10px] font-semibold tracking-[0.18em] uppercase text-white/70 whitespace-nowrap">
-                  {item.label}
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#06090f] border-t border-white/8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
+          <div className="flex items-center justify-between gap-4">
+            {credentialItems.map(({ label, Icon }, i) => (
+              <div key={i} className="flex items-center gap-2.5 flex-1 justify-center">
+                <Icon className="w-4 h-4 text-white/50 flex-shrink-0" />
+                <span className="font-sans text-xs font-bold tracking-wide text-white whitespace-nowrap">
+                  {label}
                 </span>
               </div>
             ))}

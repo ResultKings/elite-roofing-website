@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -74,7 +75,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
               <div className="flex flex-col leading-none">
                 <span
                   className={[
@@ -84,12 +85,14 @@ export default function Navbar() {
                 >
                   ELITE
                 </span>
-                <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#8a6928] -mt-0.5">
+                <span className="font-sans text-[10px] font-extrabold tracking-[0.4em] uppercase text-[#8a6928] -mt-0.5">
                   ROOFING
                 </span>
               </div>
-              <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
-              <div className="w-1 h-1 rounded-full bg-[#c9a55a] ml-1" />
+              <div className="w-px h-8 bg-[#c9a55a]/40" />
+              <div className="relative w-9 h-9 flex-shrink-0 bg-white rounded-sm overflow-hidden">
+                <Image src="/el-logo.webp" alt="Elite Roofing" fill sizes="36px" className="object-contain p-0.5" />
+              </div>
             </Link>
 
             {/* Desktop Nav */}
@@ -101,13 +104,13 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-[11px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                       isTransparent
-                        ? isActive ? 'text-[#c9a55a]' : 'text-white/80 hover:text-white'
-                        : isActive ? 'text-[#c9a55a]' : 'text-[#0f172a]/70 hover:text-[#0f172a]',
+                        ? isActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
+                        : isActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
                     ].join(' ')}
                   >
                     {link.label}
@@ -124,12 +127,12 @@ export default function Navbar() {
               >
                 <button
                   className={[
-                    'flex items-center gap-1 font-sans text-[11px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
+                    'flex items-center gap-1 font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
                     'relative after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
-                      ? isServicesActive ? 'text-[#c9a55a]' : 'text-white/80 hover:text-white'
-                      : isServicesActive ? 'text-[#c9a55a]' : 'text-[#0f172a]/70 hover:text-[#0f172a]',
+                      ? isServicesActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
+                      : isServicesActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
                   ].join(' ')}
                 >
                   Services
@@ -171,7 +174,7 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className={[
                   'flex items-center gap-2 font-sans text-xs font-medium transition-colors duration-300',
-                  isTransparent ? 'text-white/70 hover:text-white' : 'text-[#0f172a]/60 hover:text-[#c9a55a]',
+                  isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
                 <Phone className="w-3.5 h-3.5" />
