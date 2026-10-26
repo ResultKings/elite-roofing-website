@@ -28,8 +28,8 @@ export default function Footer() {
           {/* Column 1 — Company */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-8 h-8 flex-shrink-0 bg-white rounded-sm p-0.5">
-                <Image src="/er-logo.webp" alt="" fill sizes="32px" className="object-contain" />
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image src="/er-logo.png" alt="" fill sizes="40px" className="object-contain" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>

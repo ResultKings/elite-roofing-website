@@ -223,11 +223,14 @@ export default function ContactPage() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#e7e5e4]">
             <div className="text-center pt-10 pb-6 px-8">
               <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
-                Our Company Office
+                Our Office Location
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-                Located In Greater Toronto Area
+                Based in Vaughan, Serving All of Ontario
               </h2>
+              <p className="font-sans text-sm text-[#64748b] mt-3">
+                216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
+              </p>
             </div>
 
             <div className="overflow-hidden">
