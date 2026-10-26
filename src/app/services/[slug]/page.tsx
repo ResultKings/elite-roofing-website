@@ -158,9 +158,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Overview + Highlights */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
               <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-4 block">
                 Overview
@@ -205,7 +205,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* Gallery */}
       {content.galleryImages.length > 0 && (
-        <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+        <section className="py-10 md:py-12 lg:py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {content.galleryImages.map((img, i) => (
@@ -225,9 +225,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       )}
 
       {/* FAQ */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 lg:mb-12">
             <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-4 block">
               Questions & Answers
             </span>
@@ -240,7 +240,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Other services */}
-      <section className="py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+      <section className="py-12 md:py-14 lg:py-16 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-serif text-2xl font-bold text-[#0f172a]">Other Services</h2>
@@ -282,12 +282,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <span className="font-sans text-[12px] font-medium tracking-[0.3em] uppercase text-[#c9a55a] mb-5 block">
             Get Started
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
+          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
             Ready to Discuss Your {service.title} Project?
           </h2>
           <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">

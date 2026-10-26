@@ -63,7 +63,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="relative pt-40 pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-14 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/contact-hero-bg.jpg"
@@ -97,7 +97,7 @@ export default function ContactPage() {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-serif text-5xl md:text-6xl font-bold text-white mb-5 leading-tight"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight"
             >
               Let&apos;s Talk About
               <br />
@@ -112,7 +112,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
 
@@ -218,7 +218,7 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Service Area Map */}
-      <section id="service-area" className="relative py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
+      <section id="service-area" className="relative py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/toronto-skyline.webp"

@@ -217,8 +217,8 @@ function StandardSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      <div className="relative z-10 pl-12 md:pl-16 lg:pl-24 py-16 md:py-20 w-full">
-        <FadeIn className="max-w-[40%]">
+      <div className="relative z-10 pl-4 md:pl-12 lg:pl-24 pr-4 md:pr-8 lg:pr-0 py-16 md:py-20 w-full">
+        <FadeIn className="max-w-full lg:max-w-[45%]">
           <p className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
             The Standard
           </p>
@@ -234,14 +234,14 @@ function StandardSection() {
           </p>
 
           {/* Stats */}
-          <div className="flex items-start gap-14 pt-7 border-t border-white/10">
+          <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-white/10">
             {[
               { value: '5.0', label: 'Google Rating' },
               { value: '500+', label: 'Five-Star Reviews' },
               { value: '20+', label: 'Years in Ontario' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-stretch">
-                {i > 0 && <div className="w-px bg-white/15 mr-14 self-stretch" />}
+                {i > 0 && <div className="hidden lg:block w-px bg-white/15 mr-14 self-stretch" />}
                 <div>
                   <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#c9a55a] leading-none mb-2">
                     {stat.value}
@@ -264,7 +264,7 @@ function StandardSection() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
+    <section id="services" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
@@ -272,7 +272,7 @@ function ServicesSection() {
               <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 What We Do
               </span>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a]">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
                 Our Roofing Services<br />in Ontario
               </h2>
             </div>
@@ -348,7 +348,7 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="relative px-6 md:px-8 lg:px-16 overflow-hidden py-32">
+    <section className="relative px-4 md:px-8 lg:px-16 overflow-hidden py-20 md:py-28 lg:py-32">
       <div className="absolute inset-0">
         <Image
           src="/process-bg.webp"
@@ -364,7 +364,7 @@ function ProcessSection() {
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mt-3">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3">
             Simple. Transparent. Reliable.
           </h2>
         </FadeIn>
@@ -394,18 +394,18 @@ function ProjectsSection() {
   const featured = projects.filter(p => p.featured).slice(0, 3)
 
   return (
-    <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
-        <FadeIn className="mb-14">
+        <FadeIn className="mb-10 lg:mb-14">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Recent Work
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
             Featured Projects
           </h2>
         </FadeIn>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map(project => (
             <motion.div key={project.id} variants={fadeUp} className="group">
               <div className="relative overflow-hidden aspect-[4/3] bg-[#0f172a] mb-5">
@@ -524,13 +524,13 @@ function TestimonialsSection() {
   const [showMore, setShowMore] = useState(false)
 
   return (
-    <section className="py-24 px-6 md:px-8 lg:px-16 bg-[#fafaf9]">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-10">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Client Stories
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
             What Our Clients Say
           </h2>
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -555,7 +555,7 @@ function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.slice(0, 3).map(t => (
             <motion.div key={t.id} variants={fadeUp}>
               <TestimonialCard t={t} />
@@ -583,7 +583,7 @@ function TestimonialsSection() {
               exit={{ height: 0, opacity: 0, transition: { duration: 0 } }}
               className="overflow-hidden"
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
                 {extraTestimonials.map(t => (
                   <TestimonialCard key={t.id} t={t} />
                 ))}
@@ -631,13 +631,13 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-24 px-6 md:px-8 lg:px-16 bg-white">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
-        <FadeIn className="text-center mb-14">
+        <FadeIn className="text-center mb-10 lg:mb-14">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Common Questions
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-5">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
             Frequently Asked
           </h2>
         </FadeIn>
@@ -712,7 +712,7 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative py-28 px-6 md:px-8 lg:px-16 overflow-hidden">
+    <section className="relative py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=800&fit=crop&q=80&auto=format"
@@ -729,7 +729,7 @@ function CTASection() {
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
             Start Today
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Protect Your Investment?
           </h2>
           <p className="font-sans text-base text-white/50 leading-relaxed mb-10">
