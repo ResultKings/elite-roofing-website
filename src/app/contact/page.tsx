@@ -218,20 +218,9 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Service Area Map */}
-      <section id="service-area" className="relative py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/toronto-skyline.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#0f172a]/65" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <section id="service-area" className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#e7e5e4]">
             <div className="text-center pt-10 pb-6 px-8">
               <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
                 Our Company Office
@@ -243,7 +232,7 @@ export default function ContactPage() {
 
             <div className="overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11516!2d-79.49259152263986!3d43.8114977421766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f11.5!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793028076018!5m2!1sen!2sch"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1381433328875!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
                 width="100%"
                 height="420"
                 style={{ border: 0, display: 'block' }}

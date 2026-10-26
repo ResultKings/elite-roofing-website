@@ -90,8 +90,8 @@ export default function Navbar() {
                 </span>
               </div>
               <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
-              <div className="relative w-6 h-6 ml-1 flex-shrink-0" style={{ mixBlendMode: 'multiply' }}>
-                <Image src="/er-logo.webp" alt="" fill sizes="24px" className="object-contain" />
+              <div className="relative w-8 h-8 ml-1 flex-shrink-0 bg-white rounded-sm p-0.5">
+                <Image src="/er-logo.webp" alt="" fill sizes="32px" className="object-contain" />
               </div>
             </Link>
 
