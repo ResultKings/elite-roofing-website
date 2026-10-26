@@ -1,7 +1,6 @@
 ﻿'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -75,7 +74,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
               <div className="flex flex-col leading-none">
                 <span
                   className={[
@@ -89,14 +88,12 @@ export default function Navbar() {
                   ROOFING
                 </span>
               </div>
-              <div className="w-px h-8 bg-[#c9a55a]/40" />
-              <div className="relative w-9 h-9 flex-shrink-0 bg-white rounded-sm overflow-hidden">
-                <Image src="/el-logo.webp" alt="Elite Roofing" fill sizes="36px" className="object-contain p-0.5" />
-              </div>
+              <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#c9a55a] ml-1" />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-9">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -169,7 +166,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-6 xl:ml-10">
               <a
                 href="tel:+19055550198"
                 className={[

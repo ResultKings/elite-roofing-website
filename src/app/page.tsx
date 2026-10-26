@@ -165,8 +165,8 @@ function HeroSection() {
       </div>
 
       {/* Credentials bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#06090f] border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#06090f]/70 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-5">
           <div className="flex items-center justify-between gap-4">
             {credentialItems.map(({ label, Icon }, i) => (
               <div key={i} className="flex items-center gap-2.5 flex-1 justify-center">
