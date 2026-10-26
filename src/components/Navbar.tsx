@@ -23,7 +23,10 @@ const serviceLinks = [
 
 const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
   { href: '/projects', label: 'Projects' },
+  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/testimonials', label: 'Testimonials' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -71,7 +74,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
               <div className="flex flex-col leading-none">
                 <span
                   className={[
@@ -90,7 +93,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -98,7 +101,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300',
+                      'relative font-sans text-[11px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -121,7 +124,7 @@ export default function Navbar() {
               >
                 <button
                   className={[
-                    'flex items-center gap-1 font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300',
+                    'flex items-center gap-1 font-sans text-[11px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
                     'relative after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
@@ -163,7 +166,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <a
                 href="tel:+19055550198"
                 className={[
@@ -176,7 +179,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2.5 bg-[#c9a55a] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full"
+                className="inline-flex items-center px-5 py-2.5 bg-[#c9a55a] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full whitespace-nowrap"
               >
                 Free Inspection
               </Link>
@@ -187,7 +190,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               className={[
-                'md:hidden p-2 transition-colors duration-300',
+                'lg:hidden p-2 transition-colors duration-300',
                 isTransparent ? 'text-white' : 'text-[#0f172a]',
               ].join(' ')}
             >
@@ -277,7 +280,7 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.35 }}
+              transition={{ delay: 0.4 }}
               className="mt-10 flex flex-col gap-4"
             >
               <a

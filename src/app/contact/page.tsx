@@ -52,7 +52,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: 'Office',
-    value: '100 Queens Park, Toronto, ON M5S 2C6',
+    value: '216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6',
     href: 'https://maps.google.com',
     note: 'Serving the Greater Toronto Area',
   },

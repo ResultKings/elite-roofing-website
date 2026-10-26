@@ -2,20 +2,20 @@ import React from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
 
-const serviceLinks = [
-  { href: '/services/residential-roofing', label: 'Residential Roofing' },
-  { href: '/services/commercial-roofing', label: 'Commercial Roofing' },
-  { href: '/services/roof-repair', label: 'Roof Repair' },
-  { href: '/services/storm-damage-restoration', label: 'Storm Damage' },
-  { href: '/services/gutter-systems', label: 'Gutter Systems' },
-  { href: '/services/skylight-installation', label: 'Skylights' },
+const exploreLinks = [
+  { href: '/about', label: 'About Us' },
+  { href: '/#services', label: 'Our Services' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 const quickLinks = [
   { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Our Projects' },
   { href: '/contact', label: 'Get Free Inspection' },
-  { href: '/contact#service-area', label: 'Service Area' },
+  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/contact#service-area', label: 'Office Location' },
 ]
 
 export default function Footer() {
@@ -24,7 +24,7 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 â€" Company */}
+          {/* Column 1 — Company */}
           <div className="lg:col-span-1">
             <div className="flex flex-col leading-none mb-6">
               <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
@@ -67,13 +67,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 â€" Services */}
+          {/* Column 2 — Explore */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
-              Our Services
+              Explore
             </h3>
             <ul className="space-y-3">
-              {serviceLinks.map((link) => (
+              {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -87,7 +87,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 â€" Quick Links */}
+          {/* Column 3 — Quick Links */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Quick Links
@@ -105,10 +105,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
           </div>
 
-          {/* Column 4 â€" Contact */}
+          {/* Column 4 — Contact */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Contact Us
@@ -117,9 +116,9 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
                 <span className="font-sans text-sm text-white/50 leading-relaxed">
-                  100 Queens Park, Toronto, ON
+                  216 Rivermede Rd Unit 7, Vaughan,
                   <br />
-                  M5S 2C6, Canada
+                  ON L4K 3M6, Canada
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -194,4 +193,3 @@ export default function Footer() {
     </footer>
   )
 }
-
