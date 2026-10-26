@@ -233,17 +233,17 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="text-center pt-10 pb-6 px-8">
-              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
-                Where We Work
+              <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
+                Our Company Office
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-                Proudly Serving Ontario
+                Located In Greater Toronto Area
               </h2>
             </div>
 
             <div className="overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5770!2d-79.39488790894833!3d43.667738770083346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f12!3m3!1m2!1s0x882b34bb1c457495%3A0x4bf5c6bc31e2ce69!2s100%20Queens%20Park%2C%20Toronto%2C%20ON%20M5S%202C6%2C%20Canada!5e0!3m2!1sen!2sch!4v1792867006689!5m2!1sen!2sch"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1379581100286!2d-79.49259152263986!3d43.8114977421766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793028076018!5m2!1sen!2sch"
                 width="100%"
                 height="420"
                 style={{ border: 0, display: 'block' }}
