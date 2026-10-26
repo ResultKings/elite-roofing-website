@@ -243,7 +243,7 @@ export default function ContactPage() {
 
             <div className="overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1379581100286!2d-79.49259152263986!3d43.8114977421766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793028076018!5m2!1sen!2sch"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11516!2d-79.49259152263986!3d43.8114977421766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f11.5!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793028076018!5m2!1sen!2sch"
                 width="100%"
                 height="420"
                 style={{ border: 0, display: 'block' }}
