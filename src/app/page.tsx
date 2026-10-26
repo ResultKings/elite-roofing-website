@@ -71,6 +71,15 @@ function Stagger({
 
 // â"€â"€â"€ Hero â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
+const credentialItems = [
+  { label: 'GAF Master Elite Certified' },
+  { label: 'Licensed in Ontario' },
+  { label: '$5M Liability Insurance' },
+  { label: 'WSIB Covered' },
+  { label: '10-Year Workmanship Warranty' },
+  { label: 'BBB Accredited Business' },
+]
+
 function HeroSection() {
   return (
     <section className="relative h-screen flex flex-col overflow-hidden bg-[#080d14]">
@@ -85,68 +94,91 @@ function HeroSection() {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/60 via-transparent to-transparent" />
+      {/* Slight overall tint + gradient */}
+      <div className="absolute inset-0 bg-[#080d14]/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/75 via-transparent to-transparent" />
 
-      <div className="relative z-10 flex-1 pl-12 md:pl-16 lg:pl-24 w-full pt-28 md:pt-32 flex flex-col justify-center">
+      <div className="relative z-10 flex-1 pl-12 md:pl-24 lg:pl-40 w-full pt-28 md:pt-32 flex flex-col justify-center pb-24">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.1)}>
-          {/* Social proof row */}
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6 md:mb-8">
-            <div className="flex -space-x-2">
-              {[
-                'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
-              ].map((src, i) => (
-                <div key={i} className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-[#080d14] flex-shrink-0">
-                  <Image src={src} alt="Client" fill sizes="32px" className="object-cover" />
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
-                ))}
-              </div>
-              <span className="font-sans text-xs text-white/70">
-                <span className="text-white font-semibold">5.0</span> on Google &middot; 500+ reviews
-              </span>
-            </div>
-          </motion.div>
 
           {/* Display heading */}
-          <motion.h1 variants={fadeUp} className="mb-8 md:mb-10 leading-[0.9] tracking-[-0.02em]">
+          <motion.h1 variants={fadeUp} className="mb-7 md:mb-8 leading-[0.9] tracking-[-0.02em]">
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#f0ece4]">
-              Master Craftsmanship.
+              Trusted Roofing Company
             </span>
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#c9a55a]">
-              Premium Results.
+              Near Me ON
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-base md:text-lg text-white leading-relaxed mb-8 max-w-sm"
+            className="font-sans text-sm md:text-base text-white/80 leading-relaxed mb-10 max-w-md"
           >
-            Exceptional skill and premium materials to every project across Ontario.
+            Professional roofing company and property service across Ontario. Licensed teams for residential roofs, apartments, Multifamily homes, offices, and more. Always completed with our guaranteed professional result.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
-            <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-              Get Free Inspection
-            </Button>
-            <Button href="/projects" variant="outline" size="lg">
-              View Our Work
-            </Button>
+          {/* Social proof + stats row */}
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 md:gap-10">
+            {/* Stars + photos */}
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {[
+                  'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
+                  'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
+                  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
+                ].map((src, i) => (
+                  <div key={i} className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-[#080d14] flex-shrink-0">
+                    <Image src={src} alt="Client" fill sizes="32px" className="object-cover" />
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex gap-0.5 mb-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
+                  ))}
+                </div>
+                <span className="font-sans text-xs text-white/70">
+                  <span className="text-white font-semibold">5.0</span> on Google
+                </span>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-8 bg-white/20" />
+
+            {/* Stat 1 */}
+            <div>
+              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-[#c9a55a] leading-none">2,400+</div>
+              <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-8 bg-white/20" />
+
+            {/* Stat 2 */}
+            <div>
+              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-[#c9a55a] leading-none">20+</div>
+              <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="relative z-10 pr-8 md:pr-12 py-4 flex justify-end">
-        <div className="flex items-center gap-3">
-          <span className="font-sans text-[9px] tracking-[0.35em] uppercase text-white">Scroll</span>
-          <div className="w-px h-3.5 bg-white/50" />
+      {/* Credentials bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#080d14]/80 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-3.5">
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            {credentialItems.map((item, i) => (
+              <div key={i} className="flex items-center gap-2 flex-shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
+                <span className="font-sans text-[10px] font-semibold tracking-[0.18em] uppercase text-white/70 whitespace-nowrap">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -768,7 +800,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TickerBanner />
       <StandardSection />
       <ServicesSection />
       <ProcessSection />
