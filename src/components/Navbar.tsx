@@ -182,7 +182,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 bg-[#c9a55a] text-[#0f172a] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full whitespace-nowrap"
+                className="inline-flex items-center px-5 py-2.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
               >
                 Free Inspection
               </Link>
@@ -295,7 +295,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#c9a55a] text-[#0f172a] font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors rounded-full"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors rounded-full"
               >
                 Get Free Inspection
               </Link>
