@@ -66,8 +66,8 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative pt-28 md:pt-36 lg:pt-40 pb-14 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/contact-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0f172a]/82" />
+          <Image src="/about-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
+          <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
         <div
           className="absolute inset-0 opacity-5"
@@ -92,20 +92,6 @@ export default function AboutPage() {
               For over two decades, Elite Roofing has protected homes and businesses across the Greater Toronto Area with master craftsmanship, premium materials, and an unwavering commitment to quality.
             </motion.p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-12 md:py-14 lg:py-16 px-4 md:px-8 lg:px-16 bg-[#c9a55a]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
-              <FadeIn key={stat.label} delay={i * 0.08} className="text-center">
-                <p className="font-serif text-4xl md:text-5xl font-bold text-white mb-1">{stat.value}</p>
-                <p className="font-sans text-xs text-white/70 tracking-wide uppercase">{stat.label}</p>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -139,16 +125,12 @@ export default function AboutPage() {
             <FadeIn delay={0.15} className="relative">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#0f172a]">
                 <Image
-                  src="/roofing-hero.jpg"
+                  src="/about-crew.avif"
                   alt="Elite Roofing team at work"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover opacity-90"
                 />
-              </div>
-              <div className="absolute -bottom-5 -left-5 bg-[#c9a55a] p-5 shadow-xl hidden lg:block">
-                <p className="font-serif text-3xl font-bold text-white">20+</p>
-                <p className="font-sans text-[10px] text-white/80 tracking-wider uppercase mt-0.5">Years Protecting Ontario</p>
               </div>
             </FadeIn>
           </div>
