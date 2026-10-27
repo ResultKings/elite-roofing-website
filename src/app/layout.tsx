@@ -24,8 +24,12 @@ const barlow = Barlow({
   display: 'swap',
 })
 
+const siteUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.eliteroofingon.ca'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.eliteroofingon.ca'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Elite Roofing | Premium Roofing Solutions in Ontario',
     template: '%s | Elite Roofing Ontario',
@@ -56,8 +60,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        width: 1920,
+        height: 1008,
         alt: 'Elite Roofing: Premium Roofing Solutions in Ontario',
       },
     ],
