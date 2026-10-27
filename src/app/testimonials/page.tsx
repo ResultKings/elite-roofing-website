@@ -279,8 +279,8 @@ export default function TestimonialsPage() {
       {/* Hero */}
       <section className="relative pt-28 md:pt-36 lg:pt-40 pb-14 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/contact-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0f172a]/82" />
+          <Image src="/testimonials-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
+          <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
         <div
           className="absolute inset-0 opacity-5"
