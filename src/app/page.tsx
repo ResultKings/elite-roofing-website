@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
@@ -422,23 +422,20 @@ function ProcessSection() {
 
 function ProjectsSection() {
   const showcaseProjects = projects.slice(0, 5)
+  const total = showcaseProjects.length
+  const visible = 3
   const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState(0)
 
-  const goTo = (index: number) => {
-    setDirection(index > current ? 1 : -1)
-    setCurrent(index)
-  }
-  const prev = () => goTo(((current - 1) + showcaseProjects.length) % showcaseProjects.length)
-  const next = () => goTo((current + 1) % showcaseProjects.length)
+  // startIndex: which card is leftmost, clamped so we always show 3
+  const startIndex = Math.max(0, Math.min(current - 1, total - visible))
 
-  const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const } },
-    exit: (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0, transition: { duration: 0.4 } }),
-  }
+  useEffect(() => {
+    const id = setInterval(() => setCurrent(i => (i + 1) % total), 4000)
+    return () => clearInterval(id)
+  }, [total])
 
-  const p = showcaseProjects[current]
+  const prev = () => setCurrent(i => ((i - 1) + total) % total)
+  const next = () => setCurrent(i => (i + 1) % total)
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
@@ -452,7 +449,7 @@ function ProjectsSection() {
         </FadeIn>
       </div>
 
-      <div className="flex items-center gap-2 md:gap-4 px-2 md:px-6 lg:px-10">
+      <div className="flex items-center gap-3 md:gap-5 px-2 md:px-6 lg:px-10">
         <button
           onClick={prev}
           aria-label="Previous project"
@@ -462,37 +459,41 @@ function ProjectsSection() {
         </button>
 
         <div className="flex-1 min-w-0 overflow-hidden">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-            >
-              <div className="relative aspect-[16/9] md:aspect-[21/9] bg-[#0f172a] overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 90vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                    {p.category}
-                  </span>
+          <motion.div
+            className="flex"
+            style={{ width: `${total * 100 / visible}%` }}
+            animate={{ x: `-${startIndex * (100 / total)}%` }}
+            transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            {showcaseProjects.map((p) => (
+              <div
+                key={p.id}
+                style={{ width: `${100 / total}%` }}
+                className="flex-shrink-0 px-2"
+              >
+                <div className="overflow-hidden bg-white border border-[#e7e5e4] shadow-sm hover:shadow-lg transition-shadow duration-300">
+                  <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
+                        {p.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 border-t border-[#e7e5e4]">
+                    <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{p.title}</h3>
+                    <p className="font-sans text-xs text-[#94a3b8]">{p.location} &middot; {p.year}</p>
+                  </div>
                 </div>
               </div>
-              <div className="mt-5 px-1 md:px-0">
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-[#0f172a] mb-1">{p.title}</h3>
-                <p className="font-sans text-xs text-[#94a3b8] mb-2">{p.location} &middot; {p.year}</p>
-                <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-2xl">{p.description}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </motion.div>
         </div>
 
         <button
@@ -509,7 +510,7 @@ function ProjectsSection() {
           {showcaseProjects.map((_, i) => (
             <button
               key={i}
-              onClick={() => goTo(i)}
+              onClick={() => setCurrent(i)}
               aria-label={`Go to project ${i + 1}`}
               className={[
                 'rounded-full transition-all duration-300',
@@ -522,7 +523,7 @@ function ProjectsSection() {
         </div>
 
         <FadeIn className="flex justify-center mt-8">
-          <Button href="/projects" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button href="/projects" variant="primary" size="md" icon={<ArrowRight className="w-4 h-4" />}>
             View All Projects
           </Button>
         </FadeIn>
