@@ -421,21 +421,50 @@ function ProcessSection() {
 // â"€â"€â"€ Featured Projects â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ProjectsSection() {
-  const showcaseProjects = projects.slice(0, 5)
-  const total = showcaseProjects.length
-  const visible = 3
-  const [current, setCurrent] = useState(0)
+  const base = projects.slice(0, 5)
+  const VISIBLE = 3
+  // Append clones of first VISIBLE items so wrapping never animates rightward
+  const looped = [...base, ...base.slice(0, VISIBLE)]
+  const TOTAL = looped.length // 8
 
-  // startIndex: which card is leftmost, clamped so we always show 3
-  const startIndex = Math.max(0, Math.min(current - 1, total - visible))
+  const [pos, setPos] = useState(0)
+  const [instant, setInstant] = useState(false)
+  const snapRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  const dotActive = pos % base.length
+
+  // When pos reaches base.length (5), those slots show the same content as 0 —
+  // snap back to 0 instantly so the next advance always scrolls left.
   useEffect(() => {
-    const id = setInterval(() => setCurrent(i => (i + 1) % total), 4000)
-    return () => clearInterval(id)
-  }, [total])
+    if (pos === base.length) {
+      snapRef.current = setTimeout(() => {
+        setInstant(true)
+        setPos(0)
+        requestAnimationFrame(() => requestAnimationFrame(() => setInstant(false)))
+      }, 580)
+    }
+    return () => { if (snapRef.current) clearTimeout(snapRef.current) }
+  }, [pos, base.length])
 
-  const prev = () => setCurrent(i => ((i - 1) + total) % total)
-  const next = () => setCurrent(i => (i + 1) % total)
+  // Auto-advance: guard against advancing past the clone zone
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPos(p => (p >= base.length ? p : p + 1))
+    }, 4200)
+    return () => clearInterval(id)
+  }, [base.length])
+
+  const prev = () => {
+    if (snapRef.current) clearTimeout(snapRef.current)
+    setInstant(false)
+    setPos(p => Math.max(0, p >= base.length ? base.length - 1 : p - 1))
+  }
+
+  const next = () => {
+    if (snapRef.current) clearTimeout(snapRef.current)
+    setInstant(false)
+    setPos(p => (p >= base.length ? p : p + 1))
+  }
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
@@ -461,14 +490,14 @@ function ProjectsSection() {
         <div className="flex-1 min-w-0 overflow-hidden">
           <motion.div
             className="flex"
-            style={{ width: `${total * 100 / visible}%` }}
-            animate={{ x: `-${startIndex * (100 / total)}%` }}
-            transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
+            animate={{ x: `-${pos * (100 / TOTAL)}%` }}
+            transition={instant ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
-            {showcaseProjects.map((p) => (
+            {looped.map((p, i) => (
               <div
-                key={p.id}
-                style={{ width: `${100 / total}%` }}
+                key={`${p.id}-${i}`}
+                style={{ width: `${100 / TOTAL}%` }}
                 className="flex-shrink-0 px-2"
               >
                 <div className="overflow-hidden bg-white border border-[#e7e5e4] shadow-sm hover:shadow-lg transition-shadow duration-300">
@@ -507,14 +536,18 @@ function ProjectsSection() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex justify-center items-center gap-2 mt-8">
-          {showcaseProjects.map((_, i) => (
+          {base.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
+              onClick={() => {
+                if (snapRef.current) clearTimeout(snapRef.current)
+                setInstant(false)
+                setPos(i)
+              }}
               aria-label={`Go to project ${i + 1}`}
               className={[
                 'rounded-full transition-all duration-300',
-                i === current
+                i === dotActive
                   ? 'w-6 h-2.5 bg-[#c9a55a]'
                   : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#c9a55a]/50',
               ].join(' ')}
