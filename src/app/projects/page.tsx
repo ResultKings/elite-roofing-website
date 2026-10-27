@@ -162,25 +162,43 @@ export default function ProjectsPage() {
   const filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory)
 
   return (
-    <main className="pt-28 pb-24 bg-[#fafaf9]">
-      {/* Header */}
-      <section className="px-6 md:px-8 lg:px-16 mb-14">
+    <>
+      {/* Hero Banner */}
+      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-14 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/projects-hero-bg.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" />
+          <div className="absolute inset-0 bg-[#0f172a]/80" />
+        </div>
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
+            backgroundSize: '12px 12px',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
+            <motion.div variants={fadeUp} className="mb-5">
+              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+                Portfolio
+              </span>
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+              Our Work
+            </motion.h1>
+            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-xl leading-relaxed">
+              Every project reflects the same commitment to precision, premium materials, and lasting protection for Ontario homes and businesses.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+    <main className="pb-24 bg-[#fafaf9]">
+      {/* Filter */}
+      <section className="px-6 md:px-8 lg:px-16 pt-10 mb-10">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-              Portfolio
-            </span>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-4 leading-[1.05]">
-                  Our Work
-                </h1>
-                <p className="font-sans text-base text-[#64748b] leading-relaxed max-w-lg">
-                  Every project reflects the same commitment to precision, premium materials, and lasting protection for Ontario homes and businesses.
-                </p>
-              </div>
-
-              {/* Filter */}
+            <div className="flex justify-end">
               <div className="flex items-center bg-white border border-[#e7e5e4] p-1">
                 {categories.map(cat => (
                   <button
@@ -251,6 +269,7 @@ export default function ProjectsPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }
 

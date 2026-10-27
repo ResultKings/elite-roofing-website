@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Star, Phone, ChevronDown, ChevronRight, Shield, Users, BadgeCheck, Award } from 'lucide-react'
+import { ArrowRight, Star, Phone, ChevronDown, ChevronLeft, ChevronRight, Shield, Users, BadgeCheck, Award } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { services, testimonials, projects } from '@/data/mockData'
 
@@ -421,49 +421,107 @@ function ProcessSection() {
 // â"€â"€â"€ Featured Projects â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ProjectsSection() {
-  const featured = projects.filter(p => p.featured).slice(0, 3)
+  const showcaseProjects = projects.slice(0, 5)
+  const [current, setCurrent] = useState(0)
+  const [direction, setDirection] = useState(0)
+
+  const goTo = (index: number) => {
+    setDirection(index > current ? 1 : -1)
+    setCurrent(index)
+  }
+  const prev = () => goTo(((current - 1) + showcaseProjects.length) % showcaseProjects.length)
+  const next = () => goTo((current + 1) % showcaseProjects.length)
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+    exit: (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0, transition: { duration: 0.4 } }),
+  }
+
+  const p = showcaseProjects[current]
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <FadeIn className="mb-10 lg:mb-14">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-            Recent Work
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
-            Featured Projects
+    <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+        <FadeIn className="text-center mb-10 lg:mb-14">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
+            Explore our latest projects
+            <br />
+            for your inspiration
           </h2>
         </FadeIn>
+      </div>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featured.map(project => (
-            <motion.div key={project.id} variants={fadeUp} className="group">
-              <div className="relative overflow-hidden aspect-[4/3] bg-[#0f172a] mb-5">
+      <div className="flex items-center gap-2 md:gap-4 px-2 md:px-6 lg:px-10">
+        <button
+          onClick={prev}
+          aria-label="Previous project"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white border border-[#e7e5e4] shadow-sm hover:bg-[#c9a55a] hover:border-[#c9a55a] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <div className="flex-1 min-w-0 overflow-hidden">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={current}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+            >
+              <div className="relative aspect-[16/9] md:aspect-[21/9] bg-[#0f172a] overflow-hidden">
                 <Image
-                  src={project.image}
-                  alt={project.title}
+                  src={p.image}
+                  alt={p.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 90vw"
+                  className="object-cover"
+                  priority
                 />
-                <div className="absolute inset-0 bg-[#0f172a]/0 group-hover:bg-[#0f172a]/25 transition-colors duration-400" />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                    {project.category}
+                    {p.category}
                   </span>
                 </div>
               </div>
-              <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-1 group-hover:text-[#c9a55a] transition-colors duration-300">
-                {project.title}
-              </h3>
-              <p className="font-sans text-xs text-[#94a3b8]">
-                {project.location} &middot; {project.year}
-              </p>
+              <div className="mt-5 px-1 md:px-0">
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-[#0f172a] mb-1">{p.title}</h3>
+                <p className="font-sans text-xs text-[#94a3b8] mb-2">{p.location} &middot; {p.year}</p>
+                <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-2xl">{p.description}</p>
+              </div>
             </motion.div>
-          ))}
-        </Stagger>
+          </AnimatePresence>
+        </div>
 
-        <FadeIn className="flex justify-center mt-10">
+        <button
+          onClick={next}
+          aria-label="Next project"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white border border-[#e7e5e4] shadow-sm hover:bg-[#c9a55a] hover:border-[#c9a55a] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {showcaseProjects.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to project ${i + 1}`}
+              className={[
+                'rounded-full transition-all duration-300',
+                i === current
+                  ? 'w-6 h-2.5 bg-[#c9a55a]'
+                  : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#c9a55a]/50',
+              ].join(' ')}
+            />
+          ))}
+        </div>
+
+        <FadeIn className="flex justify-center mt-8">
           <Button href="/projects" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
             View All Projects
           </Button>
