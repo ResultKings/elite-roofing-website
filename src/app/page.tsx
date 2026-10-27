@@ -834,19 +834,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=800&fit=crop&q=80&auto=format"
-          alt="Elite roofing work"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-[#0f172a]/90" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
+      <div className="max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
           <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
             Start Today
