@@ -69,13 +69,6 @@ export default function AboutPage() {
           <Image src="/about-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
           <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
-            backgroundSize: '12px 12px',
-          }}
-        />
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
@@ -88,9 +81,6 @@ export default function AboutPage() {
               <br />
               <span className="text-[#c9a55a]">Roofing Specialist</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-xl leading-relaxed">
-              For over two decades, Elite Roofing has protected homes and businesses across the Greater Toronto Area with master craftsmanship, premium materials, and an unwavering commitment to quality.
-            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -215,21 +205,21 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#c9a55a]">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
               Ready to Experience the Elite Difference?
             </h2>
             <p className="font-sans text-sm text-white/75 leading-relaxed mb-8 max-w-lg mx-auto">
-              Book your no-obligation free inspection today. Our experts will assess your roof, provide honest recommendations, and give you a transparent written proposal.
+              Book your no-obligation free estimate today. Our experts will assess your roof, provide honest recommendations, and give you a transparent written proposal.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-9 py-4 bg-white text-[#0f172a] font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white/90 transition-colors duration-300"
               >
-                Get Free Inspection <ArrowRight className="w-3.5 h-3.5" />
+                Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/testimonials"

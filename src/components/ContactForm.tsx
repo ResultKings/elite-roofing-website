@@ -19,6 +19,7 @@ interface FormData {
 interface FormErrors {
   name?: string
   email?: string
+  roofType?: string
   message?: string
 }
 
@@ -39,6 +40,9 @@ function validate(formData: FormData): FormErrors {
     errors.email = 'Email address is required'
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
     errors.email = 'Please enter a valid email address'
+  }
+  if (!formData.roofType) {
+    errors.roofType = 'Please select a service type'
   }
   if (!formData.message.trim()) {
     errors.message = 'Please describe your project or question'
@@ -230,12 +234,12 @@ export default function ContactForm() {
             />
 
             {/* Native select styled to match Input component */}
-            <div className="w-full">
+            <div className="w-full" data-has-error={!!errors.roofType}>
               <label
                 htmlFor="roofType"
                 className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
               >
-                Service Type
+                Service Type <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <select
@@ -243,15 +247,28 @@ export default function ContactForm() {
                   name="roofType"
                   value={formData.roofType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3.5 bg-white border border-[#e7e5e4] font-sans text-sm text-[#0f172a] focus:outline-none focus:border-[#c9a55a] focus:ring-2 focus:ring-[#c9a55a]/20 hover:border-[#c9a55a]/50 transition-all duration-200 appearance-none cursor-pointer pr-10"
+                  required
+                  className={[
+                    'w-full px-4 py-3.5 bg-white font-sans text-sm focus:outline-none focus:ring-2 hover:border-[#c9a55a]/50 transition-all duration-200 appearance-none cursor-pointer pr-10',
+                    errors.roofType
+                      ? 'border border-red-400 focus:border-red-400 focus:ring-red-100 text-[#0f172a]'
+                      : 'border border-[#e7e5e4] focus:border-[#c9a55a] focus:ring-[#c9a55a]/20 text-[#0f172a]',
+                    !formData.roofType ? 'text-[#94a3b8]' : '',
+                  ].join(' ')}
                 >
-                  <option value="">Select a service...</option>
-                  <option value="residential">Residential Roofing</option>
-                  <option value="commercial">Commercial Roofing</option>
-                  <option value="repair">Roof Repair</option>
-                  <option value="storm">Storm Damage Restoration</option>
-                  <option value="gutters">Gutter Systems</option>
-                  <option value="skylights">Skylight Installation</option>
+                  <option value="" disabled>Select a service...</option>
+                  <option value="residential-roofing">Residential Roofing</option>
+                  <option value="commercial-roofing">Commercial Roofing</option>
+                  <option value="roof-repair">Roof Repair</option>
+                  <option value="storm-damage-restoration">Storm Damage Restoration</option>
+                  <option value="gutter-systems">Gutter Systems</option>
+                  <option value="skylight-installation">Skylight Installation</option>
+                  <option value="roof-inspection">Roof Inspection</option>
+                  <option value="metal-roofing">Metal Roofing</option>
+                  <option value="flat-roofing">Flat Roofing</option>
+                  <option value="multi-family-roofing">Multi-Family Roofing</option>
+                  <option value="roof-replacement">Roof Replacement</option>
+                  <option value="roof-tarping">Roof Tarping</option>
                   <option value="other">Other / Not Sure</option>
                 </select>
                 {/* Custom chevron */}
@@ -261,6 +278,9 @@ export default function ContactForm() {
                   </svg>
                 </div>
               </div>
+              {errors.roofType && (
+                <p className="mt-1.5 font-sans text-xs text-red-500">{errors.roofType}</p>
+              )}
             </div>
           </div>
 

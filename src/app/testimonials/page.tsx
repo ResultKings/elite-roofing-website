@@ -282,13 +282,6 @@ export default function TestimonialsPage() {
           <Image src="/testimonials-hero-bg.jpg" alt="" fill priority sizes="100vw" className="object-cover object-center" />
           <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
-            backgroundSize: '12px 12px',
-          }}
-        />
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
@@ -301,17 +294,6 @@ export default function TestimonialsPage() {
               <br />
               <span className="text-[#c9a55a]">Are Saying</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
-              Hundreds of Ontario homeowners and businesses trust Elite Roofing to protect what matters most. Read their stories below.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
-                ))}
-              </div>
-              <span className="font-sans text-sm text-white/60">4.9 out of 5 &middot; 300+ Google Reviews</span>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -345,13 +327,26 @@ export default function TestimonialsPage() {
 
           {/* Stars + Leave a Review */}
           <FadeIn className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+            <div className="flex items-center gap-4">
+              <div className="flex -space-x-3">
+                {[
+                  'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
+                  'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
+                  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
+                ].map((src, i) => (
+                  <div key={i} className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                    <Image src={src} alt="Client" fill sizes="40px" className="object-cover" />
+                  </div>
                 ))}
               </div>
-              <p className="font-sans text-xs text-[#94a3b8] tracking-wide">4.9 out of 5 across 300 Google reviews</p>
+              <div>
+                <div className="flex items-center gap-0.5 mb-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+                  ))}
+                </div>
+                <p className="font-sans text-xs text-[#94a3b8] tracking-wide">4.9 out of 5 across 300 Google reviews</p>
+              </div>
             </div>
             <a
               href="https://customerreviews.google.com/"

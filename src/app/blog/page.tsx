@@ -84,14 +84,6 @@ export default function BlogPage() {
     <>
       {/* Hero */}
       <section className="relative pt-40 pb-24 px-4 md:px-8 lg:px-16 bg-[#0f172a] overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
-            backgroundSize: '12px 12px',
-          }}
-        />
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -112,10 +104,6 @@ export default function BlogPage() {
               <br />
               <span className="text-[#c9a55a]">From the Experts.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
-              Practical guidance, honest comparisons, and industry expertise â€” written by our
-              master roofers to help you make confident decisions about your home.
-            </motion.p>
           </motion.div>
         </div>
       </section>

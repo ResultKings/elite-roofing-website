@@ -24,9 +24,9 @@ const serviceLinks = [
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
+  { href: '/service-areas', label: 'Areas Served' },
   { href: '/projects', label: 'Projects' },
-  { href: '/service-areas', label: 'Service Areas' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -73,9 +73,13 @@ export default function Navbar() {
         ].join(' ')}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group flex-shrink-0 mr-4">
+            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image src="/er-logo.png" alt="" fill sizes="40px" className="object-contain" />
+              </div>
+              <div className="w-px h-8 bg-[#c9a55a]/40 mr-1" />
               <div className="flex flex-col leading-none">
                 <span
                   className={[
@@ -89,15 +93,12 @@ export default function Navbar() {
                   ROOFING
                 </span>
               </div>
-              <div className="w-px h-8 bg-[#c9a55a]/40 ml-1" />
-              <div className="relative w-10 h-10 ml-1 flex-shrink-0">
-                <Image src="/er-logo.png" alt="" fill sizes="40px" className="object-contain" />
-              </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-9">
-              {navLinks.map((link) => {
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-7 xl:gap-9 px-10">
+              {/* Home + About Us */}
+              {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
                   <Link
@@ -166,14 +167,36 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
+
+              {/* Service Areas, Projects, Testimonials, Contact */}
+              {navLinks.slice(2).map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={[
+                      'relative font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#c9a55a]',
+                      'after:transition-all after:duration-300',
+                      isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
+                      isTransparent
+                        ? isActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
+                        : isActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
+                    ].join(' ')}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-6 xl:ml-10">
+            <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
               <a
                 href="tel:+19055550198"
                 className={[
-                  'flex items-center gap-2 font-sans text-xs font-medium transition-colors duration-300',
+                  'flex items-center gap-2 font-sans text-xs font-medium transition-colors duration-300 whitespace-nowrap',
                   isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
@@ -184,7 +207,7 @@ export default function Navbar() {
                 href="/contact"
                 className="inline-flex items-center px-5 py-2.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
               >
-                Free Inspection
+                Free Estimate
               </Link>
             </div>
 
@@ -193,7 +216,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               className={[
-                'lg:hidden p-2 transition-colors duration-300',
+                'lg:hidden ml-auto p-2 transition-colors duration-300',
                 isTransparent ? 'text-white' : 'text-[#0f172a]',
               ].join(' ')}
             >
@@ -297,7 +320,7 @@ export default function Navbar() {
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors rounded-full"
               >
-                Get Free Inspection
+                Get Free Estimate
               </Link>
             </motion.div>
           </motion.div>

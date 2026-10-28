@@ -75,14 +75,6 @@ export default function ContactPage() {
           />
           <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
-            backgroundSize: '12px 12px',
-          }}
-        />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
@@ -103,10 +95,6 @@ export default function ContactPage() {
               <br />
               <span className="text-[#c9a55a]">Your Roof.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-lg leading-relaxed">
-              Whether you need a free inspection, have questions about materials, or are ready
-              to schedule your installation. Our team is here to help.
-            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -184,7 +172,7 @@ export default function ContactPage() {
                       'Licensed and $5M insured in Ontario',
                       'GAF Master Elite, top 2% nationally',
                       '10-year written workmanship warranty',
-                      'Free inspections, no obligation',
+                      'Free estimates, no obligation',
                       '300+ five-star Google reviews',
                     ].map((text) => (
                       <li key={text} className="flex items-start gap-3">
@@ -202,7 +190,7 @@ export default function ContactPage() {
               <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm">
                 <div className="mb-8">
                   <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
-                    Request a Free Inspection
+                    Request a Free Estimate
                   </h2>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
                     Fill out the form below and a specialist will reach out within one
@@ -220,35 +208,33 @@ export default function ContactPage() {
       {/* Interactive Service Area Map */}
       <section id="service-area" className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#e7e5e4]">
-            <div className="text-center pt-10 pb-6 px-8">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
-                Our Office Location
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-                Based in Vaughan, Serving All of Ontario
-              </h2>
-              <p className="font-sans text-sm text-[#64748b] mt-3">
-                216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
-              </p>
-            </div>
-
-            <div className="overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1381433328875!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
-                width="100%"
-                height="420"
-                style={{ border: 0, display: 'block' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="Elite Roofing location map"
-              />
-            </div>
-
-            <p className="text-center font-sans text-xs text-[#94a3b8] py-4 px-8 tracking-wide">
-              Scroll or pinch to zoom &middot; Click to open in Google Maps
-            </p>
+          <div className="text-center mb-8">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
+              Our Office Location
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
+              Based in Vaughan, Serving All of Ontario
+            </h2>
+            <a
+              href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm text-[#64748b] mt-3 hover:text-[#c9a55a] transition-colors duration-200 block"
+            >
+              216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
+            </a>
+          </div>
+          <div className="overflow-hidden rounded-2xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1381433328875!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
+              width="100%"
+              height="500"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Elite Roofing location map"
+            />
           </div>
         </div>
       </section>

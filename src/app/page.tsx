@@ -138,7 +138,7 @@ function HeroSection() {
                   ))}
                 </div>
                 <span className="font-sans text-xs text-white/70">
-                  <span className="text-white font-semibold">5.0</span> on Google
+                  <span className="text-white font-semibold">4.9</span> on Google
                 </span>
               </div>
             </Link>
@@ -362,7 +362,7 @@ function ProcessSection() {
   const steps = [
     {
       number: '01',
-      title: 'Free Inspection',
+      title: 'Free Estimate',
       desc: 'We assess your roof at zero cost, documenting every issue with photographs and a detailed written report.',
     },
     {
@@ -410,7 +410,7 @@ function ProcessSection() {
 
         <FadeIn className="mt-14 flex justify-center">
           <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-            Get Free Inspection
+            Get Free Estimate
           </Button>
         </FadeIn>
       </div>
@@ -851,7 +851,7 @@ function CTASection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-              Schedule Free Inspection
+              Get Free Estimate
             </Button>
             <a
               href="tel:+19055550198"

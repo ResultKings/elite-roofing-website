@@ -13,8 +13,7 @@ const exploreLinks = [
 ]
 
 const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/contact', label: 'Get Free Inspection' },
+  { href: '/contact', label: 'Get Free Estimate' },
   { href: '/service-areas', label: 'Service Areas' },
   { href: '/contact#service-area', label: 'Office Location' },
 ]

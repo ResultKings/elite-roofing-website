@@ -2,7 +2,9 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { projects } from '@/data/mockData'
 import type { Project } from '@/data/mockData'
 
@@ -61,103 +63,101 @@ function ProjectCard({ project }: { project: Project }) {
 
 const categories = ['All', 'Residential', 'Commercial'] as const
 
-const allReviews = [
-  { name: 'Robert Mackenzie', location: 'Markham, ON', projectType: 'Residential Roofing', quote: 'Elite Roofing did a complete tear-off and replacement on our century home. The crew was on time every single day, they covered all our landscaping and left the yard spotless. The new roof looks incredible and the warranty gives us real peace of mind.' },
-  { name: 'Sarah Johansson', location: 'Mississauga, ON', projectType: 'Commercial Roofing', quote: "We had a significant leak above our retail space that two other companies couldn't find. Elite Roofing diagnosed the issue within an hour and had it fully repaired by end of day. Professional from start to finish." },
-  { name: 'Thomas Wu', location: 'Richmond Hill, ON', projectType: 'Storm Damage Repair', quote: 'After the August storms we had water coming in through three spots. Elite Roofing came out the next morning, gave me a clear written quote with no surprises, and completed all repairs in one day. Fair pricing and excellent work.' },
-  { name: 'Amanda Foster', location: 'Burlington, ON', projectType: 'Roof Replacement', quote: 'I was dreading getting a new roof but Elite Roofing made the whole process easy. They walked me through every material option, helped with the insurance claim, and finished ahead of schedule. Neighbours have already asked me who did the work.' },
-  { name: "Kevin O'Brien", location: 'Oakville, ON', projectType: 'Gutter Systems', quote: "Had Elite Roofing install new gutters and downspouts across our entire house. They arrived exactly when they said, the installation was flawless, and the cleanup was immaculate. Can't recommend them enough — a truly professional team." },
-  { name: 'Patricia Leblanc', location: 'Brampton, ON', projectType: 'Residential Roofing', quote: 'From the free inspection to the final walkthrough, Elite Roofing exceeded every expectation. The GAF certified materials they used are top quality and the crew treated our home with the utmost respect. An honest, reliable company.' },
-  { name: 'Daniel Park', location: 'Vaughan, ON', projectType: 'Roof Inspection', quote: 'Called Elite Roofing for a free inspection before selling our home. They were thorough, honest, and gave me a detailed written report same day. No pressure, just good advice. I ended up hiring them to do the repairs and the buyers were thrilled.' },
-  { name: 'Christine Moreau', location: 'Thornhill, ON', projectType: 'Emergency Roofing', quote: 'We needed emergency tarping after a tree fell on our roof during a storm. Elite Roofing was on site within two hours. They secured the damage, gave us a full repair estimate, and completed the full job within the week. Lifesavers.' },
-  { name: 'Marcus Williams', location: 'Concord, ON', projectType: 'Flat Roofing', quote: 'Elite Roofing replaced the flat roof on our commercial warehouse. The TPO membrane they installed is excellent quality and they completed the project with zero disruption to our operations. On budget, on time, and exceptional workmanship.' },
-  { name: 'Helen Kovacs', location: 'Woodbridge, ON', projectType: 'Skylight Installation', quote: 'Had three skylights installed by Elite Roofing last spring. The light those skylights bring into our living room is transformative. The installation was leak-free and perfectly finished. The crew cleaned up every bit of debris. Absolutely wonderful.' },
-  { name: 'Andrew Bertrand', location: 'King City, ON', projectType: 'Multi-Family Roofing', quote: 'Our condo building hired Elite Roofing for a full flat roof replacement. Managing 72 units I was worried about noise and disruption but the crew was incredibly professional. Residents barely noticed the work. Outstanding result.' },
-  { name: 'Jennifer Tran', location: 'Etobicoke, ON', projectType: 'Roof Replacement', quote: "I got four quotes for my roof replacement and Elite Roofing wasn't the cheapest — but they were clearly the most professional and thorough. The quality of the final product justified every dollar. I'd make the same choice again without hesitation." },
-  { name: 'Paul Dimitriou', location: 'North York, ON', projectType: 'Storm Damage Restoration', quote: 'Elite Roofing repaired significant hail damage on our roof and coordinated directly with our insurance company. They documented everything thoroughly, which made the claim process seamless. Exceptional customer service from day one.' },
-  { name: 'Lisa Nakamura', location: 'Stouffville, ON', projectType: 'Gutter Systems', quote: 'The team at Elite Roofing replaced all our aging gutters and added leaf guards that have made maintenance so much easier. They were punctual, respectful of our property, and the price was very fair. Genuinely a pleasure to work with.' },
-  { name: 'Monica Ashford', location: 'Aurora, ON', projectType: 'Emergency Roofing', quote: 'Elite Roofing responded to our emergency call on a Sunday afternoon. They had our roof tarped within three hours and the permanent repair completed by Wednesday. Outstanding service when we needed it most. Cannot thank them enough.' },
-  { name: 'Brian Kowalski', location: 'Pickering, ON', projectType: 'Commercial Flat Roofing', quote: 'We run a manufacturing facility and needed our aging flat roof replaced without shutting down operations. Elite Roofing planned the job in phases and worked around our schedule. Excellent project management and top-quality workmanship.' },
-  { name: 'Susan Lafleur', location: 'Ajax, ON', projectType: 'Roof Replacement', quote: 'From the moment I called to get a quote to the day the job was done, Elite Roofing was professional, communicative, and efficient. They replaced my entire roof in one day and the site was cleaner when they left than when they arrived.' },
-  { name: 'George Papadopoulos', location: 'Newmarket, ON', projectType: 'Roof Inspection', quote: 'Had Elite Roofing inspect our roof before a major renovation. Their inspector was incredibly knowledgeable and honest — told me what truly needed work and what could wait. No upselling, just straight advice. Hired them for the repairs and they were excellent.' },
-  { name: 'Diane Chen', location: 'Scarborough, ON', projectType: 'Residential Roofing', quote: 'Elite Roofing replaced our roof and added new attic insulation at the same time. The energy savings in our heating bills have been noticeable. The project was handled beautifully and the crew was friendly and knowledgeable throughout.' },
-  { name: 'Stephanie Gagnon', location: 'Hamilton, ON', projectType: 'Residential Roofing', quote: "I hired Elite Roofing based on a neighbour's recommendation and I completely understand why she raved about them. The inspection was thorough and honest, the quote was fair, and the installation was flawless. My new roof looks stunning." },
-  { name: 'Angela Rousseau', location: 'Oshawa, ON', projectType: 'Commercial Roofing', quote: 'I own several rental properties and Elite Roofing has become my go-to roofing contractor. Their pricing is transparent, their work is consistently excellent, and they always complete jobs on time. Trusted partner for my entire portfolio.' },
-  { name: 'James Ferreira', location: 'Guelph, ON', projectType: 'Roof Repair', quote: "Fast, honest, and skilled. Elite Roofing came out, assessed our damage from an ice dam, explained exactly what needed to be done, and completed the work without any surprises. The invoice matched the quote to the dollar. That's rare and I appreciate it." },
+const projectReviews = [
+  {
+    name: 'Robert Mackenzie',
+    location: 'Markham, ON',
+    projectType: 'Residential Roofing',
+    rating: 5,
+    quote: 'Elite Roofing did a complete tear-off and replacement on our century home. The crew was on time every single day, they covered all our landscaping and left the yard spotless. The new roof looks incredible and the warranty gives us real peace of mind.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+  },
+  {
+    name: 'Sarah Johansson',
+    location: 'Mississauga, ON',
+    projectType: 'Commercial Roofing',
+    rating: 5,
+    quote: "We had a significant leak above our retail space that two other companies couldn't find. Elite Roofing diagnosed the issue within an hour and had it fully repaired by end of day. Professional from start to finish.",
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
+  },
+  {
+    name: 'Thomas Wu',
+    location: 'Richmond Hill, ON',
+    projectType: 'Storm Damage Repair',
+    rating: 5,
+    quote: 'After the August storms we had water coming in through three spots. Elite Roofing came out the next morning, gave me a clear written quote with no surprises, and completed all repairs in one day. Fair pricing and excellent work.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
+  },
+  {
+    name: 'Amanda Foster',
+    location: 'Burlington, ON',
+    projectType: 'Roof Replacement',
+    rating: 5,
+    quote: 'I was dreading getting a new roof but Elite Roofing made the whole process easy. They walked me through every material option, helped with the insurance claim, and finished ahead of schedule. Neighbours have already asked me who did the work.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
+  },
 ]
 
 function ReviewCarousel() {
-  const [index, setIndex] = useState(0)
+  const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
+  const total = projectReviews.length
 
   useEffect(() => {
     if (paused) return
-    const id = setInterval(() => {
-      setIndex(i => (i + 1) % allReviews.length)
-    }, 4500)
+    const id = setInterval(() => setCurrent(c => (c + 1) % total), 4500)
     return () => clearInterval(id)
-  }, [paused])
+  }, [paused, total])
 
-  const review = allReviews[index]
+  const prev = () => { setPaused(true); setCurrent(c => (c - 1 + total) % total) }
+  const next = () => { setPaused(true); setCurrent(c => (c + 1) % total) }
+  const r = projectReviews[current]
 
   return (
-    <div
-      className="lg:col-span-3 bg-white p-10 md:p-14 flex flex-col"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <span className="font-sans text-[10px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] block mb-6">
-        What Our Clients Say
-      </span>
-
-      <div className="flex-1 relative min-h-[140px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="absolute inset-0"
-          >
-            <p className="font-serif text-lg md:text-xl font-medium text-[#0f172a] leading-relaxed mb-6 italic">
-              &ldquo;{review.quote}&rdquo;
-            </p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      <AnimatePresence mode="wait">
+    <div className="flex flex-col h-full">
+      <div className="flex-1 relative overflow-hidden">
         <motion.div
-          key={`meta-${index}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="flex items-center justify-between flex-wrap gap-4 mt-8 pt-6 border-t border-[#e7e5e4]"
+          key={current}
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -24 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="bg-white border border-[#e7e5e4] p-7 rounded-xl shadow-sm h-full flex flex-col"
         >
-          <div>
-            <p className="font-sans text-sm font-semibold text-[#0f172a]">{review.name}</p>
-            <p className="font-sans text-xs text-[#94a3b8] mt-0.5">{review.location} &mdash; {review.projectType}</p>
+          <div className="flex gap-0.5 mb-4">
+            {Array.from({ length: r.rating }).map((_, i) => (
+              <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+            ))}
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-[#c9a55a] tracking-wider select-none">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span className="font-sans text-[10px] text-[#94a3b8] tabular-nums">
-              {index + 1} / {allReviews.length}
-            </span>
+          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+            &ldquo;{r.quote}&rdquo;
+          </p>
+          <div className="flex items-center gap-3 pt-4 border-t border-[#e7e5e4]">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+              <Image src={r.image} alt={r.name} fill sizes="40px" className="object-cover" />
+            </div>
+            <div>
+              <p className="font-sans text-sm font-semibold text-[#0f172a]">{r.name}</p>
+              <p className="font-sans text-[11px] text-[#94a3b8]">{r.location} · {r.projectType}</p>
+            </div>
           </div>
         </motion.div>
-      </AnimatePresence>
-
-      <div className="flex gap-1.5 mt-5">
-        {allReviews.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setPaused(false); setIndex(i) }}
-            aria-label={`Review ${i + 1}`}
-            className={`h-1 rounded-full transition-all duration-300 ${i === index ? 'w-6 bg-[#c9a55a]' : 'w-1.5 bg-[#e2e0db] hover:bg-[#c9a55a]/50'}`}
-          />
-        ))}
+      </div>
+      <div className="flex items-center justify-between mt-5">
+        <div className="flex gap-1.5">
+          {projectReviews.map((_, i) => (
+            <button key={i} onClick={() => { setPaused(true); setCurrent(i) }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`} />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button onClick={prev} className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button onClick={next} className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -175,13 +175,6 @@ export default function ProjectsPage() {
           <Image src="/projects-hero-bg.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" />
           <div className="absolute inset-0 bg-[#0f172a]/80" />
         </div>
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #c9a55a 0, #c9a55a 1px, transparent 0, transparent 50%)',
-            backgroundSize: '12px 12px',
-          }}
-        />
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
@@ -190,17 +183,30 @@ export default function ProjectsPage() {
               </span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
-              Our Work
+              Our History
+              <br />
+              <span className="text-[#c9a55a]">Your Inspiration.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="font-sans text-base text-white/55 max-w-xl leading-relaxed">
-              Every project reflects the same commitment to precision, premium materials, and lasting protection for Ontario homes and businesses.
-            </motion.p>
           </motion.div>
         </div>
       </section>
 
       <main className="pb-24 bg-[#fafaf9]">
-        <section className="px-6 md:px-8 lg:px-16 pt-10 mb-10">
+        {/* Gallery intro */}
+        <section className="px-6 md:px-8 lg:px-16 pt-16 pb-10">
+          <div className="max-w-7xl mx-auto">
+            <FadeIn>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-5">
+                Project Gallery
+              </h2>
+              <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-3xl">
+                Welcome to the official project gallery of Elite Roofing, a trusted roofing company where our commitment to excellence is captured in every shingle, and project. From residential roof replacements to large-scale commercial installs, these projects reflect our workmanship, our standards, and the trust placed in us by families and businesses throughout Ontario.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-8 lg:px-16 mb-10">
           <div className="max-w-7xl mx-auto">
             <FadeIn>
               <div className="flex justify-end">
@@ -243,38 +249,72 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <section className="mt-20 px-6 md:px-8 lg:px-16">
+        {/* Hear From Our Clients */}
+        <section className="mt-20 px-6 md:px-8 lg:px-16 pb-8">
           <div className="max-w-7xl mx-auto">
-            <FadeIn>
-              <div className="grid grid-cols-1 lg:grid-cols-5 border border-[#e7e5e4] overflow-hidden">
-                <ReviewCarousel />
+            <FadeIn className="text-center mb-12">
+              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                Client Feedback
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
+                Hear From Our Clients
+              </h2>
+            </FadeIn>
 
-                <div className="lg:col-span-2 bg-[#0f172a] p-10 md:p-14 flex flex-col justify-between">
-                  <div className="grid grid-cols-2 gap-8">
-                    {[
-                      { val: '2,400+', lbl: 'Projects Completed' },
-                      { val: '300+', lbl: 'Five-Star Reviews' },
-                      { val: '20+', lbl: 'Years in Business' },
-                      { val: '4.9', lbl: 'Google Rating' },
-                    ].map(s => (
-                      <div key={s.lbl} className="text-center">
-                        <p className="font-serif text-3xl font-bold text-[#c9a55a] mb-1">{s.val}</p>
-                        <p className="font-sans text-[10px] text-white/50 uppercase tracking-wider leading-snug">{s.lbl}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+              {/* Left — sliding reviews */}
+              <FadeIn className="flex flex-col">
+                <ReviewCarousel />
+              </FadeIn>
+
+              {/* Right — stats + buttons */}
+              <FadeIn delay={0.1} className="flex flex-col justify-center">
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
+                  What Our Clients<br />Are Saying
+                </h3>
+
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="flex -space-x-3">
+                    {projectReviews.slice(0, 3).map((r, i) => (
+                      <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                        <Image src={r.image} alt={r.name} fill sizes="44px" className="object-cover" />
                       </div>
                     ))}
                   </div>
-                  <div className="mt-10 pt-8 border-t border-white/10">
-                    <p className="font-sans text-xs text-white/40 mb-3">Trusted by hundreds of Ontario homeowners and businesses.</p>
-                    <a
-                      href="/testimonials"
-                      className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a55a] hover:text-white transition-colors duration-200"
-                    >
-                      Read All Reviews &#8594;
-                    </a>
+                  <div>
+                    <div className="flex gap-0.5 mb-1">
+                      {[1,2,3,4,5].map(i => (
+                        <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+                      ))}
+                    </div>
+                    <p className="font-sans text-sm font-semibold text-[#0f172a]">
+                      4.9 <span className="font-normal text-[#64748b]">out of 5 across</span> 300 Google reviews
+                    </p>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
+
+                <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+                  Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://customerreviews.google.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+                  >
+                    Leave a Google Review
+                  </a>
+                  <a
+                    href="/testimonials"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-full"
+                  >
+                    See More Reviews →
+                  </a>
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </section>
       </main>
