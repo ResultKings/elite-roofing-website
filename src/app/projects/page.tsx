@@ -18,11 +18,11 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
 }
 
-function FadeIn({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
-    <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={fadeUp} className={className}>
+    <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={fadeUp} transition={{ delay }} className={className}>
       {children}
     </motion.div>
   )
