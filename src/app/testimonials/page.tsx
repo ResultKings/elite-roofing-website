@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
@@ -33,7 +33,7 @@ function StarRow({ count = 5 }: { count?: number }) {
 
 function ReviewCard({ t }: { t: { name: string; location: string; rating: number; quote: string; image: string; projectType: string } }) {
   return (
-    <div className="bg-white border border-[#e7e5e4] p-6 flex flex-col gap-4 hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300">
+    <div className="bg-white border border-[#e7e5e4] p-6 flex flex-col gap-4 hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300 rounded-xl">
       <StarRow count={t.rating} />
       <p className="font-sans text-sm text-[#475569] leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
       <div className="flex items-center gap-3 pt-3 border-t border-[#e7e5e4]">
@@ -86,7 +86,7 @@ const initialReviews = [
     name: 'Kevin O\'Brien',
     location: 'Oakville, ON',
     rating: 5,
-    quote: 'Had Elite Roofing install new gutters and downspouts across our entire house. They arrived exactly when they said, the installation was flawless, and the cleanup was immaculate. Can\'t recommend them enough — a truly professional team.',
+    quote: 'Had Elite Roofing install new gutters and downspouts across our entire house. They arrived exactly when they said, the installation was flawless, and the cleanup was immaculate. Can\'t recommend them enough, a truly professional team.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
     projectType: 'Gutter Systems',
   },
@@ -145,7 +145,7 @@ const extraReviews = [
     name: 'Jennifer Tran',
     location: 'Etobicoke, ON',
     rating: 5,
-    quote: 'I got four quotes for my roof replacement and Elite Roofing wasn\'t the cheapest — but they were clearly the most professional and thorough. The quality of the final product justified every dollar. I\'d make the same choice again without hesitation.',
+    quote: 'I got four quotes for my roof replacement and Elite Roofing wasn\'t the cheapest, but they were clearly the most professional and thorough. The quality of the final product justified every dollar. I\'d make the same choice again without hesitation.',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face',
     projectType: 'Roof Replacement',
   },
@@ -169,7 +169,7 @@ const extraReviews = [
     name: 'George Papadopoulos',
     location: 'Newmarket, ON',
     rating: 5,
-    quote: 'Had Elite Roofing inspect our roof before a major renovation. Their inspector was incredibly knowledgeable and honest — told me what truly needed work and what could wait. No upselling, just straight advice. Hired them for the repairs and they were excellent.',
+    quote: 'Had Elite Roofing inspect our roof before a major renovation. Their inspector was incredibly knowledgeable and honest, told me what truly needed work and what could wait. No upselling, just straight advice. Hired them for the repairs and they were excellent.',
     image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&h=80&fit=crop&crop=face',
     projectType: 'Roof Inspection',
   },
@@ -304,6 +304,9 @@ export default function TestimonialsPage() {
 
           {/* Summary box */}
           <FadeIn className="mb-12">
+            <p className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4">
+              Client Reviews
+            </p>
             <div className="bg-white border border-[#e7e5e4] rounded-xl p-6 md:p-8 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
                 <Zap className="w-3.5 h-3.5 text-[#c9a55a]" />
@@ -312,7 +315,7 @@ export default function TestimonialsPage() {
                 </span>
               </div>
               <p className="font-sans text-sm text-[#475569] leading-relaxed mb-5">
-                Clients across the Greater Toronto Area consistently praise Elite Roofing for their prompt arrival times, transparent written quotes, and immaculate job-site cleanup. Many homeowners highlight how the team handled insurance claims on their behalf, making a stressful process completely painless. Customers in Vaughan, Markham, Oakville, Mississauga and surrounding communities describe the crew as knowledgeable, respectful, and genuinely invested in the outcome of every project — whether a quick repair or a full roof replacement.
+                Clients across the Greater Toronto Area consistently praise Elite Roofing for their prompt arrival times, transparent written quotes, and immaculate job-site cleanup. Many homeowners highlight how the team handled insurance claims on their behalf, making a stressful process completely painless. Customers in Vaughan, Markham, Oakville, Mississauga and surrounding communities describe the crew as knowledgeable, respectful, and genuinely invested in the outcome of every project, whether a quick repair or a full roof replacement.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {['Fast Response', 'Fair & Transparent Pricing', 'Quality Materials', 'Clean Job Sites', 'Insurance Assistance', 'GAF Certified', 'Professional Crew', 'On-Time Completion'].map((tag) => (
@@ -352,7 +355,7 @@ export default function TestimonialsPage() {
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200"
             >
               Leave a Google Review
             </a>
@@ -389,7 +392,7 @@ export default function TestimonialsPage() {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setShowMore((prev) => !prev)}
-              className="inline-flex items-center gap-3 px-8 py-3 border border-[#0f172a]/30 rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-[#0f172a] hover:border-[#0f172a] transition-colors duration-200"
+              className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
             >
               <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
               {showMore ? 'Show Less' : 'Show More Reviews'}
@@ -411,7 +414,7 @@ export default function TestimonialsPage() {
               <span className="text-[#c9a55a]">in Ontario?</span>
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-              Join hundreds of satisfied Ontario homeowners and businesses. Our free inspection includes a full assessment, photographic documentation, and a transparent written proposal — no obligation, no pressure.
+              Join hundreds of satisfied Ontario homeowners and businesses. Our free inspection includes a full assessment, photographic documentation, and a transparent written proposal, no obligation, no pressure.
             </p>
             <Link
               href="/contact"

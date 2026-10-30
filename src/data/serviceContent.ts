@@ -6,6 +6,9 @@
 export interface ServicePageContent {
   slug: string
   heroImage: string
+  heroImagePosition?: string
+  overviewImage?: string
+  featuredProjects?: string[]
   galleryImages: string[]
   tagline: string
   highlights: string[]
@@ -15,8 +18,10 @@ export interface ServicePageContent {
 const serviceContent: Record<string, ServicePageContent> = {
   'residential-roofing': {
     slug: 'residential-roofing',
-    heroImage:
-      'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-residential-roofing.jpg',
+    heroImagePosition: 'center 30%',
+    overviewImage: '/overview-residential-roofing.jpg',
+    featuredProjects: ['markham-heritage-estate', 'burlington-lakefront-villa', 'cedar-ridge-farmhouse'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
@@ -60,8 +65,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'commercial-roofing': {
     slug: 'commercial-roofing',
-    heroImage:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-commercial-roofing.jpg',
+    heroImagePosition: 'center 20%',
+    overviewImage: '/overview-commercial-roofing.jpg',
+    featuredProjects: ['meridian-office-complex', 'vaughan-corporate-campus', 'north-york-medical-centre'],
     galleryImages: [
       'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
@@ -105,8 +112,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'roof-repair': {
     slug: 'roof-repair',
-    heroImage:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-roof-repair.jpg',
+    heroImagePosition: 'center 40%',
+    overviewImage: '/overview-roof-repair.webp',
+    featuredProjects: ['aurora-leak-flashing-repair', 'newmarket-chimney-cap-seal', 'barrie-shingle-valley-repair'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
@@ -150,8 +159,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'storm-damage-restoration': {
     slug: 'storm-damage-restoration',
-    heroImage:
-      'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-storm-damage-restoration.webp',
+    heroImagePosition: 'center 55%',
+    overviewImage: '/overview-storm-damage-restoration.webp',
+    featuredProjects: ['oshawa-hail-storm-restoration', 'whitby-wind-damage-response', 'ajax-post-storm-rebuild'],
     galleryImages: [
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
@@ -195,8 +206,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'gutter-systems': {
     slug: 'gutter-systems',
-    heroImage:
-      'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-gutter-systems.avif',
+    heroImagePosition: 'center 30%',
+    overviewImage: '/overview-gutter-systems.jpg',
+    featuredProjects: ['woodbridge-seamless-aluminum-install', 'kleinburg-copper-eavestrough', 'stouffville-micro-mesh-guards'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
@@ -240,8 +253,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'skylight-installation': {
     slug: 'skylight-installation',
-    heroImage:
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-skylight-installation.jpg',
+    heroImagePosition: 'center 35%',
+    overviewImage: '/overview-skylight-installation.webp',
+    featuredProjects: ['forest-hill-velux-skylight', 'etobicoke-solar-tube-conversion', 'oakville-venting-skylight-pair'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
@@ -285,7 +300,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'roof-inspection': {
     slug: 'roof-inspection',
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-roof-inspection.webp',
+    heroImagePosition: 'center 35%',
+    overviewImage: '/overview-roof-inspection.jpg',
+    featuredProjects: ['richmond-hill-pre-purchase-report', 'north-york-annual-assessment', 'scarborough-insurance-documentation'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
@@ -301,7 +319,7 @@ const serviceContent: Record<string, ServicePageContent> = {
     faqs: [
       {
         question: 'How long does a professional roof inspection take?',
-        answer: 'A thorough inspection of a standard residential roof takes 45 minutes to 1.5 hours. This includes time on the roof, attic inspection when accessible, and a perimeter walk to assess soffits, fascia, and gutters. We never rush an inspection — a missed defect is far more expensive than the extra 20 minutes it takes to find it.',
+        answer: 'A thorough inspection of a standard residential roof takes 45 minutes to 1.5 hours. This includes time on the roof, attic inspection when accessible, and a perimeter walk to assess soffits, fascia, and gutters. We never rush an inspection, a missed defect is far more expensive than the extra 20 minutes it takes to find it.',
       },
       {
         question: 'What does a roof inspection include?',
@@ -309,11 +327,11 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Do I need an inspection before buying a home?',
-        answer: 'Absolutely. A general home inspector typically spends 10–15 minutes on the roof and focuses on obvious defects. Our specialized inspection covers every component in detail and provides a remaining service life estimate — critical information when negotiating a purchase price. Our reports are accepted by real estate lawyers and mortgage lenders province-wide.',
+        answer: 'Absolutely. A general home inspector typically spends 10–15 minutes on the roof and focuses on obvious defects. Our specialized inspection covers every component in detail and provides a remaining service life estimate, critical information when negotiating a purchase price. Our reports are accepted by real estate lawyers and mortgage lenders province-wide.',
       },
       {
         question: 'How often should I have my roof inspected?',
-        answer: 'We recommend a professional inspection every 3–5 years for roofs under 15 years old, and annually for roofs over 20 years. After any major storm event — hail, high winds, or ice storms — we recommend an immediate inspection regardless of age. Catching a small failure early prevents major water damage claims.',
+        answer: 'We recommend a professional inspection every 3–5 years for roofs under 15 years old, and annually for roofs over 20 years. After any major storm event, hail, high winds, or ice storms, we recommend an immediate inspection regardless of age. Catching a small failure early prevents major water damage claims.',
       },
       {
         question: 'Will a roof inspection help with my insurance claim?',
@@ -324,7 +342,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'metal-roofing': {
     slug: 'metal-roofing',
-    heroImage: '/service-metal-roofing.webp',
+    heroImage: '/service-metal-roofing.jpg',
+    heroImagePosition: 'center 15%',
+    overviewImage: '/overview-metal-roofing.jpg',
+    featuredProjects: ['caledon-standing-seam-estate', 'nobleton-metal-shingle-conversion', 'schomberg-agricultural-metal'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
@@ -333,18 +354,18 @@ const serviceContent: Record<string, ServicePageContent> = {
     tagline: 'Built to last 50+ years. The last roof you\'ll ever need.',
     highlights: [
       'Standing-seam and metal shingle systems available',
-      'Steel, aluminum, and copper — we install them all',
+      'Steel, aluminum, and copper, we install them all',
       '50-year finish warranty on premium systems',
       'Engineered for Ontario freeze-thaw and heavy snow loads',
     ],
     faqs: [
       {
         question: 'How long does a metal roof last?',
-        answer: 'A properly installed metal roof typically lasts 40 to 70 years depending on the material — steel and aluminum systems commonly exceed 50 years, while copper roofs can last over a century. This compares favourably to asphalt shingles, which average 20 to 30 years in Ontario\'s climate. Most premium metal roofing products carry a 50-year paint and finish warranty.',
+        answer: 'A properly installed metal roof typically lasts 40 to 70 years depending on the material, steel and aluminum systems commonly exceed 50 years, while copper roofs can last over a century. This compares favourably to asphalt shingles, which average 20 to 30 years in Ontario\'s climate. Most premium metal roofing products carry a 50-year paint and finish warranty.',
       },
       {
         question: 'Is metal roofing noisy in the rain?',
-        answer: 'When installed over a solid roof deck with proper insulation and underlayment — which is our standard installation method — metal roofing is no louder than asphalt shingles. The solid decking and insulation layers absorb sound effectively. Many homeowners report that their home is actually quieter after switching to metal.',
+        answer: 'When installed over a solid roof deck with proper insulation and underlayment, which is our standard installation method, metal roofing is no louder than asphalt shingles. The solid decking and insulation layers absorb sound effectively. Many homeowners report that their home is actually quieter after switching to metal.',
       },
       {
         question: 'What metal roofing systems do you install?',
@@ -352,7 +373,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Can metal roofing be installed over my existing shingles?',
-        answer: 'In many cases, yes — metal roofing can be installed over one existing layer of asphalt shingles, which avoids the cost and mess of a full tear-off. However, we always inspect the deck condition first. If there is moisture damage, soft spots, or structural concerns, a full tear-off is required to ensure the new roof performs correctly and the warranty remains valid.',
+        answer: 'In many cases, yes, metal roofing can be installed over one existing layer of asphalt shingles, which avoids the cost and mess of a full tear-off. However, we always inspect the deck condition first. If there is moisture damage, soft spots, or structural concerns, a full tear-off is required to ensure the new roof performs correctly and the warranty remains valid.',
       },
       {
         question: 'How does metal roofing perform in Ontario winters?',
@@ -363,7 +384,10 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'flat-roofing': {
     slug: 'flat-roofing',
-    heroImage: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-flat-roofing.jpg',
+    heroImagePosition: 'center 25%',
+    overviewImage: '/overview-flat-roofing.jpg',
+    featuredProjects: ['scarborough-tpo-addition', 'etobicoke-rubber-membrane', 'burlington-flat-conversion'],
     galleryImages: [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
@@ -383,7 +407,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'How long does a flat roof last?',
-        answer: 'A properly installed and maintained TPO or EPDM membrane roof has a serviceable life of 20–30 years. Modified bitumen systems typically last 15–25 years. Spray polyurethane foam, when properly maintained with a refreshed topcoat every 10 years, can last 50+ years. The single biggest factor in flat roof longevity is not the material — it is the quality of the drainage design and the flashing at every termination point.',
+        answer: 'A properly installed and maintained TPO or EPDM membrane roof has a serviceable life of 20–30 years. Modified bitumen systems typically last 15–25 years. Spray polyurethane foam, when properly maintained with a refreshed topcoat every 10 years, can last 50+ years. The single biggest factor in flat roof longevity is not the material, it is the quality of the drainage design and the flashing at every termination point.',
       },
       {
         question: 'Why is my flat roof leaking and where do leaks typically start?',
@@ -391,18 +415,20 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Can I put a flat roof on a residential home?',
-        answer: 'Yes. Flat and low-slope roofing is increasingly popular on modern residential architecture, additions, garages, and sunroom roofs. The key is proper drainage design — a residential flat roof needs a minimum 1/4 inch per foot slope toward drains or scuppers, and the right membrane system for the application. We design and install flat residential roofs with the same attention to detail as large commercial projects.',
+        answer: 'Yes. Flat and low-slope roofing is increasingly popular on modern residential architecture, additions, garages, and sunroom roofs. The key is proper drainage design, a residential flat roof needs a minimum 1/4 inch per foot slope toward drains or scuppers, and the right membrane system for the application. We design and install flat residential roofs with the same attention to detail as large commercial projects.',
       },
       {
         question: 'What maintenance does a flat roof need?',
-        answer: 'Flat roofs should be inspected twice per year — spring and fall — and after any major storm. Key maintenance items include clearing drains and scuppers of debris, checking and re-sealing any penetration or flashing that shows signs of movement or separation, and looking for blistering or ponding water areas. We offer annual maintenance contracts that include inspection, drain clearing, and minor repairs, extending membrane life significantly.',
+        answer: 'Flat roofs should be inspected twice per year, spring and fall, and after any major storm. Key maintenance items include clearing drains and scuppers of debris, checking and re-sealing any penetration or flashing that shows signs of movement or separation, and looking for blistering or ponding water areas. We offer annual maintenance contracts that include inspection, drain clearing, and minor repairs, extending membrane life significantly.',
       },
     ],
   },
 
   'multi-family-roofing': {
     slug: 'multi-family-roofing',
-    heroImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-multi-family-roofing.jpg',
+    overviewImage: '/overview-multi-family-roofing.jpg',
+    featuredProjects: ['brampton-townhome-phase-one', 'mississauga-condo-corporation', 'etobicoke-apartment-reroof'],
     galleryImages: [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
@@ -434,14 +460,17 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Do you carry enough insurance for large multi-family projects?',
-        answer: 'Yes. Elite Roofing carries $5M commercial general liability insurance, $2M excess liability, and full WSIB coverage for all employees and subcontractors. We are fully bonded. Certificates of insurance naming the condo corporation or property management company as additional insured are available within 24 hours of contract execution — a standard requirement we fulfill routinely.',
+        answer: 'Yes. Elite Roofing carries $5M commercial general liability insurance, $2M excess liability, and full WSIB coverage for all employees and subcontractors. We are fully bonded. Certificates of insurance naming the condo corporation or property management company as additional insured are available within 24 hours of contract execution, a standard requirement we fulfill routinely.',
       },
     ],
   },
 
   'roof-replacement': {
     slug: 'roof-replacement',
-    heroImage: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-roof-replacement.jpg',
+    heroImagePosition: 'center 75%',
+    overviewImage: '/overview-roof-replacement.webp',
+    featuredProjects: ['vaughan-complete-tearoff', 'aurora-century-home-replacement', 'stouffville-family-replacement'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
@@ -450,7 +479,7 @@ const serviceContent: Record<string, ServicePageContent> = {
     tagline: 'A roof built right, the first time, built to outlast the decade.',
     highlights: [
       'Complete tear-off exposes the full decking for inspection',
-      'GAF Master Elite certified — top 2% of contractors nationally',
+      'GAF Master Elite certified, top 2% of contractors nationally',
       'Premium underlayment and ice-and-water shield as standard',
       '10-year workmanship warranty plus full manufacturer coverage',
     ],
@@ -473,14 +502,16 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Will my insurance cover a roof replacement?',
-        answer: "If your roof was damaged by a covered storm event (hail, wind, falling tree), your homeowner's policy will typically cover a full replacement when matching existing materials is not possible — which is almost always the case with older roofs. We provide complete insurance documentation including pre-loss condition assessment, storm damage identification, and a full replacement estimate in the format Ontario insurers require.",
+        answer: "If your roof was damaged by a covered storm event (hail, wind, falling tree), your homeowner's policy will typically cover a full replacement when matching existing materials is not possible, which is almost always the case with older roofs. We provide complete insurance documentation including pre-loss condition assessment, storm damage identification, and a full replacement estimate in the format Ontario insurers require.",
       },
     ],
   },
 
   'roof-tarping': {
     slug: 'roof-tarping',
-    heroImage: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1400&h=800&fit=crop&auto=format',
+    heroImage: '/service-roof-tarping.webp',
+    overviewImage: '/overview-roof-tarping.webp',
+    featuredProjects: ['barrie-emergency-storm-tarp', 'innisfil-wind-damage-protection', 'newmarket-emergency-response'],
     galleryImages: [
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
@@ -489,14 +520,14 @@ const serviceContent: Record<string, ServicePageContent> = {
     tagline: 'Immediate protection. Professional installation. No more water in.',
     highlights: [
       '24/7 emergency tarping deployment across Greater Ontario',
-      'Commercial-grade 10mil UV-resistant polyethylene — not hardware-store plastic',
+      'Commercial-grade 10mil UV-resistant polyethylene, not hardware-store plastic',
       'Batten-and-anchor system rated for 60 mph winds',
       'Insurance-compliant documentation provided on-site',
     ],
     faqs: [
       {
         question: 'Why does professional tarping matter versus doing it myself?',
-        answer: 'A tarp thrown over a roof and held down with sandbags is a common DIY approach — and a common failure. Wind gets under loose edges and can tear the tarp completely free, exposing more area than was originally damaged. A professional installation uses 2x4 battens screwed through the tarp into the deck on the ridge, with weighted edges and sealed overlaps. This system stays in place through 60+ mph winds and lasts weeks, not days.',
+        answer: 'A tarp thrown over a roof and held down with sandbags is a common DIY approach, and a common failure. Wind gets under loose edges and can tear the tarp completely free, exposing more area than was originally damaged. A professional installation uses 2x4 battens screwed through the tarp into the deck on the ridge, with weighted edges and sealed overlaps. This system stays in place through 60+ mph winds and lasts weeks, not days.',
       },
       {
         question: 'How quickly can you deploy emergency tarping?',
@@ -508,7 +539,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Does my insurance cover emergency tarping?',
-        answer: 'In most cases, yes. Emergency protective measures — tarping, board-up, interior drying — are typically covered under the same homeowner or commercial property claim as the underlying damage, as they are considered mitigation of further loss. We provide the exact documentation your insurer needs: photographs before and after installation, materials used, square footage covered, and crew time on site.',
+        answer: 'In most cases, yes. Emergency protective measures, tarping, board-up, interior drying, are typically covered under the same homeowner or commercial property claim as the underlying damage, as they are considered mitigation of further loss. We provide the exact documentation your insurer needs: photographs before and after installation, materials used, square footage covered, and crew time on site.',
       },
       {
         question: 'What happens after the tarp is installed?',

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
@@ -24,7 +24,7 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 — Company */}
+          {/* Column 1, Company */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="relative w-10 h-10 flex-shrink-0">
@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Explore */}
+          {/* Column 2, Explore */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Explore
@@ -92,7 +92,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Quick Links */}
+          {/* Column 3, Quick Links */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Quick Links
@@ -112,7 +112,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Contact */}
+          {/* Column 4, Contact */}
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-6">
               Contact Us

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -221,7 +221,7 @@ export default function ServiceAreasPage() {
                 Not Sure We Cover Your Area?
               </span>
               <h3 className="font-serif text-2xl font-bold text-[#0f172a] mb-4 leading-snug">
-                Give Us a Call — We&apos;ll Let You Know Right Away
+                Give Us a Call, We&apos;ll Let You Know Right Away
               </h3>
               <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
                 Our coverage area continues to expand. If you don&apos;t see your city listed, reach out and we&apos;ll confirm availability. Emergency calls are handled across a wider service radius.
@@ -259,12 +259,12 @@ export default function ServiceAreasPage() {
           </FadeIn>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-            {/* Left — sliding reviews */}
+            {/* Left, sliding reviews */}
             <FadeIn className="flex flex-col">
               <ReviewCarousel />
             </FadeIn>
 
-            {/* Right — stats + buttons */}
+            {/* Right, stats + buttons */}
             <FadeIn delay={0.1} className="flex flex-col justify-center">
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
                 What Our Clients<br />Are Saying
@@ -369,7 +369,7 @@ export default function ServiceAreasPage() {
               </p>
               <ul className="space-y-3">
                 {[
-                  'GAF Master Elite certified — top 2% nationally',
+                  'GAF Master Elite certified, top 2% nationally',
                   'Licensed and $5M insured across Ontario',
                   'Free estimates with no travel fees',
                   'Same-day emergency response available',

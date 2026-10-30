@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
@@ -118,7 +118,7 @@ function HeroSection() {
 
           {/* Social proof + stats row */}
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 md:gap-10">
-            {/* Stars + photos — links to testimonials */}
+            {/* Stars + photos, links to testimonials */}
             <Link href="/testimonials" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
               <div className="flex -space-x-2">
                 {[
@@ -420,8 +420,23 @@ function ProcessSection() {
 
 // â"€â"€â"€ Featured Projects â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
+const HOME_PROJECT_SLUGS = [
+  'burlington-lakefront-villa',
+  'meridian-office-complex',
+  'aurora-leak-flashing-repair',
+  'whitby-wind-damage-response',
+  'thornhill-eavestrough-upgrade',
+  'forest-hill-velux-skylight',
+  'schomberg-agricultural-metal',
+  'riverside-modern-residence',
+  'mississauga-condo-corporation',
+  'vaughan-complete-tearoff',
+]
+
 function ProjectsSection() {
-  const base = projects.slice(0, 5)
+  const base = HOME_PROJECT_SLUGS
+    .map(slug => projects.find(p => p.slug === slug))
+    .filter(Boolean) as typeof projects
   const VISIBLE = 3
   // Append clones of first VISIBLE items so wrapping never animates rightward
   const looped = [...base, ...base.slice(0, VISIBLE)]
@@ -429,41 +444,43 @@ function ProjectsSection() {
 
   const [pos, setPos] = useState(0)
   const [instant, setInstant] = useState(false)
-  const snapRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [timerResetKey, setTimerResetKey] = useState(0)
 
   const dotActive = pos % base.length
 
-  // When pos reaches base.length (5), those slots show the same content as 0 —
-  // snap back to 0 instantly so the next advance always scrolls left.
+  // Snap back to 0 when we reach the clone zone; reset timer after loop completes
   useEffect(() => {
-    if (pos === base.length) {
-      snapRef.current = setTimeout(() => {
+    if (pos >= base.length) {
+      const id = setTimeout(() => {
         setInstant(true)
         setPos(0)
-        requestAnimationFrame(() => requestAnimationFrame(() => setInstant(false)))
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          setInstant(false)
+          setTimerResetKey(k => k + 1)
+        }))
       }, 580)
+      return () => clearTimeout(id)
     }
-    return () => { if (snapRef.current) clearTimeout(snapRef.current) }
   }, [pos, base.length])
 
-  // Auto-advance: guard against advancing past the clone zone
+  // Auto-advance, restarts on arrow/dot click and after each loop
   useEffect(() => {
     const id = setInterval(() => {
-      setPos(p => (p >= base.length ? p : p + 1))
+      setPos(p => (p < base.length ? p + 1 : p))
     }, 4200)
     return () => clearInterval(id)
-  }, [base.length])
+  }, [timerResetKey, base.length])
 
   const prev = () => {
-    if (snapRef.current) clearTimeout(snapRef.current)
+    setTimerResetKey(k => k + 1)
     setInstant(false)
     setPos(p => Math.max(0, p >= base.length ? base.length - 1 : p - 1))
   }
 
   const next = () => {
-    if (snapRef.current) clearTimeout(snapRef.current)
+    setTimerResetKey(k => k + 1)
     setInstant(false)
-    setPos(p => (p >= base.length ? p : p + 1))
+    setPos(p => (p < base.length ? p + 1 : p))
   }
 
   return (
@@ -498,26 +515,29 @@ function ProjectsSection() {
               <div
                 key={`${p.id}-${i}`}
                 style={{ width: `${100 / TOTAL}%` }}
-                className="flex-shrink-0 px-2"
+                className="flex-shrink-0 px-2 group"
               >
-                <div className="overflow-hidden bg-white border border-[#e7e5e4] shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden">
+                <div className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl">
+                  <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
                     <Image
                       src={p.image}
                       alt={p.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                        {p.category}
-                      </span>
+                    <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
+                      {(p.categories ?? [p.category]).map((cat: string) => (
+                        <span key={cat} className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
+                          {cat}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                  <div className="p-4 border-t border-[#e7e5e4]">
+                  <div className="p-5 border-t border-[#e7e5e4]">
                     <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{p.title}</h3>
-                    <p className="font-sans text-xs text-[#94a3b8]">{p.location} &middot; {p.year}</p>
+                    <p className="font-sans text-xs text-[#94a3b8] mb-3">{p.location} &middot; {p.year}</p>
+                    <p className="font-sans text-sm text-[#64748b] leading-relaxed line-clamp-2">{p.description}</p>
                   </div>
                 </div>
               </div>
@@ -540,7 +560,7 @@ function ProjectsSection() {
             <button
               key={i}
               onClick={() => {
-                if (snapRef.current) clearTimeout(snapRef.current)
+                setTimerResetKey(k => k + 1)
                 setInstant(false)
                 setPos(i)
               }}
@@ -620,7 +640,7 @@ const extraTestimonials = [
 
 function TestimonialCard({ t }: { t: { name: string; location: string; rating: number; quote: string; image: string } }) {
   return (
-    <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300 rounded-xl">
       <div className="flex gap-0.5 mb-6">
         {Array.from({ length: t.rating }).map((_, i) => (
           <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
@@ -689,7 +709,7 @@ function TestimonialsSection() {
         <div className="flex justify-center mt-10 mb-2">
           <button
             onClick={() => setShowMore(prev => !prev)}
-            className="inline-flex items-center gap-3 px-8 py-3 border border-[#0f172a]/30 rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-[#0f172a] hover:border-[#0f172a] transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
           >
             <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
             Show More Reviews

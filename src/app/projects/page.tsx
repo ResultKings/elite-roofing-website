@@ -1,10 +1,10 @@
-'use client'
+﻿'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronDown, Phone, ArrowRight, CheckCircle } from 'lucide-react'
 import { projects } from '@/data/mockData'
 import type { Project } from '@/data/mockData'
 
@@ -31,8 +31,8 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div variants={fadeUp} className="group">
-      <div className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500">
-        <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden">
+      <div className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl">
+        <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
           <Image
             src={project.image}
             alt={project.title}
@@ -40,28 +40,31 @@ function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute top-3 left-3 z-10">
-            <span className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-              {project.category}
-            </span>
+          <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
+            {(project.categories ?? [project.category]).map(cat => (
+              <span key={cat} className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
+                {cat}
+              </span>
+            ))}
           </div>
         </div>
         <div className="p-5 border-t border-[#e7e5e4]">
           <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
           <p className="font-sans text-xs text-[#94a3b8] mb-3">{project.location} &middot; {project.year}</p>
-          <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-4 line-clamp-2">{project.description}</p>
-          <div className="flex flex-wrap gap-1.5">
-            {project.tags.slice(0, 3).map(tag => (
-              <span key={tag} className="px-2.5 py-1 bg-[#f8fafc] border border-[#e7e5e4] font-sans text-[10px] text-[#64748b] tracking-wide">{tag}</span>
-            ))}
-          </div>
+          <p className="font-sans text-sm text-[#64748b] leading-relaxed line-clamp-2">{project.description}</p>
         </div>
       </div>
     </motion.div>
   )
 }
 
-const categories = ['All', 'Residential', 'Commercial'] as const
+const PRIMARY_CATEGORIES = ['All', 'Residential', 'Commercial'] as const
+const SERVICE_CATEGORIES = [
+  'Roof Repair', 'Storm Damage Restoration', 'Gutter Systems',
+  'Skylight Installation', 'Roof Inspection', 'Metal Roofing',
+  'Flat Roofing', 'Multi-Family Roofing', 'Roof Replacement', 'Roof Tarping',
+] as const
+const categories = [...PRIMARY_CATEGORIES, ...SERVICE_CATEGORIES] as const
 
 const projectReviews = [
   {
@@ -163,10 +166,58 @@ function ReviewCarousel() {
   )
 }
 
-export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState<'All' | 'Residential' | 'Commercial'>('All')
+type Category = typeof categories[number]
 
-  const filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory)
+const INITIAL_COUNT = 6
+const BATCH = 9
+
+export default function ProjectsPage() {
+  const [activeCategory, setActiveCategory] = useState<Category>('All')
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT)
+  const [collapsingMode, setCollapsingMode] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const filtered = activeCategory === 'All'
+    ? projects
+    : projects.filter(p => (p.categories ?? [p.category]).includes(activeCategory))
+
+  const isAll = activeCategory === 'All'
+  const showMoreBtn = isAll && !collapsingMode && visibleCount < filtered.length
+  const seeLessBtn = isAll && collapsingMode && visibleCount > INITIAL_COUNT
+
+  const handleShowMore = () => {
+    setVisibleCount(c => {
+      const next = Math.min(c + BATCH, filtered.length)
+      if (next >= filtered.length) setCollapsingMode(true)
+      return next
+    })
+  }
+
+  const handleSeeLess = () => {
+    setVisibleCount(c => {
+      const next = Math.max(c - BATCH, INITIAL_COUNT)
+      if (next <= INITIAL_COUNT) setCollapsingMode(false)
+      return next
+    })
+  }
+
+  const selectCategory = useCallback((cat: Category) => {
+    setActiveCategory(cat as Category)
+    setDropdownOpen(false)
+    setVisibleCount(INITIAL_COUNT)
+    setCollapsingMode(false)
+  }, [])
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
 
   return (
     <>
@@ -191,7 +242,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <main className="pb-24 bg-[#fafaf9]">
+      <main className="bg-[#fafaf9]">
         {/* Gallery intro */}
         <section className="px-6 md:px-8 lg:px-16 pt-16 pb-10">
           <div className="max-w-7xl mx-auto">
@@ -209,14 +260,15 @@ export default function ProjectsPage() {
         <section className="px-6 md:px-8 lg:px-16 mb-10">
           <div className="max-w-7xl mx-auto">
             <FadeIn>
-              <div className="flex justify-end">
+              <div className="flex items-center gap-2 flex-wrap">
+                {/* Primary: All / Residential / Commercial */}
                 <div className="flex items-center bg-white border border-[#e7e5e4] p-1">
-                  {categories.map(cat => (
+                  {PRIMARY_CATEGORIES.map(cat => (
                     <button
                       key={cat}
-                      onClick={() => setActiveCategory(cat)}
+                      onClick={() => selectCategory(cat)}
                       className={[
-                        'px-5 py-2 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200',
+                        'px-5 py-2 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap',
                         activeCategory === cat
                           ? 'bg-[#0f172a] text-white'
                           : 'text-[#64748b] hover:text-[#0f172a]',
@@ -226,6 +278,44 @@ export default function ProjectsPage() {
                     </button>
                   ))}
                 </div>
+
+                {/* Dropdown for service categories */}
+                <div className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setDropdownOpen(o => !o)}
+                    className={[
+                      'flex items-center gap-1.5 px-5 py-2.5 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 border',
+                      SERVICE_CATEGORIES.includes(activeCategory as typeof SERVICE_CATEGORIES[number])
+                        ? 'bg-[#0f172a] text-white border-[#0f172a]'
+                        : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a]',
+                    ].join(' ')}
+                  >
+                    {SERVICE_CATEGORIES.includes(activeCategory as typeof SERVICE_CATEGORIES[number])
+                      ? activeCategory
+                      : 'Services'
+                    }
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {dropdownOpen && (
+                    <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-[#e7e5e4] shadow-lg min-w-[220px]">
+                      {SERVICE_CATEGORIES.map(cat => (
+                        <button
+                          key={cat}
+                          onClick={() => selectCategory(cat)}
+                          className={[
+                            'w-full text-left px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-150',
+                            activeCategory === cat
+                              ? 'bg-[#0f172a] text-white'
+                              : 'text-[#64748b] hover:bg-[#f8fafc] hover:text-[#0f172a]',
+                          ].join(' ')}
+                        >
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -233,6 +323,7 @@ export default function ProjectsPage() {
 
         <section className="px-6 md:px-8 lg:px-16">
           <div className="max-w-7xl mx-auto">
+            {/* Base cards, first INITIAL_COUNT for All, all cards for other filters */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory}
@@ -241,16 +332,123 @@ export default function ProjectsPage() {
                 variants={stagger}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
               >
-                {filtered.map(project => (
+                {(isAll ? filtered.slice(0, INITIAL_COUNT) : filtered).map(project => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </motion.div>
             </AnimatePresence>
+
+            {/* Extra cards, animated in/out like testimonials Show More */}
+            <AnimatePresence>
+              {isAll && visibleCount > INITIAL_COUNT && (
+                <motion.div
+                  key="extra-cards"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }}
+                  exit={{ height: 0, opacity: 0, transition: { duration: 0.25 } }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+                    {filtered.slice(INITIAL_COUNT, visibleCount).map(project => (
+                      <ProjectCard key={project.id} project={project} />
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Show More / See Less button */}
+            {isAll && (
+              <div className="flex justify-center mt-10">
+                <AnimatePresence mode="wait">
+                  {showMoreBtn && (
+                    <motion.button
+                      key={`show-more-${visibleCount}`}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
+                      exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
+                      onClick={handleShowMore}
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+                    >
+                      <span className="text-[8px]">▶</span>
+                      Show More Projects
+                    </motion.button>
+                  )}
+                  {seeLessBtn && (
+                    <motion.button
+                      key={`see-less-${visibleCount}`}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
+                      exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
+                      onClick={handleSeeLess}
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+                    >
+                      <span className="text-[8px]">▼</span>
+                      See Less
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
         </section>
 
+        {/* Service CTA, shown for every filter except All */}
+        <AnimatePresence>
+          {!isAll && (() => {
+            const slugMap: Record<string, string> = {
+              'Residential':              'residential-roofing',
+              'Commercial':               'commercial-roofing',
+              'Roof Repair':              'roof-repair',
+              'Storm Damage Restoration': 'storm-damage-restoration',
+              'Gutter Systems':           'gutter-systems',
+              'Skylight Installation':    'skylight-installation',
+              'Roof Inspection':          'roof-inspection',
+              'Metal Roofing':            'metal-roofing',
+              'Flat Roofing':             'flat-roofing',
+              'Multi-Family Roofing':     'multi-family-roofing',
+              'Roof Replacement':         'roof-replacement',
+              'Roof Tarping':             'roof-tarping',
+            }
+            const displayName = activeCategory === 'Residential'
+              ? 'Residential Roofing'
+              : activeCategory === 'Commercial'
+              ? 'Commercial Roofing'
+              : activeCategory
+            const slug = slugMap[activeCategory] ?? '#'
+            return (
+              <motion.section
+                key={`service-cta-${activeCategory}`}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } }}
+                exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
+                className="mt-16 md:mt-20 px-6 md:px-8 lg:px-16"
+              >
+                <div className="max-w-7xl mx-auto">
+                  <div className="bg-[#f1f5f9] border border-[#e2e8f0] rounded-2xl px-8 md:px-14 py-10 md:py-14 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
+                    <div>
+                      <p className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#041D35] mb-3">
+                        Want to learn more about how we work?
+                      </p>
+                      <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] leading-snug">
+                        Check Out Our {displayName} Services
+                      </h3>
+                    </div>
+                    <Link
+                      href={`/services/${slug}`}
+                      className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-semibold tracking-[0.18em] uppercase transition-colors duration-200 rounded-full"
+                    >
+                      View {displayName} <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.section>
+            )
+          })()}
+        </AnimatePresence>
+
         {/* Hear From Our Clients */}
-        <section className="mt-20 px-6 md:px-8 lg:px-16 pb-8">
+        <section className="mt-20 px-6 md:px-8 lg:px-16 pb-20 md:pb-24">
           <div className="max-w-7xl mx-auto">
             <FadeIn className="text-center mb-12">
               <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
@@ -262,15 +460,18 @@ export default function ProjectsPage() {
             </FadeIn>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-              {/* Left — sliding reviews */}
+              {/* Left, sliding reviews */}
               <FadeIn className="flex flex-col">
                 <ReviewCarousel />
               </FadeIn>
 
-              {/* Right — stats + buttons */}
+              {/* Right, stats + buttons */}
               <FadeIn delay={0.1} className="flex flex-col justify-center">
                 <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
-                  What Our Clients<br />Are Saying
+                  {activeCategory === 'All'
+                    ? <>What Our Clients<br />Are Saying</>
+                    : <>What Our Clients<br />Are Saying About Our<br />{activeCategory === 'Residential' ? 'Residential Roofing' : activeCategory === 'Commercial' ? 'Commercial Roofing' : activeCategory}</>
+                  }
                 </h3>
 
                 <div className="flex items-center gap-4 mb-5">
@@ -314,6 +515,50 @@ export default function ProjectsPage() {
                   </a>
                 </div>
               </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ────────────────────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+              Get Started
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+              {activeCategory === 'All'
+                ? 'Ready to Start Your Roofing Project?'
+                : `Ready to Discuss Your ${activeCategory === 'Residential' ? 'Residential Roofing' : activeCategory === 'Commercial' ? 'Commercial Roofing' : activeCategory} Project?`
+              }
+            </h2>
+            <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
+              Our free inspection includes a detailed assessment, photographic documentation,
+              and a transparent written proposal, no obligation and no pressure.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+              >
+                Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <a
+                href="tel:+19055550198"
+                className="inline-flex items-center gap-2 font-sans text-sm text-white/60 hover:text-white transition-colors duration-300"
+              >
+                <Phone className="w-4 h-4 text-[#c9a55a]" />
+                (905) 555-0198
+              </a>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              {['No obligation, ever', '10-Year Workmanship Warranty', 'Serving all of Ontario'].map(item => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />
+                  <span className="font-sans text-xs text-white/40">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>

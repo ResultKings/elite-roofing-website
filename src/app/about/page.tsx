@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useRef } from 'react'
 import Image from 'next/image'
@@ -32,12 +32,12 @@ const values = [
   {
     icon: Shield,
     title: 'Integrity First',
-    description: 'We provide honest assessments, transparent pricing, and no-pressure proposals. What we quote is what you pay — every time.',
+    description: 'We provide honest assessments, transparent pricing, and no-pressure proposals. What we quote is what you pay, every time.',
   },
   {
     icon: Award,
     title: 'Master Craftsmanship',
-    description: 'As GAF Master Elite certified contractors — the top 2% nationally — we bring the highest standard of skill and technique to every project.',
+    description: 'As GAF Master Elite certified contractors, the top 2% nationally, we bring the highest standard of skill and technique to every project.',
   },
   {
     icon: Users,
@@ -55,7 +55,7 @@ const certifications = [
   { name: 'GAF Master Elite Certified', note: 'Top 2% of roofing contractors in North America' },
   { name: 'Licensed in Ontario', note: 'Fully licensed and compliant with all provincial regulations' },
   { name: '$5M Liability Insurance', note: 'Comprehensive coverage protecting your property throughout every project' },
-  { name: 'WSIB Covered', note: 'All crew members covered — zero liability for homeowners' },
+  { name: 'WSIB Covered', note: 'All crew members covered, zero liability for homeowners' },
   { name: '10-Year Workmanship Warranty', note: 'Written warranty on all installation and repair work' },
   { name: 'BBB Accredited Business', note: 'Verified track record of ethical business practices' },
 ]
@@ -102,13 +102,13 @@ export default function AboutPage() {
                   Elite Roofing was founded in 2004 with a straightforward belief: homeowners and business owners deserve a roofing contractor who shows up when they say they will, charges what they quoted, and stands behind their work long after the crew has left.
                 </p>
                 <p>
-                  Over the past two decades, we have grown into one of the Greater Toronto Area&apos;s most trusted roofing companies — not by cutting corners or chasing the lowest bid, but by consistently delivering results that exceed expectations and last for decades.
+                  Over the past two decades, we have grown into one of the Greater Toronto Area&apos;s most trusted roofing companies, not by cutting corners or chasing the lowest bid, but by consistently delivering results that exceed expectations and last for decades.
                 </p>
                 <p>
-                  Our team of certified craftsmen brings deep expertise to every project, from a single-family residential repair in Vaughan to a full commercial roofing system in Mississauga. We hold GAF Master Elite certification — achieved by fewer than 2% of roofing contractors in North America — a reflection of our technical standards, ongoing training, and dedication to quality.
+                  Our team of certified craftsmen brings deep expertise to every project, from a single-family residential repair in Vaughan to a full commercial roofing system in Mississauga. We hold GAF Master Elite certification, achieved by fewer than 2% of roofing contractors in North America, a reflection of our technical standards, ongoing training, and dedication to quality.
                 </p>
                 <p>
-                  Today, with over 2,400 completed projects and 300+ five-star reviews, we are proud of the reputation we have earned — one roof at a time.
+                  Today, with over 2,400 completed projects and 300+ five-star reviews, we are proud of the reputation we have earned, one roof at a time.
                 </p>
               </div>
             </FadeIn>
@@ -196,7 +196,7 @@ export default function AboutPage() {
                 </p>
                 <div className="border-t border-white/10 pt-6">
                   <p className="font-sans text-sm font-semibold text-white">Elite Roofing Leadership</p>
-                  <p className="font-sans text-xs text-white/40 mt-0.5">Est. 2004 &mdash; Vaughan, Ontario</p>
+                  <p className="font-sans text-xs text-white/40 mt-0.5">Est. 2004 , Vaughan, Ontario</p>
                 </div>
               </div>
             </FadeIn>
@@ -217,13 +217,13 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-white text-[#0f172a] font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white/90 transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
               >
                 Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/testimonials"
-                className="inline-flex items-center gap-2 font-sans text-xs text-white/80 hover:text-white transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-white hover:bg-white/90 text-[#0f172a] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
               >
                 Read Our Reviews <ArrowRight className="w-3.5 h-3.5" />
               </Link>

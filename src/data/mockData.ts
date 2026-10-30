@@ -1,4 +1,4 @@
-export interface Service {
+﻿export interface Service {
   id: string
   slug: string
   icon: string
@@ -14,6 +14,7 @@ export interface Project {
   slug: string
   title: string
   category: string
+  categories?: string[]
   location: string
   year: string
   description: string
@@ -187,8 +188,8 @@ export const services: Service[] = [
     slug: 'metal-roofing',
     icon: 'Layers',
     title: 'Metal Roofing',
-    shortDescription: 'Standing-seam and exposed-fastener metal roofing systems built for Ontario\'s climate — lasting 50+ years with minimal maintenance.',
-    fullDescription: 'Metal roofing is the highest-performing long-term investment for Ontario homeowners and commercial property owners. We install standing-seam, corrugated, and metal shingle systems in steel, aluminum, and copper — all engineered for our freeze-thaw climate and backed by 50-year finish warranties.',
+    shortDescription: 'Standing-seam and exposed-fastener metal roofing systems built for Ontario\'s climate, lasting 50+ years with minimal maintenance.',
+    fullDescription: 'Metal roofing is the highest-performing long-term investment for Ontario homeowners and commercial property owners. We install standing-seam, corrugated, and metal shingle systems in steel, aluminum, and copper, all engineered for our freeze-thaw climate and backed by 50-year finish warranties.',
     features: [
       'Standing-seam and exposed-fastener systems',
       'Steel, aluminum, and copper options',
@@ -302,7 +303,8 @@ export const projects: Project[] = [
     id: '3',
     slug: 'concord-townhome-complex',
     title: 'Concord Townhome Complex',
-    category: 'Residential',
+    category: 'Multi-Family Roofing',
+    categories: ['Multi-Family Roofing'],
     location: 'Concord, ON',
     year: '2024',
     description:
@@ -311,20 +313,6 @@ export const projects: Project[] = [
     images: ['/project-res-8.webp'],
     featured: true,
     tags: ['Multi-Family', 'Architectural Shingles', 'Phased Project'],
-  },
-  {
-    id: '4',
-    slug: 'ajax-distribution-centre',
-    title: 'Ajax Distribution Centre',
-    category: 'Commercial',
-    location: 'Ajax, ON',
-    year: '2024',
-    description:
-      'Complete flat roof replacement on a 180,000 sq ft distribution warehouse. Hot-applied SBS modified bitumen system installed over new tapered ISO insulation, with all 22 HVAC curbs re-flashed and new perimeter edge metal throughout.',
-    image: '/project-com-7.webp',
-    images: ['/project-com-7.webp'],
-    featured: true,
-    tags: ['Modified Bitumen', 'Industrial', 'Large-Scale'],
   },
   {
     id: '5',
@@ -345,6 +333,7 @@ export const projects: Project[] = [
     slug: 'riverside-modern-residence',
     title: 'Riverside Modern Residence',
     category: 'Residential',
+    categories: ['Residential', 'Flat Roofing'],
     location: 'Toronto, ON',
     year: '2024',
     description:
@@ -376,7 +365,7 @@ export const projects: Project[] = [
     location: 'Burlington, ON',
     year: '2023',
     description:
-      'Storm damage restoration following a severe hail event — full insurance-documented tear-off and replacement with GAF Timberline HDZ in Charcoal, three new Velux skylights, and complete eavestrough overhaul all completed within one week.',
+      'Storm damage restoration following a severe hail event, full insurance-documented tear-off and replacement with GAF Timberline HDZ in Charcoal, three new Velux skylights, and complete eavestrough overhaul all completed within one week.',
     image: '/project-res-1.avif',
     images: ['/project-res-1.avif'],
     featured: false,
@@ -387,10 +376,11 @@ export const projects: Project[] = [
     slug: 'thornhill-eavestrough-upgrade',
     title: 'Thornhill Eavestrough & Shingle Upgrade',
     category: 'Residential',
+    categories: ['Residential', 'Gutter Systems'],
     location: 'Thornhill, ON',
     year: '2024',
     description:
-      'Combined roof and eavestrough upgrade on a two-storey home — new architectural shingles, drip edge, and a full seamless aluminum eavestrough system with micro-mesh leaf guards installed across all roof lines.',
+      'Combined roof and eavestrough upgrade on a two-storey home, new architectural shingles, drip edge, and a full seamless aluminum eavestrough system with micro-mesh leaf guards installed across all roof lines.',
     image: '/project-res-4.webp',
     images: ['/project-res-4.webp'],
     featured: false,
@@ -400,7 +390,8 @@ export const projects: Project[] = [
     id: '10',
     slug: 'king-city-craftsman-estates',
     title: 'King City Craftsman Estates',
-    category: 'Residential',
+    category: 'Multi-Family Roofing',
+    categories: ['Multi-Family Roofing'],
     location: 'King City, ON',
     year: '2023',
     description:
@@ -418,7 +409,7 @@ export const projects: Project[] = [
     location: 'Brampton, ON',
     year: '2023',
     description:
-      'Weekend re-roofing of a 28,000 sq ft retail strip with a new TPO membrane system, upgraded insulation board, and fully re-flashed HVAC curbs — completed Saturday to Monday to ensure zero business day disruption for tenants.',
+      'Weekend re-roofing of a 28,000 sq ft retail strip with a new TPO membrane system, upgraded insulation board, and fully re-flashed HVAC curbs, completed Saturday to Monday to ensure zero business day disruption for tenants.',
     image: '/project-com-1.jpg',
     images: ['/project-com-1.jpg'],
     featured: false,
@@ -479,6 +470,266 @@ export const projects: Project[] = [
     images: ['/project-com-6.jpg'],
     featured: false,
     tags: ['Modified Bitumen', 'Multi-Tenant', 'Business Park'],
+  },
+
+  // ── Roof Repair ────────────────────────────────────────────────────────────
+  {
+    id: '16', slug: 'aurora-leak-flashing-repair', title: 'Aurora Leak & Flashing Repair',
+    category: 'Roof Repair', location: 'Aurora, ON', year: '2024',
+    description: 'Diagnosed and repaired three separate leak points on a 3,200 sq ft two-storey home, failed step flashing at the chimney, a cracked rubber boot around a plumbing stack, and lifted ridge cap shingles. All repaired in one visit with full documentation.',
+    image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Leak Repair', 'Flashing', 'Chimney'],
+  },
+  {
+    id: '17', slug: 'newmarket-chimney-cap-seal', title: 'Newmarket Chimney Cap & Seal',
+    category: 'Roof Repair', location: 'Newmarket, ON', year: '2024',
+    description: 'Full chimney cap replacement and step-flashing re-installation on a 1980s split-level home. New galvanized cap, counter-flashing, and full re-pointing of the surrounding brick. Water infiltration eliminated at source.',
+    image: 'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Chimney', 'Flashing', 'Masonry Seal'],
+  },
+  {
+    id: '18', slug: 'barrie-shingle-valley-repair', title: 'Barrie Shingle & Valley Repair',
+    category: 'Roof Repair', location: 'Barrie, ON', year: '2023',
+    description: 'Targeted valley repair and shingle replacement on a ranch-style home after repeated ice dam damage. New W-valley metal installed with a woven shingle overlay and full ice-and-water shield at the eaves. No leaks through the following two winters.',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Valley Repair', 'Ice Dam', 'Shingles'],
+  },
+
+  // ── Storm Damage Restoration ───────────────────────────────────────────────
+  {
+    id: '19', slug: 'oshawa-hail-storm-restoration', title: 'Oshawa Hail Storm Restoration',
+    category: 'Storm Damage Restoration', location: 'Oshawa, ON', year: '2024',
+    description: 'Full tear-off and replacement on a 2,800 sq ft home after a severe hail event caused widespread granule loss and bruising to all south-facing slopes. Insurance claim fully documented and approved for complete replacement with GAF Timberline HDZ.',
+    image: 'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Hail Damage', 'Insurance Claim', 'Full Replacement'],
+  },
+  {
+    id: '20', slug: 'whitby-wind-damage-response', title: 'Whitby Wind Damage Response',
+    category: 'Storm Damage Restoration', location: 'Whitby, ON', year: '2024',
+    description: 'Emergency response and full restoration after severe straight-line winds lifted and removed shingles across 40% of the roof. Emergency tarping the same evening prevented interior damage; complete restoration completed within five days of the storm.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Wind Damage', 'Emergency Tarp', 'Restoration'],
+  },
+  {
+    id: '21', slug: 'ajax-post-storm-rebuild', title: 'Ajax Post-Storm Rebuild',
+    category: 'Storm Damage Restoration', location: 'Ajax, ON', year: '2023',
+    description: 'Fallen tree impact caused structural damage to two roof sections on a colonial-style home. Full deck repair, new framing members, complete re-roofing with architectural shingles, and new gutters along the damaged elevation. Total rebuild covered by insurance.',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Tree Impact', 'Structural Repair', 'Insurance Claim'],
+  },
+
+  // ── Gutter Systems ─────────────────────────────────────────────────────────
+  {
+    id: '22', slug: 'woodbridge-seamless-aluminum-install', title: 'Woodbridge Seamless Eavestrough',
+    category: 'Gutter Systems', location: 'Woodbridge, ON', year: '2024',
+    description: 'Full removal of failing sectional gutters and installation of new 5″ seamless aluminum eavestroughs in bronze finish across a 3,400 sq ft two-storey home. New fascia wrap and downspout extensions routed to the rear of the property away from the foundation.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Seamless Gutters', 'Aluminum', 'Downspouts'],
+  },
+  {
+    id: '23', slug: 'kleinburg-copper-eavestrough', title: 'Kleinburg Copper Eavestrough',
+    category: 'Gutter Systems', location: 'Kleinburg, ON', year: '2024',
+    description: 'Custom half-round copper eavestrough installation on a heritage-style estate home with natural slate roof. Hand-soldered miters and outlets, copper downspouts with decorative rectangular heads, and round leaders routed to underground drainage.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Copper Gutters', 'Heritage', 'Half-Round'],
+  },
+  {
+    id: '24', slug: 'stouffville-micro-mesh-guards', title: 'Stouffville Micro-Mesh Gutter Guards',
+    category: 'Gutter Systems', location: 'Stouffville, ON', year: '2023',
+    description: 'MasterShield micro-mesh leaf guard installation across 320 linear feet of existing seamless gutters on a heavily treed suburban property. Installation resolved chronic seasonal clogging and eliminated the need for twice-yearly cleaning.',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Leaf Guards', 'Micro-Mesh', 'MasterShield'],
+  },
+
+  // ── Skylight Installation ──────────────────────────────────────────────────
+  {
+    id: '25', slug: 'forest-hill-velux-skylight', title: 'Forest Hill Velux Triple-Pane Skylights',
+    category: 'Skylight Installation', location: 'Toronto, ON', year: '2024',
+    description: 'Installation of two Velux FCM triple-pane fixed skylights in a Forest Hill home renovation, integrated into a new cathedral ceiling assembly. Full manufacturer step-flashing kits with no exposed caulk, guaranteed leak-free with a 10-year Elite workmanship warranty.',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Velux', 'Triple-Pane', 'Fixed Skylight'],
+  },
+  {
+    id: '26', slug: 'etobicoke-solar-tube-conversion', title: 'Etobicoke Solar Tube Conversion',
+    category: 'Skylight Installation', location: 'Etobicoke, ON', year: '2024',
+    description: 'Three Solatube 160DS tubular daylighting devices installed in an interior hallway and two windowless bathrooms. Each unit brings bright, glare-free natural light into spaces that had no other daylighting option, significantly reducing daytime electricity use.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Solatube', 'Solar Tube', 'Daylighting'],
+  },
+  {
+    id: '27', slug: 'oakville-venting-skylight-pair', title: 'Oakville Solar-Powered Venting Skylights',
+    category: 'Skylight Installation', location: 'Oakville, ON', year: '2023',
+    description: 'Two Velux VSS solar-powered venting skylights installed over the main living area of a custom bungalow. No electrician required, solar-charged battery opens and closes with a remote, and includes a rain sensor that closes automatically to protect the interior.',
+    image: 'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Velux VSS', 'Solar-Powered', 'Rain Sensor'],
+  },
+
+  // ── Roof Inspection ────────────────────────────────────────────────────────
+  {
+    id: '28', slug: 'richmond-hill-pre-purchase-report', title: 'Richmond Hill Pre-Purchase Inspection',
+    category: 'Roof Inspection', location: 'Richmond Hill, ON', year: '2024',
+    description: 'Full pre-purchase roof inspection on a 4,100 sq ft home with a 12-year-old architectural shingle roof. Inspection identified failed pipe boot flashings and inadequate attic ventilation. Written report with 47 photographs used to negotiate $6,200 in purchase credits.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Pre-Purchase', 'Written Report', 'Photographic'],
+  },
+  {
+    id: '29', slug: 'north-york-annual-assessment', title: 'North York Annual Condition Assessment',
+    category: 'Roof Inspection', location: 'North York, ON', year: '2024',
+    description: 'Annual maintenance inspection and condition assessment on a 22-year-old three-tab shingle roof. Drone-assisted survey of all slopes, valleys, and penetrations. Report included a 5-year outlook projection and identified minor repairs required before the next winter season.',
+    image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Annual Inspection', 'Drone Survey', 'Condition Report'],
+  },
+  {
+    id: '30', slug: 'scarborough-insurance-documentation', title: 'Scarborough Insurance Documentation',
+    category: 'Roof Inspection', location: 'Scarborough, ON', year: '2023',
+    description: 'Detailed storm damage inspection and insurance documentation following an aggressive hail event. Comprehensive report with close-up photography of every impacted shingle, valley, and ridge, submitted to the insurer and instrumental in securing a full roof replacement claim approval.',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Insurance Docs', 'Hail Assessment', 'Claim Support'],
+  },
+
+  // ── Metal Roofing ──────────────────────────────────────────────────────────
+  {
+    id: '31', slug: 'caledon-standing-seam-estate', title: 'Caledon Standing Seam Estate',
+    category: 'Metal Roofing', location: 'Caledon, ON', year: '2024',
+    description: 'Custom standing-seam steel roofing installation on a 7,200 sq ft estate property in Caledon Hills. 24-gauge Galvalume panels in charcoal grey with concealed clips throughout, custom copper ridge caps and valley trim, and a full acoustic underlayment for rain noise reduction.',
+    image: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Standing Seam', 'Steel', 'Custom Estate'],
+  },
+  {
+    id: '32', slug: 'nobleton-metal-shingle-conversion', title: 'Nobleton Metal Shingle Conversion',
+    category: 'Metal Roofing', location: 'Nobleton, ON', year: '2024',
+    description: 'Conversion from aging asphalt shingles to steel shake-profile metal roofing on a two-storey craftsman home. Classic shake appearance with the performance of steel, 50-year finish warranty, Class A fire rating, and significantly improved snow and ice shedding characteristics.',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Metal Shingles', 'Steel Shake', 'Conversion'],
+  },
+  {
+    id: '33', slug: 'schomberg-agricultural-metal', title: 'Schomberg Agricultural Metal Roof',
+    category: 'Metal Roofing', location: 'Schomberg, ON', year: '2023',
+    description: 'Exposed-fastener corrugated steel roof installation on a large agricultural building and attached workshop. High-rib galvanized steel in classic red over new purlins, installed with thermal washers throughout and translucent ridge vents for interior daylighting.',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Agricultural', 'Corrugated Steel', 'Exposed Fastener'],
+  },
+
+  // ── Flat Roofing ───────────────────────────────────────────────────────────
+  {
+    id: '34', slug: 'scarborough-tpo-addition', title: 'Scarborough TPO Flat Roof Addition',
+    category: 'Flat Roofing', location: 'Scarborough, ON', year: '2024',
+    description: 'New-construction TPO membrane installation on a 1,200 sq ft rear addition with a low-slope flat roof profile. Mechanically fastened 60-mil TPO with polyisocyanurate insulation, new internal drain with overflow scupper, and full air-barrier continuity at the wall-to-roof junction.',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['TPO Membrane', 'New Construction', 'Addition'],
+  },
+  {
+    id: '35', slug: 'etobicoke-rubber-membrane', title: 'Etobicoke EPDM Membrane Rebuild',
+    category: 'Flat Roofing', location: 'Etobicoke, ON', year: '2024',
+    description: 'Complete removal and replacement of a failed torch-down roof on a 1970s bungalow with a large flat section over the garage. New 60-mil EPDM fully adhered membrane over tapered polyiso insulation to correct long-standing ponding water at the centre of the field.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['EPDM', 'Tapered Insulation', 'Ponding Fix'],
+  },
+  {
+    id: '36', slug: 'burlington-flat-conversion', title: 'Burlington Modern Flat Conversion',
+    category: 'Flat Roofing', location: 'Burlington, ON', year: '2023',
+    description: 'Low-slope conversion on a mid-century bungalow undergoing a full architectural renovation. New structural deck, 60-mil TPO adhered system, parapet cap flashing in matching zinc, and a rooftop terrace area with equipment pads and perimeter safety cable system.',
+    image: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['TPO', 'Rooftop Terrace', 'Architectural'],
+  },
+
+  // ── Multi-Family Roofing ───────────────────────────────────────────────────
+  {
+    id: '37', slug: 'brampton-townhome-phase-one', title: 'Brampton Townhome Complex Phase 1',
+    category: 'Multi-Family Roofing', location: 'Brampton, ON', year: '2024',
+    description: 'First phase of a three-phase re-roofing program on a 96-unit townhome complex, covering 32 units in two buildings. GAF Timberline HDZ in Pewter Gray, complete ice-and-water shield, ridge-to-soffit ventilation upgrades, and condo board–approved phased scheduling with zero unit lockouts.',
+    image: 'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Townhome Complex', 'Phased Project', 'Condo Board'],
+  },
+  {
+    id: '38', slug: 'mississauga-condo-corporation', title: 'Mississauga Condo Corporation Re-Roof',
+    category: 'Multi-Family Roofing', location: 'Mississauga, ON', year: '2024',
+    description: 'Full re-roofing of a 14-building condominium corporation managed through the reserve fund process. Coordinated with the property management firm and condo board over a six-month phased program, delivering consistent quality across all 14 buildings with a unified warranty.',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Condo Corp', 'Reserve Fund', 'Multi-Building'],
+  },
+  {
+    id: '39', slug: 'etobicoke-apartment-reroof', title: 'Etobicoke Apartment Building Re-Roof',
+    category: 'Multi-Family Roofing', location: 'Etobicoke, ON', year: '2023',
+    description: 'Complete flat roof replacement on a 6-storey, 48-unit apartment building. Hot-applied SBS modified bitumen system with improved tapered insulation and new internal drains, all scheduled during off-peak hours to minimize noise impact on tenants across all floors.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Apartment', 'Modified Bitumen', 'Flat Roof'],
+  },
+
+  // ── Roof Replacement ───────────────────────────────────────────────────────
+  {
+    id: '40', slug: 'vaughan-complete-tearoff', title: 'Vaughan Complete Tear-Off & Replace',
+    category: 'Roof Replacement', location: 'Vaughan, ON', year: '2024',
+    description: 'Full tear-off and replacement of a 28-year-old three-tab shingle roof on a 2,600 sq ft two-storey home. Four layers of old material removed, deck inspection revealed and repaired two areas of rot, then new GAF Timberline HDZ with upgraded ventilation and ice shield throughout.',
+    image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Full Tear-Off', 'GAF System', 'Ventilation Upgrade'],
+  },
+  {
+    id: '41', slug: 'aurora-century-home-replacement', title: 'Aurora Century Home Replacement',
+    category: 'Roof Replacement', location: 'Aurora, ON', year: '2024',
+    description: 'Complete roof replacement on a 1920s century home requiring careful old-growth deck preservation and custom hip-and-valley work. Original wood deck reinforced where needed, new ice-and-water shield, premium architectural shingles selected to match the home\'s historic character.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Century Home', 'Architectural Shingles', 'Heritage'],
+  },
+  {
+    id: '42', slug: 'stouffville-family-replacement', title: 'Stouffville Family Home Replacement',
+    category: 'Roof Replacement', location: 'Stouffville, ON', year: '2023',
+    description: 'One-day complete roof replacement on a 2,200 sq ft family home. Full crew arrival at 7am, complete tear-off, new deck fastening, ice-and-water shield at all eaves and valleys, GAF Timberline HDZ architectural shingles, and site cleanup completed before 5pm.',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['One-Day Replace', 'GAF HDZ', 'Full Crew'],
+  },
+
+  // ── Roof Tarping ───────────────────────────────────────────────────────────
+  {
+    id: '43', slug: 'barrie-emergency-storm-tarp', title: 'Barrie Emergency Storm Response',
+    category: 'Roof Tarping', location: 'Barrie, ON', year: '2024',
+    description: 'Emergency tarp deployment within 90 minutes of a homeowner call after a fast-moving storm tore away shingles across the entire rear slope. Commercial-grade 10-mil polyethylene anchored with 2×4 battens and weighted perimeter held through three additional days of rain before permanent repairs.',
+    image: 'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Emergency Response', 'Storm Tarp', '90-Minute Dispatch'],
+  },
+  {
+    id: '44', slug: 'innisfil-wind-damage-protection', title: 'Innisfil Wind Damage Protection',
+    category: 'Roof Tarping', location: 'Innisfil, ON', year: '2024',
+    description: 'Professional tarping of a 3,000 sq ft home after sustained 90 km/h winds lifted and displaced shingles along the full windward face. Complete documentation package produced for the homeowner\'s insurance claim including drone photographs of all damage areas before tarping.',
+    image: 'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Wind Damage', 'Insurance Docs', 'Drone Survey'],
+  },
+  {
+    id: '45', slug: 'newmarket-emergency-response', title: 'Newmarket Emergency Tarp & Report',
+    category: 'Roof Tarping', location: 'Newmarket, ON', year: '2023',
+    description: 'Same-day emergency tarping of a hail-damaged roof, followed by a full written damage assessment within 24 hours. The tarp installation and written report were submitted directly to the insurer, accelerating the claim timeline and leading to full replacement approval within one week.',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
+    images: ['https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format'],
+    featured: false, tags: ['Hail Damage', 'Same-Day Tarp', 'Claim Support'],
   },
 ]
 
