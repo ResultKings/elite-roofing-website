@@ -504,7 +504,7 @@ function ProjectsSection() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <div className="flex-1 min-w-0 overflow-hidden">
+        <div className="flex-1 min-w-0">
           <motion.div
             className="flex"
             style={{ width: `${TOTAL * 100 / VISIBLE}%` }}

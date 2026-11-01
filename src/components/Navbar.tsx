@@ -23,7 +23,6 @@ const serviceLinks = [
 ]
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/service-areas', label: 'Areas Served' },
   { href: '/projects', label: 'Projects' },
@@ -72,7 +71,7 @@ export default function Navbar() {
             : 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]',
         ].join(' ')}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10">
           <div className="flex items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
@@ -96,8 +95,8 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-7 xl:gap-9 px-10">
-              {/* Home + About Us */}
+            <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-9 pl-8 pr-4">
+              {/* About Us + Areas Served */}
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (

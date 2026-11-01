@@ -355,7 +355,7 @@ export default function TestimonialsPage() {
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200 rounded-full"
             >
               Leave a Google Review
             </a>
@@ -418,7 +418,7 @@ export default function TestimonialsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full"
             >
               Contact Us <ArrowRight className="w-3.5 h-3.5" />
             </Link>

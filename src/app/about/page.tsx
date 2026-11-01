@@ -1,10 +1,11 @@
 ﻿'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, CheckCircle, Award, Shield, Users, Clock } from 'lucide-react'
+import { ArrowRight, CheckCircle, Award, Shield, Users, Clock, Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { testimonials } from '@/data/mockData'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -18,6 +19,83 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
     <motion.div ref={ref} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={fadeUp} transition={{ delay }} className={className}>
       {children}
     </motion.div>
+  )
+}
+
+function ReviewCarousel() {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const total = testimonials.length
+
+  useEffect(() => {
+    if (paused) return
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % total)
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [paused, total])
+
+  const prev = () => { setPaused(true); setCurrent((c) => (c - 1 + total) % total) }
+  const next = () => { setPaused(true); setCurrent((c) => (c + 1) % total) }
+
+  const t = testimonials[current]
+
+  return (
+    <div className="flex flex-col h-full">
+      <div className="flex-1 relative overflow-hidden">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -24 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="bg-white border border-[#e7e5e4] p-7 rounded-xl shadow-sm h-full flex flex-col"
+        >
+          <div className="flex gap-0.5 mb-4">
+            {Array.from({ length: t.rating }).map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+            ))}
+          </div>
+          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+            &ldquo;{t.quote}&rdquo;
+          </p>
+          <div className="flex items-center gap-3 pt-4 border-t border-[#e7e5e4]">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+              <Image src={t.image} alt={t.name} fill sizes="40px" className="object-cover" />
+            </div>
+            <div>
+              <p className="font-sans text-sm font-semibold text-[#0f172a]">{t.name}</p>
+              <p className="font-sans text-[11px] text-[#94a3b8]">{t.location} · {t.projectType}</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+      <div className="flex items-center justify-between mt-5">
+        <div className="flex gap-1.5">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setPaused(true); setCurrent(i) }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={prev}
+            className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={next}
+            className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -204,8 +282,72 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Client Feedback */}
+      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+        <div className="max-w-7xl mx-auto">
+          <FadeIn className="text-center mb-12">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              Client Feedback
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
+              Hear From Our Clients
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+            <FadeIn className="flex flex-col">
+              <ReviewCarousel />
+            </FadeIn>
+
+            <FadeIn delay={0.1} className="flex flex-col justify-center">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
+                What Our Clients<br />Are Saying
+              </h3>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="flex -space-x-3">
+                  {testimonials.slice(0, 3).map((t, i) => (
+                    <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                      <Image src={t.image} alt={t.name} fill sizes="44px" className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <div className="flex gap-0.5 mb-1">
+                    {[1,2,3,4,5].map((i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+                    ))}
+                  </div>
+                  <p className="font-sans text-sm font-semibold text-[#0f172a]">
+                    4.9 <span className="font-normal text-[#64748b]">out of 5 across</span> 300 Google reviews
+                  </p>
+                </div>
+              </div>
+              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+                Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://customerreviews.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+                >
+                  Leave a Google Review
+                </a>
+                <Link
+                  href="/testimonials"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-full"
+                >
+                  See More Reviews <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Office Location Map */}
-      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
@@ -254,12 +396,6 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
               >
                 Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/testimonials"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-white hover:bg-white/90 text-[#0f172a] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
-              >
-                Read Our Reviews <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </FadeIn>

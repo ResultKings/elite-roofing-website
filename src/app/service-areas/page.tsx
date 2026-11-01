@@ -227,6 +227,12 @@ export default function ServiceAreasPage() {
                 Our coverage area continues to expand. If you don&apos;t see your city listed, reach out and we&apos;ll confirm availability. Emergency calls are handled across a wider service radius.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+                >
+                  Contact Us <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
                 <a
                   href="tel:+19055550198"
                   className="inline-flex items-center gap-3 text-[#0f172a] font-sans text-sm"
@@ -234,12 +240,6 @@ export default function ServiceAreasPage() {
                   <Phone className="w-4 h-4 text-[#c9a55a]" />
                   (905) 555-0198
                 </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
-                >
-                  Contact Us <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
               </div>
             </div>
           </FadeIn>
@@ -416,7 +416,7 @@ export default function ServiceAreasPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full"
             >
               Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
             </Link>
