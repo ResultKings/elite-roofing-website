@@ -8,6 +8,7 @@ export interface ServicePageContent {
   heroImage: string
   heroImagePosition?: string
   overviewImage?: string
+  overviewImagePosition?: string
   featuredProjects?: string[]
   galleryImages: string[]
   tagline: string
@@ -27,12 +28,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Premium protection for the home you love.',
+    tagline: 'Residential Roofing Installation in Ontario',
     highlights: [
       '20+ years of residential expertise across Ontario',
       'GAF Master Elite certified installers',
       'Premium materials with lifetime manufacturer warranties',
-      '10-year written workmanship warranty on every job',
+      '10 year written workmanship warranty on every job',
     ],
     faqs: [
       {
@@ -43,7 +44,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'What roofing materials work best for Ontario homes?',
         answer:
-          "Ontario's climate, with cold winters, heavy snowfall, and summer heat and humidity, calls for durable materials. Architectural asphalt shingles are the most popular for their cost-performance balance. For premium homes, natural slate and standing-seam metal offer exceptional longevity (50 to 100 years). We always recommend based on your specific home, budget, and aesthetic goals.",
+          "Ontario's climate, with cold winters, heavy snowfall, and summer heat and humidity, calls for durable materials. Architectural asphalt shingles are the most popular for their cost performance balance. For premium homes, natural slate and standing seam metal offer exceptional longevity (50 to 100 years). We always recommend based on your specific home, budget, and aesthetic goals.",
       },
       {
         question: 'Do I need to leave my home during a roof replacement?',
@@ -53,12 +54,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'What is covered under your residential roofing warranty?',
         answer:
-          'Every residential installation comes with a 10-year Elite Roofing workmanship warranty covering any installation-related failures. Materials carry a separate manufacturer warranty: typically 30 years for architectural shingles, lifetime for premium Timberline HDZ, and 50+ years for metal or slate. We provide all warranty documentation in writing at project completion.',
+          'Every residential installation comes with a 10 year Elite Roofing workmanship warranty covering any installation related failures. Materials carry a separate manufacturer warranty: typically 30 years for architectural shingles, lifetime for premium Timberline HDZ, and 50+ years for metal or slate. We provide all warranty documentation in writing at project completion.',
       },
       {
         question: 'How do I know if I need a repair or a full replacement?',
         answer:
-          'As a rule: if your roof is under 15 years old and damage is isolated (a few missing shingles, a single flashing failure), repair is likely the right call. If the roof is over 20 years old, shows widespread granule loss, has multiple leak points, or has structural sagging, replacement is almost always more cost-effective over a 10-year horizon. Our free inspection includes an honest assessment with no sales pressure.',
+          'As a rule: if your roof is under 15 years old and damage is isolated (a few missing shingles, a single flashing failure), repair is likely the right call. If the roof is over 20 years old, shows widespread granule loss, has multiple leak points, or has structural sagging, replacement is almost always more cost effective over a 10 year horizon. Our free inspection includes an honest assessment with no sales pressure.',
       },
     ],
   },
@@ -74,7 +75,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Protecting your investment, with zero downtime.',
+    tagline: 'Commercial Roofing Installation in Ontario',
     highlights: [
       'Certified for TPO, EPDM, and modified bitumen systems',
       'Phased installation to keep your business open',
@@ -85,22 +86,22 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'What commercial roofing systems do you specialize in?',
         answer:
-          'We install and service TPO (thermoplastic polyolefin), EPDM (rubber membrane), modified bitumen, built-up roofing (BUR), and PVC single-ply systems. TPO is our most commonly specified system for its energy efficiency and cost-performance ratio. We assess each building individually and recommend the system that best fits your load requirements, drainage profile, and budget.',
+          'We install and service TPO (thermoplastic polyolefin), EPDM (rubber membrane), modified bitumen, built up roofing (BUR), and PVC single ply systems. TPO is our most commonly specified system for its energy efficiency and cost performance ratio. We assess each building individually and recommend the system that best fits your load requirements, drainage profile, and budget.',
       },
       {
         question: 'Can you work around our business hours to minimize disruption?',
         answer:
-          "Absolutely. For retail, medical, and 24/7 operations, we regularly schedule work during off-hours, weekends, or in phased sections so that no area of your building is fully taken offline at once. We've completed full commercial reroofs on active retail centers, hospitals, and data centers with zero business interruption. We'll develop a specific schedule with you before signing any contract.",
+          "Absolutely. For retail, medical, and 24/7 operations, we regularly schedule work during off hours, weekends, or in phased sections so that no area of your building is fully taken offline at once. We've completed full commercial reroofs on active retail centers, hospitals, and data centers with zero business interruption. We'll develop a specific schedule with you before signing any contract.",
       },
       {
-        question: 'How do you handle large or multi-building projects?',
+        question: 'How do you handle large or multi building projects?',
         answer:
-          'Large commercial projects are managed by a dedicated project manager who serves as your single point of contact from survey to sign-off. For multi-building portfolios, we develop a phased scope of work with fixed milestones, weekly progress reporting, and daily site cleanup protocols. We are fully bonded and carry $5M commercial liability insurance.',
+          'Large commercial projects are managed by a dedicated project manager who serves as your single point of contact from survey to sign off. For multi building portfolios, we develop a phased scope of work with fixed milestones, weekly progress reporting, and daily site cleanup protocols. We are fully bonded and carry $5M commercial liability insurance.',
       },
       {
         question: 'Do you offer maintenance programs for commercial roofs?',
         answer:
-          'Yes. Our Commercial Roof Maintenance Program (CRMP) includes bi-annual inspections, proactive seam and flashing maintenance, drain clearing, and detailed condition reports. Studies show that proactive maintenance extends commercial roof life by 30–50% versus reactive repair. Program clients also receive priority emergency response and discounted repair rates.',
+          'Yes. Our Commercial Roof Maintenance Program (CRMP) includes bi annual inspections, proactive seam and flashing maintenance, drain clearing, and detailed condition reports. Studies show that proactive maintenance extends commercial roof life by 30–50% versus reactive repair. Program clients also receive priority emergency response and discounted repair rates.',
       },
       {
         question: 'How long does a commercial roof installation take?',
@@ -121,10 +122,10 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Fast response. Lasting repairs. No temporary patches.',
+    tagline: 'Professional Roof Repair in Ontario',
     highlights: [
-      'Same-day emergency response for active leaks',
-      'Root-cause diagnosis, not just symptom treatment',
+      'Same day emergency response for active leaks',
+      'Root cause diagnosis, not just symptom treatment',
       'All repairs backed by our workmanship warranty',
       'Honest assessment: we tell you when repair is not the right call',
     ],
@@ -132,7 +133,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'How quickly can you respond to an emergency leak?',
         answer:
-          'For active leaks, we offer same-day emergency response 7 days a week. Call our emergency line at (905) 555-0198 and a crew will be dispatched within 4 hours during business hours. After-hours emergency calls are assessed and typically receive next-morning service. We carry emergency tarping materials on all trucks to immediately stop interior damage while the permanent repair is scheduled.',
+          'For active leaks, we offer same day emergency response 7 days a week. Call our emergency line at (905) 555-0198 and a crew will be dispatched within 4 hours during business hours. After hours emergency calls are assessed and typically receive next morning service. We carry emergency tarping materials on all trucks to immediately stop interior damage while the permanent repair is scheduled.',
       },
       {
         question: "Will my homeowner's insurance cover roof repairs?",
@@ -142,7 +143,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'Can you repair any type of roofing material?',
         answer:
-          'Yes. We repair all residential and commercial roofing materials including architectural shingles, 3-tab shingles, natural slate, cedar shake, standing-seam and exposed-fastener metal, TPO, EPDM, modified bitumen, and built-up roofing. We carry a comprehensive inventory of matching materials to ensure repairs are seamless and not patchwork.',
+          'Yes. We repair all residential and commercial roofing materials including architectural shingles, 3-tab shingles, natural slate, cedar shake, standing seam and exposed fastener metal, TPO, EPDM, modified bitumen, and built up roofing. We carry a comprehensive inventory of matching materials to ensure repairs are seamless and not patchwork.',
       },
       {
         question: 'How do I know if my roof can be repaired or needs full replacement?',
@@ -152,7 +153,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'Do you warranty your repair work?',
         answer:
-          'Every repair completed by Elite Roofing carries a minimum 2-year workmanship warranty against the same defect recurring. For larger repairs (full section replacements, complete flashing rebuilds), the warranty extends to 5 years. All warranty terms are documented in writing and provided at job completion.',
+          'Every repair completed by Elite Roofing carries a minimum 2 year workmanship warranty against the same defect recurring. For larger repairs (full section replacements, complete flashing rebuilds), the warranty extends to 5 years. All warranty terms are documented in writing and provided at job completion.',
       },
     ],
   },
@@ -168,7 +169,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: "When the storm passes, we make it right.",
+    tagline: 'Storm Damage Roof Restoration in Ontario',
     highlights: [
       'Free storm damage inspections, 7 days a week',
       'Expert insurance claim support and documentation',
@@ -189,12 +190,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'What types of storm damage can you repair?',
         answer:
-          "We handle all types of weather-related roofing damage: hail damage (granule loss, punctures, shingle fractures), wind damage (lifted and missing shingles, ridge cap loss, fascia damage), ice dam damage, fallen tree and debris impact, and lightning strike damage. We also handle associated interior water damage documentation for insurance purposes.",
+          "We handle all types of weather related roofing damage: hail damage (granule loss, punctures, shingle fractures), wind damage (lifted and missing shingles, ridge cap loss, fascia damage), ice dam damage, fallen tree and debris impact, and lightning strike damage. We also handle associated interior water damage documentation for insurance purposes.",
       },
       {
         question: 'How long does the full storm damage restoration process take?',
         answer:
-          'Emergency tarping is same-day or next-day. The insurance claim process varies by carrier, typically 1 to 3 weeks from claim to adjuster visit to settlement offer. Once insurance is approved, we schedule the actual restoration work within 1–2 weeks. Total time from storm to completed restoration is typically 3–6 weeks for residential, 6–12 weeks for complex commercial properties.',
+          'Emergency tarping is same day or next day. The insurance claim process varies by carrier, typically 1 to 3 weeks from claim to adjuster visit to settlement offer. Once insurance is approved, we schedule the actual restoration work within 1–2 weeks. Total time from storm to completed restoration is typically 3–6 weeks for residential, 6–12 weeks for complex commercial properties.',
       },
       {
         question: 'Will insurance cover a full roof replacement after storm damage?',
@@ -215,18 +216,18 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Complete drainage protection from roofline to foundation.',
+    tagline: 'Gutter & Eavestrough Installation in Ontario',
     highlights: [
-      'Custom-formed seamless gutters in over 30 colors',
-      'Copper gutters with hand-soldered joints',
-      'Micro-mesh leaf guards with lifetime warranty',
+      'Custom formed seamless gutters in over 30 colors',
+      'Copper gutters with hand soldered joints',
+      'Micro mesh leaf guards with lifetime warranty',
       'Free gutter inspection with every roofing estimate',
     ],
     faqs: [
       {
         question: 'What is the advantage of seamless gutters over sectional?',
         answer:
-          'Seamless gutters are formed on-site in one continuous piece, eliminating the joints that are the primary leak and failure points in sectional gutters. They also require less maintenance, look cleaner, and are available in a far wider range of profiles and colors. They cost more upfront but last significantly longer and perform better, especially in high-volume rainfall events.',
+          'Seamless gutters are formed on site in one continuous piece, eliminating the joints that are the primary leak and failure points in sectional gutters. They also require less maintenance, look cleaner, and are available in a far wider range of profiles and colors. They cost more upfront but last significantly longer and perform better, especially in high volume rainfall events.',
       },
       {
         question: 'How often should gutters be cleaned?',
@@ -236,12 +237,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       {
         question: 'Are gutter guards worth the investment?',
         answer:
-          'Quality gutter guards, specifically micro-mesh systems with 50-micron stainless mesh, are highly effective and we stand behind them. They eliminate routine cleaning for most homeowners and are particularly worthwhile on homes with difficult roof access. We do not install reverse-curve or screen-type guards, which create more problems than they solve. We only install the MasterShield micro-mesh system.',
+          'Quality gutter guards, specifically micro mesh systems with 50-micron stainless mesh, are highly effective and we stand behind them. They eliminate routine cleaning for most homeowners and are particularly worthwhile on homes with difficult roof access. We do not install reverse curve or screen type guards, which create more problems than they solve. We only install the MasterShield micro mesh system.',
       },
       {
         question: 'What gutter materials do you offer?',
         answer:
-          "We install 0.032\" and 0.040\" aluminum seamless gutters in 5\" K-style, 6\" K-style, and half-round profiles, in 30+ factory finishes. For premium applications, we install copper gutters with hand-soldered miters and end caps, the traditional choice for historic homes, slate roofs, and properties where the gutter is a visible architectural feature. We also install commercial-grade steel gutters for industrial properties.",
+          "We install 0.032\" and 0.040\" aluminum seamless gutters in 5\" K style, 6\" K style, and half round profiles, in 30+ factory finishes. For premium applications, we install copper gutters with hand soldered miters and end caps, the traditional choice for historic homes, slate roofs, and properties where the gutter is a visible architectural feature. We also install commercial grade steel gutters for industrial properties.",
       },
       {
         question: 'How do I know when gutters need replacing versus cleaning?',
@@ -254,36 +255,37 @@ const serviceContent: Record<string, ServicePageContent> = {
   'skylight-installation': {
     slug: 'skylight-installation',
     heroImage: '/service-skylight-installation.jpg',
-    heroImagePosition: 'center 35%',
-    overviewImage: '/overview-skylight-installation.webp',
+    heroImagePosition: '5% 35%',
+    overviewImage: '/skylight-overview.jpg',
+    overviewImagePosition: 'center center',
     featuredProjects: ['forest-hill-velux-skylight', 'etobicoke-solar-tube-conversion', 'oakville-venting-skylight-pair'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Bring the outside in. Permanently.',
+    tagline: 'Skylight Installation in Ontario',
     highlights: [
       'Velux and Solatube certified installation partner',
-      'Guaranteed leak-free installation or we fix it free',
-      'Solar-powered venting skylights available',
-      'Energy Star-rated glazing options for Ontario climates',
+      'Guaranteed leak free installation or we fix it free',
+      'Solar powered venting skylights available',
+      'Energy Star rated glazing options for Ontario climates',
     ],
     faqs: [
       {
         question: 'Will a skylight cause leaks?',
         answer:
-          'A properly installed skylight with correct flashing will not leak. The leading cause of skylight leaks is improper flashing, specifically, installers who use sealant instead of purpose-built step and saddle flashing systems. Every skylight we install uses manufacturer-specified curb flashing kits with no exposed caulk at the primary waterline. We back every installation with a written 10-year leak-free guarantee.',
+          'A properly installed skylight with correct flashing will not leak. The leading cause of skylight leaks is improper flashing, specifically, installers who use sealant instead of purpose built step and saddle flashing systems. Every skylight we install uses manufacturer specified curb flashing kits with no exposed caulk at the primary waterline. We back every installation with a written 10 year leak free guarantee.',
       },
       {
         question: 'What types of skylights do you install?',
         answer:
-          'We install fixed skylights (light-only), manually venting skylights, solar-powered venting skylights (no electrician required), tubular daylighting devices (for small spaces and closets), and custom unit skylights for architectural applications. We work exclusively with Velux and Solatube, the two manufacturers with the best long-term performance records and parts availability.',
+          'We install fixed skylights (light only), manually venting skylights, solar powered venting skylights (no electrician required), tubular daylighting devices (for small spaces and closets), and custom unit skylights for architectural applications. We work exclusively with Velux and Solatube, the two manufacturers with the best long term performance records and parts availability.',
       },
       {
         question: 'Can skylights improve my home\'s energy efficiency?',
         answer:
-          "Modern skylights have dramatically improved in energy performance. Velux's triple-pane and dynamic glazing skylights can reduce solar heat gain by up to 78% compared to older single-pane units while still providing excellent daylight. Properly placed skylights also reduce the need for artificial lighting during daylight hours, typically saving 10–20% on lighting costs. Solar-powered venting models also improve natural ventilation, reducing cooling loads.",
+          "Modern skylights have dramatically improved in energy performance. Velux's triple pane and dynamic glazing skylights can reduce solar heat gain by up to 78% compared to older single pane units while still providing excellent daylight. Properly placed skylights also reduce the need for artificial lighting during daylight hours, typically saving 10–20% on lighting costs. Solar powered venting models also improve natural ventilation, reducing cooling loads.",
       },
       {
         question: 'How long does skylight installation take?',
@@ -291,9 +293,9 @@ const serviceContent: Record<string, ServicePageContent> = {
           'A single standard skylight installation takes 4–6 hours: opening the roof, installing the curb, flashing, and glazing, then patching the interior ceiling. Multiple skylights or larger custom units take proportionally longer. We always complete the weatherproofing in a single day, we never leave a partially installed skylight overnight. Interior finishing (drywall, painting around the light shaft) is a separate step often done by the homeowner.',
       },
       {
-        question: 'Are there skylights suitable for low-slope or flat roofs?',
+        question: 'Are there skylights suitable for low slope or flat roofs?',
         answer:
-          "Yes. For low-slope roofs (below 15 degrees), we install curb-mounted skylights, the skylight unit sits on a raised curb that provides proper drainage. Solatube tubular skylights can also be adapted for low-slope conditions with special flat-roof flashing kits. We assess roof pitch as part of every skylight consultation and recommend the appropriate mounting system for your specific roof.",
+          "Yes. For low slope roofs (below 15 degrees), we install curb mounted skylights, the skylight unit sits on a raised curb that provides proper drainage. Solatube tubular skylights can also be adapted for low slope conditions with special flat roof flashing kits. We assess roof pitch as part of every skylight consultation and recommend the appropriate mounting system for your specific roof.",
       },
     ],
   },
@@ -309,11 +311,11 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Know your roof. Before it becomes a problem.',
+    tagline: 'Professional Roof Inspection in Ontario',
     highlights: [
       'Certified inspectors with 20+ years of Ontario field experience',
       'Full photographic report delivered within 24 hours',
-      'Drone-assisted inspection for complex or high-pitch roofs',
+      'Drone assisted inspection for complex or high pitch roofs',
       'Accepted by all major Ontario insurers and mortgage lenders',
     ],
     faqs: [
@@ -327,7 +329,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Do I need an inspection before buying a home?',
-        answer: 'Absolutely. A general home inspector typically spends 10–15 minutes on the roof and focuses on obvious defects. Our specialized inspection covers every component in detail and provides a remaining service life estimate, critical information when negotiating a purchase price. Our reports are accepted by real estate lawyers and mortgage lenders province-wide.',
+        answer: 'Absolutely. A general home inspector typically spends 10–15 minutes on the roof and focuses on obvious defects. Our specialized inspection covers every component in detail and provides a remaining service life estimate, critical information when negotiating a purchase price. Our reports are accepted by real estate lawyers and mortgage lenders province wide.',
       },
       {
         question: 'How often should I have my roof inspected?',
@@ -335,7 +337,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'Will a roof inspection help with my insurance claim?',
-        answer: 'Yes. A professional inspection report with photographic documentation is one of the strongest tools in a claim. It establishes pre-loss condition, identifies storm-specific damage versus pre-existing wear, and provides the evidence adjusters need to properly scope repairs. Our reports have directly resulted in higher settlements on dozens of claims.',
+        answer: 'Yes. A professional inspection report with photographic documentation is one of the strongest tools in a claim. It establishes pre loss condition, identifies storm specific damage versus pre existing wear, and provides the evidence adjusters need to properly scope repairs. Our reports have directly resulted in higher settlements on dozens of claims.',
       },
     ],
   },
@@ -343,25 +345,26 @@ const serviceContent: Record<string, ServicePageContent> = {
   'metal-roofing': {
     slug: 'metal-roofing',
     heroImage: '/service-metal-roofing.jpg',
-    heroImagePosition: 'center 15%',
+    heroImagePosition: '5% 15%',
     overviewImage: '/overview-metal-roofing.jpg',
+    overviewImagePosition: 'left center',
     featuredProjects: ['caledon-standing-seam-estate', 'nobleton-metal-shingle-conversion', 'schomberg-agricultural-metal'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Built to last 50+ years. The last roof you\'ll ever need.',
+    tagline: 'Metal Roofing Installation in Ontario',
     highlights: [
-      'Standing-seam and metal shingle systems available',
+      'Standing seam and metal shingle systems available',
       'Steel, aluminum, and copper, we install them all',
-      '50-year finish warranty on premium systems',
-      'Engineered for Ontario freeze-thaw and heavy snow loads',
+      '50 year finish warranty on premium systems',
+      'Engineered for Ontario freeze thaw and heavy snow loads',
     ],
     faqs: [
       {
         question: 'How long does a metal roof last?',
-        answer: 'A properly installed metal roof typically lasts 40 to 70 years depending on the material, steel and aluminum systems commonly exceed 50 years, while copper roofs can last over a century. This compares favourably to asphalt shingles, which average 20 to 30 years in Ontario\'s climate. Most premium metal roofing products carry a 50-year paint and finish warranty.',
+        answer: 'A properly installed metal roof typically lasts 40 to 70 years depending on the material, steel and aluminum systems commonly exceed 50 years, while copper roofs can last over a century. This compares favourably to asphalt shingles, which average 20 to 30 years in Ontario\'s climate. Most premium metal roofing products carry a 50 year paint and finish warranty.',
       },
       {
         question: 'Is metal roofing noisy in the rain?',
@@ -369,15 +372,15 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'What metal roofing systems do you install?',
-        answer: 'We install the full range of metal roofing systems: concealed-fastener standing-seam panels, exposed-fastener corrugated panels, stone-coated metal shingles, and custom copper roofing. We work with steel, aluminum, and copper substrates and offer a wide range of profiles and finishes to match any architectural style.',
+        answer: 'We install the full range of metal roofing systems: concealed fastener standing seam panels, exposed fastener corrugated panels, stone coated metal shingles, and custom copper roofing. We work with steel, aluminum, and copper substrates and offer a wide range of profiles and finishes to match any architectural style.',
       },
       {
         question: 'Can metal roofing be installed over my existing shingles?',
-        answer: 'In many cases, yes, metal roofing can be installed over one existing layer of asphalt shingles, which avoids the cost and mess of a full tear-off. However, we always inspect the deck condition first. If there is moisture damage, soft spots, or structural concerns, a full tear-off is required to ensure the new roof performs correctly and the warranty remains valid.',
+        answer: 'In many cases, yes, metal roofing can be installed over one existing layer of asphalt shingles, which avoids the cost and mess of a full tear off. However, we always inspect the deck condition first. If there is moisture damage, soft spots, or structural concerns, a full tear off is required to ensure the new roof performs correctly and the warranty remains valid.',
       },
       {
         question: 'How does metal roofing perform in Ontario winters?',
-        answer: 'Metal roofing is exceptionally well-suited to Ontario\'s climate. The slick surface sheds snow naturally, reducing ice dam formation and structural snow load. It is not susceptible to freeze-thaw cracking the way asphalt shingles are, and it will not curl, blister, or granule-shed over its lifespan. We select materials and profiles specifically rated for high snow-load regions.',
+        answer: 'Metal roofing is exceptionally well suited to Ontario\'s climate. The slick surface sheds snow naturally, reducing ice dam formation and structural snow load. It is not susceptible to freeze thaw cracking the way asphalt shingles are, and it will not curl, blister, or granule shed over its lifespan. We select materials and profiles specifically rated for high snow load regions.',
       },
     ],
   },
@@ -393,17 +396,17 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Built flat. Built to last through every Ontario winter.',
+    tagline: 'Flat Roofing Systems in Ontario',
     highlights: [
       'Certified in TPO, EPDM, modified bitumen, and SPF systems',
       'Engineered drainage design for every installation',
       'Thermal imaging available to locate hidden moisture',
-      'Bi-annual maintenance programs to maximize membrane life',
+      'Bi annual maintenance programs to maximize membrane life',
     ],
     faqs: [
       {
         question: 'What flat roofing system is best for Ontario?',
-        answer: "TPO (thermoplastic polyolefin) is our most commonly specified flat roof system for Ontario's climate. It performs well through freeze-thaw cycles, reflects solar heat in summer, and has an excellent track record for longevity when properly installed. EPDM (rubber membrane) is also excellent for cold climates. Modified bitumen remains a proven choice for recovering over existing systems. We specify based on your building's specific needs.",
+        answer: "TPO (thermoplastic polyolefin) is our most commonly specified flat roof system for Ontario's climate. It performs well through freeze thaw cycles, reflects solar heat in summer, and has an excellent track record for longevity when properly installed. EPDM (rubber membrane) is also excellent for cold climates. Modified bitumen remains a proven choice for recovering over existing systems. We specify based on your building's specific needs.",
       },
       {
         question: 'How long does a flat roof last?',
@@ -419,7 +422,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'What maintenance does a flat roof need?',
-        answer: 'Flat roofs should be inspected twice per year, spring and fall, and after any major storm. Key maintenance items include clearing drains and scuppers of debris, checking and re-sealing any penetration or flashing that shows signs of movement or separation, and looking for blistering or ponding water areas. We offer annual maintenance contracts that include inspection, drain clearing, and minor repairs, extending membrane life significantly.',
+        answer: 'Flat roofs should be inspected twice per year, spring and fall, and after any major storm. Key maintenance items include clearing drains and scuppers of debris, checking and re sealing any penetration or flashing that shows signs of movement or separation, and looking for blistering or ponding water areas. We offer annual maintenance contracts that include inspection, drain clearing, and minor repairs, extending membrane life significantly.',
       },
     ],
   },
@@ -434,7 +437,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Complex projects. Minimal disruption. Lasting results.',
+    tagline: 'Multi-Family Roofing in Ontario',
     highlights: [
       'Experienced with condo boards, strata councils, and property management firms',
       'Phased scheduling keeps buildings occupied and functional throughout',
@@ -444,7 +447,7 @@ const serviceContent: Record<string, ServicePageContent> = {
     faqs: [
       {
         question: 'How do you manage roofing work in occupied buildings?',
-        answer: 'Multi-family roofing in occupied buildings requires a specific protocol. We phase work so that no building section is fully exposed simultaneously, install sound-dampening underlayment before teardown, communicate daily schedules to property managers, restrict crane and equipment access to pre-approved zones, and complete each section to weathertight condition before end of every workday. Tenants are notified 48 hours in advance of work near their units.',
+        answer: 'Multi family roofing in occupied buildings requires a specific protocol. We phase work so that no building section is fully exposed simultaneously, install sound dampening underlayment before teardown, communicate daily schedules to property managers, restrict crane and equipment access to pre approved zones, and complete each section to weathertight condition before end of every workday. Tenants are notified 48 hours in advance of work near their units.',
       },
       {
         question: 'Can you work with our condo board and reserve fund budget?',
@@ -452,14 +455,14 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'What roofing systems do you recommend for condos and apartments?',
-        answer: 'For flat or low-slope sections (common in mid-rise buildings), we typically recommend TPO or EPDM membrane systems for their durability and low maintenance requirements. For sloped sections (common in townhouse complexes), architectural shingles or metal roofing are our standard recommendations, depending on pitch and aesthetic requirements. We always provide a system recommendation specific to the building type, age, and existing conditions.',
+        answer: 'For flat or low slope sections (common in mid rise buildings), we typically recommend TPO or EPDM membrane systems for their durability and low maintenance requirements. For sloped sections (common in townhouse complexes), architectural shingles or metal roofing are our standard recommendations, depending on pitch and aesthetic requirements. We always provide a system recommendation specific to the building type, age, and existing conditions.',
       },
       {
         question: 'How do you handle multiple buildings in a complex?',
-        answer: 'For multi-building complexes, we develop a master project plan with individual building schedules, a single dedicated project manager, weekly progress reporting to the property management team, and coordinated material deliveries to minimize site disruption. We have successfully completed roofing programs across portfolios of 2 to 40+ buildings, managing total scopes from $200,000 to over $3M.',
+        answer: 'For multi building complexes, we develop a master project plan with individual building schedules, a single dedicated project manager, weekly progress reporting to the property management team, and coordinated material deliveries to minimize site disruption. We have successfully completed roofing programs across portfolios of 2 to 40+ buildings, managing total scopes from $200,000 to over $3M.',
       },
       {
-        question: 'Do you carry enough insurance for large multi-family projects?',
+        question: 'Do you carry enough insurance for large multi family projects?',
         answer: 'Yes. Elite Roofing carries $5M commercial general liability insurance, $2M excess liability, and full WSIB coverage for all employees and subcontractors. We are fully bonded. Certificates of insurance naming the condo corporation or property management company as additional insured are available within 24 hours of contract execution, a standard requirement we fulfill routinely.',
       },
     ],
@@ -476,12 +479,12 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'A roof built right, the first time, built to outlast the decade.',
+    tagline: 'Full Roof Replacement in Ontario',
     highlights: [
-      'Complete tear-off exposes the full decking for inspection',
+      'Complete tear off exposes the full decking for inspection',
       'GAF Master Elite certified, top 2% of contractors nationally',
-      'Premium underlayment and ice-and-water shield as standard',
-      '10-year workmanship warranty plus full manufacturer coverage',
+      'Premium underlayment and ice and water shield as standard',
+      '10 year workmanship warranty plus full manufacturer coverage',
     ],
     faqs: [
       {
@@ -490,19 +493,19 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'What is included in a complete roof replacement?',
-        answer: 'A full Elite Roofing replacement includes: complete teardown of all existing roofing layers, inspection and repair of the deck sheathing, installation of a full ice-and-water shield course at eaves and all valleys, high-performance synthetic underlayment over the full field, new drip edge at eaves and rakes, installation of the selected primary roofing system (shingles, metal, slate, etc.), new flashing at all penetrations, valleys, and transitions, and a final inspection walkthrough with the homeowner.',
+        answer: 'A full Elite Roofing replacement includes: complete teardown of all existing roofing layers, inspection and repair of the deck sheathing, installation of a full ice and water shield course at eaves and all valleys, high performance synthetic underlayment over the full field, new drip edge at eaves and rakes, installation of the selected primary roofing system (shingles, metal, slate, etc.), new flashing at all penetrations, valleys, and transitions, and a final inspection walkthrough with the homeowner.',
       },
       {
         question: 'How long does a roof replacement take?',
-        answer: 'Most residential replacements are completed in 1–3 days. A standard 2,000 sq ft home with architectural shingles is typically a one-day project. Larger homes (4,000+ sq ft), complex roof geometries, or premium materials (metal, slate) may require 3–5 days. We always provide a firm completion timeline in writing before work begins, and we do not leave a partially installed roof overnight.',
+        answer: 'Most residential replacements are completed in 1–3 days. A standard 2,000 sq ft home with architectural shingles is typically a one day project. Larger homes (4,000+ sq ft), complex roof geometries, or premium materials (metal, slate) may require 3–5 days. We always provide a firm completion timeline in writing before work begins, and we do not leave a partially installed roof overnight.',
       },
       {
         question: 'What roofing materials do you offer for replacement?',
-        answer: "We offer the full range of residential roofing systems: architectural and designer asphalt shingles (GAF, CertainTeed, BP), standing-seam and exposed-fastener metal roofing, natural and synthetic slate, cedar shake, and concrete or clay tile. We carry Ontario-specific product lines optimized for our climate's freeze-thaw cycle and high snow load conditions. We provide samples and detailed comparisons to help you choose.",
+        answer: "We offer the full range of residential roofing systems: architectural and designer asphalt shingles (GAF, CertainTeed, BP), standing seam and exposed fastener metal roofing, natural and synthetic slate, cedar shake, and concrete or clay tile. We carry Ontario specific product lines optimized for our climate's freeze thaw cycle and high snow load conditions. We provide samples and detailed comparisons to help you choose.",
       },
       {
         question: 'Will my insurance cover a roof replacement?',
-        answer: "If your roof was damaged by a covered storm event (hail, wind, falling tree), your homeowner's policy will typically cover a full replacement when matching existing materials is not possible, which is almost always the case with older roofs. We provide complete insurance documentation including pre-loss condition assessment, storm damage identification, and a full replacement estimate in the format Ontario insurers require.",
+        answer: "If your roof was damaged by a covered storm event (hail, wind, falling tree), your homeowner's policy will typically cover a full replacement when matching existing materials is not possible, which is almost always the case with older roofs. We provide complete insurance documentation including pre loss condition assessment, storm damage identification, and a full replacement estimate in the format Ontario insurers require.",
       },
     ],
   },
@@ -510,19 +513,21 @@ const serviceContent: Record<string, ServicePageContent> = {
   'roof-tarping': {
     slug: 'roof-tarping',
     heroImage: '/service-roof-tarping.webp',
+    heroImagePosition: 'center 5%',
     overviewImage: '/overview-roof-tarping.webp',
+    overviewImagePosition: 'center top',
     featuredProjects: ['barrie-emergency-storm-tarp', 'innisfil-wind-damage-protection', 'newmarket-emergency-response'],
     galleryImages: [
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Immediate protection. Professional installation. No more water in.',
+    tagline: 'Emergency Roof Tarping in Ontario',
     highlights: [
       '24/7 emergency tarping deployment across Greater Ontario',
-      'Commercial-grade 10mil UV-resistant polyethylene, not hardware-store plastic',
-      'Batten-and-anchor system rated for 60 mph winds',
-      'Insurance-compliant documentation provided on-site',
+      'Commercial grade 10mil UV resistant polyethylene, not hardware store plastic',
+      'Batten and anchor system rated for 60 mph winds',
+      'Insurance compliant documentation provided on site',
     ],
     faqs: [
       {
@@ -531,15 +536,15 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'How quickly can you deploy emergency tarping?',
-        answer: 'Within our primary service area, our target response time for emergency tarping is 4 hours or less, 24 hours a day, 7 days a week. We maintain tarping materials and crews on standby specifically for emergency deployment. Call our emergency line at (905) 555-0198 and we dispatch immediately. Same-day service is available for most Greater Toronto Area locations.',
+        answer: 'Within our primary service area, our target response time for emergency tarping is 4 hours or less, 24 hours a day, 7 days a week. We maintain tarping materials and crews on standby specifically for emergency deployment. Call our emergency line at (905) 555-0198 and we dispatch immediately. Same day service is available for most Greater Toronto Area locations.',
       },
       {
         question: 'How long will the tarp stay in place?',
-        answer: "A professionally installed tarp with our batten-and-anchor system typically remains effective and weather-tight for 4–8 weeks, and often longer in mild weather. This is generally more than enough time to complete the insurance claims process and schedule permanent repairs. We check in at 3 weeks to assess tarp condition and extend or replace if needed before your permanent repair is scheduled.",
+        answer: "A professionally installed tarp with our batten and anchor system typically remains effective and weather tight for 4–8 weeks, and often longer in mild weather. This is generally more than enough time to complete the insurance claims process and schedule permanent repairs. We check in at 3 weeks to assess tarp condition and extend or replace if needed before your permanent repair is scheduled.",
       },
       {
         question: 'Does my insurance cover emergency tarping?',
-        answer: 'In most cases, yes. Emergency protective measures, tarping, board-up, interior drying, are typically covered under the same homeowner or commercial property claim as the underlying damage, as they are considered mitigation of further loss. We provide the exact documentation your insurer needs: photographs before and after installation, materials used, square footage covered, and crew time on site.',
+        answer: 'In most cases, yes. Emergency protective measures, tarping, board up, interior drying, are typically covered under the same homeowner or commercial property claim as the underlying damage, as they are considered mitigation of further loss. We provide the exact documentation your insurer needs: photographs before and after installation, materials used, square footage covered, and crew time on site.',
       },
       {
         question: 'What happens after the tarp is installed?',

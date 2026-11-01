@@ -26,6 +26,10 @@ import {
   Shield,
   Award,
   Clock,
+  BadgeCheck,
+  Users,
+  Hammer,
+  ClipboardList,
 } from 'lucide-react'
 import { services, projects } from '@/data/mockData'
 import serviceContent from '@/data/serviceContent'
@@ -45,30 +49,248 @@ const iconMap: Record<string, React.ElementType> = {
   Shield,
 }
 
-const commitmentIcons = [Shield, Award, CheckCircle, Clock]
+// ─── Per-Service Process Data ─────────────────────────────────────────────────
 
-const processSteps = [
-  {
-    num: '01',
-    title: 'Free Roof Inspection',
-    body: 'Our certified inspector evaluates every component, from deck to ridge, with full photographic documentation at no cost or obligation.',
+type ProcessStep = { num: string; title: string; body: string }
+
+const serviceProcessData: Record<string, { steps: ProcessStep[]; icons: React.ElementType[] }> = {
+  'residential-roofing': {
+    steps: [
+      { num: '01', title: 'Free Roof Inspection', body: 'Our certified inspector evaluates every component, from deck to ridge, with full photographic documentation at no cost or obligation.' },
+      { num: '02', title: 'Honest Written Proposal', body: 'You receive a detailed, itemized proposal within 24 hours. No hidden charges, no vague estimates. Exactly what we will do and what it will cost.' },
+      { num: '03', title: 'Expert Installation', body: 'Our GAF Master Elite certified crew arrives on schedule and completes the work to the highest standard, protecting your property throughout.' },
+      { num: '04', title: 'Final Walkthrough & Warranty', body: 'We review every detail with you, answer all questions, and hand you your written workmanship warranty before we leave the site.' },
+    ],
+    icons: [Home, ClipboardList, Hammer, Shield],
   },
-  {
-    num: '02',
-    title: 'Honest Written Proposal',
-    body: 'You receive a detailed, itemized proposal within 24 hours. No hidden charges, no vague estimates. Exactly what we will do and what it will cost.',
+  'commercial-roofing': {
+    steps: [
+      { num: '01', title: 'Site Survey & Assessment', body: 'We survey the full roof system, assess load requirements, existing conditions, and drainage to specify the right commercial system for your building.' },
+      { num: '02', title: 'Detailed Scope & Proposal', body: 'A written proposal with full material specifications, phased schedule, and firm price is delivered within 48 hours. No surprises, no add-ons.' },
+      { num: '03', title: 'Phased Installation', body: 'Our commercial crew installs in phases to keep your business operational throughout, completing each section to weathertight condition daily.' },
+      { num: '04', title: 'Handover & Warranty Package', body: 'We complete a full post-installation inspection with your facilities team and provide all manufacturer and workmanship warranty documentation.' },
+    ],
+    icons: [Search, ClipboardList, Building2, BadgeCheck],
   },
-  {
-    num: '03',
-    title: 'Expert Installation',
-    body: 'Our GAF Master Elite certified crew arrives on schedule and completes the work to the highest standard, protecting your property throughout.',
+  'roof-repair': {
+    steps: [
+      { num: '01', title: 'Leak Diagnosis', body: 'We trace every leak to its root cause, not just the symptom, using photographic documentation and a comprehensive roof assessment.' },
+      { num: '02', title: 'Written Repair Estimate', body: 'You receive a detailed written estimate before any work begins. If a full replacement is the smarter call, we will tell you honestly.' },
+      { num: '03', title: 'Expert Repair', body: 'Our crew completes lasting repairs using matching materials, proper flashing systems, and techniques that address the underlying cause of failure.' },
+      { num: '04', title: 'Inspection & Written Guarantee', body: 'Every repair is inspected and documented. Your written workmanship warranty is provided on site before we leave.' },
+    ],
+    icons: [Search, ClipboardList, Wrench, Shield],
   },
-  {
-    num: '04',
-    title: 'Final Walkthrough & Warranty',
-    body: 'We review every detail with you, answer all questions, and hand you your written workmanship warranty before we leave the site.',
+  'storm-damage-restoration': {
+    steps: [
+      { num: '01', title: 'Emergency Storm Inspection', body: 'We respond within hours to assess the full extent of storm damage with detailed photographic documentation of every affected area.' },
+      { num: '02', title: 'Insurance Documentation', body: 'We prepare a complete professional damage report in the format your insurer requires, maximizing your settlement and eliminating back-and-forth.' },
+      { num: '03', title: 'Emergency Tarping & Stabilization', body: 'While your claim is processed, we secure the damaged area with commercial-grade tarping rated to withstand high winds for weeks.' },
+      { num: '04', title: 'Full Restoration', body: 'Once approved, our crew completes the full restoration to pre-storm condition, managing all scheduling directly with your insurance adjuster.' },
+    ],
+    icons: [Search, ClipboardList, Shield, Hammer],
   },
-]
+  'gutter-systems': {
+    steps: [
+      { num: '01', title: 'Property Assessment', body: 'We assess your roofline, fascia condition, drainage requirements, and existing gutter layout before recommending any system.' },
+      { num: '02', title: 'Custom System Design', body: 'We design a seamless eavestrough system specific to your property, sized for your roof area and pitched correctly toward every downspout.' },
+      { num: '03', title: 'On-Site Fabrication & Install', body: 'Gutters are formed on-site as a single continuous piece, eliminating joints. Our crew installs, pitches, and tests the complete drainage system in one visit.' },
+      { num: '04', title: 'Final Flow Test & Warranty', body: 'We water-test every section, adjust pitch where needed, and provide your written installation warranty before we pack up.' },
+    ],
+    icons: [Search, ClipboardList, Droplets, Shield],
+  },
+  'skylight-installation': {
+    steps: [
+      { num: '01', title: 'On-Site Consultation', body: 'We assess your roof structure, attic space, and interior ceiling to determine the right size, placement, and skylight model for your home.' },
+      { num: '02', title: 'Skylight Selection & Proposal', body: 'We present the best skylight options for your application with a written proposal and product samples. No pressure, just clarity.' },
+      { num: '03', title: 'Weathertight Installation', body: 'Our crew opens the roof, installs the curb, applies full manufacturer step flashing, and seals the glazing unit — all in a single day with no open penetrations overnight.' },
+      { num: '04', title: '10-Year Leak-Free Guarantee', body: 'After a final inspection, we hand you written documentation of your 10-year Elite leak-free workmanship guarantee and all manufacturer warranties.' },
+    ],
+    icons: [Search, ClipboardList, Sun, Shield],
+  },
+  'roof-inspection': {
+    steps: [
+      { num: '01', title: 'Roof Access & Survey', body: 'Our certified inspector walks every accessible surface and penetration, from ridge to eaves, in a thorough systematic survey.' },
+      { num: '02', title: 'Photographic Documentation', body: 'Every defect, potential failure, and area of concern is photographed in high resolution and catalogued for the written report.' },
+      { num: '03', title: 'Written Condition Report', body: 'A detailed report with photos, findings, and a remaining service life estimate is delivered within 24 hours, accepted by insurers and lenders.' },
+      { num: '04', title: 'Findings Review', body: 'We walk you through every finding, answer your questions, and give you an honest recommendation with no obligation or sales pressure.' },
+    ],
+    icons: [Search, ClipboardList, CheckCircle, BadgeCheck],
+  },
+  'metal-roofing': {
+    steps: [
+      { num: '01', title: 'Property Assessment', body: 'We assess your roof pitch, structure, existing system, and architectural style to recommend the right metal roofing profile and material.' },
+      { num: '02', title: 'Material Selection & Proposal', body: 'We present standing seam, metal shingle, and corrugated options with samples and a written proposal including full 50-year finish warranty details.' },
+      { num: '03', title: 'Expert Metal Installation', body: 'Our metal roofing specialists install every panel, seam, and ridge cap with precision using concealed clips and acoustic underlayment throughout.' },
+      { num: '04', title: 'Final Walkthrough & Warranty', body: 'We review every detail of the finished installation, register the manufacturer warranty on your behalf, and provide your workmanship warranty documentation.' },
+    ],
+    icons: [Search, ClipboardList, Hammer, Award],
+  },
+  'flat-roofing': {
+    steps: [
+      { num: '01', title: 'Drainage & Deck Assessment', body: 'We evaluate the existing roof condition, drainage patterns, ponding areas, and insulation levels before specifying any replacement system.' },
+      { num: '02', title: 'System Design & Proposal', body: 'We design the right flat roofing system with proper slope and drainage built in, and provide a detailed written proposal with all material specifications.' },
+      { num: '03', title: 'Membrane Installation', body: 'Our certified membrane crew installs your TPO, EPDM, or modified bitumen system with engineered drainage, flashed penetrations, and fully adhered terminations.' },
+      { num: '04', title: 'Final Inspection & Warranty', body: 'A post-installation inspection covers every seam, termination, and penetration. Your written workmanship and manufacturer warranty documentation is provided on site.' },
+    ],
+    icons: [Search, ClipboardList, Layers, Shield],
+  },
+  'multi-family-roofing': {
+    steps: [
+      { num: '01', title: 'Portfolio Assessment', body: 'We conduct a full inspection of all buildings, assess current condition, and develop a phased project scope aligned with your reserve fund and timeline.' },
+      { num: '02', title: 'Board Presentation & Approval', body: 'We present directly to the condo board or property manager with options at different price points, full project schedules, and insurance certificates.' },
+      { num: '03', title: 'Phased Occupied-Building Install', body: 'Work is phased so no section is left exposed, tenants are notified 48 hours in advance, and every section is completed to weathertight condition each day.' },
+      { num: '04', title: 'Handover & Portfolio Warranty', body: 'We complete a final walkthrough with the property manager and provide a unified warranty covering all buildings in the project.' },
+    ],
+    icons: [Search, ClipboardList, Building, Award],
+  },
+  'roof-replacement': {
+    steps: [
+      { num: '01', title: 'Full Condition Inspection', body: 'We assess every layer of your existing roof, identify deck damage and soft spots, and provide an honest written evaluation of what the replacement requires.' },
+      { num: '02', title: 'Written Proposal & Timeline', body: 'A detailed, itemized proposal with a firm price and completion date is provided before any work begins. No surprises, no add-ons.' },
+      { num: '03', title: 'Complete Tear-Off & Installation', body: 'We remove all existing layers, inspect and repair the deck, install upgraded underlayment and ice shield, and complete your new roof to the highest standard.' },
+      { num: '04', title: 'Final Walkthrough & Warranty', body: 'We inspect every detail with you, clean the property completely, and hand you your workmanship and manufacturer warranty documentation.' },
+    ],
+    icons: [Search, ClipboardList, RefreshCw, Shield],
+  },
+  'roof-tarping': {
+    steps: [
+      { num: '01', title: 'Emergency Call & Dispatch', body: 'Call our 24/7 line and a crew is dispatched immediately. Within our service area, our target response time is 4 hours or less, day or night.' },
+      { num: '02', title: 'Pre-Installation Documentation', body: 'Before we install, we photograph all damage from multiple angles to provide a complete visual record for your insurance claim.' },
+      { num: '03', title: 'Professional Tarp Installation', body: 'We install commercial-grade 10-mil polyethylene anchored with 2×4 battens and weighted perimeter edges, rated to hold through 60 mph winds for weeks.' },
+      { num: '04', title: 'On-Site Insurance Documentation', body: 'We provide a complete written damage report with photographs, materials used, and coverage area before we leave your property.' },
+    ],
+    icons: [Phone, Search, Shield, BadgeCheck],
+  },
+}
+
+// ─── Per-Service Warranty Data ───────────────────────────────────────────────
+
+type WarrantyCard = { label: string; duration: string; items: string[] }
+type WarrantyInfo = { heading: string; description: string; footnote: string; cards: WarrantyCard[] }
+
+const serviceWarrantyData: Record<string, WarrantyInfo> = {
+  'residential-roofing': {
+    heading: 'What Your Warranty Covers',
+    description: 'Every Elite Roofing residential installation comes with layered warranty protection — on both materials and workmanship.',
+    footnote: 'All warranty terms are documented in writing and provided on site at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['All installation-related failures', 'Flashing and sealing defects', 'Workmanship-related leaks', 'Ridge cap and ventilation installation'] },
+      { label: 'Premium Shingles', duration: 'Lifetime', items: ['GAF Timberline HDZ & similar', 'Shingle cracking and splitting', 'Granule loss beyond normal wear', 'Algae and stain resistance'] },
+      { label: 'Standard Shingles', duration: '30 Years', items: ['Architectural shingles', 'Manufacturing defects', 'Wind resistance up to 130 mph', 'Transferable to next owner'] },
+    ],
+  },
+  'commercial-roofing': {
+    heading: 'What Your Warranty Covers',
+    description: 'Every Elite Roofing commercial installation is backed by layered protection covering workmanship, membrane systems, and rooftop components.',
+    footnote: 'All warranty documentation is provided at project handover. Manufacturer warranties are registered by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['All installation-related failures', 'Flashing, penetration, and drain details', 'Seam and termination defects', 'Post-installation performance issues'] },
+      { label: 'TPO & EPDM Membrane', duration: '20 Years', items: ['Material manufacturing defects', 'Seam separation and delamination', 'UV degradation beyond spec', 'Puncture resistance per ASTM D6702'] },
+      { label: 'Metal & Flashing Components', duration: '40 Years', items: ['Kynar 500 finish warranty', 'Structural panel integrity', 'Fastener and clip failures', 'Transferable to new property owner'] },
+    ],
+  },
+  'roof-repair': {
+    heading: 'What Your Repair Warranty Covers',
+    description: 'Every Elite Roofing repair is backed by a written guarantee covering both the work performed and the materials installed.',
+    footnote: 'Warranty documentation is provided on site before we leave. Coverage applies to the repaired area and all associated materials.',
+    cards: [
+      { label: 'Workmanship', duration: '5 Years', items: ['All repair-related labour', 'Flashing and sealing performed', 'Penetration waterproofing', 'Associated installation failures'] },
+      { label: 'Materials', duration: '10 Years', items: ['Replacement shingles and membrane', 'Flashing and metal components', 'Sealants and adhesives used', 'Manufacturer defect coverage'] },
+      { label: 'Leak-Free Guarantee', duration: '2 Years', items: ['Guaranteed dry after repair', 'No-cost return if leak reappears', 'Photographic before-and-after on file', 'Written documentation before we leave'] },
+    ],
+  },
+  'storm-damage-restoration': {
+    heading: 'What Your Restoration Warranty Covers',
+    description: 'Storm restoration work by Elite Roofing is fully warranted — so you can be confident your roof is back to the standard it was built to.',
+    footnote: 'All warranty documentation is provided at project completion. Insurance warranty assignments are completed by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '5 Years', items: ['All restoration-related labour', 'Flashing, sealing, and penetrations', 'Sheathing and deck repairs', 'Post-installation performance issues'] },
+      { label: 'Restored Materials', duration: '30 Years', items: ['Premium shingle replacement coverage', 'Manufacturer defect warranty', 'Wind resistance up to 130 mph', 'Transferable to next owner'] },
+      { label: 'Emergency Stabilization', duration: '90 Days', items: ['Commercial-grade tarp integrity', 'Wind and water infiltration coverage', 'Re-anchor at no charge if needed', 'Written protection report included'] },
+    ],
+  },
+  'gutter-systems': {
+    heading: 'What Your Eavestrough Warranty Covers',
+    description: 'Every Elite Roofing eavestrough system is warranted from on-site fabrication through final installation and flow testing.',
+    footnote: 'All warranty terms are provided in writing before we leave the site. Coverage includes the seamless system and all downspout connections.',
+    cards: [
+      { label: 'Workmanship', duration: '5 Years', items: ['All installation-related failures', 'Hanger, bracket, and spike failures', 'Downspout connection and sealing', 'Pitch and flow-related performance issues'] },
+      { label: 'Aluminum Eavestrough', duration: '25 Years', items: ['Seamless system structural integrity', 'Joint and seam separation', 'Paint adhesion and finish', 'Wind and ice load performance'] },
+      { label: 'Gutter Guard System', duration: '10 Years', items: ['Micro-mesh or screen integrity', 'Bracket and attachment systems', 'Flow restriction or blockage failures', 'Manufacturer defect coverage'] },
+    ],
+  },
+  'skylight-installation': {
+    heading: 'What Your Skylight Warranty Covers',
+    description: 'Every Elite Roofing skylight installation is backed by a comprehensive warranty covering the unit, the flashing system, and our labour.',
+    footnote: 'All warranty documentation — including registered VELUX manufacturer warranties — is provided on site at installation completion.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['Leak-free installation guarantee', 'Step flashing and counterflashing', 'Curb construction and sealing', 'Rough opening and interior finishing'] },
+      { label: 'VELUX Glass & Frame', duration: '10 Years', items: ['Glass unit seal failure', 'Frame warping and structural defects', 'Hardware and operator failures', 'Solar blind and accessory coverage'] },
+      { label: 'Flashing & Waterproofing', duration: '10 Years', items: ['Manufacturer step-flashing kit', 'All sealant and adhesive systems', 'Deck integration and underlayment', 'Performance in rain, ice, and snow'] },
+    ],
+  },
+  'roof-inspection': {
+    heading: 'Your Inspection Report Guarantee',
+    description: 'Every Elite Roofing inspection is backed by a written accuracy guarantee and a report accepted by insurers, lenders, and legal proceedings.',
+    footnote: 'Inspection files are retained on record indefinitely. Re-inspections within the guarantee period are scheduled within 5 business days of request.',
+    cards: [
+      { label: 'Accuracy Guarantee', duration: '30 Days', items: ['Free re-inspection if missed defect found', 'No-cost written supplementary report', 'Direct access to your assigned inspector', 'Full refund if report is materially inaccurate'] },
+      { label: 'Report Delivery', duration: '24 Hours', items: ['Full photographic documentation', 'Written findings with severity ratings', 'Remaining service life estimate', 'Itemized repair priority list'] },
+      { label: 'Accepted Documentation', duration: 'Lifetime', items: ['Insurance claim support', 'Mortgage and lender compliance', 'Legal and court admissible', 'Permanent file on record'] },
+    ],
+  },
+  'metal-roofing': {
+    heading: 'What Your Metal Roof Warranty Covers',
+    description: 'Metal roofing by Elite Roofing carries one of the longest warranty stacks in the industry — covering finish, panel, and workmanship.',
+    footnote: 'All warranty documentation is provided at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '15 Years', items: ['All installation-related failures', 'Seam, clip, and fastener performance', 'Flashing, ridge, and hip details', 'Post-installation leak coverage'] },
+      { label: 'Kynar Finish & Coating', duration: '40 Years', items: ['Paint adhesion and film integrity', 'Fading beyond acceptable ΔE', 'Chalking and chalk rating limits', 'UV degradation beyond spec'] },
+      { label: 'Steel & Aluminum Panel', duration: 'Lifetime', items: ['Structural panel integrity', 'Perforation from manufacturing defects', 'Wind resistance per ASTM E1592', 'Transferable to new property owner'] },
+    ],
+  },
+  'flat-roofing': {
+    heading: 'What Your Flat Roof Warranty Covers',
+    description: 'Every Elite Roofing flat and low-slope installation is backed by layered protection covering membrane, workmanship, and drainage systems.',
+    footnote: 'Warranty documentation is provided at project handover. Manufacturer membrane warranties are registered by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['All installation-related failures', 'Seam, termination, and penetration details', 'Drain, scupper, and overflow flashing', 'Post-installation ponding or leak issues'] },
+      { label: 'TPO Membrane', duration: '20 Years', items: ['Manufacturing defects', 'Seam separation and weld failure', 'UV degradation beyond rated performance', 'Puncture resistance per ASTM D6702'] },
+      { label: 'EPDM Membrane', duration: '20 Years', items: ['Material integrity and elasticity', 'Seam adhesion and tape systems', 'Shrinkage beyond acceptable limits', 'Resistance to weathering and ozone'] },
+    ],
+  },
+  'multi-family-roofing': {
+    heading: 'What Your Portfolio Warranty Covers',
+    description: 'Multi-family and condo installations by Elite Roofing are covered under a unified warranty structure across all buildings in your project.',
+    footnote: 'Warranty certificates are issued per building and consolidated into a single portfolio package for the property manager or board.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['All installation-related failures', 'Flashing, valley, and penetration details', 'Common area and parapet wall work', 'Per-building and portfolio-wide coverage'] },
+      { label: 'Materials Per Building', duration: '30 Years', items: ['Shingle and membrane manufacturing defects', 'Wind resistance up to 130 mph', 'Granule loss beyond normal wear', 'Fully transferable on unit resale'] },
+      { label: 'Portfolio Coordination', duration: 'Lifetime', items: ['Unified warranty file per property', 'Board and property manager on record', 'Annual inspection reminder program', 'Priority scheduling for warranty claims'] },
+    ],
+  },
+  'roof-replacement': {
+    heading: 'What Your Replacement Warranty Covers',
+    description: 'A full roof replacement with Elite Roofing means a complete new warranty package — covering every layer from deck to shingle.',
+    footnote: 'All warranty terms are documented in writing and provided on site at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
+    cards: [
+      { label: 'Workmanship', duration: '10 Years', items: ['Complete installation labour', 'Deck repair and preparation', 'Underlayment and ice shield', 'All flashing, ridge, and ventilation'] },
+      { label: 'Premium Shingles', duration: 'Lifetime', items: ['GAF Timberline HDZ & similar', 'Shingle cracking and splitting', 'Granule loss beyond normal wear', 'Algae and stain resistance'] },
+      { label: 'Standard Shingles', duration: '30 Years', items: ['Architectural shingle coverage', 'Manufacturing defects', 'Wind resistance up to 130 mph', 'Transferable to next owner'] },
+    ],
+  },
+  'roof-tarping': {
+    heading: 'Your Emergency Service Guarantee',
+    description: 'Elite Roofing stands behind every emergency tarp installation — from response speed to the integrity of the installed protection.',
+    footnote: 'All emergency service documentation is provided before we leave your property. Insurance-ready reports are available for immediate submission.',
+    cards: [
+      { label: 'Response Guarantee', duration: '4 Hours', items: ['Target dispatch within 1 hour', 'On-site within 4 hours in our service area', '24/7 availability including holidays', 'Written confirmation of dispatch time'] },
+      { label: 'Tarp Integrity', duration: '90 Days', items: ['Commercial 10-mil polyethylene', 'Wind resistance rated to 60 mph', '2×4 batten anchorage system', 'No-cost re-anchor if failure occurs'] },
+      { label: 'Insurance Documentation', duration: 'Claim-Ready', items: ['Full written damage report', 'Photographic record from multiple angles', 'Materials list and coverage area', 'Accepted by all major Ontario insurers'] },
+    ],
+  },
+}
 
 // ─── Service Reviews ─────────────────────────────────────────────────────────
 
@@ -106,7 +328,7 @@ const serviceReviewsMap: Record<string, ServiceReview[]> = {
   ],
   'storm-damage-restoration': [
     { name: 'Chris Papadopoulos', location: 'Vaughan, ON', rating: 5, image: p1, quote: 'After the August hail storm we had damage across the entire roof. Elite came out the next morning, documented everything for insurance, and had the restoration completed in two days. They made a stressful situation easy.' },
-    { name: 'Angela Morrison', location: 'Whitby, ON', rating: 5, image: p2, quote: 'Elite walked me through the entire insurance claim process for my storm-damaged roof. They knew exactly what the adjuster needed and helped me get a full replacement covered. Couldn\'t have done it without them.' },
+    { name: 'Angela Morrison', location: 'Whitby, ON', rating: 5, image: p2, quote: 'Elite walked me through the entire insurance claim process for my storm damaged roof. They knew exactly what the adjuster needed and helped me get a full replacement covered. Couldn\'t have done it without them.' },
     { name: 'Jason Dubois', location: 'Oshawa, ON', rating: 5, image: p3, quote: 'We had significant wind damage after a severe storm. Elite tarped the roof the same evening to prevent further damage, then completed the full restoration the following week. Fast, professional, and covered by insurance.' },
     { name: 'Maria Santos', location: 'Ajax, ON', rating: 5, image: p4, quote: 'I was overwhelmed after the storm damage to our home. Elite handled everything from the emergency tarp to the final inspection. Their team was calm, efficient, and incredibly knowledgeable about the entire restoration process.' },
   ],
@@ -123,7 +345,7 @@ const serviceReviewsMap: Record<string, ServiceReview[]> = {
     { name: 'Jennifer Tran', location: 'Scarborough, ON', rating: 5, image: p4, quote: 'Our skylight installation was handled professionally from start to finish. The team was knowledgeable about different skylight options and helped us choose the right size and style. The end result exceeded our expectations.' },
   ],
   'roof-inspection': [
-    { name: 'Alan Reeves', location: 'Vaughan, ON', rating: 5, image: p1, quote: 'We used Elite for a pre-purchase inspection before buying our home. Their detailed report with photos gave us clear leverage in negotiation and peace of mind about the roof condition. Worth every penny.' },
+    { name: 'Alan Reeves', location: 'Vaughan, ON', rating: 5, image: p1, quote: 'We used Elite for a pre purchase inspection before buying our home. Their detailed report with photos gave us clear leverage in negotiation and peace of mind about the roof condition. Worth every penny.' },
     { name: 'Susan Park', location: 'Woodbridge, ON', rating: 5, image: p2, quote: 'Elite\'s roof inspection before we listed our home was incredibly thorough. They found minor issues we weren\'t aware of, we had them fixed, and our buyers had no concerns about the roof at all. Stress-free process.' },
     { name: 'Greg Lawson', location: 'Kleinburg, ON', rating: 5, image: p3, quote: 'Annual inspection service from Elite has been invaluable. They catch small problems early every year and we\'ve avoided any major repairs. Their written reports are detailed and easy to understand.' },
     { name: 'Carolyn Hughes', location: 'King City, ON', rating: 5, image: p4, quote: 'I requested a full roof inspection after a neighbour had significant storm damage. Elite\'s team was thorough and honest - they found two areas that needed attention and repaired them on the spot. Excellent service.' },
@@ -136,7 +358,7 @@ const serviceReviewsMap: Record<string, ServiceReview[]> = {
   ],
   'flat-roofing': [
     { name: 'Tony Marchese', location: 'Vaughan, ON', rating: 5, image: p1, quote: 'Elite replaced our commercial flat roof with a TPO membrane system and the difference is night and day. No more ponding water, no more leaks. They applied a proper drainage slope and the results have been perfect.' },
-    { name: 'Samantha Reed', location: 'Concord, ON', rating: 5, image: p2, quote: 'Our flat-roofed addition had been leaking for two years. Two other companies couldn\'t fix it permanently. Elite diagnosed the drainage problem, reconfigured the slope, and applied a fully adhered membrane. Zero leaks since.' },
+    { name: 'Samantha Reed', location: 'Concord, ON', rating: 5, image: p2, quote: 'Our flat roofed addition had been leaking for two years. Two other companies couldn\'t fix it permanently. Elite diagnosed the drainage problem, reconfigured the slope, and applied a fully adhered membrane. Zero leaks since.' },
     { name: 'Kevin Zhao', location: 'Maple, ON', rating: 5, image: p3, quote: 'We had Elite install a modified bitumen flat roof on our commercial unit. The crew was experienced, worked cleanly around our equipment, and the project came in on schedule and on budget. Excellent flat roofing work.' },
     { name: 'Laura Whitfield', location: 'Woodbridge, ON', rating: 5, image: p4, quote: 'The flat roof on our condo addition was a constant source of problems. Elite completely re-decked and applied a new waterproof membrane system. Three years of problem-free performance now. Highly recommended.' },
   ],
@@ -291,6 +513,235 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
   )
 }
 
+// ─── Animated Process Section (all service pages) ─────────────────────────────
+
+function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; stepIcons: React.ElementType[] }) {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLDivElement>(null)
+  const iconRefs = useRef<(HTMLDivElement | null)[]>([null, null, null, null])
+  const contactRef = useRef<HTMLDivElement>(null)
+  const [pathD, setPathD] = useState('')
+  const [pathLength, setPathLength] = useState(0)
+  const [pointLengths, setPointLengths] = useState<number[]>([])
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [isScrollingDown, setIsScrollingDown] = useState(true)
+  const prevProgressRef = useRef(0)
+
+  useEffect(() => {
+    const buildPath = () => {
+      if (!sectionRef.current) return
+      const sectionRect = sectionRef.current.getBoundingClientRect()
+      const sectionAbsTop = sectionRect.top + window.scrollY
+
+      const allRefs: (HTMLDivElement | null)[] = [...iconRefs.current, contactRef.current]
+      const positions = allRefs
+        .map(ref => {
+          if (!ref) return null
+          const r = ref.getBoundingClientRect()
+          return {
+            x: r.left - sectionRect.left + r.width / 2,
+            y: r.top + window.scrollY - sectionAbsTop + r.height / 2,
+          }
+        })
+        .filter((p): p is { x: number; y: number } => p !== null)
+      if (positions.length < 2) return
+
+      const cx = sectionRect.width / 2
+      const fx = positions[0].x, fy = positions[0].y
+      const entryD = `M ${cx} 0 C ${cx} ${fy / 2} ${fx} ${fy / 2} ${fx} ${fy}`
+      let d = entryD
+      for (let i = 0; i < positions.length - 1; i++) {
+        const a = positions[i], b = positions[i + 1]
+        const midY = (a.y + b.y) / 2
+        d += ` C ${a.x} ${midY} ${b.x} ${midY} ${b.x} ${b.y}`
+      }
+      setPathD(d)
+
+      const ns = 'http://www.w3.org/2000/svg'
+      const tmpSvg = document.createElementNS(ns, 'svg')
+      tmpSvg.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;top:-9999px;left:-9999px'
+      document.body.appendChild(tmpSvg)
+
+      const lengths: number[] = []
+      for (let i = 0; i < positions.length; i++) {
+        let partial = entryD
+        for (let j = 0; j < i; j++) {
+          const a = positions[j], b = positions[j + 1]
+          const midY = (a.y + b.y) / 2
+          partial += ` C ${a.x} ${midY} ${b.x} ${midY} ${b.x} ${b.y}`
+        }
+        const p = document.createElementNS(ns, 'path')
+        p.setAttribute('d', partial)
+        tmpSvg.appendChild(p)
+        lengths.push(p.getTotalLength())
+      }
+
+      const fullEl = document.createElementNS(ns, 'path')
+      fullEl.setAttribute('d', d)
+      tmpSvg.appendChild(fullEl)
+      const totalLen = fullEl.getTotalLength()
+      document.body.removeChild(tmpSvg)
+
+      setPathLength(totalLen)
+      setPointLengths(lengths)
+    }
+
+    buildPath()
+    window.addEventListener('resize', buildPath)
+    return () => window.removeEventListener('resize', buildPath)
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const vh = window.innerHeight
+      const entered = vh * 0.85 - rect.top
+      const newProgress = Math.max(0, Math.min(1, entered / rect.height))
+      const goingDown = newProgress >= prevProgressRef.current
+      prevProgressRef.current = newProgress
+      setIsScrollingDown(goingDown)
+      setScrollProgress(newProgress)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const drawnLength = pathLength > 0 ? scrollProgress * pathLength : 0
+  const dashOffset = pathLength > 0 ? pathLength - drawnLength : 9999
+
+  const activeSteps = pointLengths.length >= 4
+    ? pointLengths.slice(0, 4).map(len => drawnLength >= len)
+    : [false, false, false, false]
+  const contactActive = pointLengths.length >= 5 && drawnLength >= pointLengths[4]
+
+  return (
+    <section ref={sectionRef} className="relative pt-10 md:pt-14 pb-32 md:pb-40 bg-[#fafaf9]">
+      {/* Animated SVG snake — desktop only */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none">
+        <svg className="absolute inset-0 w-full h-full" fill="none">
+          {pathD && (
+            <path d={pathD} stroke="#e2e8f0" strokeWidth="2" strokeDasharray="10 8" />
+          )}
+          <path
+            d={pathD || 'M 0 0'}
+            stroke="#c9a55a"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            style={{
+              strokeDasharray: pathLength > 0 ? pathLength : 9999,
+              strokeDashoffset: pathLength > 0 ? dashOffset : 9999,
+              transition: isScrollingDown ? 'stroke-dashoffset 0.08s linear' : 'none',
+              opacity: pathLength > 0 ? 1 : 0,
+            }}
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-8 lg:px-16">
+        {/* Heading — line starts from below this block */}
+        <div ref={headingRef} className="flex items-start justify-end mb-6 lg:mb-8">
+          <div className="text-right">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-3 block">
+              How It Works
+            </span>
+            <h2 className="font-sans font-black text-[#0f172a] leading-[1.05]">
+              <span className="block text-[2.2rem] lg:text-[2.8rem]">Four Steps.</span>
+              <span className="block text-[2.2rem] lg:text-[2.8rem]">zero <span className="text-[#c9a55a]">Effort.</span></span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Desktop: animated zigzag layout */}
+        <div className="hidden lg:block">
+          {steps.map((step, i) => {
+            const isActive = activeSteps[i]
+            const isLeft = i % 2 === 0
+            const Icon = stepIcons[i]
+            return (
+              <div
+                key={i}
+                className={`flex items-center gap-24 py-16 ${!isLeft ? 'flex-row-reverse' : ''}`}
+              >
+                <div
+                  ref={el => { iconRefs.current[i] = el }}
+                  className={`flex-shrink-0 w-24 h-24 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
+                    isActive
+                      ? 'bg-[#c9a55a] border-[#c9a55a] shadow-xl shadow-[#c9a55a]/25 scale-110'
+                      : 'bg-white border-[#e2e8f0]'
+                  }`}
+                >
+                  <Icon
+                    className={`w-10 h-10 transition-colors duration-500 ${
+                      isActive ? 'text-white' : 'text-[#cbd5e1]'
+                    }`}
+                  />
+                </div>
+                <div className={`flex-1 transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-25'}`}>
+                  <div className={`font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-3 ${!isLeft ? 'text-right' : ''}`}>
+                    {String(i + 1).padStart(2, '0')} / 04
+                  </div>
+                  <h3 className={`font-sans font-black text-2xl lg:text-3xl text-[#0f172a] mb-4 leading-tight ${!isLeft ? 'text-right' : ''}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`font-sans text-sm text-[#64748b] leading-relaxed max-w-xs ${!isLeft ? 'ml-auto text-right' : ''}`}>
+                    {step.body}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Mobile: heading + numbered list */}
+        <div className="lg:hidden space-y-0">
+          <div className="mb-8">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-2 block">
+              How It Works
+            </span>
+            <h2 className="font-sans font-black text-[2rem] text-[#0f172a] leading-tight mb-8">
+              Four Steps. <span className="text-[#c9a55a]">zero Effort.</span>
+            </h2>
+          </div>
+          {steps.map((step, i) => (
+            <div key={i} className="flex gap-6">
+              <div className="flex flex-col items-center">
+                <div className="w-10 h-10 bg-[#041D35] flex items-center justify-center flex-shrink-0">
+                  <span className="font-sans text-[10px] font-bold text-white tracking-wider">{step.num}</span>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="w-px flex-1 bg-[#e7e5e4] my-2 min-h-[36px]" />
+                )}
+              </div>
+              <div className={i < steps.length - 1 ? 'pb-10' : ''}>
+                <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1.5 leading-snug">{step.title}</h3>
+                <p className="font-sans text-sm text-[#64748b] leading-relaxed">{step.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Contact Us button — the line terminates here */}
+        <div className="flex justify-center mt-28 lg:mt-36">
+          <div ref={contactRef}>
+            <Link
+              href="/contact"
+              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-500 rounded-full ${
+                contactActive
+                  ? 'bg-[#c9a55a] hover:bg-[#a87d3a] text-white shadow-xl shadow-[#c9a55a]/25'
+                  : 'bg-white border-2 border-[#e2e8f0] text-[#94a3b8]'
+              }`}
+            >
+              Contact Us <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── Page ────────────────────────────────────────────────────────────────────────
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
@@ -305,11 +756,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const zigImg1 = content.galleryImages[0] ?? content.heroImage
   const zigImg2 = content.galleryImages[1] ?? content.galleryImages[0] ?? content.heroImage
   const reviews = serviceReviewsMap[params.slug] ?? serviceReviewsMap['residential-roofing']
+  const processData = serviceProcessData[params.slug] ?? serviceProcessData['residential-roofing']
 
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-14 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-20 md:pb-28 lg:pb-36 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={content.heroImage}
@@ -333,153 +785,96 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <span className="text-white/70">{service.title}</span>
           </div>
 
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-9 leading-[1.02] max-w-3xl">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.02] max-w-3xl">
             {service.title}
           </h1>
-
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
-            >
-              Free Estimate <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <a
-              href="tel:+19055550198"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              Call Us
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* ── Zig-Zag Row 1: What to Expect LEFT + Image RIGHT ─────────────── */}
-      <section className="py-20 md:py-28 px-4 md:px-8 lg:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Content */}
-            <div>
-              <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                Overview
+      {/* ── Credentials Trust Bar ───────────────────────────────────────────── */}
+      <div className="bg-white border-b border-[#e7e5e4]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
+          <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-3">
+            {([
+              { label: 'Licensed in Ontario', Icon: Shield },
+              { label: '$5M Liability Insurance', Icon: BadgeCheck },
+              { label: 'WSIB Covered', Icon: Users },
+              { label: 'BBB Accredited Business', Icon: Award },
+            ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
+              <div key={i} className="flex items-center gap-2.5 flex-1 justify-center min-w-[160px]">
+                <Icon className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
+                <span className="font-sans text-xs font-bold tracking-wide text-[#0f172a] whitespace-nowrap">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden min-h-[460px] md:min-h-[540px] lg:min-h-[600px]">
+
+        {/* Right image — centred within the right portion */}
+        <div className="absolute inset-y-0 right-0 w-[60%]">
+          <Image
+            src={content.overviewImage ?? zigImg1}
+            alt={service.title}
+            fill
+            sizes="60vw"
+            className="object-cover"
+            style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : { objectPosition: 'center' }}
+          />
+        </div>
+
+        {/* Left panel: gold/white AVIF diagonal */}
+        <div
+          className="absolute inset-y-0 left-0 w-full md:w-[72%] lg:w-[62%]"
+          style={{ clipPath: 'polygon(0 0, 100% 0, 81% 100%, 0 100%)' }}
+        >
+          <Image
+            src="/service-banner-bg.avif"
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
+        {/* Content — shifted right within the left panel area */}
+        <div className="relative z-10 min-h-[460px] md:min-h-[540px] lg:min-h-[600px] flex items-center">
+          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-12 md:py-20">
+            <div className="w-full max-w-[340px] md:max-w-[440px] lg:max-w-[480px]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                {service.title}
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-[#0f172a] mb-6 leading-tight">
-                What to Expect
+              <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-[#0f172a] mb-5 leading-tight uppercase tracking-normal">
+                {content.tagline}
               </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <div className="w-12 h-1 bg-[#c9a55a] mb-5" />
+              <p className="font-sans text-sm text-[#1e293b] leading-relaxed mb-8">
                 {service.fullDescription}
               </p>
-              {service.features && service.features.length > 0 && (
-                <ul className="space-y-3.5">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <CheckCircle className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
-                      <span className="font-sans text-sm text-[#374151] leading-relaxed">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden shadow-2xl">
-              <Image
-                src={content.overviewImage ?? zigImg1}
-                alt={service.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Commitment Icon Grid ──────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-              Why Elite Roofing
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-              Our Commitment to You
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {content.highlights.map((h, i) => {
-              const HIcon = commitmentIcons[i % commitmentIcons.length]
-              return (
-                <div
-                  key={i}
-                  className="bg-white border border-[#e7e5e4] p-8 flex flex-col items-center text-center hover:border-[#041D35]/20 hover:shadow-md transition-all duration-300"
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
                 >
-                  <div className="w-12 h-12 bg-[#041D35] flex items-center justify-center mb-5 flex-shrink-0">
-                    <HIcon className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="font-sans text-sm text-[#374151] leading-relaxed">{h}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Zig-Zag Row 2: Our Process LEFT + Image RIGHT ─────────────────── */}
-      <section className="py-20 md:py-28 px-4 md:px-8 lg:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Process Steps */}
-            <div>
-              <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                How It Works
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-[#0f172a] mb-10 leading-tight">
-                Our Proven Process
-              </h2>
-              <div className="space-y-0">
-                {processSteps.map((step, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    {/* Number column */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 bg-[#041D35] flex items-center justify-center flex-shrink-0">
-                        <span className="font-sans text-[10px] font-bold text-white tracking-wider">
-                          {step.num}
-                        </span>
-                      </div>
-                      {i < processSteps.length - 1 && (
-                        <div className="w-px flex-1 bg-[#e7e5e4] my-2 min-h-[36px]" />
-                      )}
-                    </div>
-                    {/* Text */}
-                    <div className={i < processSteps.length - 1 ? 'pb-8' : ''}>
-                      <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1.5 leading-snug">
-                        {step.title}
-                      </h3>
-                      <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  Free Estimate <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <a
+                  href="tel:+19055550198"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-[#041D35] text-[#041D35] hover:bg-[#041D35] hover:text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+                >
+                  <Phone className="w-3.5 h-3.5" /> Call Us
+                </a>
               </div>
             </div>
-
-            {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden shadow-2xl">
-              <Image
-                src={zigImg2}
-                alt={`${service.title} process`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute top-0 right-0 bottom-0 w-1 bg-[#c9a55a]" />
-            </div>
           </div>
         </div>
       </section>
+
+      {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
+      <AnimatedProcessSection steps={processData.steps} stepIcons={processData.icons} />
 
       {/* ── Our Work (3-card grid) ────────────────────────────────────────────── */}
       {(() => {
@@ -489,18 +884,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           .filter(Boolean) as typeof projects
         if (featuredCards.length === 0) return null
         return (
-          <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
-            <div className="max-w-7xl mx-auto">
+          <section className="pt-16 md:pt-20 pb-28 md:pb-36 bg-[#fafaf9] overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
               <div className="text-center mb-10">
-                <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                   Our Work
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
                   {service.title} Projects
                 </h2>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+            <div className="px-2 md:px-6 lg:px-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10">
                 {featuredCards.map(project => (
                   <div key={project.id} className="group overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl">
                     <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
@@ -527,15 +924,63 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   </div>
                 ))}
               </div>
+            </div>
 
-              <div className="flex justify-center">
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
-                >
-                  View All Projects
-                </Link>
+            <div className="flex justify-center">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+              >
+                View All Projects
+              </Link>
+            </div>
+          </section>
+        )
+      })()}
+
+      {/* ── Our Guarantee (all service pages) ────────────────────────────────── */}
+      {(() => {
+        const wd = serviceWarrantyData[params.slug]
+        if (!wd) return null
+        return (
+          <section className="relative overflow-hidden py-24 md:py-32">
+            <div className="absolute inset-0">
+              <Image src="/warranty-bg.avif" alt="" fill className="object-cover object-center" />
+              <div className="absolute inset-0 bg-white/55" />
+            </div>
+            <div className="relative z-10 px-4 md:px-8 lg:px-16">
+              <div className="text-center mb-14 md:mb-18">
+                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-3 block">
+                  Our Guarantee
+                </span>
+                <h3 className="font-sans font-black text-[2rem] md:text-[2.8rem] lg:text-[3.2rem] text-[#0f172a] leading-tight">
+                  {wd.heading}
+                </h3>
+                <p className="font-sans text-sm text-[#64748b] mt-5 max-w-xl mx-auto leading-relaxed">
+                  {wd.description}
+                </p>
               </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
+                {wd.cards.map(({ label, duration, items }) => (
+                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#c9a55a]/30">
+                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#c9a55a]/20">
+                      <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#64748b]">{label}</p>
+                      <span className="font-sans font-black text-xl text-[#c9a55a]">{duration}</span>
+                    </div>
+                    <ul className="space-y-3">
+                      {items.map(item => (
+                        <li key={item} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
+                          <span className="font-sans text-sm text-[#475569] leading-snug">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center font-sans text-xs text-[#64748b] mt-10 leading-relaxed max-w-2xl mx-auto">
+                {wd.footnote}
+              </p>
             </div>
           </section>
         )
@@ -545,7 +990,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
               Client Feedback
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -614,7 +1059,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
               Questions & Answers
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
@@ -625,52 +1070,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* ── Other Services ───────────────────────────────────────────────────── */}
-      <section className="py-12 md:py-14 lg:py-16 px-4 md:px-8 lg:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-serif text-2xl font-bold text-[#0f172a]">Other Services</h2>
-            <Link
-              href="/#services"
-              className="font-sans text-xs font-medium text-[#c9a55a] hover:text-[#a87d3a] transition-colors flex items-center gap-1"
-            >
-              View All <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services
-              .filter((s) => s.slug !== params.slug)
-              .slice(0, 3)
-              .map((s) => {
-                const OtherIcon = iconMap[s.icon] ?? Home
-                return (
-                  <Link
-                    key={s.id}
-                    href={`/services/${s.slug}`}
-                    className="group flex items-start gap-4 p-5 bg-white border border-[#e7e5e4] hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 bg-[#041D35]/8 group-hover:bg-[#c9a55a]/15 flex items-center justify-center transition-colors duration-300">
-                      <OtherIcon className="w-4 h-4 text-[#041D35] group-hover:text-[#c9a55a] transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-sm font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors mb-1">
-                        {s.title}
-                      </h3>
-                      <p className="font-sans text-xs text-[#64748b] line-clamp-2 leading-relaxed">
-                        {s.shortDescription}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+          <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
             Get Started
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
@@ -698,7 +1101,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            {['No obligation, ever', '10-Year Workmanship Warranty', 'Serving all of Ontario'].map(
+            {['No obligation, ever', '10 Year Workmanship Warranty', 'Serving all of Ontario'].map(
               (item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />

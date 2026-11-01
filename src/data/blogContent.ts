@@ -12,7 +12,7 @@ export interface ArticleContent {
 const blogContent: Record<string, ArticleContent> = {
   'signs-you-need-roof-replacement': {
     intro:
-      'Your roof is the most critical structural component of your home, yet it\'s also the easiest to overlook, until something goes wrong. Most homeowners only discover roofing problems after a leak has already caused interior damage. Knowing the warning signs early can save you from a minor repair spiraling into a six-figure structural nightmare.',
+      'Your roof is the most critical structural component of your home, yet it\'s also the easiest to overlook, until something goes wrong. Most homeowners only discover roofing problems after a leak has already caused interior damage. Knowing the warning signs early can save you from a minor repair spiraling into a six figure structural nightmare.',
     sections: [
       {
         heading: '1. Your Roof Is 20+ Years Old',
@@ -20,7 +20,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '2. Shingles Are Curling, Cracking, or Missing',
-        text: 'Examine your roof from the ground on a sunny day. Shingles that curl upward at the edges (cupping) or curl back from the center (clawing) have lost their moisture balance, a sign of advanced aging or poor ventilation. Cracked or missing shingles expose the underlayment directly to UV radiation and rainfall. Once 20% or more of shingles show these signs, repair becomes impractical and replacement is the economical long-term choice.',
+        text: 'Examine your roof from the ground on a sunny day. Shingles that curl upward at the edges (cupping) or curl back from the center (clawing) have lost their moisture balance, a sign of advanced aging or poor ventilation. Cracked or missing shingles expose the underlayment directly to UV radiation and rainfall. Once 20% or more of shingles show these signs, repair becomes impractical and replacement is the economical long term choice.',
       },
       {
         heading: '3. Granules Are Filling Your Gutters',
@@ -32,15 +32,15 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '5. The Roofline Is Sagging',
-        text: 'A sagging roofline is a serious structural warning sign that should prompt immediate professional evaluation. Sagging can indicate damaged rafters, rotted sheathing, or a compromised ridge beam. Unlike surface-level shingle wear, structural sagging is a safety hazard. Do not delay, the longer it\'s left, the greater the risk of catastrophic failure and substantially higher repair costs.',
+        text: 'A sagging roofline is a serious structural warning sign that should prompt immediate professional evaluation. Sagging can indicate damaged rafters, rotted sheathing, or a compromised ridge beam. Unlike surface level shingle wear, structural sagging is a safety hazard. Do not delay, the longer it\'s left, the greater the risk of catastrophic failure and substantially higher repair costs.',
       },
       {
         heading: '6. Flashing Is Deteriorated or Improperly Sealed',
-        text: 'Flashing, the metal strips sealing transitions around chimneys, skylights, vents, and roof valleys, is responsible for a disproportionate share of roof leaks. Deteriorated, lifted, or improperly installed flashing allows water to bypass shingles and penetrate directly into the structure. Significant flashing failure across multiple locations often makes wholesale replacement more cost-effective than repeated targeted repairs.',
+        text: 'Flashing, the metal strips sealing transitions around chimneys, skylights, vents, and roof valleys, is responsible for a disproportionate share of roof leaks. Deteriorated, lifted, or improperly installed flashing allows water to bypass shingles and penetrate directly into the structure. Significant flashing failure across multiple locations often makes wholesale replacement more cost effective than repeated targeted repairs.',
       },
       {
         heading: '7. You\'re Repairing It Every Year',
-        text: 'A well-installed roof should require no more than occasional maintenance over its lifespan. If you find yourself scheduling repairs every year, the cumulative costs are likely approaching the cost of full replacement. There\'s also the hidden cost of ongoing water infiltration risk between repair appointments. In most cases, a complete replacement offers better 10-year economics than perpetual patching.',
+        text: 'A well installed roof should require no more than occasional maintenance over its lifespan. If you find yourself scheduling repairs every year, the cumulative costs are likely approaching the cost of full replacement. There\'s also the hidden cost of ongoing water infiltration risk between repair appointments. In most cases, a complete replacement offers better 10-year economics than perpetual patching.',
       },
     ],
     conclusion:
@@ -53,19 +53,19 @@ const blogContent: Record<string, ArticleContent> = {
     sections: [
       {
         heading: 'Durability and Lifespan',
-        text: 'Metal roofing is the clear winner here. A properly installed standing-seam metal roof carries a lifespan of 40–70 years, with many installations lasting over a century. Premium asphalt architectural shingles, by contrast, typically deliver 20–30 years of service under normal conditions. For a home where you plan to stay long-term, metal\'s lifespan advantage is significant and financially meaningful.',
+        text: 'Metal roofing is the clear winner here. A properly installed standing seam metal roof carries a lifespan of 40–70 years, with many installations lasting over a century. Premium asphalt architectural shingles, by contrast, typically deliver 20–30 years of service under normal conditions. For a home where you plan to stay long term, metal\'s lifespan advantage is significant and financially meaningful.',
       },
       {
         heading: 'Upfront Cost vs. Lifetime Value',
-        text: 'The upfront cost gap is substantial. A quality asphalt shingle installation runs $8,000–$20,000 on a typical residential roof. Metal roofing can range from $15,000 to $40,000+ depending on material and roof complexity. However, analyzed over a 50-year period, the lifetime cost-per-year often favors metal because you may replace it only once during the home\'s life rather than two or three times with shingles.',
+        text: 'The upfront cost gap is substantial. A quality asphalt shingle installation runs $8,000–$20,000 on a typical residential roof. Metal roofing can range from $15,000 to $40,000+ depending on material and roof complexity. However, analyzed over a 50 year period, the lifetime cost per year often favors metal because you may replace it only once during the home\'s life rather than two or three times with shingles.',
       },
       {
         heading: 'Energy Efficiency',
-        text: 'Metal roofing reflects radiant heat rather than absorbing it, reducing summer cooling loads by 10–25% in warm climates. Many metal roofs qualify for federal energy-efficiency tax credits. Asphalt shingles are improving with "cool roof" granule technology, but metal still holds a clear efficiency advantage, particularly in hot coastal and sunbelt climates.',
+        text: 'Metal roofing reflects radiant heat rather than absorbing it, reducing summer cooling loads by 10–25% in warm climates. Many metal roofs qualify for federal energy efficiency tax credits. Asphalt shingles are improving with "cool roof" granule technology, but metal still holds a clear efficiency advantage, particularly in hot coastal and sunbelt climates.',
       },
       {
         heading: 'Aesthetics and Architectural Fit',
-        text: 'Modern metal roofing has shed its industrial connotations. Standing-seam profiles complement contemporary and farmhouse architecture beautifully. Asphalt shingles, however, remain the more versatile choice for traditional colonial, craftsman, and Victorian homes where architectural authenticity matters. The availability of 300+ colors gives asphalt maximum design flexibility at lower cost.',
+        text: 'Modern metal roofing has shed its industrial connotations. Standing seam profiles complement contemporary and farmhouse architecture beautifully. Asphalt shingles, however, remain the more versatile choice for traditional colonial, craftsman, and Victorian homes where architectural authenticity matters. The availability of 300+ colors gives asphalt maximum design flexibility at lower cost.',
       },
       {
         heading: 'Installation and Maintenance',
@@ -73,16 +73,16 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Weather and Sound Performance',
-        text: 'Rain and hail noise is a frequent concern with metal roofing, but it\'s largely overblown on modern installations over solid decking with proper insulation. In high-wind zones, both properly installed systems perform well, though metal\'s fastening systems often prove superior in extreme wind events when installed by a certified specialist.',
+        text: 'Rain and hail noise is a frequent concern with metal roofing, but it\'s largely overblown on modern installations over solid decking with proper insulation. In high wind zones, both properly installed systems perform well, though metal\'s fastening systems often prove superior in extreme wind events when installed by a certified specialist.',
       },
     ],
     conclusion:
-      'Our recommendation: if you\'re replacing a roof on a home where you plan to live for 15+ years and have the budget, metal roofing is the superior long-term investment. For more modest budgets, shorter time horizons, or traditional architectural styles, premium architectural shingles deliver excellent value and beautiful results. Contact Elite Roofing for a free consultation to determine the best solution for your specific home.',
+      'Our recommendation: if you\'re replacing a roof on a home where you plan to live for 15+ years and have the budget, metal roofing is the superior long term investment. For more modest budgets, shorter time horizons, or traditional architectural styles, premium architectural shingles deliver excellent value and beautiful results. Contact Elite Roofing for a free consultation to determine the best solution for your specific home.',
   },
 
   'storm-damage-insurance-guide': {
     intro:
-      'A severe storm can leave your roof looking completely different by morning, missing shingles, damaged flashing, granule-stripped sections, or worse. The damage assessment and insurance claim process can feel overwhelming. Having navigated hundreds of claims alongside our clients, we\'ve developed this guide to help you document damage properly and maximize your reimbursement.',
+      'A severe storm can leave your roof looking completely different by morning, missing shingles, damaged flashing, granule stripped sections, or worse. The damage assessment and insurance claim process can feel overwhelming. Having navigated hundreds of claims alongside our clients, we\'ve developed this guide to help you document damage properly and maximize your reimbursement.',
     sections: [
       {
         heading: 'Step 1: Document Everything Before Touching Anything',
@@ -94,15 +94,15 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Step 3: Get a Professional Inspection Before the Adjuster Arrives',
-        text: 'This step is frequently skipped and almost always a mistake. Insurance adjusters represent the insurer\'s financial interests. A professional roofer\'s inspection before the adjuster visit gives you an independent damage assessment, a professional report documenting all damage with photographs, and technical language your adjuster understands. Pre-inspected homes consistently receive higher initial settlement offers.',
+        text: 'This step is frequently skipped and almost always a mistake. Insurance adjusters represent the insurer\'s financial interests. A professional roofer\'s inspection before the adjuster visit gives you an independent damage assessment, a professional report documenting all damage with photographs, and technical language your adjuster understands. Pre inspected homes consistently receive higher initial settlement offers.',
       },
       {
         heading: 'Step 4: Prevent Further Damage (Keep All Receipts)',
         text: 'You are legally obligated under most homeowners policies to take reasonable steps to prevent further damage after a covered loss. This means emergency tarping of exposed areas and protecting interior contents. Save every receipt from emergency mitigation work, these costs are typically recoverable under your policy\'s temporary repair provisions. Don\'t make permanent repairs until after the adjuster has visited and the scope is agreed.',
       },
       {
-        heading: 'Step 5: Review the Adjuster\'s Report Line-by-Line',
-        text: 'Once you receive the adjuster\'s scope of loss, review every line item against your roofer\'s independent assessment. Common undervaluation points include lower-than-market material pricing, missing code upgrade requirements, incomplete documentation of adjacent damage (gutters, skylights, HVAC equipment), and failure to document interior damage from infiltration. You have the right to dispute any line item.',
+        heading: 'Step 5: Review the Adjuster\'s Report Line by Line',
+        text: 'Once you receive the adjuster\'s scope of loss, review every line item against your roofer\'s independent assessment. Common undervaluation points include lower than market material pricing, missing code upgrade requirements, incomplete documentation of adjacent damage (gutters, skylights, HVAC equipment), and failure to document interior damage from infiltration. You have the right to dispute any line item.',
       },
       {
         heading: 'Step 6: Supplement and Appeal if Necessary',
@@ -115,11 +115,11 @@ const blogContent: Record<string, ArticleContent> = {
 
   'roof-ventilation-guide': {
     intro:
-      'If there\'s one roofing topic that generates more confusion among homeowners than any other, it\'s ventilation. Most people understand that a roof protects against rain and wind. Far fewer understand that what happens inside the roof system, specifically the movement of air through the attic, has an enormous impact on how long that roof lasts and how efficiently your home performs year-round.',
+      'If there\'s one roofing topic that generates more confusion among homeowners than any other, it\'s ventilation. Most people understand that a roof protects against rain and wind. Far fewer understand that what happens inside the roof system, specifically the movement of air through the attic, has an enormous impact on how long that roof lasts and how efficiently your home performs year round.',
     sections: [
       {
         heading: 'Why Ventilation Matters',
-        text: 'A properly ventilated attic serves two distinct seasonal purposes. In summer, ventilation exhausts superheated attic air (which can exceed 160°F in unventilated spaces) that would otherwise radiate heat downward into living areas and literally cook the underside of your shingles, accelerating granule loss and reducing flexibility. In winter, ventilation removes warm, moisture-laden air before it condenses on cold roof sheathing, which causes rot, mold, and ice dams at eaves.',
+        text: 'A properly ventilated attic serves two distinct seasonal purposes. In summer, ventilation exhausts superheated attic air (which can exceed 160°F in unventilated spaces) that would otherwise radiate heat downward into living areas and literally cook the underside of your shingles, accelerating granule loss and reducing flexibility. In winter, ventilation removes warm, moisture laden air before it condenses on cold roof sheathing, which causes rot, mold, and ice dams at eaves.',
       },
       {
         heading: 'The Code Minimum (And Why It\'s Often Not Enough)',
@@ -135,11 +135,11 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: 'Modern Ventilation Solutions',
-        text: 'Ridge-and-soffit continuous ventilation systems represent the current best practice for most residential applications. Continuous soffit venting combined with a full-length ridge vent provides the most even airflow distribution across the entire attic floor. For complex rooflines with dormers and multiple levels, a combination of ridge venting, hip venting, and solar-powered exhaust ventilators may be required. Passive systems are preferred for long-term reliability.',
+        text: 'Ridge and soffit continuous ventilation systems represent the current best practice for most residential applications. Continuous soffit venting combined with a full length ridge vent provides the most even airflow distribution across the entire attic floor. For complex rooflines with dormers and multiple levels, a combination of ridge venting, hip venting, and solar powered exhaust ventilators may be required. Passive systems are preferred for long term reliability.',
       },
     ],
     conclusion:
-      'When Elite Roofing replaces a roof, we conduct a full ventilation assessment as part of our standard process. We\'ve seen too many 5-year-old roof replacements show premature failure because ventilation was neglected. Proper ventilation isn\'t an add-on, it\'s an integral part of a roof system that performs as warranted. Contact us for a free ventilation assessment on your home.',
+      'When Elite Roofing replaces a roof, we conduct a full ventilation assessment as part of our standard process. We\'ve seen too many 5 year old roof replacements show premature failure because ventilation was neglected. Proper ventilation isn\'t an add on, it\'s an integral part of a roof system that performs as warranted. Contact us for a free ventilation assessment on your home.',
   },
 
   'choosing-roofing-contractor': {
@@ -148,15 +148,15 @@ const blogContent: Record<string, ArticleContent> = {
     sections: [
       {
         heading: '1. Are You Licensed, Bonded, and Insured in This State?',
-        text: 'This is non-negotiable. A licensed contractor has met your state\'s minimum competency requirements. Bonding protects you financially if the contractor fails to complete work. General liability insurance (minimum $1M) protects your property from accidental damage. Workers\' compensation insurance protects you if a worker is injured on your property. Ask for certificates of insurance naming you as additionally insured, not just a verbal assurance.',
+        text: 'This is non negotiable. A licensed contractor has met your state\'s minimum competency requirements. Bonding protects you financially if the contractor fails to complete work. General liability insurance (minimum $1M) protects your property from accidental damage. Workers\' compensation insurance protects you if a worker is injured on your property. Ask for certificates of insurance naming you as additionally insured, not just a verbal assurance.',
       },
       {
         heading: '2. How Long Have You Been in Business Under This Name?',
-        text: 'The roofing industry has a significant population of "storm chasers", out-of-state operations that follow severe weather events, produce high-volume work of variable quality, and disappear within two years. Ask specifically how long the company has operated under its current business name in your area. Legitimate local contractors have community reputation, local references, and a physical address.',
+        text: 'The roofing industry has a significant population of "storm chasers", out of state operations that follow severe weather events, produce high volume work of variable quality, and disappear within two years. Ask specifically how long the company has operated under its current business name in your area. Legitimate local contractors have community reputation, local references, and a physical address.',
       },
       {
         heading: '3. What Manufacturer Certifications Do You Hold?',
-        text: 'Major shingle manufacturers like GAF, CertainTeed, and Owens Corning offer tiered contractor certification programs. GAF\'s Master Elite designation is held by fewer than 2% of all roofing contractors nationwide and requires training, insurance verification, and ongoing performance standards. Manufacturer-certified contractors can offer extended system warranties not available through non-certified installers.',
+        text: 'Major shingle manufacturers like GAF, CertainTeed, and Owens Corning offer tiered contractor certification programs. GAF\'s Master Elite designation is held by fewer than 2% of all roofing contractors nationwide and requires training, insurance verification, and ongoing performance standards. Manufacturer certified contractors can offer extended system warranties not available through non certified installers.',
       },
       {
         heading: '4. Can You Provide Local References From the Last 12 Months?',
@@ -168,11 +168,11 @@ const blogContent: Record<string, ArticleContent> = {
       },
       {
         heading: '6. What Does Your Workmanship Warranty Cover?',
-        text: 'There are typically two warranties: a manufacturer\'s material warranty (covers shingle defects) and a contractor\'s workmanship warranty (covers installation-related failures). The workmanship warranty is critical, most roof leaks are caused by installation errors, not material defects. Ask specifically: how long does it last, what does it cover, and who do you contact if there\'s a problem in year 8?',
+        text: 'There are typically two warranties: a manufacturer\'s material warranty (covers shingle defects) and a contractor\'s workmanship warranty (covers installation related failures). The workmanship warranty is critical, most roof leaks are caused by installation errors, not material defects. Ask specifically: how long does it last, what does it cover, and who do you contact if there\'s a problem in year 8?',
       },
       {
-        heading: '7. What\'s Included in the Tear-Off and Disposal?',
-        text: 'A complete professional installation includes removing all existing roofing material down to the deck, inspecting and replacing deteriorated decking, installing new underlayment, installing ice-and-water shield in valleys and eaves, and full cleanup. "Roofing over" existing shingles is almost never acceptable practice, it voids most warranties, adds weight, and hides deck problems.',
+        heading: '7. What\'s Included in the Tear Off and Disposal?',
+        text: 'A complete professional installation includes removing all existing roofing material down to the deck, inspecting and replacing deteriorated decking, installing new underlayment, installing ice and water shield in valleys and eaves, and full cleanup. "Roofing over" existing shingles is almost never acceptable practice, it voids most warranties, adds weight, and hides deck problems.',
       },
       {
         heading: '8. How Do You Protect My Property During Installation?',
@@ -188,7 +188,7 @@ const blogContent: Record<string, ArticleContent> = {
       },
     ],
     conclusion:
-      'Elite Roofing answers "yes" to every item on this list, and we welcome the questions. We\'re fully licensed, GAF Master Elite certified, have served Ontario for 20 years, and back every installation with a written 10-year workmanship warranty. Schedule a free consultation with our team and experience the difference genuine expertise makes.',
+      'Elite Roofing answers "yes" to every item on this list, and we welcome the questions. We\'re fully licensed, GAF Master Elite certified, have served Ontario for 20 years, and back every installation with a written 10 year workmanship warranty. Schedule a free consultation with our team and experience the difference genuine expertise makes.',
   },
 }
 

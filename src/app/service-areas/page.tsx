@@ -161,7 +161,7 @@ export default function ServiceAreasPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Where We Work
               </span>
             </motion.div>
@@ -178,7 +178,7 @@ export default function ServiceAreasPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
               Our Coverage Area
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
@@ -250,7 +250,7 @@ export default function ServiceAreasPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
               Client Feedback
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -320,7 +320,7 @@ export default function ServiceAreasPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-8">
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#0f172a] mb-3 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#0f172a] mb-3 block">
               Our Office Location
             </span>
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a]">
@@ -357,7 +357,7 @@ export default function ServiceAreasPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 Same Standard Everywhere
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
@@ -372,8 +372,8 @@ export default function ServiceAreasPage() {
                   'GAF Master Elite certified, top 2% nationally',
                   'Licensed and $5M insured across Ontario',
                   'Free estimates with no travel fees',
-                  'Same-day emergency response available',
-                  '10-year written workmanship warranty on all work',
+                  'Same day emergency response available',
+                  '10 year written workmanship warranty on all work',
                   '300+ five-star Google reviews from Ontario clients',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -403,7 +403,7 @@ export default function ServiceAreasPage() {
       <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
               Start Today
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">

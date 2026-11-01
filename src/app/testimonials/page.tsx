@@ -233,7 +233,7 @@ const extraReviews = [
     name: 'Frank Esposito',
     location: 'Mississauga, ON',
     rating: 5,
-    quote: 'After getting burned by a low-budget roofer two years ago, I was careful choosing a contractor for my full replacement. Elite Roofing was worth every penny. Proper installation, quality materials, and a team that takes real pride in their work.',
+    quote: 'After getting burned by a low budget roofer two years ago, I was careful choosing a contractor for my full replacement. Elite Roofing was worth every penny. Proper installation, quality materials, and a team that takes real pride in their work.',
     image: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=80&h=80&fit=crop&crop=face',
     projectType: 'Roof Replacement',
   },
@@ -285,7 +285,7 @@ export default function TestimonialsPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Client Stories
               </span>
             </motion.div>
@@ -304,9 +304,9 @@ export default function TestimonialsPage() {
 
           {/* Summary box */}
           <FadeIn className="mb-12">
-            <p className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-4">
               Client Reviews
-            </p>
+            </h2>
             <div className="bg-white border border-[#e7e5e4] rounded-xl p-6 md:p-8 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
                 <Zap className="w-3.5 h-3.5 text-[#c9a55a]" />
@@ -405,7 +405,7 @@ export default function TestimonialsPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
               Get Started Today
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">

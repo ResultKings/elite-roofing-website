@@ -24,7 +24,7 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 const stats = [
   { value: '20+', label: 'Years in Business' },
   { value: '2,400+', label: 'Roofs Completed' },
-  { value: '300+', label: 'Five-Star Reviews' },
+  { value: '300+', label: 'Five Star Reviews' },
   { value: '$5M', label: 'Fully Insured' },
 ]
 
@@ -32,7 +32,7 @@ const values = [
   {
     icon: Shield,
     title: 'Integrity First',
-    description: 'We provide honest assessments, transparent pricing, and no-pressure proposals. What we quote is what you pay, every time.',
+    description: 'We provide honest assessments, transparent pricing, and no pressure proposals. What we quote is what you pay, every time.',
   },
   {
     icon: Award,
@@ -56,7 +56,7 @@ const certifications = [
   { name: 'Licensed in Ontario', note: 'Fully licensed and compliant with all provincial regulations' },
   { name: '$5M Liability Insurance', note: 'Comprehensive coverage protecting your property throughout every project' },
   { name: 'WSIB Covered', note: 'All crew members covered, zero liability for homeowners' },
-  { name: '10-Year Workmanship Warranty', note: 'Written warranty on all installation and repair work' },
+  { name: '10 Year Workmanship Warranty', note: 'Written warranty on all installation and repair work' },
   { name: 'BBB Accredited Business', note: 'Verified track record of ethical business practices' },
 ]
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Our Story
               </span>
             </motion.div>
@@ -90,7 +90,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 Who We Are
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
@@ -105,10 +105,10 @@ export default function AboutPage() {
                   Over the past two decades, we have grown into one of the Greater Toronto Area&apos;s most trusted roofing companies, not by cutting corners or chasing the lowest bid, but by consistently delivering results that exceed expectations and last for decades.
                 </p>
                 <p>
-                  Our team of certified craftsmen brings deep expertise to every project, from a single-family residential repair in Vaughan to a full commercial roofing system in Mississauga. We hold GAF Master Elite certification, achieved by fewer than 2% of roofing contractors in North America, a reflection of our technical standards, ongoing training, and dedication to quality.
+                  Our team of certified craftsmen brings deep expertise to every project, from a single family residential repair in Vaughan to a full commercial roofing system in Mississauga. We hold GAF Master Elite certification, achieved by fewer than 2% of roofing contractors in North America, a reflection of our technical standards, ongoing training, and dedication to quality.
                 </p>
                 <p>
-                  Today, with over 2,400 completed projects and 300+ five-star reviews, we are proud of the reputation we have earned, one roof at a time.
+                  Today, with over 2,400 completed projects and 300+ five star reviews, we are proud of the reputation we have earned, one roof at a time.
                 </p>
               </div>
             </FadeIn>
@@ -131,7 +131,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12 lg:mb-16">
-            <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
               What Drives Us
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -161,7 +161,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <FadeIn>
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 Credentials & Certifications
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
@@ -204,6 +204,40 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Office Location Map */}
+      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.4em] uppercase text-[#0f172a] mb-3 block">
+              Our Office Location
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
+              Based in Vaughan, Serving All of Ontario
+            </h2>
+            <a
+              href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm text-[#64748b] mt-3 hover:text-[#c9a55a] transition-colors duration-200 block"
+            >
+              216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
+            </a>
+          </div>
+          <div className="overflow-hidden rounded-2xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1381433328875!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Elite Roofing location map"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
@@ -212,7 +246,7 @@ export default function AboutPage() {
               Ready to Experience the Elite Difference?
             </h2>
             <p className="font-sans text-sm text-white/75 leading-relaxed mb-8 max-w-lg mx-auto">
-              Book your no-obligation free estimate today. Our experts will assess your roof, provide honest recommendations, and give you a transparent written proposal.
+              Book your no obligation free estimate today. Our experts will assess your roof, provide honest recommendations, and give you a transparent written proposal.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

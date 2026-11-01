@@ -202,7 +202,7 @@ function TickerBanner() {
     { type: 'service', text: 'Residential' },
     { type: 'location',text: 'Toronto · Oakville · Vaughan' },
     { type: 'service', text: 'Commercial' },
-    { type: 'badge',   text: '25-Year Warranty' },
+    { type: 'badge',   text: '25 Year Warranty' },
   ]
   const doubled = [...items, ...items]
 
@@ -249,7 +249,7 @@ function StandardSection() {
 
       <div className="relative z-10 pl-4 md:pl-12 lg:pl-24 pr-4 md:pr-8 lg:pr-0 py-16 md:py-20 w-full">
         <FadeIn className="max-w-full lg:max-w-[45%]">
-          <p className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
+          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
             The Standard
           </p>
 
@@ -260,14 +260,14 @@ function StandardSection() {
 
           {/* Body text */}
           <p className="font-sans text-[15px] text-white/70 leading-relaxed mb-10 max-w-[85%]">
-            Our GAF Master Elite certification and 25-year warranty guarantee that premium results aren&apos;t a promise, they&apos;re our standard.
+            Our GAF Master Elite certification and 25 year warranty guarantee that premium results aren&apos;t a promise, they&apos;re our standard.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-white/10">
             {[
               { value: '2,400+', label: 'Roofs Completed' },
-              { value: '500+', label: 'Five-Star Reviews' },
+              { value: '500+', label: 'Five Star Reviews' },
               { value: '20+', label: 'Years in Business' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-stretch">
@@ -299,7 +299,7 @@ function ServicesSection() {
         <FadeIn className="mb-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
             <div>
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 What We Do
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -311,7 +311,7 @@ function ServicesSection() {
                 <strong className="font-semibold text-[#0f172a]">Elite Roofing</strong> provides roofing services throughout Ontario, including{' '}
                 <Link href="/services/roof-inspection" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">inspections</Link>,{' '}
                 <Link href="/services/roof-repair" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">repairs</Link>, and{' '}
-                <Link href="/services/roof-replacement" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">full roof replacements</Link>. With our skilled team, exceptional workmanship, high-quality materials, and reliable service, we help safeguard your home or business while enhancing its value. Count on us for roofing services that protect your investment.
+                <Link href="/services/roof-replacement" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">full roof replacements</Link>. With our skilled team, exceptional workmanship, high quality materials, and reliable service, we help safeguard your home or business while enhancing its value. Count on us for roofing services that protect your investment.
               </p>
             </div>
           </div>
@@ -373,7 +373,7 @@ function ProcessSection() {
     {
       number: '03',
       title: 'Expert Execution',
-      desc: 'Our master-certified crew completes your project on schedule, with daily site clean-up and a final walkthrough.',
+      desc: 'Our master certified crew completes your project on schedule, with daily site clean-up and a final walkthrough.',
     },
   ]
 
@@ -391,7 +391,7 @@ function ProcessSection() {
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="mb-16">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             How It Works
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3">
@@ -593,7 +593,7 @@ const extraTestimonials = [
     name: 'James Patterson',
     location: 'Oakville, ON',
     rating: 5,
-    quote: 'Elite Roofing replaced our 25-year-old roof in two days. The crew was professional, clean, and communicated every step. Our new roof looks stunning and we feel confident it will last for decades.',
+    quote: 'Elite Roofing replaced our 25 year old roof in two days. The crew was professional, clean, and communicated every step. Our new roof looks stunning and we feel confident it will last for decades.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
   },
   {
@@ -669,7 +669,7 @@ function TestimonialsSection() {
     <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-10">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
@@ -745,7 +745,7 @@ const homeFAQs = [
   {
     question: 'How do I know if I need a roof repair or a full replacement?',
     answer:
-      'As a general guide: if your roof is under 15 years old and the damage is localized, repair is almost always the right call. If your roof is over 20 years old, shows widespread granule loss, or has multiple leak points, replacement delivers far better value over the next 10 years. Our free inspection includes an honest, photo-documented assessment with zero sales pressure.',
+      'As a general guide: if your roof is under 15 years old and the damage is localized, repair is almost always the right call. If your roof is over 20 years old, shows widespread granule loss, or has multiple leak points, replacement delivers far better value over the next 10 years. Our free inspection includes an honest, photo documented assessment with zero sales pressure.',
   },
   {
     question: "Does homeowner's insurance cover roof damage?",
@@ -755,17 +755,18 @@ const homeFAQs = [
   {
     question: 'How long does a residential roof replacement take?',
     answer:
-      'A typical 2,000 to 3,000 sq ft residential roof takes one to two days for a full replacement using architectural asphalt shingles. Larger homes or premium materials like natural slate or standing-seam metal take proportionally longer, typically three to five days. We always provide a confirmed project schedule in writing before work begins.',
+      'A typical 2,000 to 3,000 sq ft residential roof takes one to two days for a full replacement using architectural asphalt shingles. Larger homes or premium materials like natural slate or standing seam metal take proportionally longer, typically three to five days. We always provide a confirmed project schedule in writing before work begins.',
   },
   {
     question: 'What areas of Ontario does Elite Roofing serve?',
     answer:
       'We serve the Greater Toronto Area, including Toronto, Mississauga, Brampton, Vaughan, Markham, Oakville, Burlington, and Hamilton, along with surrounding communities. If you are unsure whether we cover your area, call us directly.',
+    link: { text: 'View all areas we serve.', href: '/service-areas' },
   },
   {
     question: 'What warranty comes with a new roof from Elite Roofing?',
     answer:
-      "Every new roof installation comes with two layers of protection: a manufacturer's material warranty, typically 30 years for architectural shingles and lifetime for GAF Timberline HDZ, and our own 10-year Elite Roofing workmanship warranty covering any installation-related failures. All warranty documents are provided in writing at project completion.",
+      "Every new roof installation comes with two layers of protection: a manufacturer's material warranty, typically 30 years for architectural shingles and lifetime for GAF Timberline HDZ, and our own 10 year Elite Roofing workmanship warranty covering any installation related failures. All warranty documents are provided in writing at project completion.",
   },
 ]
 
@@ -776,7 +777,7 @@ function FAQSection() {
     <section id="faq" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-10 lg:mb-14">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
@@ -825,6 +826,9 @@ function FAQSection() {
                         <div className="px-7 pb-6 border-t border-[#e7e5e4]">
                           <p className="font-sans text-sm text-[#64748b] leading-relaxed pt-5">
                             {faq.answer}
+                            {faq.link && (
+                              <> <Link href={faq.link.href} className="text-[#c9a55a] hover:underline">{faq.link.text}</Link></>
+                            )}
                           </p>
                         </div>
                       </motion.div>
@@ -857,14 +861,14 @@ function CTASection() {
     <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
             Start Today
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Protect Your Investment?
           </h2>
           <p className="font-sans text-base text-white/50 leading-relaxed mb-10">
-            Get a free, no-obligation roof inspection from Ontario&apos;s most trusted
+            Get a free, no obligation roof inspection from Ontario&apos;s most trusted
             roofing specialists. We assess your roof, answer every question, and provide
             a transparent written quote at no cost to you.
           </p>

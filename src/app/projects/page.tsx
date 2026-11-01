@@ -229,7 +229,7 @@ export default function ProjectsPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Portfolio
               </span>
             </motion.div>
@@ -451,7 +451,7 @@ export default function ProjectsPage() {
         <section className="mt-20 px-6 md:px-8 lg:px-16 pb-20 md:pb-24">
           <div className="max-w-7xl mx-auto">
             <FadeIn className="text-center mb-12">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
                 Client Feedback
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -522,7 +522,7 @@ export default function ProjectsPage() {
         {/* ── CTA ────────────────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="font-sans text-[11px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
               Get Started
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
@@ -553,7 +553,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              {['No obligation, ever', '10-Year Workmanship Warranty', 'Serving all of Ontario'].map(item => (
+              {['No obligation, ever', '10 Year Workmanship Warranty', 'Serving all of Ontario'].map(item => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />
                   <span className="font-sans text-xs text-white/40">{item}</span>

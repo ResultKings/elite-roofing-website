@@ -83,7 +83,7 @@ export default function ContactPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[12px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
                 Get In Touch
               </span>
             </motion.div>
@@ -171,9 +171,9 @@ export default function ContactPage() {
                     {[
                       'Licensed and $5M insured in Ontario',
                       'GAF Master Elite, top 2% nationally',
-                      '10-year written workmanship warranty',
+                      '10 year written workmanship warranty',
                       'Free estimates, no obligation',
-                      '300+ five-star Google reviews',
+                      '300+ five star Google reviews',
                     ].map((text) => (
                       <li key={text} className="flex items-start gap-3">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
@@ -194,7 +194,7 @@ export default function ContactPage() {
                   </h2>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
                     Fill out the form below and a specialist will reach out within one
-                    business day to schedule your no-obligation roof assessment.
+                    business day to schedule your no obligation roof assessment.
                   </p>
                 </div>
                 <ContactForm />
