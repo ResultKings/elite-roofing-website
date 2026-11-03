@@ -58,13 +58,53 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
-const PRIMARY_CATEGORIES = ['All', 'Residential', 'Commercial'] as const
-const SERVICE_CATEGORIES = [
-  'Roof Repair', 'Storm Damage Restoration', 'Gutter Systems',
-  'Skylight Installation', 'Roof Inspection', 'Metal Roofing',
-  'Flat Roofing', 'Multi-Family Roofing', 'Roof Replacement', 'Roof Tarping',
+const categories = [
+  'All',
+  'Residential', 'Commercial', 'Multi-Family Roofing', 'Roof Replacement', 'Metal Roofing', 'Flat Roofing',
+  'Gutter Systems', 'Skylight Installation',
+  'Roof Repair', 'Storm Damage Restoration', 'Roof Tarping', 'Roof Inspection',
 ] as const
-const categories = [...PRIMARY_CATEGORIES, ...SERVICE_CATEGORIES] as const
+
+type Category = typeof categories[number]
+
+interface FilterItem { display: string; value: Category }
+
+const filterGroups: { id: string; label: string; items: FilterItem[] }[] = [
+  {
+    id: 'roofing',
+    label: 'ROOFING SERVICES',
+    items: [
+      { display: 'Residential Roofing', value: 'Residential' },
+      { display: 'Commercial Roofing', value: 'Commercial' },
+      { display: 'Multi-Family Roofing', value: 'Multi-Family Roofing' },
+      { display: 'Roof Replacement', value: 'Roof Replacement' },
+      { display: 'Metal Roofing', value: 'Metal Roofing' },
+      { display: 'Flat Roofing', value: 'Flat Roofing' },
+    ],
+  },
+  {
+    id: 'installation',
+    label: 'INSTALLATION',
+    items: [
+      { display: 'Gutter Systems', value: 'Gutter Systems' },
+      { display: 'Skylight Installation', value: 'Skylight Installation' },
+    ],
+  },
+  {
+    id: 'repair',
+    label: 'REPAIR AND INSPECTION',
+    items: [
+      { display: 'Roof Repair', value: 'Roof Repair' },
+      { display: 'Storm Damage Restoration', value: 'Storm Damage Restoration' },
+      { display: 'Roof Tarping', value: 'Roof Tarping' },
+      { display: 'Roof Inspection', value: 'Roof Inspection' },
+    ],
+  },
+]
+
+const allFilterItems = filterGroups.flatMap(g => g.items)
+const getDisplayName = (cat: Category) =>
+  allFilterItems.find(item => item.value === cat)?.display ?? cat
 
 const projectReviews = [
   {
@@ -166,17 +206,15 @@ function ReviewCarousel() {
   )
 }
 
-type Category = typeof categories[number]
-
 const INITIAL_COUNT = 6
 const BATCH = 9
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState<Category>('All')
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT)
   const [collapsingMode, setCollapsingMode] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const filterBarRef = useRef<HTMLDivElement>(null)
 
   const filtered = activeCategory === 'All'
     ? projects
@@ -203,16 +241,16 @@ export default function ProjectsPage() {
   }
 
   const selectCategory = useCallback((cat: Category) => {
-    setActiveCategory(cat as Category)
-    setDropdownOpen(false)
+    setActiveCategory(cat)
+    setOpenDropdown(null)
     setVisibleCount(INITIAL_COUNT)
     setCollapsingMode(false)
   }, [])
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDropdownOpen(false)
+      if (filterBarRef.current && !filterBarRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null)
       }
     }
     document.addEventListener('mousedown', handler)
@@ -260,62 +298,70 @@ export default function ProjectsPage() {
         <section className="px-6 md:px-8 lg:px-16 mb-10">
           <div className="max-w-7xl mx-auto">
             <FadeIn>
-              <div className="flex items-center gap-2 flex-wrap">
-                {/* Primary: All / Residential / Commercial */}
-                <div className="flex items-center bg-white border border-[#e7e5e4] p-1">
-                  {PRIMARY_CATEGORIES.map(cat => (
-                    <button
-                      key={cat}
-                      onClick={() => selectCategory(cat)}
-                      className={[
-                        'px-5 py-2 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap',
-                        activeCategory === cat
-                          ? 'bg-[#0f172a] text-white'
-                          : 'text-[#64748b] hover:text-[#0f172a]',
-                      ].join(' ')}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex items-center gap-2 flex-wrap" ref={filterBarRef}>
+                {/* ALL button */}
+                <button
+                  onClick={() => selectCategory('All')}
+                  className={[
+                    'px-5 py-2.5 font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap border',
+                    activeCategory === 'All'
+                      ? 'bg-[#0f172a] text-white border-[#0f172a]'
+                      : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a] hover:border-[#0f172a]',
+                  ].join(' ')}
+                >
+                  All
+                </button>
 
-                {/* Dropdown for service categories */}
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setDropdownOpen(o => !o)}
-                    className={[
-                      'flex items-center gap-1.5 px-5 py-2.5 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 border',
-                      SERVICE_CATEGORIES.includes(activeCategory as typeof SERVICE_CATEGORIES[number])
-                        ? 'bg-[#0f172a] text-white border-[#0f172a]'
-                        : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a]',
-                    ].join(' ')}
-                  >
-                    {SERVICE_CATEGORIES.includes(activeCategory as typeof SERVICE_CATEGORIES[number])
-                      ? activeCategory
-                      : 'Services'
-                    }
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
+                {/* Group dropdown buttons */}
+                {filterGroups.map(group => {
+                  const isGroupActive = group.items.some(item => item.value === activeCategory)
+                  const activeItem = group.items.find(item => item.value === activeCategory)
+                  const isOpen = openDropdown === group.id
 
-                  {dropdownOpen && (
-                    <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-[#e7e5e4] shadow-lg min-w-[220px]">
-                      {SERVICE_CATEGORIES.map(cat => (
-                        <button
-                          key={cat}
-                          onClick={() => selectCategory(cat)}
-                          className={[
-                            'w-full text-left px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-150',
-                            activeCategory === cat
-                              ? 'bg-[#0f172a] text-white'
-                              : 'text-[#64748b] hover:bg-[#f8fafc] hover:text-[#0f172a]',
-                          ].join(' ')}
-                        >
-                          {cat}
-                        </button>
-                      ))}
+                  return (
+                    <div key={group.id} className="relative">
+                      <button
+                        onClick={() => setOpenDropdown(isOpen ? null : group.id)}
+                        className={[
+                          'flex items-center gap-1.5 px-5 py-2.5 font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap border',
+                          isGroupActive
+                            ? 'bg-[#0f172a] text-white border-[#0f172a]'
+                            : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a] hover:border-[#0f172a]',
+                        ].join(' ')}
+                      >
+                        {isGroupActive && activeItem ? activeItem.display : group.label}
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                      </button>
+
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 4 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute left-0 top-full mt-1 z-50 bg-white border border-[#e7e5e4] shadow-lg min-w-[220px]"
+                          >
+                            {group.items.map(item => (
+                              <button
+                                key={item.value}
+                                onClick={() => selectCategory(item.value)}
+                                className={[
+                                  'w-full text-left px-5 py-3 font-sans text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-150',
+                                  activeCategory === item.value
+                                    ? 'bg-[#0f172a] text-white'
+                                    : 'text-[#64748b] hover:bg-[#f8fafc] hover:text-[#0f172a]',
+                                ].join(' ')}
+                              >
+                                {item.display}
+                              </button>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  )}
-                </div>
+                  )
+                })}
               </div>
             </FadeIn>
           </div>
@@ -410,11 +456,7 @@ export default function ProjectsPage() {
               'Roof Replacement':         'roof-replacement',
               'Roof Tarping':             'roof-tarping',
             }
-            const displayName = activeCategory === 'Residential'
-              ? 'Residential Roofing'
-              : activeCategory === 'Commercial'
-              ? 'Commercial Roofing'
-              : activeCategory
+            const displayName = getDisplayName(activeCategory)
             const slug = slugMap[activeCategory] ?? '#'
             return (
               <motion.section
@@ -470,7 +512,7 @@ export default function ProjectsPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
                   {activeCategory === 'All'
                     ? <>What Our Clients<br />Are Saying</>
-                    : <>What Our Clients<br />Are Saying About Our<br />{activeCategory === 'Residential' ? 'Residential Roofing' : activeCategory === 'Commercial' ? 'Commercial Roofing' : activeCategory}</>
+                    : <>What Our Clients<br />Are Saying About Our<br />{getDisplayName(activeCategory)}</>
                   }
                 </h3>
 
@@ -528,7 +570,7 @@ export default function ProjectsPage() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
               {activeCategory === 'All'
                 ? 'Ready to Start Your Roofing Project?'
-                : `Ready to Discuss Your ${activeCategory === 'Residential' ? 'Residential Roofing' : activeCategory === 'Commercial' ? 'Commercial Roofing' : activeCategory} Project?`
+                : `Ready to Discuss Your ${getDisplayName(activeCategory)} Project?`
               }
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">

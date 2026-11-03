@@ -15,7 +15,7 @@ const exploreLinks = [
 const quickLinks = [
   { href: '/contact', label: 'Get Free Estimate' },
   { href: '/service-areas', label: 'Service Areas' },
-  { href: '/contact#service-area', label: 'Office Location' },
+  { href: '/service-areas#office-location', label: 'Office Location' },
 ]
 
 export default function Footer() {

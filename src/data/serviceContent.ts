@@ -28,7 +28,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Residential Roofing Installation in Ontario',
+    tagline: 'Built Right. Backed by a Written Warranty.',
     highlights: [
       '20+ years of residential expertise across Ontario',
       'GAF Master Elite certified installers',
@@ -75,7 +75,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Commercial Roofing Installation in Ontario',
+    tagline: 'Minimal Disruption. Maximum Protection.',
     highlights: [
       'Certified for TPO, EPDM, and modified bitumen systems',
       'Phased installation to keep your business open',
@@ -122,7 +122,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Professional Roof Repair in Ontario',
+    tagline: 'Find the Root Cause. Fix It Once.',
     highlights: [
       'Same day emergency response for active leaks',
       'Root cause diagnosis, not just symptom treatment',
@@ -169,7 +169,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Storm Damage Roof Restoration in Ontario',
+    tagline: 'From Emergency Response to Full Restoration.',
     highlights: [
       'Free storm damage inspections, 7 days a week',
       'Expert insurance claim support and documentation',
@@ -210,13 +210,13 @@ const serviceContent: Record<string, ServicePageContent> = {
     heroImage: '/service-gutter-systems.avif',
     heroImagePosition: 'center 30%',
     overviewImage: '/overview-gutter-systems.jpg',
-    featuredProjects: ['woodbridge-seamless-aluminum-install', 'kleinburg-copper-eavestrough', 'stouffville-micro-mesh-guards'],
+    featuredProjects: ['woodbridge-seamless-aluminum-install', 'thornhill-eavestrough-upgrade', 'stouffville-micro-mesh-guards'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Gutter & Eavestrough Installation in Ontario',
+    tagline: 'Seamless Systems Built for Ontario Winters.',
     highlights: [
       'Custom formed seamless gutters in over 30 colors',
       'Copper gutters with hand soldered joints',
@@ -264,7 +264,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Skylight Installation in Ontario',
+    tagline: 'Let the Light In. Keep the Weather Out.',
     highlights: [
       'Velux and Solatube certified installation partner',
       'Guaranteed leak free installation or we fix it free',
@@ -311,7 +311,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Professional Roof Inspection in Ontario',
+    tagline: 'Know Your Roof Before Problems Start.',
     highlights: [
       'Certified inspectors with 20+ years of Ontario field experience',
       'Full photographic report delivered within 24 hours',
@@ -354,7 +354,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Metal Roofing Installation in Ontario',
+    tagline: 'Fifty Years of Protection. Zero Compromise.',
     highlights: [
       'Standing seam and metal shingle systems available',
       'Steel, aluminum, and copper, we install them all',
@@ -390,13 +390,13 @@ const serviceContent: Record<string, ServicePageContent> = {
     heroImage: '/service-flat-roofing.jpg',
     heroImagePosition: 'center 25%',
     overviewImage: '/overview-flat-roofing.jpg',
-    featuredProjects: ['scarborough-tpo-addition', 'etobicoke-rubber-membrane', 'burlington-flat-conversion'],
+    featuredProjects: ['scarborough-tpo-addition', 'riverside-modern-residence', 'burlington-flat-conversion'],
     galleryImages: [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Flat Roofing Systems in Ontario',
+    tagline: 'Engineered Against Ponding. Built to Perform.',
     highlights: [
       'Certified in TPO, EPDM, modified bitumen, and SPF systems',
       'Engineered drainage design for every installation',
@@ -431,13 +431,13 @@ const serviceContent: Record<string, ServicePageContent> = {
     slug: 'multi-family-roofing',
     heroImage: '/service-multi-family-roofing.jpg',
     overviewImage: '/overview-multi-family-roofing.jpg',
-    featuredProjects: ['brampton-townhome-phase-one', 'mississauga-condo-corporation', 'etobicoke-apartment-reroof'],
+    featuredProjects: ['concord-townhome-complex', 'mississauga-condo-corporation', 'king-city-craftsman-estates'],
     galleryImages: [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Multi-Family Roofing in Ontario',
+    tagline: 'One Standard of Excellence Across Every Unit.',
     highlights: [
       'Experienced with condo boards, strata councils, and property management firms',
       'Phased scheduling keeps buildings occupied and functional throughout',
@@ -479,7 +479,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Full Roof Replacement in Ontario',
+    tagline: 'Out With the Old. In With Fifty Years of Protection.',
     highlights: [
       'Complete tear off exposes the full decking for inspection',
       'GAF Master Elite certified, top 2% of contractors nationally',
@@ -522,7 +522,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       'https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
     ],
-    tagline: 'Emergency Roof Tarping in Ontario',
+    tagline: 'Emergency Coverage When Every Hour Counts.',
     highlights: [
       '24/7 emergency tarping deployment across Greater Ontario',
       'Commercial grade 10mil UV resistant polyethylene, not hardware store plastic',

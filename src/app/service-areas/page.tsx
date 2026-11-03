@@ -317,7 +317,7 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Office Location Map */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+      <section id="office-location" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-8">
             <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#0f172a] mb-3 block">

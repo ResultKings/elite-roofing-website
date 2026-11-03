@@ -103,7 +103,7 @@ const serviceProcessData: Record<string, { steps: ProcessStep[]; icons: React.El
     steps: [
       { num: '01', title: 'On-Site Consultation', body: 'We assess your roof structure, attic space, and interior ceiling to determine the right size, placement, and skylight model for your home.' },
       { num: '02', title: 'Skylight Selection & Proposal', body: 'We present the best skylight options for your application with a written proposal and product samples. No pressure, just clarity.' },
-      { num: '03', title: 'Weathertight Installation', body: 'Our crew opens the roof, installs the curb, applies full manufacturer step flashing, and seals the glazing unit — all in a single day with no open penetrations overnight.' },
+      { num: '03', title: 'Weathertight Installation', body: 'Our crew opens the roof, installs the curb, applies full manufacturer step flashing, and seals the glazing unit. All completed in a single day with no open penetrations overnight.' },
       { num: '04', title: '10-Year Leak-Free Guarantee', body: 'After a final inspection, we hand you written documentation of your 10-year Elite leak-free workmanship guarantee and all manufacturer warranties.' },
     ],
     icons: [Search, ClipboardList, Sun, Shield],
@@ -172,7 +172,7 @@ type WarrantyInfo = { heading: string; description: string; footnote: string; ca
 const serviceWarrantyData: Record<string, WarrantyInfo> = {
   'residential-roofing': {
     heading: 'What Your Warranty Covers',
-    description: 'Every Elite Roofing residential installation comes with layered warranty protection — on both materials and workmanship.',
+    description: 'Every Elite Roofing residential installation comes with layered warranty protection, covering both materials and workmanship.',
     footnote: 'All warranty terms are documented in writing and provided on site at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
     cards: [
       { label: 'Workmanship', duration: '10 Years', items: ['All installation-related failures', 'Flashing and sealing defects', 'Workmanship-related leaks', 'Ridge cap and ventilation installation'] },
@@ -202,7 +202,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
   },
   'storm-damage-restoration': {
     heading: 'What Your Restoration Warranty Covers',
-    description: 'Storm restoration work by Elite Roofing is fully warranted — so you can be confident your roof is back to the standard it was built to.',
+    description: 'Storm restoration work by Elite Roofing is fully warranted, so you can be confident your roof is back to the standard it was built to.',
     footnote: 'All warranty documentation is provided at project completion. Insurance warranty assignments are completed by Elite Roofing on your behalf.',
     cards: [
       { label: 'Workmanship', duration: '5 Years', items: ['All restoration-related labour', 'Flashing, sealing, and penetrations', 'Sheathing and deck repairs', 'Post-installation performance issues'] },
@@ -223,7 +223,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
   'skylight-installation': {
     heading: 'What Your Skylight Warranty Covers',
     description: 'Every Elite Roofing skylight installation is backed by a comprehensive warranty covering the unit, the flashing system, and our labour.',
-    footnote: 'All warranty documentation — including registered VELUX manufacturer warranties — is provided on site at installation completion.',
+    footnote: 'All warranty documentation, including registered VELUX manufacturer warranties, is provided on site at installation completion.',
     cards: [
       { label: 'Workmanship', duration: '10 Years', items: ['Leak-free installation guarantee', 'Step flashing and counterflashing', 'Curb construction and sealing', 'Rough opening and interior finishing'] },
       { label: 'VELUX Glass & Frame', duration: '10 Years', items: ['Glass unit seal failure', 'Frame warping and structural defects', 'Hardware and operator failures', 'Solar blind and accessory coverage'] },
@@ -242,7 +242,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
   },
   'metal-roofing': {
     heading: 'What Your Metal Roof Warranty Covers',
-    description: 'Metal roofing by Elite Roofing carries one of the longest warranty stacks in the industry — covering finish, panel, and workmanship.',
+    description: 'Metal roofing by Elite Roofing carries one of the longest warranty stacks in the industry, covering finish, panel, and workmanship.',
     footnote: 'All warranty documentation is provided at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
     cards: [
       { label: 'Workmanship', duration: '15 Years', items: ['All installation-related failures', 'Seam, clip, and fastener performance', 'Flashing, ridge, and hip details', 'Post-installation leak coverage'] },
@@ -272,7 +272,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
   },
   'roof-replacement': {
     heading: 'What Your Replacement Warranty Covers',
-    description: 'A full roof replacement with Elite Roofing means a complete new warranty package — covering every layer from deck to shingle.',
+    description: 'A full roof replacement with Elite Roofing means a complete new warranty package, covering every layer from deck to shingle.',
     footnote: 'All warranty terms are documented in writing and provided on site at project completion. Manufacturer warranties are registered by Elite Roofing on your behalf.',
     cards: [
       { label: 'Workmanship', duration: '10 Years', items: ['Complete installation labour', 'Deck repair and preparation', 'Underlayment and ice shield', 'All flashing, ridge, and ventilation'] },
@@ -282,7 +282,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
   },
   'roof-tarping': {
     heading: 'Your Emergency Service Guarantee',
-    description: 'Elite Roofing stands behind every emergency tarp installation — from response speed to the integrity of the installed protection.',
+    description: 'Elite Roofing stands behind every emergency tarp installation, from response speed to the integrity of the installed protection.',
     footnote: 'All emergency service documentation is provided before we leave your property. Insurance-ready reports are available for immediate submission.',
     cards: [
       { label: 'Response Guarantee', duration: '4 Hours', items: ['Target dispatch within 1 hour', 'On-site within 4 hours in our service area', '24/7 availability including holidays', 'Written confirmation of dispatch time'] },
@@ -647,8 +647,8 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
               How It Works
             </span>
             <h2 className="font-sans font-black text-[#0f172a] leading-[1.05]">
-              <span className="block text-[2.2rem] lg:text-[2.8rem]">Four Steps.</span>
-              <span className="block text-[2.2rem] lg:text-[2.8rem]">zero <span className="text-[#c9a55a]">Effort.</span></span>
+              <span className="block text-[2.8rem] lg:text-[3.8rem] xl:text-[4.5rem]">Four Steps.</span>
+              <span className="block text-[2.8rem] lg:text-[3.8rem] xl:text-[4.5rem]">zero <span className="text-[#c9a55a]">Effort.</span></span>
             </h2>
           </div>
         </div>
@@ -666,28 +666,35 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
               >
                 <div
                   ref={el => { iconRefs.current[i] = el }}
-                  className={`flex-shrink-0 w-24 h-24 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
-                    isActive
-                      ? 'bg-[#c9a55a] border-[#c9a55a] shadow-xl shadow-[#c9a55a]/25 scale-110'
-                      : 'bg-white border-[#e2e8f0]'
-                  }`}
+                  className="flex-shrink-0 relative flex items-center justify-center"
+                  style={{ width: '112px', height: '112px' }}
                 >
+                  <div
+                    className={`absolute inset-0 transition-all duration-500 ${
+                      isActive
+                        ? 'bg-[#c9a55a] border-2 border-[#c9a55a] shadow-xl shadow-[#c9a55a]/25'
+                        : 'bg-white border-2 border-[#c9a55a]/40'
+                    }`}
+                    style={{ borderRadius: ['60% 40% 55% 45% / 45% 55% 40% 60%', '40% 60% 45% 55% / 55% 45% 60% 40%', '55% 45% 60% 40% / 40% 60% 45% 55%', '45% 55% 40% 60% / 60% 40% 55% 45%'][i] }}
+                  />
                   <Icon
-                    className={`w-10 h-10 transition-colors duration-500 ${
+                    className={`relative z-10 w-10 h-10 transition-colors duration-500 ${
                       isActive ? 'text-white' : 'text-[#cbd5e1]'
                     }`}
                   />
                 </div>
                 <div className={`flex-1 transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-25'}`}>
-                  <div className={`font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-3 ${!isLeft ? 'text-right' : ''}`}>
-                    {String(i + 1).padStart(2, '0')} / 04
+                  <div className={isLeft ? 'ml-auto w-fit' : ''}>
+                    <div className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-3">
+                      {String(i + 1).padStart(2, '0')} / 04
+                    </div>
+                    <h3 className="font-sans font-black text-2xl lg:text-3xl text-[#0f172a] mb-4 leading-tight">
+                      {step.title}
+                    </h3>
+                    <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-xs">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className={`font-sans font-black text-2xl lg:text-3xl text-[#0f172a] mb-4 leading-tight ${!isLeft ? 'text-right' : ''}`}>
-                    {step.title}
-                  </h3>
-                  <p className={`font-sans text-sm text-[#64748b] leading-relaxed max-w-xs ${!isLeft ? 'ml-auto text-right' : ''}`}>
-                    {step.body}
-                  </p>
                 </div>
               </div>
             )
@@ -813,7 +820,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[460px] md:min-h-[540px] lg:min-h-[600px]">
+      <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
 
         {/* Right image — centred within the right portion */}
         <div className="absolute inset-y-0 right-0 w-[60%]">
@@ -841,12 +848,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Content — shifted right within the left panel area */}
-        <div className="relative z-10 min-h-[460px] md:min-h-[540px] lg:min-h-[600px] flex items-center">
-          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-12 md:py-20">
+        <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
+          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
             <div className="w-full max-w-[340px] md:max-w-[440px] lg:max-w-[480px]">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                {service.title}
-              </span>
               <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-[#0f172a] mb-5 leading-tight uppercase tracking-normal">
                 {content.tagline}
               </h2>
@@ -872,6 +876,50 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </section>
+
+      {/* ── The Standard ─────────────────────────────────────────────────────── */}
+        <section className="bg-[#f5f3ef] py-20 md:py-28">
+          <div className="px-8 md:px-10 lg:px-14">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 mb-14">
+              <div className="lg:col-span-2">
+                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                  Our Commitment
+                </span>
+                <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
+                  The Standard
+                </h2>
+                <p className="font-sans text-sm text-[#64748b] leading-relaxed">
+                  Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+              {([
+                {
+                  heading: 'Certified Installers Only',
+                  body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
+                },
+                {
+                  heading: 'Worksite Discipline',
+                  body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
+                },
+                {
+                  heading: 'No Material Substitutions',
+                  body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
+                },
+                {
+                  heading: 'One Point of Contact',
+                  body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
+                },
+              ] as { heading: string; body: string }[]).map((item, i) => (
+                <div key={i} className="border-t border-[#e2e8f0] pt-6">
+                  <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
+                  <p className="font-sans text-sm text-[#64748b] leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
       {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
       <AnimatedProcessSection steps={processData.steps} stepIcons={processData.icons} />
