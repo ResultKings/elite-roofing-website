@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
-                <span className="font-serif text-[10px] font-black tracking-[0.4em] uppercase text-white mt-0.5">
+                <span className="font-sans text-[10px] font-black tracking-[0.4em] uppercase text-white mt-0.5">
                   ROOFING
                 </span>
               </div>

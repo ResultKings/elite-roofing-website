@@ -130,7 +130,7 @@ export default function Navbar() {
                 </span>
                 <span
                   className={[
-                    'font-serif text-[10px] font-black tracking-[0.4em] uppercase -mt-0.5 transition-colors duration-300',
+                    'font-sans text-[10px] font-black tracking-[0.4em] uppercase -mt-0.5 transition-colors duration-300',
                     isTransparent ? 'text-white' : 'text-[#0f172a]',
                   ].join(' ')}
                 >
