@@ -128,14 +128,19 @@ export default function Navbar() {
                 >
                   ELITE
                 </span>
-                <span className="font-sans text-[10px] font-black tracking-[0.4em] uppercase text-[#c9a55a] -mt-0.5">
+                <span
+                  className={[
+                    'font-serif text-[10px] font-black tracking-[0.4em] uppercase -mt-0.5 transition-colors duration-300',
+                    isTransparent ? 'text-white' : 'text-[#0f172a]',
+                  ].join(' ')}
+                >
                   ROOFING
                 </span>
               </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-5">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-8">
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
