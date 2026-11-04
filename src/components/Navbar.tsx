@@ -114,24 +114,15 @@ export default function Navbar() {
         <div className="w-full px-6 md:px-12 lg:px-40 xl:px-48">
           <div className="flex items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 mr-4 lg:mr-8">
-              <div className="relative w-14 h-14 flex-shrink-0">
-                <Image src="/er-logo.png" alt="" fill sizes="56px" className="object-contain" />
-              </div>
-              <div className="w-px h-11 bg-[#c9a55a]/40" />
-              <div className="flex flex-col leading-none">
-                <span
-                  className={[
-                    'font-serif text-2xl font-bold tracking-tight transition-colors duration-300',
-                    isTransparent ? 'text-white' : 'text-[#0f172a]',
-                  ].join(' ')}
-                >
-                  ELITE
-                </span>
-                <span className="font-serif text-lg font-bold tracking-[0.15em] uppercase text-[#c9a55a] -mt-0.5">
-                  ROOFING
-                </span>
-              </div>
+            <Link href="/" className="flex-shrink-0 mr-4 lg:mr-8">
+              <Image
+                src="/elite-roofing-logo-full.webp"
+                alt="Elite Roofing"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}
