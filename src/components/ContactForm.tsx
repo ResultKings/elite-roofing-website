@@ -299,7 +299,7 @@ export default function ContactForm() {
 
           {/* Footer row */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pt-2">
-            <p className="font-sans text-xs text-[#94a3b8]">
+            <p className="font-sans text-sm text-[#64748b] leading-relaxed">
               ✦ Your information is kept 100% private and secure.
             </p>
             <Button

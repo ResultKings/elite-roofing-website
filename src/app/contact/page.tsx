@@ -108,7 +108,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-10">
 
               <FadeIn>
-                <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
+                <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-8">
                   Contact Details
                 </h2>
 
@@ -186,10 +186,10 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Form */}
-            <FadeIn className="lg:col-span-3" delay={0.05}>
+            <FadeIn className="lg:col-span-3 lg:pt-8" delay={0.05}>
               <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm">
-                <div className="mb-8">
-                  <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-2">
+                <div className="mb-10">
+                  <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-5">
                     Request a Free Estimate
                   </h2>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
