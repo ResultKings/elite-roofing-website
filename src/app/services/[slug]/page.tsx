@@ -548,7 +548,8 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
 
       const cx = sectionRect.width / 2
       const fx = positions[0].x, fy = positions[0].y
-      const entryD = `M ${cx} 0 C ${cx} ${fy / 2} ${fx} ${fy / 2} ${fx} ${fy}`
+      const neckY = fy * 0.3
+      const entryD = `M ${cx} 0 L ${cx} ${neckY} C ${cx} ${fy * 0.65} ${fx} ${fy * 0.65} ${fx} ${fy}`
       let d = entryD
       for (let i = 0; i < positions.length - 1; i++) {
         const a = positions[i], b = positions[i + 1]
@@ -617,7 +618,9 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
   const contactActive = pointLengths.length >= 5 && drawnLength >= pointLengths[4]
 
   return (
-    <section ref={sectionRef} className="relative pt-10 md:pt-14 pb-32 md:pb-40 bg-[#fafaf9]">
+    <section ref={sectionRef} className="relative pt-24 md:pt-32 pb-32 md:pb-40 bg-[#fafaf9]">
+      {/* Fade the top of the snake line */}
+      <div className="absolute top-0 left-0 right-0 h-72 bg-gradient-to-b from-[#fafaf9] via-[#fafaf9]/70 to-transparent z-10 pointer-events-none" />
       {/* Animated SVG snake — desktop only */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
         <svg className="absolute inset-0 w-full h-full" fill="none">
@@ -642,7 +645,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
       <div className="relative z-10 max-w-5xl mx-auto px-8 lg:px-16">
         {/* Heading — line starts from below this block */}
         <div ref={headingRef} className="flex items-start justify-end mb-6 lg:mb-8">
-          <div className="text-right">
+          <div className="text-left">
             <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-3 block">
               How It Works
             </span>

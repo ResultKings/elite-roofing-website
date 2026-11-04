@@ -54,7 +54,7 @@ const contactDetails = [
     label: 'Office',
     value: '216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6',
     href: 'https://maps.google.com',
-    note: 'Serving the Greater Toronto Area',
+    note: 'Serving All of Ontario',
   },
 ]
 
@@ -189,7 +189,7 @@ export default function ContactPage() {
             <FadeIn className="lg:col-span-3 lg:pt-8" delay={0.05}>
               <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm">
                 <div className="mb-10">
-                  <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-5">
+                  <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-5">
                     Request a Free Estimate
                   </h2>
                   <p className="font-sans text-sm text-[#64748b] leading-relaxed">
@@ -226,7 +226,7 @@ export default function ContactPage() {
           </div>
           <div className="overflow-hidden rounded-2xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.1381433328875!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d184110.48409684018!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f9!3m3!1m2!1s0x882b2e927bd77619%3A0x2ec48bc35221d622!2sElite%20Roofing%20and%20Contractors%20Limited!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
               width="100%"
               height="500"
               style={{ border: 0, display: 'block' }}
