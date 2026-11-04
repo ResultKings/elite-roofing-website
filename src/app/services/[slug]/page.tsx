@@ -771,7 +771,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-20 md:pb-28 lg:pb-36 px-4 md:px-8 lg:px-16 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 lg:pt-40 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={content.heroImage}
@@ -785,7 +785,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
         <div className="absolute inset-0 bg-[#0f172a]/80" />
 
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pb-20 md:pb-28 lg:pb-36">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-6 text-white/40 font-sans text-xs">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
@@ -799,28 +799,28 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             {service.title}
           </h1>
         </div>
-      </section>
 
-      {/* ── Credentials Trust Bar ───────────────────────────────────────────── */}
-      <div className="bg-white border-b border-[#e7e5e4]">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-3">
-            {([
-              { label: 'Licensed in Ontario', Icon: Shield },
-              { label: '$5M Liability Insurance', Icon: BadgeCheck },
-              { label: 'WSIB Covered', Icon: Users },
-              { label: 'BBB Accredited Business', Icon: Award },
-            ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
-              <div key={i} className="flex items-center gap-2.5 flex-1 justify-center min-w-[160px]">
-                <Icon className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
-                <span className="font-sans text-xs font-bold tracking-wide text-[#0f172a] whitespace-nowrap">
-                  {label}
-                </span>
-              </div>
-            ))}
+        {/* ── Credentials Trust Bar — inside hero so bg image shows through */}
+        <div className="relative z-10 bg-[#0a1628]/65 border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-3">
+              {([
+                { label: 'Licensed in Ontario', Icon: Shield },
+                { label: '$5M Liability Insurance', Icon: BadgeCheck },
+                { label: 'WSIB Covered', Icon: Users },
+                { label: 'BBB Accredited Business', Icon: Award },
+              ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
+                <div key={i} className="flex items-center gap-2.5 flex-1 justify-center min-w-[160px]">
+                  <Icon className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
+                  <span className="font-sans text-xs font-bold tracking-wide text-white whitespace-nowrap">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
@@ -835,42 +835,49 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             className="object-cover"
             style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : { objectPosition: 'center' }}
           />
+          {/* Dark gradient on left edge of roofing image */}
+          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#041D35]/80 to-transparent pointer-events-none" />
         </div>
 
-        {/* Left panel: gold/white AVIF diagonal */}
+        {/* Left panel: dark stripe background diagonal */}
         <div
           className="absolute inset-y-0 left-0 w-full md:w-[72%] lg:w-[62%]"
           style={{ clipPath: 'polygon(0 0, 100% 0, 81% 100%, 0 100%)' }}
         >
           <Image
-            src="/service-banner-bg.avif"
+            src="/stripe-bg.avif"
             alt=""
             fill
             className="object-cover object-center"
           />
+          {/* Overlay to deepen contrast and ensure readability */}
+          <div className="absolute inset-0 bg-[#041D35]/55" />
         </div>
 
         {/* Content — shifted right within the left panel area */}
         <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
           <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
             <div className="w-full max-w-[340px] md:max-w-[440px] lg:max-w-[480px]">
-              <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-[#0f172a] mb-5 leading-tight uppercase tracking-normal">
+              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
+                Elite Roofing Standards
+              </span>
+              <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-white mb-5 leading-tight uppercase tracking-normal">
                 {content.tagline}
               </h2>
               <div className="w-12 h-1 bg-[#c9a55a] mb-5" />
-              <p className="font-sans text-sm text-[#1e293b] leading-relaxed mb-8">
+              <p className="font-sans text-sm text-white/80 leading-relaxed mb-8">
                 {service.fullDescription}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#c9a55a] hover:bg-[#b8943e] text-black font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
                 >
                   Free Estimate <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <a
                   href="tel:+19055550198"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-[#041D35] text-[#041D35] hover:bg-[#041D35] hover:text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-[#041D35] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
                 >
                   <Phone className="w-3.5 h-3.5" /> Call Us
                 </a>
@@ -881,45 +888,53 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* ── The Standard ─────────────────────────────────────────────────────── */}
-        <section className="bg-[#f5f3ef] py-20 md:py-28">
+        <section className="bg-white py-20 md:py-28">
           <div className="px-8 md:px-10 lg:px-14">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 mb-14">
-              <div className="lg:col-span-2">
-                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                  Our Commitment
-                </span>
-                <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
-                  The Standard
-                </h2>
-                <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                  Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
-                </p>
-              </div>
+            <div className="text-center mb-16">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+                Our Commitment
+              </span>
+              <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
+                The Standard
+              </h2>
+              <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-2xl mx-auto">
+                Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
+              </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
               {([
                 {
+                  icon: BadgeCheck,
                   heading: 'Certified Installers Only',
                   body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
                 },
                 {
+                  icon: Wrench,
                   heading: 'Worksite Discipline',
                   body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
                 },
                 {
+                  icon: Layers,
                   heading: 'No Material Substitutions',
                   body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
                 },
                 {
+                  icon: Users,
                   heading: 'One Point of Contact',
                   body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
                 },
-              ] as { heading: string; body: string }[]).map((item, i) => (
-                <div key={i} className="border-t border-[#e2e8f0] pt-6">
-                  <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
-                  <p className="font-sans text-sm text-[#64748b] leading-relaxed">{item.body}</p>
-                </div>
-              ))}
+              ] as { icon: React.ElementType; heading: string; body: string }[]).map((item, i) => {
+                const ItemIcon = item.icon
+                return (
+                  <div key={i} className="border-t-2 border-[#c9a55a] pt-7">
+                    <div className="mb-4">
+                      <ItemIcon className="w-7 h-7 text-[#c9a55a]" />
+                    </div>
+                    <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
+                    <p className="font-sans text-sm text-[#64748b] leading-loose">{item.body}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
