@@ -115,25 +115,20 @@ export default function Navbar() {
           <div className="flex items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 mr-4 lg:mr-8">
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <Image src="/er-logo.png" alt="" fill sizes="40px" className="object-contain" />
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <Image src="/er-logo.png" alt="" fill sizes="48px" className="object-contain" />
               </div>
-              <div className="w-px h-8 bg-[#c9a55a]/40" />
+              <div className="w-px h-10 bg-[#c9a55a]/40" />
               <div className="flex flex-col leading-none">
                 <span
                   className={[
-                    'font-serif text-xl font-bold tracking-tight transition-colors duration-300',
+                    'font-serif text-2xl font-bold tracking-tight transition-colors duration-300',
                     isTransparent ? 'text-white' : 'text-[#0f172a]',
                   ].join(' ')}
                 >
                   ELITE
                 </span>
-                <span
-                  className={[
-                    'font-sans text-[10px] font-black tracking-[0.4em] uppercase -mt-0.5 transition-colors duration-300',
-                    isTransparent ? 'text-white' : 'text-[#0f172a]',
-                  ].join(' ')}
-                >
+                <span className="font-serif text-lg font-bold tracking-[0.15em] uppercase text-[#c9a55a] -mt-0.5">
                   ROOFING
                 </span>
               </div>
@@ -148,7 +143,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-[13px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -170,7 +165,7 @@ export default function Navbar() {
               >
                 <button
                   className={[
-                    'flex items-center gap-1 font-sans text-[13px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                    'flex items-center gap-1 font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                     'relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
@@ -190,7 +185,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-[13px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -210,7 +205,7 @@ export default function Navbar() {
               <a
                 href="tel:+19055550198"
                 className={[
-                  'flex items-center gap-2 font-sans text-[13px] font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
+                  'flex items-center gap-2 font-sans text-sm font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
                   isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
@@ -219,7 +214,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 bg-[#041D35] text-white font-sans text-[10px] font-bold tracking-[0.18em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
+                className="inline-flex items-center px-5 py-2.5 bg-[#041D35] text-white font-sans text-xs font-bold tracking-[0.18em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
               >
                 Schedule an Estimate
               </Link>
@@ -264,7 +259,7 @@ export default function Navbar() {
                       'text-left font-sans font-black text-xl xl:text-2xl uppercase tracking-tight leading-tight transition-colors duration-200',
                       activeCategory === cat.id
                         ? 'text-[#c9a55a]'
-                        : 'text-[#0f172a]/25 hover:text-[#0f172a]/50',
+                        : 'text-[#0f172a] hover:text-[#0f172a]/70',
                     ].join(' ')}
                   >
                     {cat.label}
@@ -284,7 +279,7 @@ export default function Navbar() {
                           'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
                           pathname === link.href
                             ? 'text-[#c9a55a]'
-                            : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
+                            : 'text-[#0f172a] hover:text-[#c9a55a]',
                         ].join(' ')}
                       >
                         {link.label}
@@ -303,7 +298,7 @@ export default function Navbar() {
                           'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
                           pathname === link.href
                             ? 'text-[#c9a55a]'
-                            : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
+                            : 'text-[#0f172a] hover:text-[#c9a55a]',
                         ].join(' ')}
                       >
                         {link.label}
@@ -328,7 +323,7 @@ export default function Navbar() {
                                 'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
                                 pathname === link.href
                                   ? 'text-[#c9a55a]'
-                                  : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
+                                  : 'text-[#0f172a] hover:text-[#c9a55a]',
                               ].join(' ')}
                             >
                               {link.label}

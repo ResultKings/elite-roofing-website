@@ -27,12 +27,12 @@ export default function Footer() {
           {/* Column 1, Company */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <Image src="/er-logo.png" alt="" fill sizes="40px" className="object-contain" />
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <Image src="/er-logo.png" alt="" fill sizes="48px" className="object-contain" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-serif text-2xl font-bold tracking-tight text-white">ELITE</span>
-                <span className="font-sans text-[10px] font-black tracking-[0.4em] uppercase text-white mt-0.5">
+                <span className="font-serif text-3xl font-bold tracking-tight text-white">ELITE</span>
+                <span className="font-serif text-xl font-bold tracking-[0.15em] uppercase text-[#c9a55a] -mt-0.5">
                   ROOFING
                 </span>
               </div>
