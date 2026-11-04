@@ -135,7 +135,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-8 xl:gap-10">
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -143,7 +143,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -165,7 +165,7 @@ export default function Navbar() {
               >
                 <button
                   className={[
-                    'flex items-center gap-1 font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                    'flex items-center gap-1 font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                     'relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
@@ -185,7 +185,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-sm font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
