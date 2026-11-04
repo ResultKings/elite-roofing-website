@@ -114,7 +114,7 @@ export default function Navbar() {
         <div className="w-full px-4 md:px-8">
           <div className="flex items-center h-24">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 ml-8 lg:ml-20 xl:ml-28">
+            <Link href="/" className="flex-shrink-0 ml-10 lg:ml-24 xl:ml-36">
               <Image
                 src="/elite-roofing-logo-full.webp"
                 alt="Elite Roofing"
