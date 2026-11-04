@@ -111,10 +111,10 @@ export default function Navbar() {
             : 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]',
         ].join(' ')}
       >
-        <div className="w-full px-4 md:px-8 lg:px-10 xl:px-14">
-          <div className="flex items-center h-20">
+        <div className="w-full px-4 md:px-8">
+          <div className="flex items-center h-24">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 ml-6 lg:ml-12 mr-6">
+            <Link href="/" className="flex-shrink-0 ml-6 lg:ml-14 xl:ml-20">
               <Image
                 src="/elite-roofing-logo-full.webp"
                 alt="Elite Roofing"
@@ -126,7 +126,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav — centred in remaining space */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-5 xl:gap-7">
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -192,7 +192,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-5 flex-shrink-0 mr-4 lg:mr-8">
+            <div className="hidden lg:flex items-center gap-5 flex-shrink-0 mr-6 lg:mr-14 xl:mr-20">
               <a
                 href="tel:+19055550198"
                 className={[
