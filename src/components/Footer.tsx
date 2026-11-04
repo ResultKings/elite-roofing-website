@@ -30,9 +30,9 @@ export default function Footer() {
               <Image
                 src="/elite-roofing-logo-full.webp"
                 alt="Elite Roofing"
-                width={200}
-                height={56}
-                className="h-14 w-auto object-contain"
+                width={280}
+                height={80}
+                className="h-20 w-auto object-contain"
               />
             </div>
             <p className="font-sans text-sm text-white/50 leading-relaxed mb-6">

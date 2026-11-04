@@ -105,28 +105,28 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={[
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-[1001] transition-all duration-500',
           isTransparent
             ? 'bg-transparent'
             : 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]',
         ].join(' ')}
       >
-        <div className="w-full px-6 md:px-12 lg:px-40 xl:px-48">
+        <div className="w-full px-4 md:px-8 lg:px-10 xl:px-14">
           <div className="flex items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 mr-4 lg:mr-8">
+            <Link href="/" className="flex-shrink-0 ml-4 lg:ml-8 mr-6">
               <Image
                 src="/elite-roofing-logo-full.webp"
                 alt="Elite Roofing"
-                width={200}
-                height={56}
-                className="h-12 w-auto object-contain"
+                width={240}
+                height={68}
+                className="h-14 w-auto object-contain"
                 priority
               />
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-8 xl:gap-10">
+            {/* Desktop Nav — centred in remaining space */}
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-8">
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -134,7 +134,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -156,7 +156,7 @@ export default function Navbar() {
               >
                 <button
                   className={[
-                    'flex items-center gap-1 font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                    'flex items-center gap-1 font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
                     'relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
@@ -176,7 +176,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={[
-                      'relative font-sans text-[15px] font-extrabold tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap',
+                      'relative font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
                       'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
@@ -192,11 +192,11 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-5 flex-shrink-0 ml-4 lg:ml-8">
+            <div className="hidden lg:flex items-center gap-5 flex-shrink-0 mr-4 lg:mr-8">
               <a
                 href="tel:+19055550198"
                 className={[
-                  'flex items-center gap-2 font-sans text-sm font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
+                  'flex items-center gap-2 font-sans text-[15px] font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
                   isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
                 ].join(' ')}
               >
@@ -205,7 +205,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 bg-[#041D35] text-white font-sans text-xs font-bold tracking-[0.18em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
+                className="inline-flex items-center px-6 py-2.5 bg-[#041D35] text-white font-sans text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full whitespace-nowrap"
               >
                 Schedule an Estimate
               </Link>
@@ -234,7 +234,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.18 }}
-            className="fixed top-20 left-0 right-0 z-40 bg-white shadow-2xl border-t border-[#e7e5e4] hidden lg:block"
+            className="fixed top-20 left-0 right-0 z-[1000] bg-white shadow-2xl border-t border-[#e7e5e4] hidden lg:block"
             onMouseEnter={openServices}
             onMouseLeave={scheduleClose}
           >
