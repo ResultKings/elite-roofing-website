@@ -115,10 +115,10 @@ export default function Navbar() {
           <div className="flex items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 mr-4 lg:mr-8">
-              <div className="relative w-12 h-12 flex-shrink-0">
-                <Image src="/er-logo.png" alt="" fill sizes="48px" className="object-contain" />
+              <div className="relative w-14 h-14 flex-shrink-0">
+                <Image src="/er-logo.png" alt="" fill sizes="56px" className="object-contain" />
               </div>
-              <div className="w-px h-10 bg-[#c9a55a]/40" />
+              <div className="w-px h-11 bg-[#c9a55a]/40" />
               <div className="flex flex-col leading-none">
                 <span
                   className={[
