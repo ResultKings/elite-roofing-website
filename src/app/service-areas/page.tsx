@@ -1,11 +1,14 @@
 ﻿'use client'
 
 import React, { useRef, useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, CheckCircle, Phone, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 import { testimonials } from '@/data/mockData'
+
+const ServiceAreaMapFull = dynamic(() => import('@/components/ServiceAreaMapFull'), { ssr: false })
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -51,21 +54,6 @@ const serviceAreas = [
   { city: 'Guelph',        note: 'Wellington County',     lat: 43.5448, lng: -80.2482 },
   { city: 'Orangeville',   note: 'Dufferin County',       lat: 43.9193, lng: -80.0939 },
 ]
-
-function ServiceAreaMap() {
-  return (
-    <iframe
-      src="https://maps.google.com/maps?q=Vaughan,Ontario,Canada&z=11&output=embed"
-      width="100%"
-      height="500"
-      style={{ border: 0, display: 'block' }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="strict-origin-when-cross-origin"
-      title="Elite Roofing service areas map"
-    />
-  )
-}
 
 function ReviewCarousel() {
   const [current, setCurrent] = useState(0)
@@ -150,6 +138,14 @@ function ReviewCarousel() {
 }
 
 export default function ServiceAreasPage() {
+  const [focusCity, setFocusCity] = useState<{ lat: number; lng: number } | null>(null)
+  const mapRef = useRef<HTMLDivElement>(null)
+
+  function handleCityClick(lat: number, lng: number) {
+    setFocusCity({ lat, lng })
+    mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
   return (
     <>
       {/* Hero */}
@@ -186,27 +182,32 @@ export default function ServiceAreasPage() {
             </h2>
           </FadeIn>
 
-          {/* Leaflet Map */}
+          {/* Multi-pin Leaflet Map */}
           <FadeIn>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#e7e5e4] mb-8">
-              <ServiceAreaMap />
+            <div ref={mapRef} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#e7e5e4] mb-8" style={{ height: 500 }}>
+              <ServiceAreaMapFull locations={serviceAreas} focusCity={focusCity} />
             </div>
           </FadeIn>
 
-          {/* 4-column location list */}
+          {/* 4-column location list — click any city to fly its pin */}
           <FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2 mb-10 px-2">
               {[
-                ['Vaughan','Toronto','Mississauga','Brampton','Markham','Richmond Hill','Thornhill'],
-                ['Woodbridge','Concord','King City','Newmarket','Aurora','Oakville','Burlington'],
-                ['Milton','Etobicoke','North York','Scarborough','Pickering','Ajax','Whitby'],
-                ['Oshawa','Stouffville','Hamilton','Barrie','Guelph','Orangeville'],
+                serviceAreas.slice(0, 7),
+                serviceAreas.slice(7, 14),
+                serviceAreas.slice(14, 21),
+                serviceAreas.slice(21),
               ].map((col, ci) => (
                 <ul key={ci} className="space-y-2">
-                  {col.map(city => (
-                    <li key={city} className="flex items-center gap-2 font-sans text-sm text-[#374151]">
-                      <span className="text-base leading-none">📍</span>
-                      {city}
+                  {col.map(({ city, lat, lng }) => (
+                    <li key={city}>
+                      <button
+                        onClick={() => handleCityClick(lat, lng)}
+                        className="flex items-center gap-2 font-sans text-sm text-[#374151] hover:text-[#c9a55a] transition-colors duration-200 group text-left"
+                      >
+                        <span className="text-base leading-none group-hover:scale-110 transition-transform duration-200">📍</span>
+                        {city}
+                      </button>
                     </li>
                   ))}
                 </ul>
