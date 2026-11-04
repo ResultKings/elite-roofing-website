@@ -114,13 +114,13 @@ export default function Navbar() {
         <div className="w-full px-4 md:px-8 lg:px-10 xl:px-14">
           <div className="flex items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 ml-4 lg:ml-8 mr-6">
+            <Link href="/" className="flex-shrink-0 ml-6 lg:ml-12 mr-6">
               <Image
                 src="/elite-roofing-logo-full.webp"
                 alt="Elite Roofing"
-                width={240}
-                height={68}
-                className="h-14 w-auto object-contain"
+                width={280}
+                height={80}
+                className="h-20 w-auto object-contain"
                 priority
               />
             </Link>
