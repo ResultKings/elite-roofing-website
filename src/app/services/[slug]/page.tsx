@@ -440,10 +440,10 @@ function ReviewCarousel({ reviews, serviceTitle }: { reviews: ServiceReview[]; s
           ))}
         </div>
         <div className="flex gap-2">
-          <button onClick={prev} className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={prev} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <button onClick={next} className="w-9 h-9 rounded-full border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={next} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -737,7 +737,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
           <div ref={contactRef}>
             <Link
               href="/contact"
-              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-500 rounded-full ${
+              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-500 rounded-none ${
                 contactActive
                   ? 'bg-[#c9a55a] hover:bg-[#a87d3a] text-white shadow-xl shadow-[#c9a55a]/25'
                   : 'bg-white border-2 border-[#e2e8f0] text-[#94a3b8]'
@@ -871,13 +871,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#c9a55a] hover:bg-[#b8943e] text-black font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#c9a55a] hover:bg-[#b8943e] text-black font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
                 >
                   Free Estimate <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <a
                   href="tel:+19055550198"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-[#041D35] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-[#041D35] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
                 >
                   <Phone className="w-3.5 h-3.5" /> Call Us
                 </a>
@@ -995,7 +995,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <div className="flex justify-center">
               <Link
                 href="/projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
               >
                 View All Projects
               </Link>
@@ -1105,13 +1105,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   href="https://customerreviews.google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
                 >
                   Leave a Google Review
                 </a>
                 <a
                   href="/testimonials"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-full"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-none"
                 >
                   See More Reviews →
                 </a>
@@ -1153,7 +1153,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-full"
+              className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
             >
               Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
             </Link>

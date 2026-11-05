@@ -33,13 +33,13 @@ type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#041D35] text-white border-2 border-[#041D35] hover:bg-[#0a2a4a] hover:border-[#0a2a4a] shadow-sm hover:shadow-md rounded-full',
+    'bg-[#041D35] text-white border-2 border-[#041D35] hover:bg-[#0a2a4a] hover:border-[#0a2a4a] shadow-sm hover:shadow-md rounded-none',
   secondary:
-    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-full',
+    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-none',
   outline:
-    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-full',
+    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-none',
   ghost:
-    'bg-transparent text-[#c9a55a] border-2 border-transparent hover:border-[#c9a55a] hover:bg-[#c9a55a]/5 rounded-full',
+    'bg-transparent text-[#c9a55a] border-2 border-transparent hover:border-[#c9a55a] hover:bg-[#c9a55a]/5 rounded-none',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {

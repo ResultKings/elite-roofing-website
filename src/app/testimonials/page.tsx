@@ -319,7 +319,7 @@ export default function TestimonialsPage() {
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {['Fast Response', 'Fair & Transparent Pricing', 'Quality Materials', 'Clean Job Sites', 'Insurance Assistance', 'GAF Certified', 'Professional Crew', 'On-Time Completion'].map((tag) => (
-                  <span key={tag} className="font-sans text-[10px] text-[#64748b] border border-[#e7e5e4] px-3 py-1 rounded-full">
+                  <span key={tag} className="font-sans text-[10px] text-[#64748b] border border-[#e7e5e4] px-3 py-1 rounded-none">
                     {tag}
                   </span>
                 ))}
@@ -355,7 +355,7 @@ export default function TestimonialsPage() {
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200 rounded-full"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200 rounded-none"
             >
               Leave a Google Review
             </a>
@@ -392,7 +392,7 @@ export default function TestimonialsPage() {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setShowMore((prev) => !prev)}
-              className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+              className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
             >
               <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
               {showMore ? 'Show Less' : 'Show More Reviews'}
@@ -418,7 +418,7 @@ export default function TestimonialsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-full"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-none"
             >
               Contact Us <ArrowRight className="w-3.5 h-3.5" />
             </Link>

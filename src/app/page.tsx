@@ -566,7 +566,7 @@ function ProjectsSection() {
               }}
               aria-label={`Go to project ${i + 1}`}
               className={[
-                'rounded-full transition-all duration-300',
+                'rounded-none transition-all duration-300',
                 i === dotActive
                   ? 'w-6 h-2.5 bg-[#c9a55a]'
                   : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#c9a55a]/50',
@@ -709,7 +709,7 @@ function TestimonialsSection() {
         <div className="flex justify-center mt-10 mb-2">
           <button
             onClick={() => setShowMore(prev => !prev)}
-            className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-full font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
           >
             <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
             Show More Reviews
