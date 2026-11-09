@@ -208,7 +208,7 @@ const serviceContent: Record<string, ServicePageContent> = {
   'gutter-systems': {
     slug: 'gutter-systems',
     heroImage: '/service-gutter-systems-new.jpg',
-    heroImagePosition: 'center 30%',
+    heroImagePosition: 'right 70%',
     overviewImage: '/overview-gutter-systems.jpg',
     featuredProjects: ['woodbridge-seamless-aluminum-install', 'thornhill-eavestrough-upgrade', 'stouffville-micro-mesh-guards'],
     galleryImages: [

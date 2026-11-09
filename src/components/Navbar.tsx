@@ -188,7 +188,7 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className={[
                   'flex items-center gap-2 font-sans text-[15px] font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                  isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#D0000F]',
+                  isTransparent ? 'text-white hover:text-[#D0000F]' : 'text-[#0f172a] hover:text-[#D0000F]',
                 ].join(' ')}
               >
                 <Phone className="w-3.5 h-3.5" />

@@ -296,17 +296,19 @@ function ServiceCard({ service, className = '' }: { service: Service; className?
   return (
     <Link
       href={`/services/${service.slug}`}
-      className={`group relative block overflow-hidden bg-[#0f172a] ${className}`}
+      className={`group relative block rounded-xl hover:shadow-2xl transition-shadow duration-500 bg-[#0f172a] ${className}`}
     >
-      <Image
-        src={service.image}
-        alt={service.title}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 33vw"
-        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#D0000F] via-[#D0000F]/40 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500" />
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#D0000F] via-[#D0000F]/40 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500" />
+      </div>
       <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
         <h3 className="font-serif text-xl font-bold text-white mb-2">{service.title}</h3>
         <p className="font-sans text-sm text-white/70 leading-relaxed mb-4 line-clamp-2">{service.shortDescription}</p>
@@ -544,7 +546,7 @@ function ProjectsSection() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <div className="flex-1 min-w-0 overflow-hidden">
+        <div className="flex-1 min-w-0 overflow-hidden py-6 -my-6">
           <motion.div
             className="flex"
             style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
@@ -557,7 +559,7 @@ function ProjectsSection() {
                 style={{ width: `${100 / TOTAL}%` }}
                 className="flex-shrink-0 px-2 group"
               >
-                <div className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl">
+                <Link href="/projects" className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl block">
                   <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
                     <Image
                       src={p.image}
@@ -572,7 +574,7 @@ function ProjectsSection() {
                     <p className="font-sans text-xs text-\[#374151\] mb-3">{p.location} &middot; {p.year}</p>
                     <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{p.description}</p>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </motion.div>
@@ -610,7 +612,7 @@ function ProjectsSection() {
 
         <FadeIn className="flex justify-center mt-8">
           <Button href="/projects" variant="primary" size="md">
-            View All Projects
+            View More Projects
           </Button>
         </FadeIn>
       </div>

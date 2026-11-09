@@ -213,7 +213,7 @@ export default function ContactPage() {
               Our Office Location
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-              Based in Vaughan, Serving All of Ontario
+              Based in Vaughan<br />Serving Surrounding Areas
             </h2>
             <a
               href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"

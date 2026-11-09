@@ -1005,7 +1005,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             alt={service.title}
             fill
             priority
-            quality={90}
+            quality={100}
             sizes="100vw"
             className="object-cover"
             style={content.heroImagePosition ? { objectPosition: content.heroImagePosition } : undefined}
@@ -1153,8 +1153,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         if (featuredCards.length === 0) return null
         return (
           <section className="pt-16 md:pt-20 pb-28 md:pb-36 bg-[#fafaf9]">
-            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-              <div className="text-center mb-10">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-10">
+              <div className="text-center">
                 <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
                   Our Work
                 </span>
@@ -1162,10 +1162,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   {service.title} Projects
                 </h2>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="px-2 md:px-6 lg:px-10 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {featuredCards.map((project) => (
-                  <div key={project.id} className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl group">
+                  <Link key={project.id} href="/projects" className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl group block">
                     <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
                       <Image
                         src={project.image}
@@ -1180,17 +1182,17 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                       <p className="font-sans text-xs text-[#0f172a] mb-3">{project.location} &middot; {project.year}</p>
                       <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{project.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
+            </div>
 
-              <div className="flex justify-center">
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
-                  View All Projects
-                </Link>
-              </div>
+            <div className="flex justify-center">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
+                View More Projects
+              </Link>
             </div>
           </section>
         )

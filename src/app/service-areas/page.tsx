@@ -164,7 +164,7 @@ export default function ServiceAreasPage() {
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               Based in Vaughan
               <br />
-              <span className="text-[#D0000F]">Serving All of Ontario</span>
+              <span className="text-[#D0000F]">Serving Surrounding Areas</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -325,7 +325,7 @@ export default function ServiceAreasPage() {
               Our Office Location
             </span>
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a]">
-              Based in Vaughan, Serving All of Ontario
+              Based in Vaughan<br />Serving Surrounding Areas
             </h3>
             <a
               href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
