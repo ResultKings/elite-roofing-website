@@ -546,7 +546,7 @@ function ProjectsSection() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <div className="flex-1 min-w-0 overflow-hidden py-6 -my-6">
+        <div className="flex-1 min-w-0 overflow-hidden">
           <motion.div
             className="flex"
             style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
@@ -559,7 +559,7 @@ function ProjectsSection() {
                 style={{ width: `${100 / TOTAL}%` }}
                 className="flex-shrink-0 px-2 group"
               >
-                <Link href="/projects" className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl block">
+                <Link href="/projects" className="overflow-hidden bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-shadow duration-500 rounded-xl block">
                   <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
                     <Image
                       src={p.image}
