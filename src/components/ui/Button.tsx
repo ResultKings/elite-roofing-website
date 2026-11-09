@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import React from 'react'
 import Link from 'next/link'
@@ -33,25 +33,25 @@ type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#041D35] text-white border-2 border-[#041D35] hover:bg-[#0a2a4a] hover:border-[#0a2a4a] shadow-sm hover:shadow-md rounded-none',
+    'bg-[#D0000F] text-white border-2 border-[#D0000F] hover:bg-[#A5000A] hover:border-[#A5000A] shadow-sm hover:shadow-md rounded-md',
   secondary:
-    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-none',
+    'bg-[#0f172a] text-white border-2 border-[#0f172a] hover:bg-[#1e293b] hover:border-[#1e293b] shadow-sm hover:shadow-md rounded-md',
   outline:
-    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-none',
+    'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0f172a] rounded-md',
   ghost:
-    'bg-transparent text-[#c9a55a] border-2 border-transparent hover:border-[#c9a55a] hover:bg-[#c9a55a]/5 rounded-none',
+    'bg-transparent text-[#D0000F] border-2 border-transparent hover:border-[#D0000F] hover:bg-[#D0000F]/5 rounded-md',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-5 py-2.5 text-sm tracking-wide',
-  md: 'px-7 py-3 text-sm tracking-wider',
-  lg: 'px-9 py-4 text-base tracking-widest',
+  sm: 'px-6 py-3 text-base',
+  md: 'px-8 py-3.5 text-base',
+  lg: 'px-10 py-5 text-base',
 }
 
 function getClasses(variant: ButtonVariant, size: ButtonSize, className?: string, disabled?: boolean) {
   return [
     'inline-flex items-center justify-center gap-2',
-    'font-sans font-medium uppercase transition-all duration-300',
+    'font-sans font-semibold transition-all duration-300',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#041D35] focus-visible:ring-offset-2',
     variantClasses[variant],
     sizeClasses[size],

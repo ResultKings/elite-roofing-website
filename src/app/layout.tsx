@@ -1,11 +1,11 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Barlow } from 'next/font/google'
+import { Lora, Inter, Barlow } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-const playfair = Playfair_Display({
+const playfair = Lora({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     template: '%s | Elite Roofing Ontario',
   },
   description:
-    "Ontario's premier roofing specialist. Master craftsmanship, premium materials, lasting protection. Serving Toronto, Mississauga, Oakville and the GTA. Licensed and insured. Free inspections.",
+    "Ontario's premier roofing specialist. Master craftsmanship, premium materials, lasting protection. Serving Vaughan, Markham, Richmond Hill and surrounding areas. Licensed and insured. Free inspections.",
   keywords: [
     'roofing contractor Ontario',
     'Toronto roofer',
     'Mississauga roofing company',
-    'GTA roof replacement',
+    'Vaughan roof replacement',
     'GAF Master Elite roofer Ontario',
     'residential roofing Ontario',
     'commercial roofing Toronto',

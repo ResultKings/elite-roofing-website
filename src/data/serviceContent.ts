@@ -1,4 +1,4 @@
-﻿export interface ServiceFAQ {
+export interface ServiceFAQ {
   question: string
   answer: string
 }
@@ -113,7 +113,7 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'roof-repair': {
     slug: 'roof-repair',
-    heroImage: '/service-roof-repair.jpg',
+    heroImage: '/service-roof-repair.webp',
     heroImagePosition: 'center 40%',
     overviewImage: '/overview-roof-repair.webp',
     featuredProjects: ['aurora-leak-flashing-repair', 'newmarket-chimney-cap-seal', 'barrie-shingle-valley-repair'],
@@ -193,7 +193,7 @@ const serviceContent: Record<string, ServicePageContent> = {
           "We handle all types of weather related roofing damage: hail damage (granule loss, punctures, shingle fractures), wind damage (lifted and missing shingles, ridge cap loss, fascia damage), ice dam damage, fallen tree and debris impact, and lightning strike damage. We also handle associated interior water damage documentation for insurance purposes.",
       },
       {
-        question: 'How long does the full storm damage restoration process take?',
+        question: 'How long does the full Storm Damage Repair process take?',
         answer:
           'Emergency tarping is same day or next day. The insurance claim process varies by carrier, typically 1 to 3 weeks from claim to adjuster visit to settlement offer. Once insurance is approved, we schedule the actual restoration work within 1–2 weeks. Total time from storm to completed restoration is typically 3–6 weeks for residential, 6–12 weeks for complex commercial properties.',
       },
@@ -207,7 +207,7 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'gutter-systems': {
     slug: 'gutter-systems',
-    heroImage: '/service-gutter-systems.avif',
+    heroImage: '/service-gutter-systems-new.jpg',
     heroImagePosition: 'center 30%',
     overviewImage: '/overview-gutter-systems.jpg',
     featuredProjects: ['woodbridge-seamless-aluminum-install', 'thornhill-eavestrough-upgrade', 'stouffville-micro-mesh-guards'],
@@ -254,7 +254,7 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'skylight-installation': {
     slug: 'skylight-installation',
-    heroImage: '/service-skylight-installation.jpg',
+    heroImage: '/skylight-installation.webp',
     heroImagePosition: '5% 35%',
     overviewImage: '/skylight-overview.jpg',
     overviewImagePosition: 'center center',
@@ -344,11 +344,11 @@ const serviceContent: Record<string, ServicePageContent> = {
 
   'metal-roofing': {
     slug: 'metal-roofing',
-    heroImage: '/service-metal-roofing.jpg',
+    heroImage: '/service-metal-roofing.webp',
     heroImagePosition: '5% 15%',
     overviewImage: '/overview-metal-roofing.jpg',
     overviewImagePosition: 'left center',
-    featuredProjects: ['caledon-standing-seam-estate', 'nobleton-metal-shingle-conversion', 'schomberg-agricultural-metal'],
+    featuredProjects: ['heritage-oak-estate', 'caledon-standing-seam-estate', 'nobleton-metal-shingle-conversion'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&auto=format',
@@ -473,7 +473,7 @@ const serviceContent: Record<string, ServicePageContent> = {
     heroImage: '/service-roof-replacement.jpg',
     heroImagePosition: 'center 75%',
     overviewImage: '/overview-roof-replacement.webp',
-    featuredProjects: ['vaughan-complete-tearoff', 'aurora-century-home-replacement', 'stouffville-family-replacement'],
+    featuredProjects: ['markham-heritage-estate', 'burlington-lakefront-villa', 'cedar-ridge-farmhouse'],
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-0c0c5e7ba6a8?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format',
@@ -536,7 +536,7 @@ const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         question: 'How quickly can you deploy emergency tarping?',
-        answer: 'Within our primary service area, our target response time for emergency tarping is 4 hours or less, 24 hours a day, 7 days a week. We maintain tarping materials and crews on standby specifically for emergency deployment. Call our emergency line at (905) 555-0198 and we dispatch immediately. Same day service is available for most Greater Toronto Area locations.',
+        answer: 'Within our primary service area, our target response time for emergency tarping is 4 hours or less, 24 hours a day, 7 days a week. We maintain tarping materials and crews on standby specifically for emergency deployment. Call our emergency line at (905) 555-0198 and we dispatch immediately. Same day service is available for most Vaughan and surrounding area locations.',
       },
       {
         question: 'How long will the tarp stay in place?',

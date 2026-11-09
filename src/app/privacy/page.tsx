@@ -20,14 +20,14 @@ export default function PrivacyPolicyPage() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
             Privacy Policy
           </h1>
-          <div className="w-14 h-[2px] bg-[#c9a55a] mb-5" />
-          <p className="font-sans text-sm text-[#64748b]">
+          <div className="w-14 h-[2px] bg-[#D0000F] mb-5" />
+          <p className="font-sans text-sm text-[#1e293b]">
             Last updated: October 1, 2024
           </p>
         </div>
 
         {/* Content */}
-        <div className="prose-elite space-y-10 font-sans text-sm text-[#374151] leading-relaxed">
+        <div className="prose-elite space-y-10 font-sans text-sm font-medium text-[#0f172a] leading-relaxed">
           <section>
             <h2 className="font-serif text-xl font-semibold text-[#0f172a] mb-3">
               1. Introduction
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
               and is committed to protecting the personal information you share with us.
               This Privacy Policy describes how we collect, use, disclose, and safeguard
               your information when you visit our website at{' '}
-              <span className="text-[#c9a55a]">www.eliteroofingon.ca</span> or contact us
+              <span className="text-[#D0000F]">www.eliteroofingon.ca</span> or contact us
               to request services.
             </p>
             <p className="mt-3">
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
                 'Usage data: IP address, browser type, pages visited, and time spent on our website (collected via cookies and analytics tools).',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D0000F] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                 'Comply with applicable legal obligations.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D0000F] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
                 'Business transfer: If Elite Roofing is acquired or merges with another entity, your information may be transferred as part of that transaction.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D0000F] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
                 'Opt-out: Unsubscribe from marketing communications at any time.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D0000F] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
               <p>3250 Ridgeway Dr, Unit 12, Mississauga, ON L5L 5Z9</p>
               <p>
                 Phone:{' '}
-                <a href="tel:+19055550198" className="text-[#c9a55a] hover:underline">
+                <a href="tel:+19055550198" className="text-[#D0000F] hover:underline">
                   (905) 555-0198
                 </a>
               </p>
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
                 Email:{' '}
                 <a
                   href="mailto:info@eliteroofingon.ca"
-                  className="text-[#c9a55a] hover:underline"
+                  className="text-[#D0000F] hover:underline"
                 >
                   info@eliteroofingon.ca
                 </a>
@@ -228,7 +228,7 @@ export default function PrivacyPolicyPage() {
         <div className="mt-12 pt-8 border-t border-[#e7e5e4]">
           <Link
             href="/"
-            className="font-sans text-sm text-[#64748b] hover:text-[#c9a55a] transition-colors"
+            className="font-sans text-sm text-[#1e293b] hover:text-[#D0000F] transition-colors"
           >
             â† Back to home
           </Link>

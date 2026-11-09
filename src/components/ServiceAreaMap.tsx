@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
@@ -21,7 +21,7 @@ function goldIcon() {
     className: '',
     html: `<div style="
       width:14px;height:14px;
-      background:#c9a55a;
+      background:#D0000F;
       border-radius:50%;
       border:2.5px solid #fff;
       box-shadow:0 2px 10px rgba(0,0,0,0.55);

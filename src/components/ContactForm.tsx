@@ -140,10 +140,10 @@ export default function ContactForm() {
             transition={{ delay: 0.15, type: 'spring', stiffness: 180, damping: 18 }}
             className="relative w-24 h-24 mb-8"
           >
-            <div className="absolute inset-0 rounded-full bg-[#c9a55a]/10" />
-            <div className="absolute inset-2 rounded-full bg-[#c9a55a]/15" />
+            <div className="absolute inset-0 rounded-full bg-[#D0000F]/10" />
+            <div className="absolute inset-2 rounded-full bg-[#D0000F]/15" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <CheckCircle className="w-12 h-12 text-[#c9a55a]" />
+              <CheckCircle className="w-12 h-12 text-[#D0000F]" />
             </div>
           </motion.div>
 
@@ -158,7 +158,7 @@ export default function ContactForm() {
             <h3 className="font-serif text-3xl font-bold text-[#0f172a] mb-4">
               Thank You, {firstName}.
             </h3>
-            <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-sm mx-auto mb-8">
+            <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-sm mx-auto mb-8">
               A member of the Elite Roofing team will review your project details and reach
               out within one business day. We look forward to speaking with you.
             </p>
@@ -166,16 +166,16 @@ export default function ContactForm() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 border-t border-[#e7e5e4]">
               <a
                 href="tel:+19055550198"
-                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#c9a55a] transition-colors"
+                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#D0000F] transition-colors"
               >
-                <Phone className="w-4 h-4 text-[#c9a55a]" />
+                <Phone className="w-4 h-4 text-[#D0000F]" />
                 (905) 555-0198
               </a>
               <a
                 href="mailto:info@eliteroofingon.ca"
-                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#c9a55a] transition-colors"
+                className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#D0000F] transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#c9a55a]" />
+                <Mail className="w-4 h-4 text-[#D0000F]" />
                 info@eliteroofingon.ca
               </a>
             </div>
@@ -237,7 +237,7 @@ export default function ContactForm() {
             <div className="w-full" data-has-error={!!errors.roofType}>
               <label
                 htmlFor="roofType"
-                className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
+                className="block font-sans text-sm font-medium text-[#0f172a] mb-2"
               >
                 Service Type <span className="text-red-500">*</span>
               </label>
@@ -249,31 +249,27 @@ export default function ContactForm() {
                   onChange={handleChange}
                   required
                   className={[
-                    'w-full px-4 py-3.5 bg-white font-sans text-sm focus:outline-none focus:ring-2 hover:border-[#c9a55a]/50 transition-all duration-200 appearance-none cursor-pointer pr-10',
+                    'w-full px-4 py-3.5 bg-white font-sans text-sm focus:outline-none focus:ring-2 hover:border-[#D0000F]/50 transition-all duration-200 appearance-none cursor-pointer pr-10',
                     errors.roofType
                       ? 'border border-red-400 focus:border-red-400 focus:ring-red-100 text-[#0f172a]'
-                      : 'border border-[#e7e5e4] focus:border-[#c9a55a] focus:ring-[#c9a55a]/20 text-[#0f172a]',
-                    !formData.roofType ? 'text-[#94a3b8]' : '',
+                      : 'border border-[#e7e5e4] focus:border-[#D0000F] focus:ring-[#D0000F]/20 text-[#0f172a]',
+                    !formData.roofType ? 'text-\[#374151\]' : '',
                   ].join(' ')}
                 >
                   <option value="" disabled>Select a service...</option>
-                  <option value="residential-roofing">Residential Roofing</option>
-                  <option value="commercial-roofing">Commercial Roofing</option>
-                  <option value="roof-repair">Roof Repair</option>
-                  <option value="storm-damage-restoration">Storm Damage Restoration</option>
-                  <option value="gutter-systems">Gutter Systems</option>
-                  <option value="skylight-installation">Skylight Installation</option>
-                  <option value="roof-inspection">Roof Inspection</option>
-                  <option value="metal-roofing">Metal Roofing</option>
-                  <option value="flat-roofing">Flat Roofing</option>
                   <option value="multi-family-roofing">Multi-Family Roofing</option>
                   <option value="roof-replacement">Roof Replacement</option>
-                  <option value="roof-tarping">Roof Tarping</option>
+                  <option value="metal-roofing">Metal Roofing</option>
+                  <option value="flat-roofing">Flat Roofing</option>
+                  <option value="gutter-systems">Gutter Systems</option>
+                  <option value="skylight-installation">Skylight Installation</option>
+                  <option value="roof-repair">Roof Repairs</option>
+                  <option value="storm-damage-restoration">Storm Damage Restoration</option>
                   <option value="other">Other / Not Sure</option>
                 </select>
                 {/* Custom chevron */}
                 <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-                  <svg className="w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-\[#374151\]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
@@ -299,7 +295,7 @@ export default function ContactForm() {
 
           {/* Footer row */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pt-2">
-            <p className="font-sans text-sm text-[#64748b] leading-relaxed">
+            <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed">
               ✦ Your information is kept 100% private and secure.
             </p>
             <Button
@@ -307,14 +303,8 @@ export default function ContactForm() {
               variant="primary"
               size="lg"
               disabled={isSubmitting}
-              icon={
-                isSubmitting ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <ArrowRight className="w-4 h-4" />
-                )
-              }
-              iconPosition={isSubmitting ? 'left' : 'right'}
+              icon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : undefined}
+              iconPosition="left"
             >
               {isSubmitting ? 'Sending...' : 'Send Inquiry'}
             </Button>

@@ -53,10 +53,10 @@ function ReviewCarousel() {
         >
           <div className="flex gap-0.5 mb-4">
             {Array.from({ length: t.rating }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+              <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
             ))}
           </div>
-          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed flex-1 mb-6">
             &ldquo;{t.quote}&rdquo;
           </p>
           <div className="flex items-center gap-3 pt-4 border-t border-[#e7e5e4]">
@@ -65,7 +65,7 @@ function ReviewCarousel() {
             </div>
             <div>
               <p className="font-sans text-sm font-semibold text-[#0f172a]">{t.name}</p>
-              <p className="font-sans text-[11px] text-[#94a3b8]">{t.location} · {t.projectType}</p>
+              <p className="font-sans text-[11px] text-\[#374151\]">{t.location} · {t.projectType}</p>
             </div>
           </div>
         </motion.div>
@@ -76,20 +76,20 @@ function ReviewCarousel() {
             <button
               key={i}
               onClick={() => { setPaused(true); setCurrent(i) }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#D0000F] w-5' : 'bg-[#e7e5e4]'}`}
             />
           ))}
         </div>
         <div className="flex gap-2">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+            className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={next}
-            className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+            className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -150,14 +150,14 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60">
                 Our Story
               </span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               Ontario&apos;s Trusted
               <br />
-              <span className="text-[#c9a55a]">Roofing Specialist</span>
+              <span className="text-[#D0000F]">Roofing Specialist</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -168,14 +168,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
                 Who We Are
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
                 Built on a Foundation
                 <br />of Honest Work
               </h2>
-              <div className="space-y-4 font-sans text-sm text-[#475569] leading-relaxed">
+              <div className="space-y-4 font-sans text-sm font-medium text-[#0f172a] leading-relaxed">
                 <p>
                   Elite Roofing was founded in 2004 with a straightforward belief: homeowners and business owners deserve a roofing contractor who shows up when they say they will, charges what they quoted, and stands behind their work long after the crew has left.
                 </p>
@@ -209,7 +209,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12 lg:mb-16">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               What Drives Us
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -219,13 +219,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v, i) => (
               <FadeIn key={v.title} delay={i * 0.08}>
-                <div className="bg-white border border-[#e7e5e4] p-8 flex gap-5 hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300">
-                  <div className="w-10 h-10 bg-[#c9a55a]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <v.icon className="w-5 h-5 text-[#c9a55a]" />
+                <div className="bg-white border border-[#e7e5e4] p-8 flex gap-5 hover:border-[#D0000F]/40 hover:shadow-md transition-all duration-300">
+                  <div className="w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <v.icon className="w-5 h-5 text-[#D0000F]" />
                   </div>
                   <div>
                     <h3 className="font-serif text-lg font-semibold text-[#0f172a] mb-2">{v.title}</h3>
-                    <p className="font-sans text-sm text-[#64748b] leading-relaxed">{v.description}</p>
+                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed">{v.description}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -239,23 +239,23 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <FadeIn>
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
                 Credentials & Certifications
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
                 Licensed, Insured
                 <br />and Certified
               </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 When you hire Elite Roofing, you hire a team backed by the highest industry certifications, full insurance coverage, and a written warranty that holds us accountable long after the job is done.
               </p>
               <ul className="space-y-4">
                 {certifications.map((cert) => (
                   <li key={cert.name} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-sans text-sm font-semibold text-[#0f172a]">{cert.name}</p>
-                      <p className="font-sans text-xs text-[#94a3b8] leading-snug mt-0.5">{cert.note}</p>
+                      <p className="font-sans text-xs text-\[#374151\] leading-snug mt-0.5">{cert.note}</p>
                     </div>
                   </li>
                 ))}
@@ -263,7 +263,7 @@ export default function AboutPage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="bg-[#0f172a] p-8 md:p-10 rounded-xl">
-                <span className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-6 block">
+                <span className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-6 block">
                   Our Promise to You
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-white mb-6 leading-snug">
@@ -286,7 +286,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               Client Feedback
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -303,7 +303,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
                 What Our Clients<br />Are Saying
               </h3>
-              <div className="flex items-center gap-4 mb-5">
+              <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
                 <div className="flex -space-x-3">
                   {testimonials.slice(0, 3).map((t, i) => (
                     <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -314,15 +314,15 @@ export default function AboutPage() {
                 <div>
                   <div className="flex gap-0.5 mb-1">
                     {[1,2,3,4,5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+                      <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
                     ))}
                   </div>
                   <p className="font-sans text-sm font-semibold text-[#0f172a]">
-                    4.9 <span className="font-normal text-[#64748b]">out of 5 across</span> 300 Google reviews
+                    4.9 <span className="font-normal text-[#1e293b]">out of 5 across</span> 300 Google reviews
                   </p>
                 </div>
-              </div>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              </Link>
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -330,15 +330,15 @@ export default function AboutPage() {
                   href="https://customerreviews.google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md"
                 >
                   Leave a Google Review
                 </a>
                 <Link
                   href="/testimonials"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
                 >
-                  See More Reviews <ArrowRight className="w-3.5 h-3.5" />
+                  See More Reviews
                 </Link>
               </div>
             </FadeIn>
@@ -360,7 +360,7 @@ export default function AboutPage() {
               href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-sm text-[#64748b] mt-3 hover:text-[#c9a55a] transition-colors duration-200 block"
+              className="font-sans text-sm text-[#1e293b] mt-3 hover:text-[#D0000F] transition-colors duration-200 block"
             >
               216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
             </a>
@@ -384,19 +384,28 @@ export default function AboutPage() {
       <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
+              Get Started
+            </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
               Ready to Experience the Elite Difference?
             </h2>
-            <p className="font-sans text-sm text-white/75 leading-relaxed mb-8 max-w-lg mx-auto">
-              Book your no obligation free estimate today. Our experts will assess your roof, provide honest recommendations, and give you a transparent written proposal.
+            <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-lg mx-auto">
+              Twenty years of work. Thousands of roofs. One standard. Book your free, no obligation estimate and see why homeowners across Vaughan and surrounding areas trust Elite Roofing.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
               >
-                Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
+                Get Free Estimate
               </Link>
+              <a
+                href="tel:+19055550198"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              >
+                (905) 555-0198
+              </a>
             </div>
           </FadeIn>
         </div>

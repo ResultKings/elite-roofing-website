@@ -15,10 +15,10 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 const baseInputClasses = [
   'w-full px-4 py-3.5',
   'bg-white border border-[#e7e5e4]',
-  'font-sans text-[#0f172a] text-sm placeholder:text-[#94a3b8]',
+  'font-sans text-[#0f172a] text-sm placeholder:text-\[#374151\]',
   'transition-all duration-200',
-  'focus:outline-none focus:border-[#c9a55a] focus:ring-2 focus:ring-[#c9a55a]/20',
-  'hover:border-[#c9a55a]/50',
+  'focus:outline-none focus:border-[#D0000F] focus:ring-2 focus:ring-[#D0000F]/20',
+  'hover:border-[#D0000F]/50',
 ].join(' ')
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -29,10 +29,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
+            className="block font-sans text-sm font-medium text-[#0f172a] mb-2"
           >
             {label}
-            {props.required && <span className="text-[#c9a55a] ml-1">*</span>}
+            {props.required && <span className="text-[#D0000F] ml-1">*</span>}
           </label>
         )}
         <input
@@ -51,7 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <p className="mt-1.5 text-xs text-red-500 font-sans">{error}</p>
         )}
         {helperText && !error && (
-          <p className="mt-1.5 text-xs text-[#64748b] font-sans">{helperText}</p>
+          <p className="mt-1.5 text-xs text-[#1e293b] font-sans">{helperText}</p>
         )}
       </div>
     )
@@ -68,10 +68,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block font-sans text-xs font-medium tracking-wider uppercase text-[#0f172a] mb-2"
+            className="block font-sans text-sm font-medium text-[#0f172a] mb-2"
           >
             {label}
-            {props.required && <span className="text-[#c9a55a] ml-1">*</span>}
+            {props.required && <span className="text-[#D0000F] ml-1">*</span>}
           </label>
         )}
         <textarea
@@ -92,7 +92,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <p className="mt-1.5 text-xs text-red-500 font-sans">{error}</p>
         )}
         {helperText && !error && (
-          <p className="mt-1.5 text-xs text-[#64748b] font-sans">{helperText}</p>
+          <p className="mt-1.5 text-xs text-[#1e293b] font-sans">{helperText}</p>
         )}
       </div>
     )

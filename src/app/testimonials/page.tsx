@@ -25,7 +25,7 @@ function StarRow({ count = 5 }: { count?: number }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
+        <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
       ))}
     </div>
   )
@@ -33,16 +33,16 @@ function StarRow({ count = 5 }: { count?: number }) {
 
 function ReviewCard({ t }: { t: { name: string; location: string; rating: number; quote: string; image: string; projectType: string } }) {
   return (
-    <div className="bg-white border border-[#e7e5e4] p-6 flex flex-col gap-4 hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300 rounded-xl">
+    <div className="bg-white border border-[#e7e5e4] p-6 flex flex-col gap-4 hover:border-[#D0000F]/40 hover:shadow-md transition-all duration-300 rounded-xl">
       <StarRow count={t.rating} />
-      <p className="font-sans text-sm text-[#475569] leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+      <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
       <div className="flex items-center gap-3 pt-3 border-t border-[#e7e5e4]">
-        <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-[#c9a55a]/10">
+        <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-[#D0000F]/10">
           <Image src={t.image} alt={t.name} fill sizes="36px" className="object-cover" />
         </div>
         <div>
           <p className="font-sans text-xs font-semibold text-[#0f172a]">{t.name}</p>
-          <p className="font-sans text-[10px] text-[#94a3b8]">{t.location} &middot; {t.projectType}</p>
+          <p className="font-sans text-[10px] text-\[#374151\]">{t.location} &middot; {t.projectType}</p>
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@ const initialReviews = [
     rating: 5,
     quote: 'We had a significant leak above our retail space that two other companies couldn\'t find. Elite Roofing diagnosed the issue within an hour and had it fully repaired by end of day. Professional from start to finish. Will only call them going forward.',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Commercial Roofing',
+    projectType: 'Multi-Family Roofing',
   },
   {
     name: 'Thomas Wu',
@@ -72,7 +72,7 @@ const initialReviews = [
     rating: 5,
     quote: 'After the August storms we had water coming in through three spots. Elite Roofing came out the next morning, gave me a clear written quote with no surprises, and completed all repairs in one day. Fair pricing and excellent work.',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Storm Damage Repair',
+    projectType: 'Storm Damage Restoration',
   },
   {
     name: 'Amanda Foster',
@@ -107,7 +107,7 @@ const extraReviews = [
     rating: 5,
     quote: 'Called Elite Roofing for a free inspection before selling our home. They were thorough, honest, and gave me a detailed written report same day. No pressure, just good advice. I ended up hiring them to do the repairs and the buyers were thrilled.',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Roof Inspection',
+    projectType: 'Roof Repair',
   },
   {
     name: 'Christine Moreau',
@@ -171,7 +171,7 @@ const extraReviews = [
     rating: 5,
     quote: 'Had Elite Roofing inspect our roof before a major renovation. Their inspector was incredibly knowledgeable and honest, told me what truly needed work and what could wait. No upselling, just straight advice. Hired them for the repairs and they were excellent.',
     image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Roof Inspection',
+    projectType: 'Roof Repair',
   },
   {
     name: 'Monica Ashford',
@@ -211,7 +211,7 @@ const extraReviews = [
     rating: 5,
     quote: 'I own several rental properties and Elite Roofing has become my go-to roofing contractor. Their pricing is transparent, their work is consistently excellent, and they always complete jobs on time. Trusted partner for my entire portfolio.',
     image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Commercial Roofing',
+    projectType: 'Multi-Family Roofing',
   },
   {
     name: 'Nathan Bergström',
@@ -219,7 +219,7 @@ const extraReviews = [
     rating: 5,
     quote: 'Excellent work on our commercial strip mall. Elite Roofing coordinated with all our tenants and worked in sections to minimize any disruption. The project came in on budget and the roof has been completely problem-free for two years now.',
     image: 'https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=80&h=80&fit=crop&crop=face',
-    projectType: 'Commercial Roofing',
+    projectType: 'Multi-Family Roofing',
   },
   {
     name: 'Diane Chen',
@@ -285,14 +285,14 @@ export default function TestimonialsPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60">
                 Client Stories
               </span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               What Our Clients
               <br />
-              <span className="text-[#c9a55a]">Are Saying</span>
+              <span className="text-[#D0000F]">Are Saying</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -309,22 +309,22 @@ export default function TestimonialsPage() {
             </h2>
             <div className="bg-white border border-[#e7e5e4] rounded-xl p-6 md:p-8 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="w-3.5 h-3.5 text-[#c9a55a]" />
-                <span className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#64748b]">
+                <Zap className="w-3.5 h-3.5 text-[#D0000F]" />
+                <span className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#1e293b]">
                   What Customers Say
                 </span>
               </div>
-              <p className="font-sans text-sm text-[#475569] leading-relaxed mb-5">
-                Clients across the Greater Toronto Area consistently praise Elite Roofing for their prompt arrival times, transparent written quotes, and immaculate job-site cleanup. Many homeowners highlight how the team handled insurance claims on their behalf, making a stressful process completely painless. Customers in Vaughan, Markham, Oakville, Mississauga and surrounding communities describe the crew as knowledgeable, respectful, and genuinely invested in the outcome of every project, whether a quick repair or a full roof replacement.
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-5">
+                Clients across Vaughan and surrounding areas consistently praise Elite Roofing for their prompt arrival times, transparent written quotes, and immaculate job-site cleanup. Many homeowners highlight how the team handled insurance claims on their behalf, making a stressful process completely painless. Customers in Vaughan, Markham, Oakville, Mississauga and surrounding communities describe the crew as knowledgeable, respectful, and genuinely invested in the outcome of every project, whether a quick repair or a full roof replacement.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {['Fast Response', 'Fair & Transparent Pricing', 'Quality Materials', 'Clean Job Sites', 'Insurance Assistance', 'GAF Certified', 'Professional Crew', 'On-Time Completion'].map((tag) => (
-                  <span key={tag} className="font-sans text-[10px] text-[#64748b] border border-[#e7e5e4] px-3 py-1 rounded-none">
+                  <span key={tag} className="font-sans text-[10px] text-[#1e293b] border border-[#e7e5e4] px-3 py-1 rounded-none">
                     {tag}
                   </span>
                 ))}
               </div>
-              <p className="font-sans text-[10px] text-[#94a3b8]">Summary based on verified Google reviews.</p>
+              <p className="font-sans text-[10px] text-\[#374151\]">Summary based on verified Google reviews.</p>
             </div>
           </FadeIn>
 
@@ -345,17 +345,17 @@ export default function TestimonialsPage() {
               <div>
                 <div className="flex items-center gap-0.5 mb-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+                    <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
                   ))}
                 </div>
-                <p className="font-sans text-xs text-[#94a3b8] tracking-wide">4.9 out of 5 across 300 Google reviews</p>
+                <p className="font-sans text-xs text-\[#374151\] tracking-wide">4.9 out of 5 across 300 Google reviews</p>
               </div>
             </div>
             <a
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-200 rounded-none"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#f59e0b] hover:bg-[#d97706] text-[#0f172a] font-sans text-sm font-medium transition-colors duration-200 rounded-md"
             >
               Leave a Google Review
             </a>
@@ -392,7 +392,7 @@ export default function TestimonialsPage() {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setShowMore((prev) => !prev)}
-              className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+              className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
             >
               <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
               {showMore ? 'Show Less' : 'Show More Reviews'}
@@ -405,23 +405,31 @@ export default function TestimonialsPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
-              Get Started Today
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
+              Get Started
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-              Need Reliable Roofing Services
+              Join Over 300 Satisfied
               <br />
-              <span className="text-[#c9a55a]">in Ontario?</span>
+              <span className="text-[#D0000F]">Ontario Homeowners</span>
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-              Join hundreds of satisfied Ontario homeowners and businesses. Our free inspection includes a full assessment, photographic documentation, and a transparent written proposal, no obligation, no pressure.
+              Elite Roofing has earned 4.9 stars across hundreds of verified Google reviews. Book your free inspection and experience the difference for yourself.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-none"
-            >
-              Contact Us <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
+              >
+                Get Free Estimate
+              </Link>
+              <a
+                href="tel:+19055550198"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              >
+                (905) 555-0198
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

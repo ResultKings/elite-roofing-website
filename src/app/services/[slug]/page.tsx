@@ -31,7 +31,7 @@ import {
   Hammer,
   ClipboardList,
 } from 'lucide-react'
-import { services, projects } from '@/data/mockData'
+import { services, projects, type Project } from '@/data/mockData'
 import serviceContent from '@/data/serviceContent'
 
 const iconMap: Record<string, React.ElementType> = {
@@ -162,6 +162,34 @@ const serviceProcessData: Record<string, { steps: ProcessStep[]; icons: React.El
     ],
     icons: [Phone, Search, Shield, BadgeCheck],
   },
+}
+
+// ─── Shared Process Data (all service pages) ─────────────────────────────────
+
+const sharedProcessData: { steps: ProcessStep[]; icons: React.ElementType[] } = {
+  steps: [
+    {
+      num: '01',
+      title: 'Start a Conversation',
+      body: 'Once you call us or fill out our online form, we\'ll follow up promptly to schedule an initial conversation. This first meeting is about listening and understanding your goals, priorities, and budget. We\'ll guide you through big picture decisions like materials, timelines, and next steps, so you can move forward with clarity and confidence.',
+    },
+    {
+      num: '02',
+      title: 'Onsite Estimates',
+      body: 'After we confirm the needs of your project, our team will develop a plan, come to your home and give you an honest estimate for the materials and our work. We just do the math, and give you clear value.',
+    },
+    {
+      num: '03',
+      title: 'Sign the Contract',
+      body: 'We handle the whole process, from permits and financing to designing and building your project. We will lay out a detailed contract explaining everything you need to know. We do the homework, and you sign on the dotted line.',
+    },
+    {
+      num: '04',
+      title: 'Work Begins',
+      body: 'After city permits and scheduling, we start work on your new roof or other projects. We work to match your vision of home with crystal clear communication, clean job sites, experienced crews and expert planning. We are proud of our diligent stewardship and creating a meaningful connection with the homeowners we serve.',
+    },
+  ],
+  icons: [Phone, Home, ClipboardList, Hammer],
 }
 
 // ─── Per-Service Warranty Data ───────────────────────────────────────────────
@@ -382,6 +410,205 @@ const serviceReviewsMap: Record<string, ServiceReview[]> = {
   ],
 }
 
+// ─── Get Started Section Data ─────────────────────────────────────────────────
+
+const serviceGetStartedData: Record<string, { heading: string; body: string[] }> = {
+  'residential-roofing': {
+    heading: 'Your Expert Residential Roofing Team',
+    body: [
+      'Whether you\'re replacing an aging roof or repairing damage after a rough Ontario winter, Elite Roofing brings certified craftsmanship and clear communication to every home. We work with premium materials installed to the highest standard, every time.',
+      'Serving homeowners across Vaughan and surrounding areas, our residential team takes the time to explain your options, provide a firm written price, and complete the work on schedule. You finish with a roof that protects your home for decades and comes with the warranty coverage you deserve.',
+    ],
+  },
+  'commercial-roofing': {
+    heading: 'Expert Commercial Roofing Solutions',
+    body: [
+      'Whether you need a full flat roof replacement or ongoing maintenance for your commercial property, Elite Roofing provides engineered roofing systems designed for the demands of Ontario\'s climate. Our commercial team has the experience and certifications your property requires.',
+      'Serving businesses and property owners across Vaughan and surrounding areas, we work around your operations schedule, communicate directly with facilities managers, and deliver complete warranty documentation at project handover. Your building is protected and your team is informed at every step.',
+    ],
+  },
+  'roof-repair': {
+    heading: 'Your Trusted Roof Repair Specialists',
+    body: [
+      'Whether you\'re dealing with a persistent leak or unexpected shingle damage, Elite Roofing brings precision, care, and straightforward answers to every repair call. We trace every issue to its root cause and complete lasting repairs using the right materials and techniques.',
+      'Serving homeowners across Vaughan and surrounding areas, our repair team takes the time to explain what went wrong, what we\'ll fix, and how long it will last. You move forward with confidence knowing your roof is properly restored and backed by our written guarantee.',
+    ],
+  },
+  'storm-damage-restoration': {
+    heading: 'Ontario\'s Storm Damage Restoration Experts',
+    body: [
+      'Whether you\'re dealing with hail damage, wind-lifted shingles, or a fallen tree, Elite Roofing responds quickly with the documentation and expertise your insurance claim requires. We manage the full restoration so you don\'t have to navigate it alone.',
+      'Serving homeowners across Vaughan and surrounding areas, our storm team handles everything from emergency tarping to final inspection. We communicate clearly with your insurer and keep you informed at every step, so your home is restored completely with no surprises.',
+    ],
+  },
+  'gutter-systems': {
+    heading: 'Professional Gutter System Installers',
+    body: [
+      'Whether you\'re replacing aging eavestroughs or installing a new seamless system, Elite Roofing designs and fabricates your gutters on-site for a perfect fit. Proper drainage is essential to protecting your foundation, fascia, and landscaping.',
+      'Serving homeowners across Vaughan and surrounding areas, our gutter team pitches every system precisely, tests it before we leave, and backs the work with a written warranty. Clear communication and a clean worksite are part of every installation.',
+    ],
+  },
+  'skylight-installation': {
+    heading: 'Expert Skylight Installation Services',
+    body: [
+      'Whether you\'re adding natural light to a living space or installing a vented skylight in a bathroom, Elite Roofing handles the full installation with waterproofing expertise at the centre. A properly flashed skylight transforms a room and lasts decades without a single leak.',
+      'Serving homeowners across Vaughan and surrounding areas, our skylight team takes the time to explain sizing, placement, and glazing options before work begins. The result is a weathertight installation backed by our 10-year leak-free guarantee.',
+    ],
+  },
+  'roof-inspection': {
+    heading: 'Professional Roof Inspection Services',
+    body: [
+      'Whether you\'re buying a home, preparing for a sale, or simply want a clear picture of your roof\'s condition, Elite Roofing delivers thorough written inspections with full photographic documentation. Our reports are accepted by insurers, lenders, and legal proceedings.',
+      'Serving homeowners across Vaughan and surrounding areas, our inspection team provides honest findings with no upsell pressure. You receive a detailed report within 24 hours, along with a straight assessment of remaining service life and any repairs that make sense to address now.',
+    ],
+  },
+  'metal-roofing': {
+    heading: 'Ontario\'s Metal Roofing Specialists',
+    body: [
+      'Whether you\'re upgrading to a standing seam panel or restoring a heritage home with a metal shingle profile, Elite Roofing brings the technical precision metal roofing demands. Every seam, clip, and ridge cap is installed to manufacturer specification.',
+      'Serving homeowners across Vaughan and surrounding areas, our metal roofing team guides you through profile, finish, and warranty options before a single panel is cut. You end up with a roof that lasts 50 years and looks exceptional for every one of them.',
+    ],
+  },
+  'flat-roofing': {
+    heading: 'Expert Flat Roofing Solutions',
+    body: [
+      'Whether you\'re dealing with a failing membrane or planning a new flat roof installation, Elite Roofing provides engineered drainage solutions and certified membrane systems that perform for decades. Proper slope and watertight terminations are built into every job.',
+      'Serving homeowners and commercial property owners across Vaughan and surrounding areas, our flat roofing team explains every system option in plain language. You move forward with a roof that drains properly, resists Ontario winters, and comes with full manufacturer and workmanship coverage.',
+    ],
+  },
+  'multi-family-roofing': {
+    heading: 'Multi-Family Roofing Specialists',
+    body: [
+      'Whether you manage a condo complex or a townhouse portfolio, Elite Roofing delivers phased roofing solutions that keep buildings watertight and tenants undisturbed. Our experience with occupied-building installations means every project is planned around your residents.',
+      'Serving property managers and condo boards across Vaughan and surrounding areas, our multi-family team presents directly to boards, works within reserve fund timelines, and delivers unified warranties across your entire portfolio. Clear communication at every phase is how we protect your investment.',
+    ],
+  },
+  'roof-replacement': {
+    heading: 'Your Expert Roof Replacement Team',
+    body: [
+      'Whether you\'re dealing with storm damage or planning a roof replacement, Elite Roofing brings experience, care, and clear guidance to every home. We install roofing systems with a focus on durability, proper installation, and steady communication throughout the process.',
+      'Serving homeowners across Vaughan and surrounding areas, our team takes the time to explain options, timelines, and next steps so you can move forward with confidence on a roof built to handle Ontario\'s climate.',
+    ],
+  },
+  'roof-tarping': {
+    heading: 'Emergency Roof Tarping & Rapid Response',
+    body: [
+      'Whether you\'re dealing with storm damage in the middle of the night or an unexpected roof failure, Elite Roofing dispatches quickly and secures your home with commercial-grade tarping that holds through Ontario\'s toughest weather. We document everything for your insurance claim before we leave.',
+      'Serving homeowners across Vaughan and surrounding areas, our emergency team arrives ready, works efficiently, and provides a full written damage report on site. You can submit your insurance claim with confidence knowing every detail is documented and your home is protected.',
+    ],
+  },
+}
+
+// ─── Service Quick Form ───────────────────────────────────────────────────────
+
+function ServiceQuickForm({ serviceTitle }: { serviceTitle: string }) {
+  const [fields, setFields] = useState({ name: '', email: '', phone: '', service: serviceTitle, message: '' })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  const validate = () => {
+    const e: Record<string, string> = {}
+    if (!fields.name.trim()) e.name = 'Name is required'
+    if (!fields.email.trim() || !/\S+@\S+\.\S+/.test(fields.email)) e.email = 'Valid email is required'
+    if (!fields.message.trim()) e.message = 'Please describe your project'
+    return e
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length > 0) { setErrors(errs); return }
+    setSubmitting(true)
+    await new Promise(r => setTimeout(r, 1200))
+    setSubmitting(false)
+    setSubmitted(true)
+  }
+
+  if (submitted) {
+    return (
+      <div className="text-center py-10">
+        <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-7 h-7 text-green-600" />
+        </div>
+        <h4 className="font-serif text-lg font-bold text-[#0f172a] mb-2">Thank You!</h4>
+        <p className="font-sans text-sm text-[#1e293b]">We&apos;ll be in touch within 24 hours to discuss your project.</p>
+      </div>
+    )
+  }
+
+  const inputCls = `w-full px-4 py-3 font-sans text-sm text-[#0f172a] bg-[#f8f7f5] border border-[#e7e5e4] focus:outline-none focus:border-[#D0000F] focus:bg-white transition-colors duration-200`
+
+  const serviceOptions = [
+    'Multi Family Roofing', 'Roof Replacement', 'Metal Roofing', 'Flat Roofing',
+    'Gutter Systems', 'Skylight Installation', 'Roof Repairs', 'Storm Damage Restoration',
+    'Other / Not Sure',
+  ]
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+      <div>
+        <input
+          type="text"
+          placeholder="Full Name *"
+          value={fields.name}
+          onChange={e => { setFields(f => ({...f, name: e.target.value})); setErrors(er => ({...er, name: ''})) }}
+          className={inputCls + (errors.name ? ' border-red-400' : '')}
+        />
+        {errors.name && <p className="font-sans text-xs text-red-500 mt-1">{errors.name}</p>}
+      </div>
+      <div>
+        <input
+          type="email"
+          placeholder="Email Address *"
+          value={fields.email}
+          onChange={e => { setFields(f => ({...f, email: e.target.value})); setErrors(er => ({...er, email: ''})) }}
+          className={inputCls + (errors.email ? ' border-red-400' : '')}
+        />
+        {errors.email && <p className="font-sans text-xs text-red-500 mt-1">{errors.email}</p>}
+      </div>
+      <div>
+        <input
+          type="tel"
+          placeholder="Phone Number (optional)"
+          value={fields.phone}
+          onChange={e => setFields(f => ({...f, phone: e.target.value}))}
+          className={inputCls}
+        />
+      </div>
+      <div>
+        <select
+          value={fields.service}
+          onChange={e => setFields(f => ({...f, service: e.target.value}))}
+          className={inputCls + ' cursor-pointer'}
+        >
+          <option value="" disabled>Select a Service</option>
+          {serviceOptions.map(opt => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <textarea
+          placeholder="Project Details *"
+          rows={4}
+          value={fields.message}
+          onChange={e => { setFields(f => ({...f, message: e.target.value})); setErrors(er => ({...er, message: ''})) }}
+          className={inputCls + ' resize-none' + (errors.message ? ' border-red-400' : '')}
+        />
+        {errors.message && <p className="font-sans text-xs text-red-500 mt-1">{errors.message}</p>}
+      </div>
+      <button
+        type="submit"
+        disabled={submitting}
+        className="w-full px-6 py-4 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-sm font-semibold transition-colors duration-300 disabled:opacity-70"
+      >
+        {submitting ? 'Sending…' : 'Get In Touch'}
+      </button>
+    </form>
+  )
+}
+
 // ─── Review Carousel ──────────────────────────────────────────────────────────
 
 function ReviewCarousel({ reviews, serviceTitle }: { reviews: ServiceReview[]; serviceTitle: string }) {
@@ -412,10 +639,10 @@ function ReviewCarousel({ reviews, serviceTitle }: { reviews: ServiceReview[]; s
         >
           <div className="flex gap-0.5 mb-4">
             {Array.from({ length: r.rating }).map((_, i) => (
-              <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+              <span key={i} className="text-[#f59e0b] text-base leading-none">★</span>
             ))}
           </div>
-          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed flex-1 mb-6">
             &ldquo;{r.quote}&rdquo;
           </p>
           <div className="flex items-center gap-3 pt-4 border-t border-[#e7e5e4]">
@@ -424,7 +651,7 @@ function ReviewCarousel({ reviews, serviceTitle }: { reviews: ServiceReview[]; s
             </div>
             <div>
               <p className="font-sans text-sm font-semibold text-[#0f172a]">{r.name}</p>
-              <p className="font-sans text-[11px] text-[#94a3b8]">{r.location} · {serviceTitle}</p>
+              <p className="font-sans text-[11px] text-[#0f172a]">{r.location} · {serviceTitle}</p>
             </div>
           </div>
         </motion.div>
@@ -435,15 +662,15 @@ function ReviewCarousel({ reviews, serviceTitle }: { reviews: ServiceReview[]; s
             <button
               key={i}
               onClick={() => { setPaused(true); setCurrent(i) }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#D0000F] w-5' : 'bg-[#e7e5e4]'}`}
             />
           ))}
         </div>
         <div className="flex gap-2">
-          <button onClick={prev} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={prev} className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200">
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <button onClick={next} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={next} className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -467,8 +694,8 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
             className={[
               'border transition-all duration-300',
               isOpen
-                ? 'border-[#c9a55a]/50 shadow-sm'
-                : 'border-[#e7e5e4] hover:border-[#c9a55a]/30',
+                ? 'border-[#D0000F]/50 shadow-sm'
+                : 'border-[#e7e5e4] hover:border-[#D0000F]/30',
             ].join(' ')}
           >
             <button
@@ -484,7 +711,7 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
                 transition={{ duration: 0.25, ease: 'easeInOut' }}
                 className="flex-shrink-0"
               >
-                <ChevronDown className="w-5 h-5 text-[#c9a55a]" />
+                <ChevronDown className="w-5 h-5 text-[#D0000F]" />
               </motion.span>
             </button>
 
@@ -499,7 +726,7 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-5 border-t border-[#e7e5e4]">
-                    <p className="font-sans text-sm text-[#64748b] leading-relaxed pt-4">
+                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed pt-4">
                       {faq.answer}
                     </p>
                   </div>
@@ -629,7 +856,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
           )}
           <path
             d={pathD || 'M 0 0'}
-            stroke="#c9a55a"
+            stroke="#D0000F"
             strokeWidth="2.5"
             strokeLinecap="round"
             style={{
@@ -646,12 +873,12 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
         {/* Heading — line starts from below this block */}
         <div ref={headingRef} className="flex items-start justify-end mb-6 lg:mb-8">
           <div className="text-left">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-3 block">
-              How It Works
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-3 block">
+              Our Process
             </span>
             <h2 className="font-sans font-black text-[#0f172a] leading-[1.05]">
               <span className="block text-[2.8rem] lg:text-[3.8rem] xl:text-[4.5rem]">Four Steps.</span>
-              <span className="block text-[2.8rem] lg:text-[3.8rem] xl:text-[4.5rem]">zero <span className="text-[#c9a55a]">Effort.</span></span>
+              <span className="block text-[2.8rem] lg:text-[3.8rem] xl:text-[4.5rem]">zero <span className="text-[#D0000F]">Effort.</span></span>
             </h2>
           </div>
         </div>
@@ -675,8 +902,8 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
                   <div
                     className={`absolute inset-0 transition-all duration-500 ${
                       isActive
-                        ? 'bg-[#c9a55a] border-2 border-[#c9a55a] shadow-xl shadow-[#c9a55a]/25'
-                        : 'bg-white border-2 border-[#c9a55a]/40'
+                        ? 'bg-[#D0000F] border-2 border-[#D0000F] shadow-xl shadow-[#D0000F]/25'
+                        : 'bg-white border-2 border-[#D0000F]/40'
                     }`}
                     style={{ borderRadius: ['60% 40% 55% 45% / 45% 55% 40% 60%', '40% 60% 45% 55% / 55% 45% 60% 40%', '55% 45% 60% 40% / 40% 60% 45% 55%', '45% 55% 40% 60% / 60% 40% 55% 45%'][i] }}
                   />
@@ -688,13 +915,13 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
                 </div>
                 <div className={`flex-1 transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-25'}`}>
                   <div className={isLeft ? 'ml-auto w-fit' : ''}>
-                    <div className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#c9a55a] mb-3">
+                    <div className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-[#D0000F] mb-3">
                       {String(i + 1).padStart(2, '0')} / 04
                     </div>
                     <h3 className="font-sans font-black text-2xl lg:text-3xl text-[#0f172a] mb-4 leading-tight">
                       {step.title}
                     </h3>
-                    <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-xs">
+                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-xs">
                       {step.body}
                     </p>
                   </div>
@@ -707,11 +934,11 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
         {/* Mobile: heading + numbered list */}
         <div className="lg:hidden space-y-0">
           <div className="mb-8">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-2 block">
-              How It Works
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-2 block">
+              Our Process
             </span>
             <h2 className="font-sans font-black text-[2rem] text-[#0f172a] leading-tight mb-8">
-              Four Steps. <span className="text-[#c9a55a]">zero Effort.</span>
+              Four Steps. <span className="text-[#D0000F]">zero Effort.</span>
             </h2>
           </div>
           {steps.map((step, i) => (
@@ -726,7 +953,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
               </div>
               <div className={i < steps.length - 1 ? 'pb-10' : ''}>
                 <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1.5 leading-snug">{step.title}</h3>
-                <p className="font-sans text-sm text-[#64748b] leading-relaxed">{step.body}</p>
+                <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed">{step.body}</p>
               </div>
             </div>
           ))}
@@ -737,13 +964,13 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
           <div ref={contactRef}>
             <Link
               href="/contact"
-              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-500 rounded-none ${
+              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-sm font-semibold transition-all duration-500 rounded-md ${
                 contactActive
-                  ? 'bg-[#c9a55a] hover:bg-[#a87d3a] text-white shadow-xl shadow-[#c9a55a]/25'
-                  : 'bg-white border-2 border-[#e2e8f0] text-[#94a3b8]'
+                  ? 'bg-[#D0000F] hover:bg-[#A5000A] text-white shadow-xl shadow-[#D0000F]/25'
+                  : 'bg-white border-2 border-[#e2e8f0] text-[#0f172a]'
               }`}
             >
-              Contact Us <ArrowRight className="w-3.5 h-3.5" />
+              Contact Us
             </Link>
           </div>
         </div>
@@ -766,61 +993,208 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const zigImg1 = content.galleryImages[0] ?? content.heroImage
   const zigImg2 = content.galleryImages[1] ?? content.galleryImages[0] ?? content.heroImage
   const reviews = serviceReviewsMap[params.slug] ?? serviceReviewsMap['residential-roofing']
-  const processData = serviceProcessData[params.slug] ?? serviceProcessData['residential-roofing']
+  const gsData = serviceGetStartedData[params.slug] ?? serviceGetStartedData['roof-replacement']
 
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 lg:pt-40 overflow-hidden">
+      <section className="relative min-h-[280px] md:min-h-[360px] lg:min-h-[420px] flex items-center">
         <div className="absolute inset-0">
           <Image
             src={content.heroImage}
             alt={service.title}
             fill
             priority
+            quality={90}
             sizes="100vw"
             className="object-cover"
             style={content.heroImagePosition ? { objectPosition: content.heroImagePosition } : undefined}
           />
         </div>
-        <div className="absolute inset-0 bg-[#0f172a]/80" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pb-20 md:pb-28 lg:pb-36">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 mb-6 text-white/40 font-sans text-xs">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex pt-24 md:pt-28 lg:pt-32">
+          <div className="flex items-center gap-2 text-white font-sans text-sm font-bold tracking-widest uppercase">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
-            <span>/</span>
+            <span className="text-white/50">/</span>
             <Link href="/#services" className="hover:text-white/70 transition-colors">Services</Link>
-            <span>/</span>
-            <span className="text-white/70">{service.title}</span>
+            <span className="text-white/50">/</span>
+            <span className="text-white/80">{service.title}</span>
           </div>
-
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.02] max-w-3xl">
-            {service.title}
-          </h1>
         </div>
+      </section>
 
-        {/* ── Credentials Trust Bar — inside hero so bg image shows through */}
-        <div className="relative z-10 bg-[#0a1628]/65 border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4">
-            <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-3">
-              {([
-                { label: 'Licensed in Ontario', Icon: Shield },
-                { label: '$5M Liability Insurance', Icon: BadgeCheck },
-                { label: 'WSIB Covered', Icon: Users },
-                { label: 'BBB Accredited Business', Icon: Award },
-              ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
-                <div key={i} className="flex items-center gap-2.5 flex-1 justify-center min-w-[160px]">
-                  <Icon className="w-4 h-4 text-[#c9a55a] flex-shrink-0" />
-                  <span className="font-sans text-xs font-bold tracking-wide text-white whitespace-nowrap">
-                    {label}
-                  </span>
-                </div>
+      {/* ── Get Started ─────────────────────────────────────────────────────── */}
+      <section className="relative bg-[#f8f7f5]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            {/* Left: text content */}
+            <div className="pt-12 md:pt-14 lg:pt-16 pb-12 lg:pb-16">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-6 leading-tight">
+                {gsData.heading}
+              </h2>
+              <div className="w-24 h-px bg-[#D0000F] mb-8" />
+              {gsData.body.map((paragraph, idx) => (
+                <p key={idx} className="font-sans text-base text-[#0f172a] leading-relaxed mb-5 last:mb-0">
+                  {paragraph}
+                </p>
               ))}
+              <div className="mt-7 space-y-3">
+                {([
+                  { label: 'Licensed in Ontario', Icon: Shield },
+                  { label: '$5M Liability Insurance', Icon: BadgeCheck },
+                  { label: 'WSIB Covered', Icon: Users },
+                  { label: 'BBB Accredited Business', Icon: Award },
+                ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-[#0f172a]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-[#0f172a]" />
+                    </div>
+                    <span className="font-sans text-sm font-semibold text-[#0f172a]">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Right: form card — overlaps hero banner */}
+            <div className="relative z-10 pb-12 lg:pb-16 lg:-mt-24">
+              <div className="bg-white rounded-xl shadow-2xl p-8 lg:p-10">
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-2">
+                  Let&apos;s Get Started!
+                </h3>
+                <Link href="/testimonials" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
+                  {/* Overlapping reviewer avatars */}
+                  <div className="flex -space-x-2 flex-shrink-0">
+                    {[
+                      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face',
+                      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&h=48&fit=crop&crop=face',
+                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=48&h=48&fit=crop&crop=face',
+                    ].map((src, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden relative flex-shrink-0">
+                        <Image src={src} alt="reviewer" fill sizes="32px" className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="flex gap-0.5 mb-0.5">
+                      {[1,2,3,4,5].map((i) => (
+                        <span key={i} className="text-[#f59e0b] text-sm leading-none">★</span>
+                      ))}
+                    </div>
+                    <p className="font-sans text-xs text-[#1e293b]">4.9 out of 5 · 300+ Google reviews</p>
+                  </div>
+                </Link>
+                <ServiceQuickForm serviceTitle={service.title} />
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── The Standard ─────────────────────────────────────────────────────── */}
+        <section className="bg-white py-20 md:py-28">
+          <div className="px-8 md:px-10 lg:px-14">
+            <div className="text-center mb-16">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
+                Our Commitment
+              </span>
+              <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
+                The Standard
+              </h2>
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-2xl mx-auto">
+                Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+              {([
+                {
+                  icon: BadgeCheck,
+                  heading: 'Certified Installers Only',
+                  body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
+                },
+                {
+                  icon: Wrench,
+                  heading: 'Worksite Discipline',
+                  body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
+                },
+                {
+                  icon: Layers,
+                  heading: 'No Material Substitutions',
+                  body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
+                },
+                {
+                  icon: Users,
+                  heading: 'One Point of Contact',
+                  body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
+                },
+              ] as { icon: React.ElementType; heading: string; body: string }[]).map((item, i) => {
+                const ItemIcon = item.icon
+                return (
+                  <div key={i} className="border-t-2 border-[#D0000F] pt-7">
+                    <div className="mb-4">
+                      <ItemIcon className="w-7 h-7 text-[#D0000F]" />
+                    </div>
+                    <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
+                    <p className="font-sans text-sm text-[#1e293b] leading-loose">{item.body}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+      {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
+      <AnimatedProcessSection steps={sharedProcessData.steps} stepIcons={sharedProcessData.icons} />
+
+      {/* ── Our Work (3-card grid) ────────────────────────────────────────────── */}
+      {(() => {
+        const featuredSlugs = content.featuredProjects ?? []
+        const featuredCards = featuredSlugs
+          .map(slug => projects.find(p => p.slug === slug))
+          .filter(Boolean) as typeof projects
+        if (featuredCards.length === 0) return null
+        return (
+          <section className="pt-16 md:pt-20 pb-28 md:pb-36 bg-[#fafaf9]">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+              <div className="text-center mb-10">
+                <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
+                  Our Work
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
+                  {service.title} Projects
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {featuredCards.map((project) => (
+                  <div key={project.id} className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl group">
+                    <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-5 border-t border-[#e7e5e4]">
+                      <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
+                      <p className="font-sans text-xs text-[#0f172a] mb-3">{project.location} &middot; {project.year}</p>
+                      <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{project.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-center">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
+                  View All Projects
+                </Link>
+              </div>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
@@ -858,151 +1232,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
           <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
             <div className="w-full max-w-[340px] md:max-w-[440px] lg:max-w-[480px]">
-              <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#c9a55a] mb-3 block">
-                Elite Roofing Standards
-              </span>
               <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-white mb-5 leading-tight uppercase tracking-normal">
                 {content.tagline}
               </h2>
-              <div className="w-12 h-1 bg-[#c9a55a] mb-5" />
-              <p className="font-sans text-sm text-white/80 leading-relaxed mb-8">
+              <p className="font-sans text-sm text-white/80 leading-relaxed">
                 {service.fullDescription}
               </p>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#c9a55a] hover:bg-[#b8943e] text-black font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
-                >
-                  Free Estimate <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <a
-                  href="tel:+19055550198"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-[#041D35] font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
-                >
-                  <Phone className="w-3.5 h-3.5" /> Call Us
-                </a>
-              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* ── The Standard ─────────────────────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-28">
-          <div className="px-8 md:px-10 lg:px-14">
-            <div className="text-center mb-16">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                Our Commitment
-              </span>
-              <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
-                The Standard
-              </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-2xl mx-auto">
-                Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-              {([
-                {
-                  icon: BadgeCheck,
-                  heading: 'Certified Installers Only',
-                  body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
-                },
-                {
-                  icon: Wrench,
-                  heading: 'Worksite Discipline',
-                  body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
-                },
-                {
-                  icon: Layers,
-                  heading: 'No Material Substitutions',
-                  body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
-                },
-                {
-                  icon: Users,
-                  heading: 'One Point of Contact',
-                  body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
-                },
-              ] as { icon: React.ElementType; heading: string; body: string }[]).map((item, i) => {
-                const ItemIcon = item.icon
-                return (
-                  <div key={i} className="border-t-2 border-[#c9a55a] pt-7">
-                    <div className="mb-4">
-                      <ItemIcon className="w-7 h-7 text-[#c9a55a]" />
-                    </div>
-                    <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
-                    <p className="font-sans text-sm text-[#64748b] leading-loose">{item.body}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-      {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
-      <AnimatedProcessSection steps={processData.steps} stepIcons={processData.icons} />
-
-      {/* ── Our Work (3-card grid) ────────────────────────────────────────────── */}
-      {(() => {
-        const featuredSlugs = content.featuredProjects ?? []
-        const featuredCards = featuredSlugs
-          .map(slug => projects.find(p => p.slug === slug))
-          .filter(Boolean) as typeof projects
-        if (featuredCards.length === 0) return null
-        return (
-          <section className="pt-16 md:pt-20 pb-28 md:pb-36 bg-[#fafaf9] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-              <div className="text-center mb-10">
-                <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                  Our Work
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-                  {service.title} Projects
-                </h2>
-              </div>
-            </div>
-
-            <div className="px-2 md:px-6 lg:px-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10">
-                {featuredCards.map(project => (
-                  <div key={project.id} className="group overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl">
-                    <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
-                        {(project.categories ?? [project.category]).map(cat => (
-                          <span key={cat} className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="p-5 border-t border-[#e7e5e4]">
-                      <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
-                      <p className="font-sans text-xs text-[#94a3b8] mb-3">{project.location} &middot; {project.year}</p>
-                      <p className="font-sans text-sm text-[#64748b] leading-relaxed line-clamp-2">{project.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
-              >
-                View All Projects
-              </Link>
-            </div>
-          </section>
-        )
-      })()}
 
       {/* ── Our Guarantee (all service pages) ────────────────────────────────── */}
       {(() => {
@@ -1016,35 +1255,35 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </div>
             <div className="relative z-10 px-4 md:px-8 lg:px-16">
               <div className="text-center mb-14 md:mb-18">
-                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-3 block">
+                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-3 block">
                   Our Guarantee
                 </span>
                 <h3 className="font-sans font-black text-[2rem] md:text-[2.8rem] lg:text-[3.2rem] text-[#0f172a] leading-tight">
                   {wd.heading}
                 </h3>
-                <p className="font-sans text-sm text-[#64748b] mt-5 max-w-xl mx-auto leading-relaxed">
+                <p className="font-sans text-sm text-[#1e293b] mt-5 max-w-xl mx-auto leading-relaxed">
                   {wd.description}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
                 {wd.cards.map(({ label, duration, items }) => (
-                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#c9a55a]/30">
-                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#c9a55a]/20">
-                      <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#64748b]">{label}</p>
-                      <span className="font-sans font-black text-xl text-[#c9a55a]">{duration}</span>
+                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#D0000F]/30">
+                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#D0000F]/20">
+                      <p className="font-sans text-xs font-semibold text-[#1e293b]">{label}</p>
+                      <span className="font-sans font-black text-xl text-[#D0000F]">{duration}</span>
                     </div>
                     <ul className="space-y-3">
                       {items.map(item => (
                         <li key={item} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
-                          <span className="font-sans text-sm text-[#475569] leading-snug">{item}</span>
+                          <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
+                          <span className="font-sans text-sm font-medium text-[#0f172a] leading-snug">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 ))}
               </div>
-              <p className="text-center font-sans text-xs text-[#64748b] mt-10 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-center font-sans text-xs text-[#1e293b] mt-10 leading-relaxed max-w-2xl mx-auto">
                 {wd.footnote}
               </p>
             </div>
@@ -1056,7 +1295,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               Client Feedback
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -1076,7 +1315,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 What Our Clients<br />Are Saying About Our<br />{service.title}
               </h3>
 
-              <div className="flex items-center gap-4 mb-5">
+              <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
                 <div className="flex -space-x-3">
                   {reviews.slice(0, 3).map((r, i) => (
                     <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -1087,16 +1326,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 <div>
                   <div className="flex gap-0.5 mb-1">
                     {[1,2,3,4,5].map((i) => (
-                      <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+                      <span key={i} className="text-[#f59e0b] text-base leading-none">★</span>
                     ))}
                   </div>
                   <p className="font-sans text-sm font-semibold text-[#0f172a]">
-                    4.9 <span className="font-normal text-[#64748b]">out of 5 across 300 Google reviews</span>
+                    4.9 <span className="font-normal text-[#1e293b]">out of 5 across 300 Google reviews</span>
                   </p>
                 </div>
-              </div>
+              </Link>
 
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their {service.title.toLowerCase()} needs. Read what they have to say.
               </p>
 
@@ -1105,15 +1344,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   href="https://customerreviews.google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
-                >
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md">
                   Leave a Google Review
                 </a>
                 <a
                   href="/testimonials"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
                 >
-                  See More Reviews →
+                  See More Reviews
                 </a>
               </div>
             </div>
@@ -1125,7 +1363,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               Questions & Answers
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
@@ -1139,42 +1377,29 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+          <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-white/60 mb-5 block">
             Get Started
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
             Ready to Discuss Your {service.title} Project?
           </h2>
           <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-            Our free inspection includes a detailed assessment, photographic documentation,
-            and a transparent written proposal, no obligation and no pressure.
+            Elite Roofing provides a no pressure, no cost assessment of your roof. We document every finding, answer your questions honestly, and deliver a transparent written proposal.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
             >
-              Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
+              Get Free Estimate
             </Link>
             <a
               href="tel:+19055550198"
-              className="inline-flex items-center gap-2 font-sans text-sm text-white/60 hover:text-white transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
             >
-              <Phone className="w-4 h-4 text-[#c9a55a]" />
               (905) 555-0198
             </a>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            {['No obligation, ever', '10 Year Workmanship Warranty', 'Serving all of Ontario'].map(
-              (item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />
-                  <span className="font-sans text-xs text-white/40">{item}</span>
-                </div>
-              )
-            )}
           </div>
         </div>
       </section>

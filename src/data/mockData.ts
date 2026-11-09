@@ -1,4 +1,4 @@
-﻿export interface Service {
+export interface Service {
   id: string
   slug: string
   icon: string
@@ -53,48 +53,10 @@ export interface Testimonial {
 
 export const services: Service[] = [
   {
-    id: '1',
-    slug: 'residential-roofing',
-    icon: 'Home',
-    title: 'Residential Roofing',
-    shortDescription:
-      'Full service residential roof installation, replacement, and upgrades for homes of every style.',
-    fullDescription:
-      'Performing an installation correctly and exactly to the manufacturer\'s specifications, as well as to the current code, is as important as your choice of product and roof installer. At Elite Roofing, we specialize in residential roofing installation. We will be honest with you about whether you need a repair on your roof or a roof replacement.',
-    features: [
-      'Complete tear off and replacement',
-      'Architectural shingle systems',
-      'Metal roofing installation',
-      'Cedar shake and slate options',
-      'Energy efficient materials',
-      'Full warranty coverage',
-    ],
-    image: '/residential-roofing.webp',
-  },
-  {
-    id: '2',
-    slug: 'commercial-roofing',
-    icon: 'Building2',
-    title: 'Commercial Roofing',
-    shortDescription:
-      'Durable, high performance commercial roofing systems for businesses, retail, and industrial properties.',
-    fullDescription:
-      'Protecting a commercial building starts with a roofing system installed correctly and maintained proactively. At Elite Roofing, we specialize in commercial roofing for office, retail, industrial, and multi-unit properties across Ontario, with phased installation that keeps your business fully operational throughout.',
-    features: [
-      'TPO and EPDM membrane systems',
-      'Modified bitumen roofing',
-      'Built up (BUR) systems',
-      'Rooftop HVAC accommodation',
-      'Minimal business disruption',
-      'Preventive maintenance programs',
-    ],
-    image: '/commercial-roofing.jpg',
-  },
-  {
     id: '3',
     slug: 'roof-repair',
     icon: 'Wrench',
-    title: 'Roof Repair',
+    title: 'Roof Repairs',
     shortDescription:
       "Fast, expert repairs for leaks, storm damage, and wear, restoring your roof's integrity promptly.",
     fullDescription:
@@ -167,23 +129,6 @@ export const services: Service[] = [
     image: '/skylight-installation.webp',
   },
   {
-    id: '7',
-    slug: 'roof-inspection',
-    icon: 'Search',
-    title: 'Roof Inspection',
-    shortDescription: 'Comprehensive professional roof assessments that identify vulnerabilities before they become costly problems.',
-    fullDescription: 'Knowing exactly what condition your roof is in — before buying a home, before a sale, or before a problem becomes a crisis — is worth more than any repair cost. At Elite Roofing, our certified inspectors evaluate every component from deck to ridge, document every finding with high-resolution photography, and deliver a complete written report within 24 hours.',
-    features: [
-      'Full photographic documentation',
-      'Drone assisted inspection available',
-      'Written condition report within 24 hours',
-      'Insurance ready documentation',
-      'Pre purchase home inspection reports',
-      'Post storm damage assessment',
-    ],
-    image: '/service-roof-inspection.jpg',
-  },
-  {
     id: '8',
     slug: 'metal-roofing',
     icon: 'Layers',
@@ -251,23 +196,6 @@ export const services: Service[] = [
     ],
     image: '/service-roof-replacement.jpg',
   },
-  {
-    id: '12',
-    slug: 'roof-tarping',
-    icon: 'Shield',
-    title: 'Roof Tarping',
-    shortDescription: 'When damage hits unexpectedly, roof tarping acts as a temporary shield, preventing further water penetration until permanent repairs are made.',
-    fullDescription: 'When a roof is breached by storm, impact, or structural failure, every hour without proper protection risks thousands in interior damage. At Elite Roofing, we deploy commercial-grade emergency tarps anchored with 2×4 battens and weighted perimeter edges within hours of your call — providing genuine wind-resistant protection and complete photographic documentation for your insurance claim.',
-    features: [
-      '24/7 emergency deployment',
-      'Commercial grade 10mil polyethylene',
-      'Batten and anchor installation',
-      'Wind rated up to 60 mph',
-      'Insurance documentation provided',
-      'Seamless handoff to permanent repair',
-    ],
-    image: '/service-roof-tarping.avif',
-  },
 ]
 
 export const projects: Project[] = [
@@ -284,20 +212,6 @@ export const projects: Project[] = [
     images: ['/project-res-2.webp'],
     featured: true,
     tags: ['Metal Tile', 'Colonial Estate', 'Copper Flashing'],
-  },
-  {
-    id: '2',
-    slug: 'meridian-office-complex',
-    title: 'Mississauga Office Complex TPO',
-    category: 'Commercial',
-    location: 'Mississauga, ON',
-    year: '2024',
-    description:
-      'Full flat roof replacement on a 45,000 sq ft office complex with a high-performance TPO membrane, upgraded drainage, and solar-ready mounting infrastructure.',
-    image: '/project-com-2.jpg',
-    images: ['/project-com-2.jpg'],
-    featured: true,
-    tags: ['TPO Membrane', 'Commercial', 'Solar Ready'],
   },
   {
     id: '3',
@@ -401,81 +315,11 @@ export const projects: Project[] = [
     featured: false,
     tags: ['Craftsman Style', 'Architectural Shingles', 'Multi Unit'],
   },
-  {
-    id: '11',
-    slug: 'plaza-retail-center',
-    title: 'Brampton Strip Mall TPO Re-Roof',
-    category: 'Commercial',
-    location: 'Brampton, ON',
-    year: '2023',
-    description:
-      'Weekend re-roofing of a 28,000 sq ft retail strip — new TPO membrane, upgraded insulation, and re-flashed HVAC curbs, completed Saturday to Monday with zero business-day disruption.',
-    image: '/project-com-1.jpg',
-    images: ['/project-com-1.jpg'],
-    featured: false,
-    tags: ['TPO Membrane', 'Retail', 'Weekend Install'],
-  },
-  {
-    id: '12',
-    slug: 'vaughan-corporate-campus',
-    title: 'Vaughan Corporate Campus EPDM',
-    category: 'Commercial',
-    location: 'Vaughan, ON',
-    year: '2024',
-    description:
-      'EPDM membrane replacement across a four-building campus totalling 92,000 sq ft, phased over six weekends with continuous operations and new safety rail systems at all access points.',
-    image: '/project-com-5.jpg',
-    images: ['/project-com-5.jpg'],
-    featured: false,
-    tags: ['EPDM Membrane', 'Multi Building', 'Safety Rails'],
-  },
-  {
-    id: '13',
-    slug: 'north-york-medical-centre',
-    title: 'North York Medical Office Flat Roof',
-    category: 'Commercial',
-    location: 'North York, ON',
-    year: '2024',
-    description:
-      'New-construction TPO flat roof on a 52,000 sq ft medical office building — mechanically fastened over polyiso insulation with internal drainage and HVAC service walkway pads.',
-    image: '/project-com-3.jpg',
-    images: ['/project-com-3.jpg'],
-    featured: false,
-    tags: ['TPO Membrane', 'New Construction', 'Medical'],
-  },
-  {
-    id: '14',
-    slug: 'brampton-industrial-warehouse',
-    title: 'Brampton Warehouse Modified Bitumen',
-    category: 'Commercial',
-    location: 'Brampton, ON',
-    year: '2023',
-    description:
-      'Hot-applied modified bitumen re-roof on a 95,000 sq ft distribution warehouse with tapered insulation, 34 skylights re-curbed and re-flashed, and full perimeter edge metal replaced.',
-    image: '/project-com-4.jpg',
-    images: ['/project-com-4.jpg'],
-    featured: false,
-    tags: ['Modified Bitumen', 'Industrial', 'Skylights'],
-  },
-  {
-    id: '15',
-    slug: 'mississauga-business-park',
-    title: 'Mississauga Business Park Re-Roof',
-    category: 'Commercial',
-    location: 'Mississauga, ON',
-    year: '2023',
-    description:
-      'SBS modified bitumen replacement on a 67,000 sq ft multi-tenant park with improved scupper drainage and a phased schedule that kept all 18 tenants fully operational.',
-    image: '/project-com-6.jpg',
-    images: ['/project-com-6.jpg'],
-    featured: false,
-    tags: ['Modified Bitumen', 'Multi Tenant', 'Business Park'],
-  },
 
   // ── Roof Repair ────────────────────────────────────────────────────────────
   {
     id: '16', slug: 'aurora-leak-flashing-repair', title: 'Shingle & Flashing Repair',
-    category: 'Roof Repair', location: 'Aurora, ON', year: '2024',
+    category: 'Roof Repairs', location: 'Aurora, ON', year: '2024',
     description: 'On-site diagnosis and repair of multiple leak points — failed step flashing, a cracked pipe boot, and lifted ridge caps — all resolved in a single visit with full documentation.',
     image: '/project-repair-aurora.webp',
     images: ['/project-repair-aurora.webp'],
@@ -483,7 +327,7 @@ export const projects: Project[] = [
   },
   {
     id: '17', slug: 'newmarket-chimney-cap-seal', title: 'Chimney Cap & Step Flashing Repair',
-    category: 'Roof Repair', location: 'Newmarket, ON', year: '2024',
+    category: 'Roof Repairs', location: 'Newmarket, ON', year: '2024',
     description: 'New galvanized chimney cap, re-installed step flashing, and full re-pointing of the surrounding brick on a split-level home. Leak source fully eliminated.',
     image: '/project-repair-2.jpg',
     images: ['/project-repair-2.jpg'],
@@ -491,14 +335,14 @@ export const projects: Project[] = [
   },
   {
     id: '18', slug: 'barrie-shingle-valley-repair', title: 'Valley Repair & Shingle Replacement',
-    category: 'Roof Repair', location: 'Barrie, ON', year: '2023',
+    category: 'Roof Repairs', location: 'Barrie, ON', year: '2023',
     description: 'Ice dam damage repaired with new W-valley metal, a woven shingle overlay, and ice and water shield at the eaves. No leaks through two subsequent winters.',
     image: '/project-repair-3.jpg',
     images: ['/project-repair-3.jpg'],
     featured: false, tags: ['Valley Repair', 'Ice Dam', 'Shingles'],
   },
 
-  // ── Storm Damage Restoration ───────────────────────────────────────────────
+  // ── Storm Damage Repair ───────────────────────────────────────────────
   {
     id: '19', slug: 'oshawa-hail-storm-restoration', title: 'Hail Damage Tear-Off & Replacement',
     category: 'Storm Damage Restoration', location: 'Oshawa, ON', year: '2024',
@@ -566,32 +410,6 @@ export const projects: Project[] = [
     image: '/project-skylight-3.jpg',
     images: ['/project-skylight-3.jpg'],
     featured: false, tags: ['Velux VSS', 'Solar Powered', 'Rain Sensor'],
-  },
-
-  // ── Roof Inspection ────────────────────────────────────────────────────────
-  {
-    id: '28', slug: 'richmond-hill-pre-purchase-report', title: 'Pre-Purchase Roof Inspection',
-    category: 'Roof Inspection', location: 'Richmond Hill, ON', year: '2024',
-    description: 'Full inspection on a 12-year-old shingle roof identified failed flashings and poor ventilation. Written report with 47 photographs used to negotiate $6,200 in purchase credits.',
-    image: '/project-inspect-1.jpg',
-    images: ['/project-inspect-1.jpg'],
-    featured: false, tags: ['Pre Purchase', 'Written Report', 'Photographic'],
-  },
-  {
-    id: '29', slug: 'north-york-annual-assessment', title: 'Annual Roof Condition Assessment',
-    category: 'Roof Inspection', location: 'North York, ON', year: '2024',
-    description: 'Drone-assisted inspection on a 22-year-old shingle roof with a 5-year outlook projection and minor repairs flagged before the winter season.',
-    image: '/project-inspect-2.webp',
-    images: ['/project-inspect-2.webp'],
-    featured: false, tags: ['Annual Inspection', 'Drone Survey', 'Condition Report'],
-  },
-  {
-    id: '30', slug: 'scarborough-insurance-documentation', title: 'Storm Damage Insurance Inspection',
-    category: 'Roof Inspection', location: 'Scarborough, ON', year: '2023',
-    description: 'Close-up documentation of hail impact on every shingle, valley, and ridge — report submitted to the insurer and instrumental in securing full replacement claim approval.',
-    image: '/project-inspect-3.jpg',
-    images: ['/project-inspect-3.jpg'],
-    featured: false, tags: ['Insurance Docs', 'Hail Assessment', 'Claim Support'],
   },
 
   // ── Metal Roofing ──────────────────────────────────────────────────────────
@@ -674,31 +492,6 @@ export const projects: Project[] = [
     featured: false, tags: ['One Day Replace', 'GAF HDZ', 'Full Crew'],
   },
 
-  // ── Roof Tarping ───────────────────────────────────────────────────────────
-  {
-    id: '43', slug: 'barrie-emergency-storm-tarp', title: 'Emergency Tarp After Storm Damage',
-    category: 'Roof Tarping', location: 'Barrie, ON', year: '2024',
-    description: 'Blue poly tarp anchored with 2×4 battens deployed within 90 minutes of the call, covering the storm-damaged rear slope and holding through three more days of rain.',
-    image: '/project-tarp-barrie.jpg',
-    images: ['/project-tarp-barrie.jpg'],
-    featured: false, tags: ['Emergency Response', 'Storm Tarp', '90 Minute Dispatch'],
-  },
-  {
-    id: '44', slug: 'innisfil-wind-damage-protection', title: 'Wind Damage Emergency Tarp',
-    category: 'Roof Tarping', location: 'Innisfil, ON', year: '2024',
-    description: 'Full tarp and drone documentation package after 90 km/h winds displaced shingles along the entire windward face — insurance-ready report produced before permanent repairs.',
-    image: '/project-tarp-2.webp',
-    images: ['/project-tarp-2.webp'],
-    featured: false, tags: ['Wind Damage', 'Insurance Docs', 'Drone Survey'],
-  },
-  {
-    id: '45', slug: 'newmarket-emergency-response', title: 'Same-Day Hail Damage Tarp',
-    category: 'Roof Tarping', location: 'Newmarket, ON', year: '2023',
-    description: 'Same-day emergency tarp on a hail-damaged roof, with a full written damage report submitted directly to the insurer — full replacement approval secured within one week.',
-    image: '/project-tarp-3.jpg',
-    images: ['/project-tarp-3.jpg'],
-    featured: false, tags: ['Hail Damage', 'Same Day Tarp', 'Claim Support'],
-  },
 ]
 
 export const blogPosts: BlogPost[] = [

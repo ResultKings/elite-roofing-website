@@ -87,11 +87,11 @@ function ReviewCarousel() {
           {/* Stars */}
           <div className="flex gap-0.5 mb-4">
             {Array.from({ length: t.rating }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+              <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
             ))}
           </div>
           {/* Quote */}
-          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed flex-1 mb-6">
             &ldquo;{t.quote}&rdquo;
           </p>
           {/* Author */}
@@ -101,7 +101,7 @@ function ReviewCarousel() {
             </div>
             <div>
               <p className="font-sans text-sm font-semibold text-[#0f172a]">{t.name}</p>
-              <p className="font-sans text-[11px] text-[#94a3b8]">{t.location} · {t.projectType}</p>
+              <p className="font-sans text-[11px] text-\[#374151\]">{t.location} · {t.projectType}</p>
             </div>
           </div>
         </motion.div>
@@ -114,20 +114,20 @@ function ReviewCarousel() {
             <button
               key={i}
               onClick={() => { setPaused(true); setCurrent(i) }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#D0000F] w-5' : 'bg-[#e7e5e4]'}`}
             />
           ))}
         </div>
         <div className="flex gap-2">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+            className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={next}
-            className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200"
+            className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -157,14 +157,14 @@ export default function ServiceAreasPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60">
                 Where We Work
               </span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               Based in Vaughan
               <br />
-              <span className="text-[#c9a55a]">Serving All of Ontario</span>
+              <span className="text-[#D0000F]">Serving All of Ontario</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -174,7 +174,7 @@ export default function ServiceAreasPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               Our Coverage Area
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
@@ -203,7 +203,7 @@ export default function ServiceAreasPage() {
                     <li key={city}>
                       <button
                         onClick={() => handleCityClick(lat, lng)}
-                        className="flex items-center gap-2 font-sans text-sm text-[#374151] hover:text-[#c9a55a] transition-colors duration-200 group text-left"
+                        className="flex items-center gap-2 font-sans text-sm text-[#0f172a] hover:text-[#D0000F] transition-colors duration-200 group text-left"
                       >
                         <span className="text-base leading-none group-hover:scale-110 transition-transform duration-200">📍</span>
                         {city}
@@ -218,27 +218,27 @@ export default function ServiceAreasPage() {
           {/* Not Sure We Cover Your Area? */}
           <FadeIn>
             <div className="bg-white border border-[#e7e5e4] p-8 md:p-10 rounded-xl mt-12 shadow-sm">
-              <span className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+              <span className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
                 Not Sure We Cover Your Area?
               </span>
               <h3 className="font-serif text-2xl font-bold text-[#0f172a] mb-4 leading-snug">
                 Give Us a Call, We&apos;ll Let You Know Right Away
               </h3>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 Our coverage area continues to expand. If you don&apos;t see your city listed, reach out and we&apos;ll confirm availability. Emergency calls are handled across a wider service radius.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-base font-semibold hover:bg-[#0a2a4a] transition-colors duration-300 rounded-md"
                 >
-                  Contact Us <ArrowRight className="w-3.5 h-3.5" />
+                  Contact Us
                 </Link>
                 <a
                   href="tel:+19055550198"
                   className="inline-flex items-center gap-3 text-[#0f172a] font-sans text-sm"
                 >
-                  <Phone className="w-4 h-4 text-[#c9a55a]" />
+                  <Phone className="w-4 h-4 text-[#D0000F]" />
                   (905) 555-0198
                 </a>
               </div>
@@ -251,7 +251,7 @@ export default function ServiceAreasPage() {
       <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
               Client Feedback
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -272,7 +272,7 @@ export default function ServiceAreasPage() {
               </h3>
 
               {/* Profile images + stars */}
-              <div className="flex items-center gap-4 mb-5">
+              <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
                 <div className="flex -space-x-3">
                   {testimonials.slice(0, 3).map((t, i) => (
                     <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -283,16 +283,16 @@ export default function ServiceAreasPage() {
                 <div>
                   <div className="flex gap-0.5 mb-1">
                     {[1,2,3,4,5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+                      <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
                     ))}
                   </div>
                   <p className="font-sans text-sm font-semibold text-[#0f172a]">
-                    4.9 <span className="font-normal text-[#64748b]">out of 5 across</span> 300 Google reviews
+                    4.9 <span className="font-normal text-[#1e293b]">out of 5 across</span> 300 Google reviews
                   </p>
                 </div>
-              </div>
+              </Link>
 
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
               </p>
 
@@ -301,15 +301,15 @@ export default function ServiceAreasPage() {
                   href="https://customerreviews.google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md"
                 >
                   Leave a Google Review
                 </a>
                 <Link
                   href="/testimonials"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
                 >
-                  See More Reviews <ArrowRight className="w-3.5 h-3.5" />
+                  See More Reviews
                 </Link>
               </div>
             </FadeIn>
@@ -331,7 +331,7 @@ export default function ServiceAreasPage() {
               href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-sm text-[#64748b] mt-3 hover:text-[#c9a55a] transition-colors duration-200 block"
+              className="font-sans text-sm text-[#1e293b] mt-3 hover:text-[#D0000F] transition-colors duration-200 block"
             >
               216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
             </a>
@@ -358,14 +358,14 @@ export default function ServiceAreasPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
                 Same Standard Everywhere
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 leading-tight">
                 Ontario&apos;s Premier
                 <br />Roofing Company
               </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                 Whether you&apos;re in downtown Toronto or a suburb of the GTA, you receive the same premium craftsmanship and professional service that has made Elite Roofing Ontario&apos;s most trusted name in roofing.
               </p>
               <ul className="space-y-3">
@@ -378,8 +378,8 @@ export default function ServiceAreasPage() {
                   '300+ five-star Google reviews from Ontario clients',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 text-[#c9a55a] mt-0.5 flex-shrink-0" />
-                    <span className="font-sans text-sm text-[#374151]">{item}</span>
+                    <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
+                    <span className="font-sans text-sm text-[#0f172a]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -404,23 +404,31 @@ export default function ServiceAreasPage() {
       <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
-              Start Today
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
+              Get Started
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
               Protect Your Home with Ontario&apos;s
               <br />
-              <span className="text-[#c9a55a]">Top Rated Roofing Team</span>
+              <span className="text-[#D0000F]">Top Rated Roofing Team</span>
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-              Free inspections. Transparent quotes. Expert installation. Serving the Greater Toronto Area from our Vaughan headquarters.
+              Free inspections. Transparent quotes. Expert installation. We serve Vaughan and surrounding areas — rooted in the community we work in every day.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-colors duration-300 rounded-none"
-            >
-              Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
+              >
+                Get Free Estimate
+              </Link>
+              <a
+                href="tel:+19055550198"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              >
+                (905) 555-0198
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

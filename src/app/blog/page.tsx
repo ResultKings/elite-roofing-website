@@ -91,7 +91,7 @@ export default function BlogPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
-              <div className="w-6 h-px bg-[#c9a55a]" />
+              <div className="w-6 h-px bg-[#D0000F]" />
               <span className="font-sans text-[11px] font-semibold tracking-[0.4em] uppercase text-[#8a6928]">
                 Resources & Insights
               </span>
@@ -102,7 +102,7 @@ export default function BlogPage() {
             >
               Roofing Knowledge
               <br />
-              <span className="text-[#c9a55a]">From the Experts.</span>
+              <span className="text-[#D0000F]">From the Experts.</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -114,7 +114,7 @@ export default function BlogPage() {
 
           {/* Featured Post */}
           <FadeIn className="mb-16">
-            <Link href={`/blog/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-2 bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/40 hover:shadow-lg transition-all duration-300">
+            <Link href={`/blog/${featured.slug}`} className="group grid grid-cols-1 lg:grid-cols-2 bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#D0000F]/40 hover:shadow-lg transition-all duration-300">
               {/* Image */}
               <div className="relative overflow-hidden aspect-[16/10] lg:aspect-auto min-h-[320px]">
                 <Image
@@ -125,7 +125,7 @@ export default function BlogPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-5 left-5">
-                  <span className="inline-flex items-center px-3 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-wider uppercase">
+                  <span className="inline-flex items-center px-3 py-1 bg-[#D0000F] text-white font-sans text-[10px] font-semibold tracking-wider uppercase">
                     Featured
                   </span>
                 </div>
@@ -133,13 +133,13 @@ export default function BlogPage() {
 
               {/* Content */}
               <div className="p-8 md:p-12 flex flex-col justify-center">
-                <span className="inline-flex items-center px-3 py-1 bg-[#c9a55a]/10 text-[#c9a55a] font-sans text-[10px] font-semibold tracking-wider uppercase w-fit mb-4">
+                <span className="inline-flex items-center px-3 py-1 bg-[#D0000F]/10 text-[#D0000F] font-sans text-[10px] font-semibold tracking-wider uppercase w-fit mb-4">
                   {featured.category}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug mb-4">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] group-hover:text-[#D0000F] transition-colors leading-snug mb-4">
                   {featured.title}
                 </h2>
-                <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-6">
+                <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-6">
                   {featured.excerpt}
                 </p>
 
@@ -149,20 +149,20 @@ export default function BlogPage() {
                   </div>
                   <div>
                     <p className="font-sans text-xs font-semibold text-[#0f172a]">{featured.author}</p>
-                    <p className="font-sans text-xs text-[#94a3b8]">{featured.authorRole}</p>
+                    <p className="font-sans text-xs text-\[#374151\]">{featured.authorRole}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between pt-5 border-t border-[#e7e5e4]">
                   <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1.5 font-sans text-xs text-[#94a3b8]">
+                    <span className="flex items-center gap-1.5 font-sans text-xs text-\[#374151\]">
                       <Clock className="w-3.5 h-3.5" />
                       {featured.readTime}
                     </span>
-                    <span className="font-sans text-xs text-[#94a3b8]">{formatDate(featured.date)}</span>
+                    <span className="font-sans text-xs text-\[#374151\]">{formatDate(featured.date)}</span>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#c9a55a] group-hover:gap-3 transition-all duration-300">
-                    Read Article <ArrowRight className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[#D0000F] group-hover:gap-3 transition-all duration-300">
+                    Read Article
                   </span>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default function BlogPage() {
 
           {/* Category Filter */}
           <FadeIn className="flex items-center gap-3 mb-10 flex-wrap">
-            <span className="font-sans text-xs text-[#94a3b8] mr-2">Category:</span>
+            <span className="font-sans text-xs text-\[#374151\] mr-2">Category:</span>
             {allCategories.map((cat) => (
               <button
                 key={cat}
@@ -179,8 +179,8 @@ export default function BlogPage() {
                 className={[
                   'px-4 py-2 font-sans text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300',
                   activeCategory === cat
-                    ? 'bg-[#c9a55a] text-white'
-                    : 'bg-white border border-[#e7e5e4] text-[#64748b] hover:border-[#c9a55a]/40 hover:text-[#c9a55a]',
+                    ? 'bg-[#D0000F] text-white'
+                    : 'bg-white border border-[#e7e5e4] text-[#1e293b] hover:border-[#D0000F]/40 hover:text-[#D0000F]',
                 ].join(' ')}
               >
                 {cat}
@@ -194,7 +194,7 @@ export default function BlogPage() {
               <motion.div key={post.id} variants={fadeUp}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/40 hover:shadow-md transition-all duration-300"
+                  className="group block bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#D0000F]/40 hover:shadow-md transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden aspect-[16/10]">
@@ -205,7 +205,7 @@ export default function BlogPage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center px-2.5 py-1 bg-white/90 backdrop-blur-sm font-sans text-[10px] font-semibold text-[#c9a55a] tracking-wider uppercase">
+                      <span className="inline-flex items-center px-2.5 py-1 bg-white/90 backdrop-blur-sm font-sans text-[10px] font-semibold text-[#D0000F] tracking-wider uppercase">
                         {post.category}
                       </span>
                     </div>
@@ -213,10 +213,10 @@ export default function BlogPage() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="font-serif text-lg font-semibold text-[#0f172a] group-hover:text-[#c9a55a] transition-colors leading-snug mb-3">
+                    <h3 className="font-serif text-lg font-semibold text-[#0f172a] group-hover:text-[#D0000F] transition-colors leading-snug mb-3">
                       {post.title}
                     </h3>
-                    <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-5 line-clamp-2">
+                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-5 line-clamp-2">
                       {post.excerpt}
                     </p>
 
@@ -225,9 +225,9 @@ export default function BlogPage() {
                         <div className="relative w-7 h-7 rounded-full overflow-hidden bg-[#e7e5e4] flex-shrink-0">
                           <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
                         </div>
-                        <span className="font-sans text-xs text-[#64748b]">{post.author.split(' ')[0]}</span>
+                        <span className="font-sans text-xs text-[#1e293b]">{post.author.split(' ')[0]}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 font-sans text-xs text-[#94a3b8]">
+                      <div className="flex items-center gap-1.5 font-sans text-xs text-\[#374151\]">
                         <Clock className="w-3 h-3" />
                         {post.readTime}
                       </div>
@@ -240,7 +240,7 @@ export default function BlogPage() {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <p className="font-sans text-[#94a3b8]">No posts in this category.</p>
+              <p className="font-sans text-\[#374151\]">No posts in this category.</p>
             </div>
           )}
         </div>
@@ -257,12 +257,12 @@ export default function BlogPage() {
               <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-3">
                 Have a Question About Your Roof?
               </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed">
                 Our team of experts is available for free consultations. No obligation â€” just
                 honest advice from Ontario&apos;s most trusted roofers.
               </p>
             </div>
-            <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            <Button href="/contact" variant="primary" size="lg">
               Ask An Expert
             </Button>
           </FadeIn>

@@ -40,18 +40,11 @@ function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
-            {(project.categories ?? [project.category]).map(cat => (
-              <span key={cat} className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                {cat}
-              </span>
-            ))}
-          </div>
         </div>
         <div className="p-5 border-t border-[#e7e5e4]">
           <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
-          <p className="font-sans text-xs text-[#94a3b8] mb-3">{project.location} &middot; {project.year}</p>
-          <p className="font-sans text-sm text-[#64748b] leading-relaxed line-clamp-2">{project.description}</p>
+          <p className="font-sans text-xs text-\[#374151\] mb-3">{project.location} &middot; {project.year}</p>
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{project.description}</p>
         </div>
       </div>
     </motion.div>
@@ -60,9 +53,9 @@ function ProjectCard({ project }: { project: Project }) {
 
 const categories = [
   'All',
-  'Residential', 'Commercial', 'Multi-Family Roofing', 'Roof Replacement', 'Metal Roofing', 'Flat Roofing',
+  'Multi-Family Roofing', 'Roof Replacement', 'Metal Roofing', 'Flat Roofing',
   'Gutter Systems', 'Skylight Installation',
-  'Roof Repair', 'Storm Damage Restoration', 'Roof Tarping', 'Roof Inspection',
+  'Roof Repairs', 'Storm Damage Restoration',
 ] as const
 
 type Category = typeof categories[number]
@@ -74,8 +67,6 @@ const filterGroups: { id: string; label: string; items: FilterItem[] }[] = [
     id: 'roofing',
     label: 'ROOFING SERVICES',
     items: [
-      { display: 'Residential Roofing', value: 'Residential' },
-      { display: 'Commercial Roofing', value: 'Commercial' },
       { display: 'Multi-Family Roofing', value: 'Multi-Family Roofing' },
       { display: 'Roof Replacement', value: 'Roof Replacement' },
       { display: 'Metal Roofing', value: 'Metal Roofing' },
@@ -83,21 +74,13 @@ const filterGroups: { id: string; label: string; items: FilterItem[] }[] = [
     ],
   },
   {
-    id: 'installation',
-    label: 'INSTALLATION',
+    id: 'repair',
+    label: 'INSTALLATION AND REPAIR',
     items: [
       { display: 'Gutter Systems', value: 'Gutter Systems' },
       { display: 'Skylight Installation', value: 'Skylight Installation' },
-    ],
-  },
-  {
-    id: 'repair',
-    label: 'REPAIR AND INSPECTION',
-    items: [
-      { display: 'Roof Repair', value: 'Roof Repair' },
+      { display: 'Roof Repairs', value: 'Roof Repairs' },
       { display: 'Storm Damage Restoration', value: 'Storm Damage Restoration' },
-      { display: 'Roof Tarping', value: 'Roof Tarping' },
-      { display: 'Roof Inspection', value: 'Roof Inspection' },
     ],
   },
 ]
@@ -116,17 +99,9 @@ const projectReviews = [
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
   },
   {
-    name: 'Sarah Johansson',
-    location: 'Mississauga, ON',
-    projectType: 'Commercial Roofing',
-    rating: 5,
-    quote: "We had a significant leak above our retail space that two other companies couldn't find. Elite Roofing diagnosed the issue within an hour and had it fully repaired by end of day. Professional from start to finish.",
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
-  },
-  {
     name: 'Thomas Wu',
     location: 'Richmond Hill, ON',
-    projectType: 'Storm Damage Repair',
+    projectType: 'Storm Damage Restoration',
     rating: 5,
     quote: 'After the August storms we had water coming in through three spots. Elite Roofing came out the next morning, gave me a clear written quote with no surprises, and completed all repairs in one day. Fair pricing and excellent work.',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
@@ -169,10 +144,10 @@ function ReviewCarousel() {
         >
           <div className="flex gap-0.5 mb-4">
             {Array.from({ length: r.rating }).map((_, i) => (
-              <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+              <span key={i} className="text-[#D0000F] text-base leading-none">★</span>
             ))}
           </div>
-          <p className="font-sans text-sm text-[#374151] leading-relaxed flex-1 mb-6">
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed flex-1 mb-6">
             &ldquo;{r.quote}&rdquo;
           </p>
           <div className="flex items-center gap-3 pt-4 border-t border-[#e7e5e4]">
@@ -181,7 +156,7 @@ function ReviewCarousel() {
             </div>
             <div>
               <p className="font-sans text-sm font-semibold text-[#0f172a]">{r.name}</p>
-              <p className="font-sans text-[11px] text-[#94a3b8]">{r.location} · {r.projectType}</p>
+              <p className="font-sans text-[11px] text-\[#374151\]">{r.location} · {r.projectType}</p>
             </div>
           </div>
         </motion.div>
@@ -190,14 +165,14 @@ function ReviewCarousel() {
         <div className="flex gap-1.5">
           {projectReviews.map((_, i) => (
             <button key={i} onClick={() => { setPaused(true); setCurrent(i) }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#c9a55a] w-5' : 'bg-[#e7e5e4]'}`} />
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#D0000F] w-5' : 'bg-[#e7e5e4]'}`} />
           ))}
         </div>
         <div className="flex gap-2">
-          <button onClick={prev} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={prev} className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200">
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <button onClick={next} className="w-9 h-9 rounded-none border border-[#e7e5e4] flex items-center justify-center hover:border-[#c9a55a] hover:text-[#c9a55a] transition-colors duration-200">
+          <button onClick={next} className="w-9 h-9 rounded-md border border-[#e7e5e4] flex items-center justify-center hover:border-[#D0000F] hover:text-[#D0000F] transition-colors duration-200">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -267,14 +242,14 @@ export default function ProjectsPage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60">
                 Portfolio
               </span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               Our History
               <br />
-              <span className="text-[#c9a55a]">Your Inspiration.</span>
+              <span className="text-[#D0000F]">Your Inspiration.</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -288,7 +263,7 @@ export default function ProjectsPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-5">
                 Project Gallery
               </h2>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed max-w-3xl">
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-3xl">
                 Welcome to the official project gallery of Elite Roofing, a trusted roofing company where our commitment to excellence is captured in every shingle, and project. From residential roof replacements to large-scale commercial installs, these projects reflect our workmanship, our standards, and the trust placed in us by families and businesses throughout Ontario.
               </p>
             </FadeIn>
@@ -306,7 +281,7 @@ export default function ProjectsPage() {
                     'px-5 py-2.5 font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap border',
                     activeCategory === 'All'
                       ? 'bg-[#0f172a] text-white border-[#0f172a]'
-                      : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a] hover:border-[#0f172a]',
+                      : 'bg-white border-[#e7e5e4] text-[#1e293b] hover:text-[#0f172a] hover:border-[#0f172a]',
                   ].join(' ')}
                 >
                   All
@@ -326,7 +301,7 @@ export default function ProjectsPage() {
                           'flex items-center gap-1.5 px-5 py-2.5 font-sans text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 whitespace-nowrap border',
                           isGroupActive
                             ? 'bg-[#0f172a] text-white border-[#0f172a]'
-                            : 'bg-white border-[#e7e5e4] text-[#64748b] hover:text-[#0f172a] hover:border-[#0f172a]',
+                            : 'bg-white border-[#e7e5e4] text-[#1e293b] hover:text-[#0f172a] hover:border-[#0f172a]',
                         ].join(' ')}
                       >
                         {isGroupActive && activeItem ? activeItem.display : group.label}
@@ -350,7 +325,7 @@ export default function ProjectsPage() {
                                   'w-full text-left px-5 py-3 font-sans text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-150',
                                   activeCategory === item.value
                                     ? 'bg-[#0f172a] text-white'
-                                    : 'text-[#64748b] hover:bg-[#f8fafc] hover:text-[#0f172a]',
+                                    : 'text-[#1e293b] hover:bg-[#f8fafc] hover:text-[#0f172a]',
                                 ].join(' ')}
                               >
                                 {item.display}
@@ -414,7 +389,7 @@ export default function ProjectsPage() {
                       animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
                       exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
                       onClick={handleShowMore}
-                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
                     >
                       <span className="text-[8px]">▶</span>
                       Show More Projects
@@ -427,7 +402,7 @@ export default function ProjectsPage() {
                       animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
                       exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
                       onClick={handleSeeLess}
-                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
                     >
                       <span className="text-[8px]">▼</span>
                       See Less
@@ -444,17 +419,14 @@ export default function ProjectsPage() {
           {!isAll && (() => {
             const slugMap: Record<string, string> = {
               'Residential':              'residential-roofing',
-              'Commercial':               'commercial-roofing',
               'Roof Repair':              'roof-repair',
-              'Storm Damage Restoration': 'storm-damage-restoration',
+              'Storm Damage Restoration':      'storm-damage-restoration',
               'Gutter Systems':           'gutter-systems',
               'Skylight Installation':    'skylight-installation',
-              'Roof Inspection':          'roof-inspection',
               'Metal Roofing':            'metal-roofing',
               'Flat Roofing':             'flat-roofing',
               'Multi-Family Roofing':     'multi-family-roofing',
               'Roof Replacement':         'roof-replacement',
-              'Roof Tarping':             'roof-tarping',
             }
             const displayName = getDisplayName(activeCategory)
             const slug = slugMap[activeCategory] ?? '#'
@@ -478,9 +450,9 @@ export default function ProjectsPage() {
                     </div>
                     <Link
                       href={`/services/${slug}`}
-                      className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] hover:bg-[#0a2a4a] text-white font-sans text-xs font-semibold tracking-[0.18em] uppercase transition-colors duration-200 rounded-none"
+                      className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-sm font-semibold transition-colors duration-200 rounded-md"
                     >
-                      View {displayName} <ArrowRight className="w-3.5 h-3.5" />
+                      View {displayName}
                     </Link>
                   </div>
                 </div>
@@ -493,7 +465,7 @@ export default function ProjectsPage() {
         <section className="mt-20 px-6 md:px-8 lg:px-16 pb-20 md:pb-24">
           <div className="max-w-7xl mx-auto">
             <FadeIn className="text-center mb-12">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
                 Client Feedback
               </span>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
@@ -516,7 +488,7 @@ export default function ProjectsPage() {
                   }
                 </h3>
 
-                <div className="flex items-center gap-4 mb-5">
+                <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
                   <div className="flex -space-x-3">
                     {projectReviews.slice(0, 3).map((r, i) => (
                       <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -527,16 +499,16 @@ export default function ProjectsPage() {
                   <div>
                     <div className="flex gap-0.5 mb-1">
                       {[1,2,3,4,5].map(i => (
-                        <span key={i} className="text-[#c9a55a] text-base leading-none">★</span>
+                        <span key={i} className="text-[#f59e0b] text-base leading-none">★</span>
                       ))}
                     </div>
                     <p className="font-sans text-sm font-semibold text-[#0f172a]">
-                      4.9 <span className="font-normal text-[#64748b]">out of 5 across</span> 300 Google reviews
+                      4.9 <span className="font-normal text-[#1e293b]">out of 5 across</span> 300 Google reviews
                     </p>
                   </div>
-                </div>
+                </Link>
 
-                <p className="font-sans text-sm text-[#64748b] leading-relaxed mb-8">
+                <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
                   Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
                 </p>
 
@@ -545,15 +517,15 @@ export default function ProjectsPage() {
                     href="https://customerreviews.google.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#041D35] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md"
                   >
                     Leave a Google Review
                   </a>
                   <a
                     href="/testimonials"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#041D35] text-[#041D35] font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#041D35] hover:text-white transition-colors duration-300 rounded-none"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
                   >
-                    See More Reviews →
+                    See More Reviews
                   </a>
                 </div>
               </FadeIn>
@@ -564,43 +536,29 @@ export default function ProjectsPage() {
         {/* ── CTA ────────────────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
+            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-white/60 mb-5 block">
               Get Started
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-              {activeCategory === 'All'
-                ? 'Ready to Start Your Roofing Project?'
-                : `Ready to Discuss Your ${getDisplayName(activeCategory)} Project?`
-              }
+              Every Project Starts With a Free Inspection
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-              Our free inspection includes a detailed assessment, photographic documentation,
-              and a transparent written proposal, no obligation and no pressure.
+              Take a look at our completed work across Ontario, then get in touch. We&apos;ll visit your property, assess your roof, and provide a detailed written proposal at no cost.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-[#c9a55a] hover:bg-[#a87d3a] text-white font-sans text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-300 rounded-none"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
               >
-                Get Free Estimate <ArrowRight className="w-3.5 h-3.5" />
+                Get Free Estimate
               </Link>
               <a
                 href="tel:+19055550198"
-                className="inline-flex items-center gap-2 font-sans text-sm text-white/60 hover:text-white transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 text-[#c9a55a]" />
                 (905) 555-0198
               </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              {['No obligation, ever', '10 Year Workmanship Warranty', 'Serving all of Ontario'].map(item => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#c9a55a] flex-shrink-0" />
-                  <span className="font-sans text-xs text-white/40">{item}</span>
-                </div>
-              ))}
             </div>
           </div>
         </section>

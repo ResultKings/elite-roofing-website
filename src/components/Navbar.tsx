@@ -7,48 +7,39 @@ import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, ChevronDown, MapPin } from 'lucide-react'
 
-type ServiceCategory = 'roofing' | 'installation' | 'repair'
+type ServiceCategory = 'roofing' | 'repair'
 
 const categoryLabels: { id: ServiceCategory; label: string }[] = [
   { id: 'roofing', label: 'ROOFING SERVICES' },
-  { id: 'installation', label: 'INSTALLATION' },
-  { id: 'repair', label: 'REPAIR AND INSPECTION' },
+  { id: 'repair', label: 'INSTALLATION AND REPAIR' },
 ]
 
 const roofingLinks = [
-  { href: '/services/residential-roofing', label: 'Residential Roofing' },
-  { href: '/services/commercial-roofing', label: 'Commercial Roofing' },
   { href: '/services/multi-family-roofing', label: 'Multi-Family Roofing' },
   { href: '/services/roof-replacement', label: 'Roof Replacement' },
   { href: '/services/metal-roofing', label: 'Metal Roofing' },
   { href: '/services/flat-roofing', label: 'Flat Roofing' },
 ]
 
-const installationLinks = [
-  { href: '/services/gutter-systems', label: 'Gutter Systems' },
-  { href: '/services/skylight-installation', label: 'Skylight Installation' },
-]
-
 const repairSections = [
   {
-    title: 'Repair',
+    title: 'Installation',
     links: [
-      { href: '/services/roof-repair', label: 'Roof Repair' },
-      { href: '/services/storm-damage-restoration', label: 'Storm Damage Restoration' },
-      { href: '/services/roof-tarping', label: 'Roof Tarping' },
+      { href: '/services/gutter-systems', label: 'Gutter Systems' },
+      { href: '/services/skylight-installation', label: 'Skylight Installation' },
     ],
   },
   {
-    title: 'Inspection',
+    title: 'Repair',
     links: [
-      { href: '/services/roof-inspection', label: 'Roof Inspection' },
+      { href: '/services/roof-repair', label: 'Roof Repairs' },
+      { href: '/services/storm-damage-restoration', label: 'Storm Damage Restoration' },
     ],
   },
 ]
 
 const serviceLinks = [
   ...roofingLinks,
-  ...installationLinks,
   ...repairSections.flatMap((s) => s.links),
 ]
 
@@ -116,7 +107,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 ml-10 lg:ml-24 xl:ml-36">
               <Image
-                src="/elite-roofing-logo-full.webp"
+                src="/elite-roofing-logo-new.webp"
                 alt="Elite Roofing"
                 width={280}
                 height={80}
@@ -135,12 +126,12 @@ export default function Navbar() {
                     href={link.href}
                     className={[
                       'relative font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                      'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
+                      'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#D0000F]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                       isTransparent
-                        ? isActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
-                        : isActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
+                        ? isActive ? 'text-[#D0000F]' : 'text-white hover:text-white/80'
+                        : isActive ? 'text-[#D0000F]' : 'text-[#0f172a] hover:text-[#D0000F]',
                     ].join(' ')}
                   >
                     {link.label}
@@ -157,11 +148,11 @@ export default function Navbar() {
                 <button
                   className={[
                     'flex items-center gap-1 font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                    'relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a] after:transition-all after:duration-300',
+                    'relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#D0000F] after:transition-all after:duration-300',
                     isServicesActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                     isTransparent
-                      ? isServicesActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
-                      : isServicesActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
+                      ? isServicesActive ? 'text-[#D0000F]' : 'text-white hover:text-white/80'
+                      : isServicesActive ? 'text-[#D0000F]' : 'text-[#0f172a] hover:text-[#D0000F]',
                   ].join(' ')}
                 >
                   Roofing Services
@@ -177,12 +168,12 @@ export default function Navbar() {
                     href={link.href}
                     className={[
                       'relative font-sans text-[16px] font-extrabold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                      'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#c9a55a]',
+                      'after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#D0000F]',
                       'after:transition-all after:duration-300',
                       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full',
                       isTransparent
-                        ? isActive ? 'text-[#c9a55a]' : 'text-white hover:text-white/80'
-                        : isActive ? 'text-[#c9a55a]' : 'text-[#0f172a] hover:text-[#c9a55a]',
+                        ? isActive ? 'text-[#D0000F]' : 'text-white hover:text-white/80'
+                        : isActive ? 'text-[#D0000F]' : 'text-[#0f172a] hover:text-[#D0000F]',
                     ].join(' ')}
                   >
                     {link.label}
@@ -197,7 +188,7 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className={[
                   'flex items-center gap-2 font-sans text-[15px] font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                  isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#c9a55a]',
+                  isTransparent ? 'text-white hover:text-white/80' : 'text-[#0f172a]/70 hover:text-[#D0000F]',
                 ].join(' ')}
               >
                 <Phone className="w-3.5 h-3.5" />
@@ -205,7 +196,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2.5 bg-[#041D35] text-white font-sans text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#0a2a4a] transition-colors duration-300 rounded-none whitespace-nowrap"
+                className="inline-flex items-center px-6 py-2.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md whitespace-nowrap"
               >
                 Schedule an Estimate
               </Link>
@@ -249,7 +240,7 @@ export default function Navbar() {
                     className={[
                       'text-left font-sans font-black text-xl xl:text-2xl uppercase tracking-tight leading-tight transition-colors duration-200',
                       activeCategory === cat.id
-                        ? 'text-[#c9a55a]'
+                        ? 'text-[#D0000F]'
                         : 'text-[#0f172a] hover:text-[#0f172a]/70',
                     ].join(' ')}
                   >
@@ -269,27 +260,8 @@ export default function Navbar() {
                         className={[
                           'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
                           pathname === link.href
-                            ? 'text-[#c9a55a]'
-                            : 'text-[#0f172a] hover:text-[#c9a55a]',
-                        ].join(' ')}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {activeCategory === 'installation' && (
-                  <div className="flex flex-col gap-1">
-                    {installationLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={[
-                          'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
-                          pathname === link.href
-                            ? 'text-[#c9a55a]'
-                            : 'text-[#0f172a] hover:text-[#c9a55a]',
+                            ? 'text-[#D0000F]'
+                            : 'text-[#0f172a] hover:text-[#D0000F]',
                         ].join(' ')}
                       >
                         {link.label}
@@ -302,7 +274,7 @@ export default function Navbar() {
                   <div className="flex flex-col gap-5">
                     {repairSections.map((section) => (
                       <div key={section.title}>
-                        <p className="font-sans text-[10px] font-black tracking-[0.25em] uppercase text-[#c9a55a] mb-2">
+                        <p className="font-sans text-[10px] font-black tracking-[0.25em] uppercase text-[#D0000F] mb-2">
                           {section.title}
                         </p>
                         <div className="flex flex-col gap-0">
@@ -313,8 +285,8 @@ export default function Navbar() {
                               className={[
                                 'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
                                 pathname === link.href
-                                  ? 'text-[#c9a55a]'
-                                  : 'text-[#0f172a] hover:text-[#c9a55a]',
+                                  ? 'text-[#D0000F]'
+                                  : 'text-[#0f172a] hover:text-[#D0000F]',
                               ].join(' ')}
                             >
                               {link.label}
@@ -346,7 +318,7 @@ export default function Navbar() {
                     href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-1.5 text-[#64748b] hover:text-[#c9a55a] transition-colors duration-200"
+                    className="flex items-start gap-1.5 text-[#1e293b] hover:text-[#D0000F] transition-colors duration-200"
                   >
                     <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
                     <span className="font-sans text-xs leading-snug">
@@ -385,7 +357,7 @@ export default function Navbar() {
                       href={link.href}
                       className={[
                         'block py-4 border-b border-white/10 font-serif text-2xl font-medium transition-colors duration-200',
-                        isActive ? 'text-[#c9a55a]' : 'text-white hover:text-[#c9a55a]',
+                        isActive ? 'text-[#D0000F]' : 'text-white hover:text-[#D0000F]',
                       ].join(' ')}
                     >
                       {link.label}
@@ -404,7 +376,7 @@ export default function Navbar() {
                   onClick={() => setMobileServicesOpen((v) => !v)}
                   className={[
                     'w-full flex items-center justify-between py-4 border-b border-white/10 font-serif text-2xl font-medium transition-colors duration-200',
-                    isServicesActive ? 'text-[#c9a55a]' : 'text-white',
+                    isServicesActive ? 'text-[#D0000F]' : 'text-white',
                   ].join(' ')}
                 >
                   Roofing Services
@@ -426,7 +398,7 @@ export default function Navbar() {
                           href={sl.href}
                           className={[
                             'block py-3 pl-4 border-b border-white/5 font-sans text-base transition-colors duration-200',
-                            pathname === sl.href ? 'text-[#c9a55a]' : 'text-white/70 hover:text-[#c9a55a]',
+                            pathname === sl.href ? 'text-[#D0000F]' : 'text-white/70 hover:text-[#D0000F]',
                           ].join(' ')}
                         >
                           {sl.label}
@@ -448,12 +420,12 @@ export default function Navbar() {
                 href="tel:+19055550198"
                 className="flex items-center gap-3 text-white/60 font-sans text-sm"
               >
-                <Phone className="w-4 h-4 text-[#c9a55a]" />
+                <Phone className="w-4 h-4 text-[#D0000F]" />
                 (905) 555-0198
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-sm font-medium tracking-[0.2em] uppercase hover:bg-[#0a2a4a] transition-colors rounded-none"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-sm font-medium hover:bg-[#0a2a4a] transition-colors rounded-md"
               >
                 Get Free Estimate
               </Link>

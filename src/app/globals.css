@@ -1,13 +1,13 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --color-bg: #fafaf9;
   --color-primary: #0f172a;
-  --color-accent: #c9a55a;
-  --color-accent-dark: #a87d3a;
-  --color-accent-light: #d4b86e;
+  --color-accent: #D0000F;
+  --color-accent-dark: #A5000A;
+  --color-accent-light: #E04055;
   --color-muted: #64748b;
   --color-border: #e7e5e4;
 }
@@ -70,7 +70,7 @@ h6 {
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg, #c9a55a 0%, #d4b86e 50%, #c9a55a 100%);
+    background: linear-gradient(135deg, #D0000F 0%, #E04055 50%, #D0000F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useRef } from 'react'
 import Image from 'next/image'
@@ -83,7 +83,7 @@ export default function ContactPage() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a]">
+              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60">
                 Get In Touch
               </span>
             </motion.div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
             >
               Let&apos;s Talk About
               <br />
-              <span className="text-[#c9a55a]">Your Roof.</span>
+              <span className="text-[#D0000F]">Your Roof.</span>
             </motion.h1>
           </motion.div>
         </div>
@@ -115,22 +115,22 @@ export default function ContactPage() {
                 <div className="space-y-7">
                   {contactDetails.map(({ icon: Icon, label, value, href, note }) => (
                     <div key={label} className="flex items-start gap-4 group">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#c9a55a]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#c9a55a]/20 transition-colors duration-300">
-                        <Icon className="w-4 h-4 text-[#c9a55a]" />
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#D0000F]/20 transition-colors duration-300">
+                        <Icon className="w-4 h-4 text-[#D0000F]" />
                       </div>
                       <div>
-                        <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#64748b] mb-1">
+                        <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#1e293b] mb-1">
                           {label}
                         </p>
                         <a
                           href={href}
                           target={href.startsWith('http') ? '_blank' : undefined}
                           rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="font-sans text-sm font-medium text-[#0f172a] hover:text-[#c9a55a] transition-colors duration-200 leading-snug"
+                          className="font-sans text-sm font-medium text-[#0f172a] hover:text-[#D0000F] transition-colors duration-200 leading-snug"
                         >
                           {value}
                         </a>
-                        <p className="font-sans text-xs text-[#94a3b8] mt-0.5">{note}</p>
+                        <p className="font-sans text-xs text-\[#374151\] mt-0.5">{note}</p>
                       </div>
                     </div>
                   ))}
@@ -141,7 +141,7 @@ export default function ContactPage() {
               <FadeIn delay={0.1}>
                 <div className="border-t border-[#e7e5e4] pt-8">
                   <div className="flex items-center gap-3 mb-5">
-                    <Clock className="w-4 h-4 text-[#c9a55a]" />
+                    <Clock className="w-4 h-4 text-[#D0000F]" />
                     <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#0f172a]">
                       Business Hours
                     </h3>
@@ -149,12 +149,12 @@ export default function ContactPage() {
                   <ul className="space-y-3">
                     {hours.map(({ day, time }) => (
                       <li key={day} className="flex items-center justify-between">
-                        <span className="font-sans text-sm text-[#64748b]">{day}</span>
+                        <span className="font-sans text-sm text-[#1e293b]">{day}</span>
                         <span className="font-sans text-sm font-medium text-[#0f172a]">{time}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-5 font-sans text-xs text-[#94a3b8] border-t border-[#e7e5e4] pt-4">
+                  <p className="mt-5 font-sans text-xs text-\[#374151\] border-t border-[#e7e5e4] pt-4">
                     For storm emergencies, call our emergency line at any time. We maintain
                     an on-call crew 24 hours a day.
                   </p>
@@ -164,7 +164,7 @@ export default function ContactPage() {
               {/* Why Elite Roofing â€" light, cohesive styling */}
               <FadeIn delay={0.15}>
                 <div className="bg-slate-50 border border-[#e7e5e4] p-6">
-                  <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
+                  <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5">
                     Why Elite Roofing
                   </p>
                   <ul className="space-y-3.5">
@@ -176,8 +176,8 @@ export default function ContactPage() {
                       '300+ five star Google reviews',
                     ].map((text) => (
                       <li key={text} className="flex items-start gap-3">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#c9a55a] flex-shrink-0" />
-                        <span className="font-sans text-sm text-[#475569] leading-snug">{text}</span>
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D0000F] flex-shrink-0" />
+                        <span className="font-sans text-sm font-medium text-[#0f172a] leading-snug">{text}</span>
                       </li>
                     ))}
                   </ul>
@@ -192,7 +192,7 @@ export default function ContactPage() {
                   <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-5">
                     Request a Free Estimate
                   </h2>
-                  <p className="font-sans text-sm text-[#64748b] leading-relaxed">
+                  <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed">
                     Fill out the form below and a specialist will reach out within one
                     business day to schedule your no obligation roof assessment.
                   </p>
@@ -219,7 +219,7 @@ export default function ContactPage() {
               href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-sm text-[#64748b] mt-3 hover:text-[#c9a55a] transition-colors duration-200 block"
+              className="font-sans text-sm text-[#1e293b] mt-3 hover:text-[#D0000F] transition-colors duration-200 block"
             >
               216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
             </a>

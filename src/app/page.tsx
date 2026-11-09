@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Star, Phone, ChevronDown, ChevronLeft, ChevronRight, Shield, Users, BadgeCheck, Award } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import { services, testimonials, projects } from '@/data/mockData'
+import { services, testimonials, projects, type Service } from '@/data/mockData'
 
 // â"€â"€â"€ Animation helpers â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
@@ -104,7 +104,7 @@ function HeroSection() {
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white">
               Ontario Roofing Company
             </span>
-            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-[#c9a55a]">
+            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white">
               You Can Trust
             </span>
           </motion.h1>
@@ -134,7 +134,7 @@ function HeroSection() {
               <div>
                 <div className="flex gap-0.5 mb-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-[#c9a55a] text-[#c9a55a]" />
+                    <Star key={i} className="w-3 h-3 fill-[#f59e0b] text-[#f59e0b]" />
                   ))}
                 </div>
                 <span className="font-sans text-xs text-white/70">
@@ -148,7 +148,7 @@ function HeroSection() {
 
             {/* Stat 1 */}
             <div>
-              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-[#c9a55a] leading-none">2,400+</div>
+              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,400+</div>
               <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
             </div>
 
@@ -157,7 +157,7 @@ function HeroSection() {
 
             {/* Stat 2 */}
             <div>
-              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-[#c9a55a] leading-none">20+</div>
+              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">20+</div>
               <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
             </div>
           </motion.div>
@@ -194,7 +194,7 @@ function TickerBanner() {
     { type: 'service', text: 'Roof Repair' },
     { type: 'badge',   text: 'GAF Master Elite' },
     { type: 'service', text: 'Storm Damage Restoration' },
-    { type: 'location',text: 'GTA & Ontario' },
+    { type: 'location',text: 'Vaughan & Surrounding Areas' },
     { type: 'service', text: 'Gutter Systems' },
     { type: 'badge',   text: '500+ Reviews' },
     { type: 'service', text: 'Skylight Installation' },
@@ -211,13 +211,13 @@ function TickerBanner() {
       <div className="flex animate-ticker whitespace-nowrap">
         {doubled.map((item, i) => (
           <span key={i} className="inline-flex items-center gap-2.5 flex-shrink-0 px-6">
-            <span className={['text-[8px]', item.type === 'badge' ? 'text-[#c9a55a]' : 'text-white/30'].join(' ')}>
+            <span className={['text-[8px]', item.type === 'badge' ? 'text-[#D0000F]' : 'text-white/30'].join(' ')}>
               ●
             </span>
             <span
               className={[
-                'font-sans text-[10px] font-semibold tracking-[0.25em] uppercase',
-                item.type === 'badge' ? 'text-[#c9a55a]' : 'text-white/80',
+                'font-sans text-[10px] font-semibold',
+                item.type === 'badge' ? 'text-[#D0000F]' : 'text-white/80',
               ].join(' ')}
             >
               {item.text}
@@ -249,13 +249,13 @@ function StandardSection() {
 
       <div className="relative z-10 pl-4 md:pl-12 lg:pl-24 pr-4 md:pr-8 lg:pr-0 py-16 md:py-20 w-full">
         <FadeIn className="max-w-full lg:max-w-[45%]">
-          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5">
+          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5">
             The Standard
           </p>
 
           <h2 className="font-display font-bold text-[clamp(2.4rem,4.2vw,5.2rem)] leading-[0.92] tracking-[-0.02em] mb-8">
             <span className="text-white">We don&apos;t just fix roofs.</span><br />
-            <span className="text-[#c9a55a]">We restore them.</span>
+            <span className="text-[#D0000F]">We restore them.</span>
           </h2>
 
           {/* Body text */}
@@ -273,7 +273,7 @@ function StandardSection() {
               <div key={stat.label} className="flex items-stretch">
                 {i > 0 && <div className="hidden lg:block w-px bg-white/15 mr-14 self-stretch" />}
                 <div>
-                  <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#c9a55a] leading-none mb-2">
+                  <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#D0000F] leading-none mb-2">
                     {stat.value}
                   </div>
                   <div className="font-sans text-[12px] text-white/40 tracking-widest uppercase">
@@ -292,65 +292,107 @@ function StandardSection() {
 
 // â"€â"€â"€ Services â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
-function ServicesSection() {
+function ServiceCard({ service, className = '' }: { service: Service; className?: string }) {
   return (
-    <section id="services" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+    <Link
+      href={`/services/${service.slug}`}
+      className={`group relative block overflow-hidden bg-[#0f172a] ${className}`}
+    >
+      <Image
+        src={service.image}
+        alt={service.title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#D0000F] via-[#D0000F]/40 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500" />
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+        <h3 className="font-serif text-xl font-bold text-white mb-2">{service.title}</h3>
+        <p className="font-sans text-sm text-white/70 leading-relaxed mb-4 line-clamp-2">{service.shortDescription}</p>
+        <span className="font-sans text-sm text-white/50 group-hover:text-white/80 inline-flex items-center gap-2 transition-colors duration-300">
+          Learn More
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+function ServicesSection() {
+  const serviceOrder = [
+    'roof-replacement',
+    'roof-repair',
+    'metal-roofing',
+    'flat-roofing',
+    'multi-family-roofing',
+    'storm-damage-restoration',
+    'gutter-systems',
+    'skylight-installation',
+  ]
+
+  const orderedServices = serviceOrder
+    .map(slug => services.find(s => s.slug === slug))
+    .filter((s): s is Service => !!s)
+
+  const [firstService, secondService, ...restServices] = orderedServices
+
+  return (
+    <section id="services" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
-        <FadeIn className="mb-14">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
-            <div>
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
-                What We Do
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
-                Our Roofing Services<br />in Ontario
-              </h2>
-            </div>
-            <div>
-              <p className="font-sans text-sm text-[#64748b] leading-relaxed">
-                <strong className="font-semibold text-[#0f172a]">Elite Roofing</strong> provides roofing services throughout Ontario, including{' '}
-                <Link href="/services/roof-inspection" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">inspections</Link>,{' '}
-                <Link href="/services/roof-repair" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">repairs</Link>, and{' '}
-                <Link href="/services/roof-replacement" className="text-[#c9a55a] hover:text-[#a87d3a] transition-colors">full roof replacements</Link>. With our skilled team, exceptional workmanship, high quality materials, and reliable service, we help safeguard your home or business while enhancing its value. Count on us for roofing services that protect your investment.
-              </p>
-            </div>
-          </div>
+        <FadeIn className="mb-12 text-center">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
+            OUR SERVICES
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
+            What Can We Help You With?
+          </h2>
+          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-2xl mx-auto">
+            From a single shingle{' '}
+            <Link href="/services/roof-repair" className="text-[#D0000F] hover:text-[#A5000A] transition-colors font-medium">
+              repairs
+            </Link>{' '}
+            to complete{' '}
+            <Link href="/services/roof-replacement" className="text-[#D0000F] hover:text-[#A5000A] transition-colors font-medium">
+              Roof Replacement
+            </Link>{' '}
+            Projects, Elite Roofing handles every roofing project across Vaughan and surrounding areas.
+          </p>
         </FadeIn>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map(service => (
-            <motion.div key={service.id} variants={fadeUp} className="h-full">
-              <Link
-                href={`/services/${service.slug}`}
-                className="group flex flex-col bg-white border border-[#e7e5e4] overflow-hidden hover:border-[#c9a55a]/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-0.5 h-full min-h-[380px] rounded-xl"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a] flex-shrink-0 rounded-t-xl">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 to-transparent" />
-                </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-serif text-xl font-semibold text-[#0f172a] mb-3 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="font-sans text-sm text-[#64748b] leading-relaxed flex-1">
-                    {service.shortDescription}
-                  </p>
-                  <div className="border-t border-[#e7e5e4] pt-4 mt-5 flex justify-center">
-                    <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-[#0f172a] tracking-[0.15em] uppercase group-hover:text-[#c9a55a] group-hover:gap-3 transition-all duration-300">
-                      {service.title} <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {firstService && (
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="md:col-span-2"
+            >
+              <ServiceCard service={firstService} className="h-[380px] md:h-[480px]" />
+            </motion.div>
+          )}
+          {secondService && (
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <ServiceCard service={secondService} className="h-[380px] md:h-[480px]" />
+            </motion.div>
+          )}
+          {restServices.map((service) => (
+            <motion.div
+              key={service.id}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <ServiceCard service={service} className="h-[280px] md:h-[320px]" />
             </motion.div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )
@@ -391,7 +433,7 @@ function ProcessSection() {
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         <FadeIn className="mb-16">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
             How It Works
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3">
@@ -409,7 +451,7 @@ function ProcessSection() {
         </Stagger>
 
         <FadeIn className="mt-14 flex justify-center">
-          <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button href="/contact" variant="primary" size="lg">
             Get Free Estimate
           </Button>
         </FadeIn>
@@ -488,9 +530,7 @@ function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <FadeIn className="text-center mb-10 lg:mb-14">
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
-            Explore our latest projects
-            <br />
-            for your inspiration
+            Explore Our Clients Projects
           </h2>
         </FadeIn>
       </div>
@@ -499,12 +539,12 @@ function ProjectsSection() {
         <button
           onClick={prev}
           aria-label="Previous project"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white border border-[#e7e5e4] shadow-sm hover:bg-[#c9a55a] hover:border-[#c9a55a] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 overflow-hidden">
           <motion.div
             className="flex"
             style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
@@ -526,18 +566,11 @@ function ProjectsSection() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
-                      {(p.categories ?? [p.category]).map((cat: string) => (
-                        <span key={cat} className="px-2.5 py-1 bg-[#c9a55a] text-white font-sans text-[10px] font-semibold tracking-[0.25em] uppercase">
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                   <div className="p-5 border-t border-[#e7e5e4]">
                     <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{p.title}</h3>
-                    <p className="font-sans text-xs text-[#94a3b8] mb-3">{p.location} &middot; {p.year}</p>
-                    <p className="font-sans text-sm text-[#64748b] leading-relaxed line-clamp-2">{p.description}</p>
+                    <p className="font-sans text-xs text-\[#374151\] mb-3">{p.location} &middot; {p.year}</p>
+                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{p.description}</p>
                   </div>
                 </div>
               </div>
@@ -548,7 +581,7 @@ function ProjectsSection() {
         <button
           onClick={next}
           aria-label="Next project"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white border border-[#e7e5e4] shadow-sm hover:bg-[#c9a55a] hover:border-[#c9a55a] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -568,15 +601,15 @@ function ProjectsSection() {
               className={[
                 'rounded-none transition-all duration-300',
                 i === dotActive
-                  ? 'w-6 h-2.5 bg-[#c9a55a]'
-                  : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#c9a55a]/50',
+                  ? 'w-6 h-2.5 bg-[#D0000F]'
+                  : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#D0000F]/50',
               ].join(' ')}
             />
           ))}
         </div>
 
         <FadeIn className="flex justify-center mt-8">
-          <Button href="/projects" variant="primary" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button href="/projects" variant="primary" size="md">
             View All Projects
           </Button>
         </FadeIn>
@@ -617,7 +650,7 @@ const extraTestimonials = [
     name: 'Linda Bergstrom',
     location: 'Mississauga, ON',
     rating: 5,
-    quote: 'The team was respectful of our property, cleaned up completely each day, and finished on time. The project manager kept us informed every morning. I would recommend Elite Roofing to anyone in the GTA.',
+    quote: 'The team was respectful of our property, cleaned up completely each day, and finished on time. The project manager kept us informed every morning. I would recommend Elite Roofing to anyone in Vaughan and surrounding areas.',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&auto=format',
   },
   {
@@ -643,7 +676,7 @@ function TestimonialCard({ t }: { t: { name: string; location: string; rating: n
     <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300 rounded-xl">
       <div className="flex gap-0.5 mb-6">
         {Array.from({ length: t.rating }).map((_, i) => (
-          <Star key={i} className="w-3.5 h-3.5 fill-[#c9a55a] text-[#c9a55a]" />
+          <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
         ))}
       </div>
       <blockquote className="font-serif text-base md:text-[1.05rem] text-[#0f172a] leading-relaxed mb-6 flex-1 italic">
@@ -655,7 +688,7 @@ function TestimonialCard({ t }: { t: { name: string; location: string; rating: n
         </div>
         <div>
           <div className="font-sans text-sm font-semibold text-[#0f172a] leading-tight">{t.name}</div>
-          <div className="font-sans text-xs text-[#94a3b8] mt-0.5">{t.location}</div>
+          <div className="font-sans text-xs text-\[#374151\] mt-0.5">{t.location}</div>
         </div>
       </div>
     </div>
@@ -669,28 +702,39 @@ function TestimonialsSection() {
     <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-10">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
             Client Stories
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
             What Our Clients Say
           </h2>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="flex items-center gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-[#c9a55a] text-[#c9a55a]" />
+          <Link href="/testimonials" className="flex items-center justify-center gap-3 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
+            <div className="flex items-center">
+              {[
+                'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&auto=format',
+                'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
+                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
+              ].map((src, i) => (
+                <div key={i} className={`relative w-8 h-8 rounded-full overflow-hidden border-2 border-[#fafaf9] shadow-sm flex-shrink-0${i > 0 ? ' -ml-2' : ''}`}>
+                  <Image src={src} alt="Client" fill sizes="32px" className="object-cover" />
+                </div>
               ))}
             </div>
-            <p className="font-sans text-xs text-[#94a3b8] tracking-wide">
+            <div className="flex items-center gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+              ))}
+            </div>
+            <p className="font-sans text-xs text-\[#374151\] tracking-wide">
               4.9 out of 5 across 300 Google reviews
             </p>
-          </div>
+          </Link>
           <div className="flex justify-center">
             <a
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#c9a55a] text-white font-sans text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#a87d3a] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-all duration-300"
             >
               Leave a Google Review
             </a>
@@ -709,7 +753,7 @@ function TestimonialsSection() {
         <div className="flex justify-center mt-10 mb-2">
           <button
             onClick={() => setShowMore(prev => !prev)}
-            className="inline-flex items-center gap-3 px-8 py-3 bg-[#041D35] hover:bg-[#0a2a4a] rounded-none font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
           >
             <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
             Show More Reviews
@@ -760,7 +804,7 @@ const homeFAQs = [
   {
     question: 'What areas of Ontario does Elite Roofing serve?',
     answer:
-      'We serve the Greater Toronto Area, including Toronto, Mississauga, Brampton, Vaughan, Markham, Oakville, Burlington, and Hamilton, along with surrounding communities. If you are unsure whether we cover your area, call us directly.',
+      'We serve Vaughan and surrounding areas, including Markham, Richmond Hill, Aurora, Newmarket, Brampton, Mississauga, and Burlington, along with surrounding communities. If you are unsure whether we cover your area, call us directly.',
     link: { text: 'View all areas we serve.', href: '/service-areas' },
   },
   {
@@ -777,7 +821,7 @@ function FAQSection() {
     <section id="faq" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-10 lg:mb-14">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-4 block">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
@@ -793,7 +837,7 @@ function FAQSection() {
                 <div
                   className={[
                     'border transition-colors duration-300',
-                    isOpen ? 'border-[#c9a55a]/50' : 'border-[#e7e5e4] hover:border-[#c9a55a]/30',
+                    isOpen ? 'border-[#D0000F]/50' : 'border-[#e7e5e4] hover:border-[#D0000F]/30',
                   ].join(' ')}
                 >
                   <button
@@ -809,7 +853,7 @@ function FAQSection() {
                       transition={{ duration: 0.25 }}
                       className="flex-shrink-0"
                     >
-                      <ChevronDown className="w-5 h-5 text-[#c9a55a]" />
+                      <ChevronDown className="w-5 h-5 text-[#D0000F]" />
                     </motion.span>
                   </button>
 
@@ -824,10 +868,10 @@ function FAQSection() {
                         className="overflow-hidden"
                       >
                         <div className="px-7 pb-6 border-t border-[#e7e5e4]">
-                          <p className="font-sans text-sm text-[#64748b] leading-relaxed pt-5">
+                          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed pt-5">
                             {faq.answer}
                             {faq.link && (
-                              <> <Link href={faq.link.href} className="text-[#c9a55a] hover:underline">{faq.link.text}</Link></>
+                              <> <Link href={faq.link.href} className="text-[#D0000F] hover:underline">{faq.link.text}</Link></>
                             )}
                           </p>
                         </div>
@@ -841,12 +885,12 @@ function FAQSection() {
         </div>
 
         <FadeIn className="mt-10 text-center">
-          <p className="font-sans text-sm text-[#94a3b8] mb-4">Have a question not listed here?</p>
+          <p className="font-sans text-sm text-\[#374151\] mb-4">Have a question not listed here?</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#c9a55a] hover:text-[#a87d3a] transition-colors"
+            className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#D0000F] hover:text-[#A5000A] transition-colors"
           >
-            Ask us directly <ChevronRight className="w-4 h-4" />
+            Ask Us Directly <ChevronRight className="w-4 h-4" />
           </Link>
         </FadeIn>
       </div>
@@ -861,8 +905,8 @@ function CTASection() {
     <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#c9a55a] mb-5 block">
-            Start Today
+          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
+            Get Started
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Protect Your Investment?
@@ -873,23 +917,16 @@ function CTASection() {
             a transparent written quote at no cost to you.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/contact" variant="primary" size="lg">
               Get Free Estimate
             </Button>
             <a
               href="tel:+19055550198"
-              className="inline-flex items-center gap-3 font-sans text-sm text-white/50 hover:text-white transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
             >
-              <Phone className="w-4 h-4 text-[#c9a55a]" />
               (905) 555-0198
             </a>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-            {['No obligation, ever', 'Response within 24 hours', 'Across the GTA and Ontario'].map(item => (
-              <span key={item} className="font-sans text-xs text-white/30 tracking-wide">{item}</span>
-            ))}
           </div>
         </FadeIn>
       </div>
