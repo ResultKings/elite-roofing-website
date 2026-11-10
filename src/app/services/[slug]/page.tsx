@@ -1191,7 +1191,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <Link
                 href="/projects"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
-                View More Projects
+                View Portfolio
               </Link>
             </div>
           </section>

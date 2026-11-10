@@ -233,6 +233,7 @@ export const projects: Project[] = [
     slug: 'markham-heritage-estate',
     title: 'Markham Two-Storey Re-Roof',
     category: 'Residential',
+    categories: ['Residential', 'Roof Replacement'],
     location: 'Markham, ON',
     year: '2024',
     description:
@@ -262,6 +263,7 @@ export const projects: Project[] = [
     slug: 'cedar-ridge-farmhouse',
     title: 'Vaughan Two-Storey Roof Replacement',
     category: 'Residential',
+    categories: ['Residential', 'Roof Replacement'],
     location: 'Vaughan, ON',
     year: '2023',
     description:
@@ -276,6 +278,7 @@ export const projects: Project[] = [
     slug: 'burlington-lakefront-villa',
     title: 'Burlington Insurance Roof Replacement',
     category: 'Residential',
+    categories: ['Residential', 'Roof Replacement'],
     location: 'Burlington, ON',
     year: '2023',
     description:

@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Star, Phone, ChevronDown, ChevronLeft, ChevronRight, Shield, Users, BadgeCheck, Award } from 'lucide-react'
+import { ArrowRight, Star, Phone, ChevronDown, ChevronLeft, ChevronRight, Shield, Users, BadgeCheck, Award, MapPin } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { services, testimonials, projects, type Service } from '@/data/mockData'
 
@@ -148,7 +148,7 @@ function HeroSection() {
 
             {/* Stat 1 */}
             <div>
-              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,400+</div>
+              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,500+</div>
               <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
             </div>
 
@@ -229,6 +229,75 @@ function TickerBanner() {
   )
 }
 
+// ─── Services Highlight ───────────────────────────────────────────────────────
+
+function ServicesHighlightSection() {
+  const serviceLinks = [
+    { label: 'Roof Replacement', href: '/services/roof-replacement' },
+    { label: 'Roof Repairs', href: '/services/roof-repair' },
+    { label: 'Storm Damage Restoration', href: '/services/storm-damage-restoration' },
+    { label: 'Metal Roofing', href: '/services/metal-roofing' },
+    { label: 'Flat Roofing', href: '/services/flat-roofing' },
+    { label: 'Gutter Systems', href: '/services/gutter-systems' },
+    { label: 'Skylight Installation', href: '/services/skylight-installation' },
+    { label: 'Multi-Family Roofing', href: '/services/multi-family-roofing' },
+  ]
+
+  return (
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#f8fafc]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+
+          {/* Left: Text */}
+          <FadeIn className="h-full">
+            <div className="flex flex-col justify-between h-full py-4 lg:py-8">
+              <div>
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-8 leading-tight">
+                  Quality You Can Count On
+                </h2>
+                <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-6">
+                  As your full service roofing contractor, we work only with top quality materials and manufacturer certified installation methods to deliver results that protect your home for decades. We are proud to be Ontario&apos;s number one provider of:
+                </p>
+                <div className="flex flex-wrap gap-x-2 gap-y-1 mb-10">
+                  {serviceLinks.map((s) => (
+                    <span key={s.href} className="font-sans text-sm font-medium">
+                      <Link
+                        href={s.href}
+                        className="text-[#D0000F] hover:text-[#A5000A] hover:underline transition-colors duration-200"
+                      >
+                        {s.label}
+                      </Link>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <Button href="/about" variant="primary" size="md">
+                  About Our Company
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Right: Image */}
+          <FadeIn delay={0.1} className="h-full">
+            <div className="relative min-h-[420px] lg:h-full overflow-hidden">
+              <Image
+                src="/quality-section-aerial.webp"
+                alt="Elite Roofing aerial view of completed residential roof"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function StandardSection() {
   return (
     <section className="relative min-h-[67vh] flex items-center overflow-hidden">
@@ -242,9 +311,9 @@ function StandardSection() {
           className="object-cover"
           style={{ objectPosition: '30% center' }}
         />
-        {/* Black left side fading at 50% across */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black from-[40%] via-black/70 via-[55%] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+        {/* White left side fading at 50% across */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white from-[40%] via-white/70 via-[55%] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/20" />
       </div>
 
       <div className="relative z-10 pl-4 md:pl-12 lg:pl-24 pr-4 md:pr-8 lg:pr-0 py-16 md:py-20 w-full">
@@ -254,29 +323,29 @@ function StandardSection() {
           </p>
 
           <h2 className="font-display font-bold text-[clamp(2.4rem,4.2vw,5.2rem)] leading-[0.92] tracking-[-0.02em] mb-8">
-            <span className="text-white">We don&apos;t just fix roofs.</span><br />
+            <span className="text-[#0f172a]">We don&apos;t just fix roofs.</span><br />
             <span className="text-[#D0000F]">We restore them.</span>
           </h2>
 
           {/* Body text */}
-          <p className="font-sans text-[15px] text-white/70 leading-relaxed mb-10 max-w-[85%]">
+          <p className="font-sans text-[15px] text-[#374151] leading-relaxed mb-10 max-w-[85%]">
             Our GAF Master Elite certification and 25 year warranty guarantee that premium results aren&apos;t a promise, they&apos;re our standard.
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-white/10">
+          <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-[#0f172a]/10">
             {[
-              { value: '2,400+', label: 'Roofs Completed' },
+              { value: '2,500+', label: 'Roofs Completed' },
               { value: '500+', label: 'Five Star Reviews' },
               { value: '20+', label: 'Years in Business' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-stretch">
-                {i > 0 && <div className="hidden lg:block w-px bg-white/15 mr-14 self-stretch" />}
+                {i > 0 && <div className="hidden lg:block w-px bg-[#0f172a]/15 mr-14 self-stretch" />}
                 <div>
                   <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#D0000F] leading-none mb-2">
                     {stat.value}
                   </div>
-                  <div className="font-sans text-[12px] text-white/40 tracking-widest uppercase">
+                  <div className="font-sans text-[12px] text-[#0f172a]/50 tracking-widest uppercase">
                     {stat.label}
                   </div>
                 </div>
@@ -292,13 +361,25 @@ function StandardSection() {
 
 // â"€â"€â"€ Services â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
+const serviceDescriptions: Record<string, string> = {
+  'roof-replacement': 'A full roof replacement means starting fresh with premium materials selected for Ontario\'s climate. We handle complete tear-off, decking inspection and repair, ice and water barrier installation, and a new roofing system backed by a manufacturer\'s warranty — all completed by our GAF Master Elite certified crew.',
+  'roof-repair': 'Whether it\'s a handful of lifted shingles, a persistent leak around a chimney, or storm damage across multiple areas, our repair team diagnoses the root cause before touching a single nail. We\'ll give you an honest assessment, fix it right the first time, and document the work with photos.',
+  'storm-damage-restoration': 'After a major storm, acting quickly protects your home and your insurance claim. We perform a detailed damage assessment, provide full photo documentation, work directly with your adjuster, and restore your roof to pre-storm condition — often with little to no out-of-pocket cost through your policy.',
+  'gutter-systems': 'Properly functioning gutters are the first line of defence against foundation damage, basement flooding, and fascia rot. We install seamless aluminum gutters custom-fabricated on site, gutter guards to eliminate debris buildup, and complete downspout systems that move water well away from your home.',
+  'skylight-installation': 'A well-placed skylight transforms a dark room with natural light and can significantly improve ventilation. We install VELUX and other premium units with flashing systems that create a truly watertight seal — no more leaks, no condensation problems, just clean light and a beautiful finish.',
+  'metal-roofing': 'Standing seam and exposed-fastener metal roofing systems offer a 50+ year lifespan, superior wind and hail resistance, and outstanding energy efficiency. We install metal roofing on both residential and commercial properties across Ontario, with a full range of profiles and finishes.',
+  'flat-roofing': 'Flat and low-slope roofs require specialized systems designed to handle Ontario\'s freeze-thaw cycles and heavy snow loads. We install TPO, EPDM, and modified bitumen membranes with fully adhered details at every penetration, parapet, and drain to prevent the ponding and seam failures that cause most flat roof problems.',
+  'multi-family-roofing': 'Large multi-unit residential properties demand a roofing contractor with the capacity and coordination to minimize disruption to residents. We plan phased work schedules, maintain clear site access at all times, and deliver consistent workmanship across every unit — from townhouse complexes to mid-rise condominiums.',
+}
+
 function ServiceCard({ service, className = '' }: { service: Service; className?: string }) {
+  const desc = serviceDescriptions[service.slug] ?? service.shortDescription
   return (
     <Link
       href={`/services/${service.slug}`}
-      className={`group relative block rounded-xl hover:shadow-2xl transition-shadow duration-500 bg-[#0f172a] ${className}`}
+      className={`group relative block rounded-xl overflow-hidden transition-shadow duration-500 bg-[#0f172a] ${className}`}
     >
-      <div className="absolute inset-0 overflow-hidden rounded-xl">
+      <div className="absolute inset-0">
         <Image
           src={service.image}
           alt={service.title}
@@ -306,14 +387,24 @@ function ServiceCard({ service, className = '' }: { service: Service; className?
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 33vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#D0000F] via-[#D0000F]/40 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500" />
+        {/* Permanent dark base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+        {/* Hover tint — dark, not red */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-500" />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-        <h3 className="font-serif text-xl font-bold text-white mb-2">{service.title}</h3>
-        <p className="font-sans text-sm text-white/70 leading-relaxed mb-4 line-clamp-2">{service.shortDescription}</p>
-        <span className="font-sans text-sm text-white/50 group-hover:text-white/80 inline-flex items-center gap-2 transition-colors duration-300">
-          Learn More
+
+      {/* Default state: name + "+" at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex items-end justify-between group-hover:opacity-0 transition-opacity duration-300">
+        <h3 className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">{service.title}</h3>
+        <span className="font-sans text-2xl font-light text-white/70 leading-none pb-0.5">+</span>
+      </div>
+
+      {/* Hover state: name + description + arrow */}
+      <div className="absolute inset-0 p-6 z-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">{service.title}</h3>
+        <p className="font-sans text-sm text-white/80 leading-relaxed mb-5 line-clamp-4">{desc}</p>
+        <span className="font-sans text-sm font-medium text-white inline-flex items-center gap-2">
+          Learn More <ArrowRight className="w-4 h-4" />
         </span>
       </div>
     </Link>
@@ -394,6 +485,55 @@ function ServicesSection() {
               <ServiceCard service={service} className="h-[280px] md:h-[320px]" />
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Trusted Local Professionals ──────────────────────────────────────────────
+
+function TrustedLocalSection() {
+  return (
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#f8fafc]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+
+          {/* Left: Image */}
+          <FadeIn className="h-full">
+            <div className="relative min-h-[420px] lg:h-full overflow-hidden">
+              <Image
+                src="/residential-roofing.webp"
+                alt="Elite Roofing crew on a residential roof replacement"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
+
+          {/* Right: Text */}
+          <FadeIn delay={0.1} className="h-full">
+            <div className="flex flex-col justify-between h-full py-4 lg:py-8">
+              <div>
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-8 leading-tight">
+                  Trusted Local Professionals
+                </h2>
+                <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-5">
+                  Elite Roofing is a locally owned and operated roofing contractor serving Vaughan, Toronto, and the surrounding GTA. As a GAF Master Elite certified company, a designation held by only the top 2% of roofers in North America, we bring manufacturer-backed expertise to every project we take on.
+                </p>
+                <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-10">
+                  We understand that a new roof is one of the most significant investments a homeowner makes. That&apos;s why we take the time to fully assess your situation, explain your options clearly, and deliver work that holds up for decades, with a written workmanship warranty to back it up. No pressure. No shortcuts.
+                </p>
+              </div>
+              <div>
+                <Button href="/contact" variant="primary" size="md">
+                  Get Free Estimate
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
+
         </div>
       </div>
     </section>
@@ -482,9 +622,9 @@ function ProjectsSection() {
     .map(slug => projects.find(p => p.slug === slug))
     .filter(Boolean) as typeof projects
   const VISIBLE = 3
-  // Append clones of first VISIBLE items so wrapping never animates rightward
-  const looped = [...base, ...base.slice(0, VISIBLE)]
-  const TOTAL = looped.length // 8
+  // Prepend last item + append clones so both left and right loops are seamless
+  const looped = [...base.slice(-1), ...base, ...base.slice(0, VISIBLE)]
+  const TOTAL = looped.length
 
   const [pos, setPos] = useState(0)
   const [instant, setInstant] = useState(false)
@@ -529,90 +669,84 @@ function ProjectsSection() {
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-        <FadeIn className="text-center mb-10 lg:mb-14">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
-            Explore Our Clients Projects
-          </h2>
-        </FadeIn>
-      </div>
-
-      <div className="flex items-center gap-3 md:gap-5 px-2 md:px-6 lg:px-10">
-        <button
-          onClick={prev}
-          aria-label="Previous project"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <div className="flex-1 min-w-0 overflow-hidden">
-          <motion.div
-            className="flex"
-            style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
-            animate={{ x: `-${pos * (100 / TOTAL)}%` }}
-            transition={instant ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          >
-            {looped.map((p, i) => (
-              <div
-                key={`${p.id}-${i}`}
-                style={{ width: `${100 / TOTAL}%` }}
-                className="flex-shrink-0 px-2 group"
-              >
-                <Link href="/projects" className="overflow-hidden bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-shadow duration-500 rounded-xl block">
-                  <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-5 border-t border-[#e7e5e4]">
-                    <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{p.title}</h3>
-                    <p className="font-sans text-xs text-\[#374151\] mb-3">{p.location} &middot; {p.year}</p>
-                    <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{p.description}</p>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <button
-          onClick={next}
-          aria-label="Next project"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-        <div className="flex justify-center items-center gap-2 mt-8">
-          {base.map((_, i) => (
+      {/* Heading row with inline arrows */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-8 md:mb-10">
+        <div className="flex items-start justify-between gap-6">
+          <FadeIn>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
+              Real Homes. Quality Work.
+            </h2>
+            <div className="w-20 h-px bg-[#0f172a]/20 mb-4" />
+            <p className="font-sans text-sm text-[#374151] leading-relaxed max-w-lg">
+              Explore some of our latest projects. We are proud to be a part of every homeowners journey.
+            </p>
+          </FadeIn>
+          <div className="flex items-center gap-2 flex-shrink-0 pt-1">
             <button
-              key={i}
-              onClick={() => {
-                setTimerResetKey(k => k + 1)
-                setInstant(false)
-                setPos(i)
-              }}
-              aria-label={`Go to project ${i + 1}`}
-              className={[
-                'rounded-none transition-all duration-300',
-                i === dotActive
-                  ? 'w-6 h-2.5 bg-[#D0000F]'
-                  : 'w-2.5 h-2.5 bg-[#e2e0db] hover:bg-[#D0000F]/50',
-              ].join(' ')}
-            />
-          ))}
+              onClick={prev}
+              aria-label="Previous project"
+              className="w-10 h-10 rounded-full border border-[#0f172a]/25 hover:border-[#D0000F] hover:text-[#D0000F] text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next project"
+              className="w-10 h-10 rounded-full border border-[#0f172a]/25 hover:border-[#D0000F] hover:text-[#D0000F] text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
+      </div>
 
-        <FadeIn className="flex justify-center mt-8">
+      {/* Full-width image carousel — section overflow-hidden clips partial cards */}
+      <div className="px-1">
+        <motion.div
+          className="flex"
+          style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
+          animate={{ x: `-${(pos + 0.5) * (100 / TOTAL)}%` }}
+          transition={instant ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+        >
+          {looped.map((p, i) => (
+            <div
+              key={`${p.id}-${i}`}
+              style={{ width: `${100 / TOTAL}%` }}
+              className="flex-shrink-0 px-1.5 group"
+            >
+              <Link href="/projects" className="relative block aspect-square overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 34vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Hover tint */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                {/* Text overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                  <h3 className="font-serif text-base md:text-xl font-bold text-white mb-2 leading-snug">{p.title}</h3>
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex items-center gap-1 font-sans text-[11px] text-white/70 uppercase tracking-wider">
+                      <MapPin className="w-3 h-3 flex-shrink-0" />{p.location}
+                    </span>
+                    <span className="font-sans text-[11px] text-white/40">·</span>
+                    <span className="font-sans text-[11px] text-white/70 uppercase tracking-wider">{p.category}</span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+        <FadeIn className="flex justify-center mt-10">
           <Button href="/projects" variant="primary" size="md">
-            View More Projects
+            View Portfolio
           </Button>
         </FadeIn>
       </div>
@@ -622,54 +756,111 @@ function ProjectsSection() {
 
 // â"€â"€â"€ Testimonials â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
-const extraTestimonials = [
+const carouselReviews = [
   {
-    id: 4,
-    name: 'James Patterson',
-    location: 'Oakville, ON',
-    rating: 5,
-    quote: 'Elite Roofing replaced our 25 year old roof in two days. The crew was professional, clean, and communicated every step. Our new roof looks stunning and we feel confident it will last for decades.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format',
-  },
-  {
-    id: 5,
-    name: 'Sandra Kim',
-    location: 'Vaughan, ON',
-    rating: 5,
-    quote: 'After hail damage, Elite Roofing came out the very next day and covered our roof with tarps to prevent further damage. The insurance claim process was seamless with their documentation. Truly above and beyond.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format',
-  },
-  {
-    id: 6,
-    name: 'Michael Torres',
-    location: 'Brampton, ON',
-    rating: 5,
-    quote: 'I got three quotes and Elite Roofing was not the cheapest, but their inspection report was the most detailed and their warranty terms were the best. Six months in and the roof looks and performs perfectly.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&auto=format',
-  },
-  {
-    id: 7,
-    name: 'Linda Bergstrom',
-    location: 'Mississauga, ON',
-    rating: 5,
-    quote: 'The team was respectful of our property, cleaned up completely each day, and finished on time. The project manager kept us informed every morning. I would recommend Elite Roofing to anyone in Vaughan and surrounding areas.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&auto=format',
-  },
-  {
-    id: 8,
-    name: 'David Chen',
+    name: 'Robert Mackenzie',
     location: 'Markham, ON',
     rating: 5,
-    quote: 'Elite Roofing identified a ventilation issue during inspection that two other companies missed. Fixing it alongside the new shingles has dramatically reduced our attic moisture. Exceptional knowledge and honest advice.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
+    quote: 'Elite Roofing did a complete tear-off and replacement on our century home. The crew was on time every single day, they covered all our landscaping and left the yard spotless. The new roof looks incredible and the warranty gives us real peace of mind.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
   },
   {
-    id: 9,
-    name: 'Rachel Moore',
+    name: 'Sarah Johansson',
+    location: 'Mississauga, ON',
+    rating: 5,
+    quote: "We had a significant leak above our retail space that two other companies couldn't find. Elite Roofing diagnosed the issue within an hour and had it fully repaired by end of day. Professional from start to finish. Will only call them going forward.",
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Thomas Wu',
+    location: 'Richmond Hill, ON',
+    rating: 5,
+    quote: 'After the August storms we had water coming in through three spots. Elite Roofing came out the next morning, gave me a clear written quote with no surprises, and completed all repairs in one day. Fair pricing and excellent work.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Amanda Foster',
     location: 'Burlington, ON',
     rating: 5,
-    quote: 'We had a flat roof that was causing ongoing leaks into our commercial space. Elite Roofing installed a new TPO membrane system and solved the problem permanently. Their warranty gives us complete peace of mind.',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&auto=format',
+    quote: 'I was dreading getting a new roof but Elite Roofing made the whole process easy. They walked me through every material option, helped with the insurance claim, and finished ahead of schedule. Neighbours have already asked me who did the work.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: "Kevin O'Brien",
+    location: 'Oakville, ON',
+    rating: 5,
+    quote: "Had Elite Roofing install new gutters and downspouts across our entire house. They arrived exactly when they said, the installation was flawless, and the cleanup was immaculate. Can't recommend them enough, a truly professional team.",
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Patricia Leblanc',
+    location: 'Brampton, ON',
+    rating: 5,
+    quote: 'From the free inspection to the final walkthrough, Elite Roofing exceeded every expectation. The GAF certified materials they used are top quality and the crew treated our home with the utmost respect. An honest, reliable company.',
+    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Daniel Park',
+    location: 'Vaughan, ON',
+    rating: 5,
+    quote: 'Called Elite Roofing for a free inspection before selling our home. They were thorough, honest, and gave me a detailed written report same day. No pressure, just good advice. I ended up hiring them to do the repairs and the buyers were thrilled.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Christine Moreau',
+    location: 'Thornhill, ON',
+    rating: 5,
+    quote: 'We needed emergency tarping after a tree fell on our roof during a storm. Elite Roofing was on site within two hours. They secured the damage, gave us a full repair estimate, and completed the full job within the week. Lifesavers.',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Marcus Williams',
+    location: 'Concord, ON',
+    rating: 5,
+    quote: 'Elite Roofing replaced the flat roof on our commercial warehouse. The TPO membrane they installed is excellent quality and they completed the project with zero disruption to our operations. On budget, on time, and exceptional workmanship.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Helen Kovacs',
+    location: 'Woodbridge, ON',
+    rating: 5,
+    quote: 'Had three skylights installed by Elite Roofing last spring. The light those skylights bring into our living room is transformative. The installation was leak-free and perfectly finished. The crew cleaned up every bit of debris. Absolutely wonderful.',
+    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Andrew Bertrand',
+    location: 'King City, ON',
+    rating: 5,
+    quote: 'Our condo building hired Elite Roofing for a full flat roof replacement. Managing 72 units I was worried about noise and disruption but the crew was incredibly professional. Residents barely noticed the work. Outstanding result from a very skilled team.',
+    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Jennifer Tran',
+    location: 'Etobicoke, ON',
+    rating: 5,
+    quote: "I got four quotes for my roof replacement and Elite Roofing wasn't the cheapest, but they were clearly the most professional and thorough. The quality of the final product justified every dollar. I'd make the same choice again without hesitation.",
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Paul Dimitriou',
+    location: 'North York, ON',
+    rating: 5,
+    quote: 'Elite Roofing repaired significant hail damage on our roof and coordinated directly with our insurance company. They documented everything thoroughly, which made the claim process seamless. Exceptional customer service from day one.',
+    image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'Lisa Nakamura',
+    location: 'Stouffville, ON',
+    rating: 5,
+    quote: 'The team at Elite Roofing replaced all our aging gutters and added leaf guards that have made maintenance so much easier. They were punctual, respectful of our property, and the price was very fair. Genuinely a pleasure to work with.',
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face',
+  },
+  {
+    name: 'George Papadopoulos',
+    location: 'Newmarket, ON',
+    rating: 5,
+    quote: 'Had Elite Roofing inspect our roof before a major renovation. Their inspector was incredibly knowledgeable and honest, told me what truly needed work and what could wait. No upselling, just straight advice. Hired them for the repairs and they were excellent.',
+    image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&h=80&fit=crop&crop=face',
   },
 ]
 
@@ -698,11 +889,51 @@ function TestimonialCard({ t }: { t: { name: string; location: string; rating: n
 }
 
 function TestimonialsSection() {
-  const [showMore, setShowMore] = useState(false)
+  const base = carouselReviews
+  const VISIBLE = 3
+  const looped = [...base, ...base.slice(0, VISIBLE)]
+  const TOTAL = looped.length
+
+  const [pos, setPos] = useState(0)
+  const [instant, setInstant] = useState(false)
+  const [timerResetKey, setTimerResetKey] = useState(0)
+
+  useEffect(() => {
+    if (pos >= base.length) {
+      const id = setTimeout(() => {
+        setInstant(true)
+        setPos(0)
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          setInstant(false)
+          setTimerResetKey(k => k + 1)
+        }))
+      }, 580)
+      return () => clearTimeout(id)
+    }
+  }, [pos, base.length])
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPos(p => (p < base.length ? p + 1 : p))
+    }, 5000)
+    return () => clearInterval(id)
+  }, [timerResetKey, base.length])
+
+  const prev = () => {
+    setTimerResetKey(k => k + 1)
+    setInstant(false)
+    setPos(p => Math.max(0, p >= base.length ? base.length - 1 : p - 1))
+  }
+
+  const next = () => {
+    setTimerResetKey(k => k + 1)
+    setInstant(false)
+    setPos(p => (p < base.length ? p + 1 : p))
+  }
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 md:py-20 lg:py-24 bg-[#fafaf9]">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <FadeIn className="text-center mb-10">
           <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
             Client Stories
@@ -727,7 +958,7 @@ function TestimonialsSection() {
                 <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
               ))}
             </div>
-            <p className="font-sans text-xs text-\[#374151\] tracking-wide">
+            <p className="font-sans text-xs text-[#374151] tracking-wide">
               4.9 out of 5 across 300 Google reviews
             </p>
           </Link>
@@ -742,44 +973,52 @@ function TestimonialsSection() {
             </a>
           </div>
         </FadeIn>
+      </div>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.slice(0, 3).map(t => (
-            <motion.div key={t.id} variants={fadeUp}>
-              <TestimonialCard t={t} />
-            </motion.div>
-          ))}
-        </Stagger>
+      <div className="flex items-center gap-3 md:gap-5 px-2 md:px-6 lg:px-10 mt-8">
+        <button
+          onClick={prev}
+          aria-label="Previous review"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-        {/* Show More toggle */}
-        <div className="flex justify-center mt-10 mb-2">
-          <button
-            onClick={() => setShowMore(prev => !prev)}
-            className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
+        <div className="flex-1 min-w-0 overflow-hidden py-4 -my-4">
+          <motion.div
+            className="flex"
+            style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
+            animate={{ x: `-${pos * (100 / TOTAL)}%` }}
+            transition={instant ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
-            <span className="text-[8px]">{showMore ? '▼' : '▶'}</span>
-            Show More Reviews
-          </button>
+            {looped.map((t, i) => (
+              <div
+                key={`${t.name}-${i}`}
+                style={{ width: `${100 / TOTAL}%` }}
+                className="flex-shrink-0 px-2"
+              >
+                <TestimonialCard t={t} />
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        <AnimatePresence>
-          {showMore && (
-            <motion.div
-              key="extra-reviews"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }}
-              exit={{ height: 0, opacity: 0, transition: { duration: 0 } }}
-              className="overflow-hidden"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-                {extraTestimonials.map(t => (
-                  <TestimonialCard key={t.id} t={t} />
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <button
+          onClick={next}
+          aria-label="Next review"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
 
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/testimonials"
+          className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
+        >
+          Show More Reviews
+        </Link>
       </div>
     </section>
   )
@@ -943,9 +1182,11 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ServicesSection />
-      <ProcessSection />
+      <TrustedLocalSection />
       <ProjectsSection />
+      <ServicesHighlightSection />
       <StandardSection />
+      <ProcessSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

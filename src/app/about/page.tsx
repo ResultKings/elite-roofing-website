@@ -101,7 +101,7 @@ function ReviewCarousel() {
 
 const stats = [
   { value: '20+', label: 'Years in Business' },
-  { value: '2,400+', label: 'Roofs Completed' },
+  { value: '2,500+', label: 'Roofs Completed' },
   { value: '300+', label: 'Five Star Reviews' },
   { value: '$5M', label: 'Fully Insured' },
 ]
@@ -186,7 +186,7 @@ export default function AboutPage() {
                   Our team of certified craftsmen brings deep expertise to every project, from a single family residential repair in Vaughan to a full commercial roofing system in Mississauga. We hold GAF Master Elite certification, achieved by fewer than 2% of roofing contractors in North America, a reflection of our technical standards, ongoing training, and dedication to quality.
                 </p>
                 <p>
-                  Today, with over 2,400 completed projects and 300+ five star reviews, we are proud of the reputation we have earned, one roof at a time.
+                  Today, with over 2,500 completed projects and 300+ five star reviews, we are proud of the reputation we have earned, one roof at a time.
                 </p>
               </div>
             </FadeIn>

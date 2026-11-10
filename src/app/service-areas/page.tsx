@@ -215,33 +215,53 @@ export default function ServiceAreasPage() {
             </div>
           </FadeIn>
 
-          {/* Not Sure We Cover Your Area? */}
+          {/* Outside Service Area Map Section */}
           <FadeIn>
-            <div className="bg-white border border-[#e7e5e4] p-8 md:p-10 rounded-xl mt-12 shadow-sm">
-              <span className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
-                Not Sure We Cover Your Area?
-              </span>
-              <h3 className="font-serif text-2xl font-bold text-[#0f172a] mb-4 leading-snug">
-                Give Us a Call, We&apos;ll Let You Know Right Away
-              </h3>
-              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
-                Our coverage area continues to expand. If you don&apos;t see your city listed, reach out and we&apos;ll confirm availability. Emergency calls are handled across a wider service radius.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+              {/* Map with circle overlay */}
+              <div className="relative aspect-square overflow-hidden max-w-lg mx-auto w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d368220.96819368036!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: 'block', position: 'absolute', inset: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Elite Roofing service area map"
+                />
+                {/* Circle overlay indicating service radius */}
+                <div className="absolute inset-[8%] rounded-full border-[3px] border-[#D0000F]/70 bg-[#D0000F]/10 pointer-events-none" />
+              </div>
+
+              {/* Text */}
+              <div>
+                <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
+                  Service Coverage
+                </span>
+                <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-5 leading-tight">
+                  Located Outside Our Service Area?
+                </h3>
+                <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-3">
+                  Give us a call at{' '}
+                  <a href="tel:+19055550198" className="text-[#D0000F] font-semibold hover:underline">
+                    (905) 555-0198
+                  </a>{' '}
+                  to see if we can help. We often travel outside our typical service area by request.
+                </p>
+                <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-8">
+                  You can also request a free estimate on our website and our team will be happy to follow up and confirm availability for your area.
+                </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#041D35] text-white font-sans text-base font-semibold hover:bg-[#0a2a4a] transition-colors duration-300 rounded-md"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300"
                 >
-                  Contact Us
+                  Schedule an Estimate
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a
-                  href="tel:+19055550198"
-                  className="inline-flex items-center gap-3 text-[#0f172a] font-sans text-sm"
-                >
-                  <Phone className="w-4 h-4 text-[#D0000F]" />
-                  (905) 555-0198
-                </a>
               </div>
+
             </div>
           </FadeIn>
         </div>
