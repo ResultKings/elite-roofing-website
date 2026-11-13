@@ -79,7 +79,7 @@ export const services: Service[] = [
     shortDescription:
       'Comprehensive storm damage assessment and restoration, with full insurance claim support.',
     fullDescription:
-      'Storm damage moves fast, and so do we. At Elite Roofing, we respond within hours, document every area of damage with the photography your insurer requires, and manage the entire claim and restoration process from emergency tarping to final inspection — so you are fully restored with as little stress as possible.',
+      'Storm damage moves fast, and so do we. At Elite Roofing, we respond within hours, document every area of damage with the photography your insurer requires, and manage the entire claim and restoration process from emergency tarping to final inspection, so you are fully restored with as little stress as possible.',
     features: [
       'Free storm damage inspections',
       'Insurance claim assistance',
@@ -98,7 +98,7 @@ export const services: Service[] = [
     shortDescription:
       "Seamless gutters, guards, and complete drainage systems to protect your home's foundation.",
     fullDescription:
-      "A properly designed and installed gutter system is the first line of defence for your foundation, siding, and landscaping. At Elite Roofing, we fabricate seamless eavestroughs on-site to your exact roofline, pitch them correctly to every downspout, and install the system in a single visit — with no joints that leak and no follow-up adjustments.",
+      "A properly designed and installed gutter system is the first line of defence for your foundation, siding, and landscaping. At Elite Roofing, we fabricate seamless eavestroughs on-site to your exact roofline, pitch them correctly to every downspout, and install the system in a single visit, with no joints that leak and no follow-up adjustments.",
     features: [
       'Seamless aluminum gutters',
       'Copper gutter installation',
@@ -117,7 +117,7 @@ export const services: Service[] = [
     shortDescription:
       'Premium skylight solutions that flood your interiors with natural light while maintaining a watertight seal.',
     fullDescription:
-      'A properly installed skylight transforms a room permanently — flooding it with natural light and improving air circulation without compromising your roof. At Elite Roofing, we install every skylight in a single day with full manufacturer step flashing and a written 10-year leak-free guarantee, so you get the light without the worry.',
+      'A properly installed skylight transforms a room permanently, flooding it with natural light and improving air circulation without compromising your roof. At Elite Roofing, we install every skylight in a single day with full manufacturer step flashing and a written 10-year leak-free guarantee, so you get the light without the worry.',
     features: [
       'Fixed and venting skylights',
       'Tubular daylighting systems',
@@ -134,7 +134,7 @@ export const services: Service[] = [
     icon: 'Layers',
     title: 'Metal Roofing',
     shortDescription: 'Standing seam and exposed fastener metal roofing systems built for Ontario\'s climate, lasting 50+ years with minimal maintenance.',
-    fullDescription: 'Metal roofing is the highest-performing long-term investment you can make on an Ontario home or building. At Elite Roofing, we install standing seam, metal shingle, and corrugated systems in steel, aluminum, and copper — all engineered for our freeze-thaw climate, anchored with concealed fasteners, and backed by 50-year finish warranties.',
+    fullDescription: 'Metal roofing is the highest-performing long-term investment you can make on an Ontario home or building. At Elite Roofing, we install standing seam, metal shingle, and corrugated systems in steel, aluminum, and copper, all engineered for our freeze-thaw climate, anchored with concealed fasteners, and backed by 50-year finish warranties.',
     features: [
       'Standing seam and exposed fastener systems',
       'Steel, aluminum, and copper options',
@@ -151,7 +151,7 @@ export const services: Service[] = [
     icon: 'Layers',
     title: 'Flat Roofing',
     shortDescription: "Expert flat and low slope roofing systems engineered for Ontario's demanding climate and freeze thaw cycles.",
-    fullDescription: "Flat and low-slope roofs require specialized membrane systems, correct drainage design, and experienced installation to perform in Ontario winters. At Elite Roofing, we design and install TPO, EPDM, and modified bitumen systems tailored to your building's load requirements and drainage profile — with properly sloped decks and fully adhered terminations that eliminate ponding and premature failure.",
+    fullDescription: "Flat and low-slope roofs require specialized membrane systems, correct drainage design, and experienced installation to perform in Ontario winters. At Elite Roofing, we design and install TPO, EPDM, and modified bitumen systems tailored to your building's load requirements and drainage profile, with properly sloped decks and fully adhered terminations that eliminate ponding and premature failure.",
     features: [
       'TPO and EPDM membrane systems',
       'Modified bitumen hot applied systems',
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     location: 'Concord, ON',
     year: '2024',
     description:
-      'Phased re-roofing of a 64-unit townhome complex across four buildings with GAF Timberline HDZ shingles and upgraded ventilation — minimal disruption to residents throughout.',
+      'Phased re-roofing of a 64-unit townhome complex across four buildings with GAF Timberline HDZ shingles and upgraded ventilation, minimal disruption to residents throughout.',
     image: '/project-res-8.webp',
     images: ['/project-res-8.webp'],
     featured: true,
@@ -246,13 +246,13 @@ export const projects: Project[] = [
   {
     id: '6',
     slug: 'riverside-modern-residence',
-    title: 'Toronto Contemporary Home — TPO & Metal',
+    title: 'Toronto Contemporary Home: TPO & Metal',
     category: 'Residential',
     categories: ['Residential', 'Flat Roofing'],
     location: 'Toronto, ON',
     year: '2024',
     description:
-      'Low-slope TPO membrane on a contemporary home, paired with a standing seam metal entry canopy — clean integration with the building envelope and a 50-year finish warranty.',
+      'Low-slope TPO membrane on a contemporary home, paired with a standing seam metal entry canopy, clean integration with the building envelope and a 50-year finish warranty.',
     image: '/project-res-3.jpg',
     images: ['/project-res-3.jpg'],
     featured: false,
@@ -282,7 +282,7 @@ export const projects: Project[] = [
     location: 'Burlington, ON',
     year: '2023',
     description:
-      'Insurance-documented full replacement after hail damage — GAF Timberline HDZ, three new Velux skylights, and a complete eavestrough overhaul, all finished within one week.',
+      'Insurance-documented full replacement after hail damage, GAF Timberline HDZ, three new Velux skylights, and a complete eavestrough overhaul, all finished within one week.',
     image: '/project-res-1.avif',
     images: ['/project-res-1.avif'],
     featured: false,
@@ -297,7 +297,7 @@ export const projects: Project[] = [
     location: 'Thornhill, ON',
     year: '2024',
     description:
-      'Combined shingle and eavestrough upgrade — new architectural shingles, drip edge, and a full seamless aluminum gutter system with micro-mesh leaf guards across all rooflines.',
+      'Combined shingle and eavestrough upgrade, new architectural shingles, drip edge, and a full seamless aluminum gutter system with micro-mesh leaf guards across all rooflines.',
     image: '/project-res-4.webp',
     images: ['/project-res-4.webp'],
     featured: false,
@@ -323,7 +323,7 @@ export const projects: Project[] = [
   {
     id: '16', slug: 'aurora-leak-flashing-repair', title: 'Shingle & Flashing Repair',
     category: 'Roof Repairs', location: 'Aurora, ON', year: '2024',
-    description: 'On-site diagnosis and repair of multiple leak points — failed step flashing, a cracked pipe boot, and lifted ridge caps — all resolved in a single visit with full documentation.',
+    description: 'On-site diagnosis and repair of multiple leak points, failed step flashing, a cracked pipe boot, and lifted ridge caps, all resolved in a single visit with full documentation.',
     image: '/project-repair-aurora.webp',
     images: ['/project-repair-aurora.webp'],
     featured: false, tags: ['Leak Repair', 'Flashing', 'Chimney'],
@@ -365,7 +365,7 @@ export const projects: Project[] = [
   {
     id: '21', slug: 'ajax-post-storm-rebuild', title: 'Post-Storm Deck & Shingle Rebuild',
     category: 'Storm Damage Restoration', location: 'Ajax, ON', year: '2023',
-    description: 'Tree impact caused structural damage to two roof sections. Full deck repair, new framing members, and complete re-roofing with architectural shingles — total rebuild covered by insurance.',
+    description: 'Tree impact caused structural damage to two roof sections. Full deck repair, new framing members, and complete re-roofing with architectural shingles, total rebuild covered by insurance.',
     image: '/project-storm-3.webp',
     images: ['/project-storm-3.webp'],
     featured: false, tags: ['Tree Impact', 'Structural Repair', 'Insurance Claim'],
@@ -383,7 +383,7 @@ export const projects: Project[] = [
   {
     id: '24', slug: 'stouffville-micro-mesh-guards', title: 'Micro-Mesh Gutter Guard Installation',
     category: 'Gutter Systems', location: 'Stouffville, ON', year: '2023',
-    description: 'MasterShield micro-mesh leaf guards installed across 320 linear feet on a heavily treed property — chronic seasonal clogging resolved, no more twice-yearly cleanouts.',
+    description: 'MasterShield micro-mesh leaf guards installed across 320 linear feet on a heavily treed property, chronic seasonal clogging resolved, no more twice-yearly cleanouts.',
     image: '/project-gutter-stouffville.webp',
     images: ['/project-gutter-stouffville.webp'],
     featured: false, tags: ['Leaf Guards', 'Micro Mesh', 'MasterShield'],
@@ -393,7 +393,7 @@ export const projects: Project[] = [
   {
     id: '25', slug: 'forest-hill-velux-skylight', title: 'Triple Skylight Installation',
     category: 'Skylight Installation', location: 'Toronto, ON', year: '2024',
-    description: 'Three large fixed skylights installed with full manufacturer step flashing — no exposed caulk, and a 10-year leak-free workmanship warranty.',
+    description: 'Three large fixed skylights installed with full manufacturer step flashing, no exposed caulk, and a 10-year leak-free workmanship warranty.',
     image: '/project-skylight-1.jpg',
     images: ['/project-skylight-1.jpg'],
     featured: false, tags: ['Velux', 'Triple Pane', 'Fixed Skylight'],
@@ -409,7 +409,7 @@ export const projects: Project[] = [
   {
     id: '27', slug: 'oakville-venting-skylight-pair', title: 'Solar-Powered Venting Skylights',
     category: 'Skylight Installation', location: 'Oakville, ON', year: '2023',
-    description: 'Two Velux VSS solar-powered venting skylights installed over the main living area — opens and closes by remote, with a rain sensor that closes automatically.',
+    description: 'Two Velux VSS solar-powered venting skylights installed over the main living area, opens and closes by remote, with a rain sensor that closes automatically.',
     image: '/project-skylight-3.jpg',
     images: ['/project-skylight-3.jpg'],
     featured: false, tags: ['Velux VSS', 'Solar Powered', 'Rain Sensor'],
@@ -427,7 +427,7 @@ export const projects: Project[] = [
   {
     id: '32', slug: 'nobleton-metal-shingle-conversion', title: 'Steel Shake Metal Shingle Re-Roof',
     category: 'Metal Roofing', location: 'Nobleton, ON', year: '2024',
-    description: 'Aged asphalt shingles replaced with a steel shake profile — classic look, 50-year finish warranty, Class A fire rating, and greatly improved snow and ice shedding.',
+    description: 'Aged asphalt shingles replaced with a steel shake profile, classic look, 50-year finish warranty, Class A fire rating, and greatly improved snow and ice shedding.',
     image: '/project-metal-2.webp',
     images: ['/project-metal-2.webp'],
     featured: false, tags: ['Metal Shingles', 'Steel Shake', 'Conversion'],
@@ -435,7 +435,7 @@ export const projects: Project[] = [
   {
     id: '33', slug: 'schomberg-agricultural-metal', title: 'Agricultural Steel Roof Installation',
     category: 'Metal Roofing', location: 'Schomberg, ON', year: '2023',
-    description: 'Exposed fastener corrugated steel on a large agricultural building and workshop — high-rib galvanized panels over new purlins with thermal washers and translucent ridge vents.',
+    description: 'Exposed fastener corrugated steel on a large agricultural building and workshop, high-rib galvanized panels over new purlins with thermal washers and translucent ridge vents.',
     image: '/project-metal-3.jpg',
     images: ['/project-metal-3.jpg'],
     featured: false, tags: ['Agricultural', 'Corrugated Steel', 'Exposed Fastener'],
@@ -445,7 +445,7 @@ export const projects: Project[] = [
   {
     id: '34', slug: 'scarborough-tpo-addition', title: 'TPO Flat Roof on Rear Addition',
     category: 'Flat Roofing', location: 'Scarborough, ON', year: '2024',
-    description: 'Mechanically fastened 60-mil TPO with polyiso insulation on a new rear addition — internal drain, overflow scupper, and full air barrier continuity at the wall-to-roof junction.',
+    description: 'Mechanically fastened 60-mil TPO with polyiso insulation on a new rear addition, internal drain, overflow scupper, and full air barrier continuity at the wall-to-roof junction.',
     image: '/project-flat-tpo.jpg',
     images: ['/project-flat-tpo.jpg'],
     featured: false, tags: ['TPO Membrane', 'New Construction', 'Addition'],
@@ -463,7 +463,7 @@ export const projects: Project[] = [
   {
     id: '38', slug: 'mississauga-condo-corporation', title: 'Condo Corporation Re-Roof',
     category: 'Multi-Family Roofing', location: 'Mississauga, ON', year: '2024',
-    description: 'Full re-roofing of a 14-building condo corporation through a six-month phased reserve fund program — consistent quality across every building with a single unified warranty.',
+    description: 'Full re-roofing of a 14-building condo corporation through a six-month phased reserve fund program, consistent quality across every building with a single unified warranty.',
     image: '/project-condo-reroof.jpg',
     images: ['/project-condo-reroof.jpg'],
     featured: false, tags: ['Condo Corp', 'Reserve Fund', 'Multi Building'],
@@ -489,7 +489,7 @@ export const projects: Project[] = [
   {
     id: '42', slug: 'stouffville-family-replacement', title: 'One-Day Full Roof Replacement',
     category: 'Roof Replacement', location: 'Stouffville, ON', year: '2023',
-    description: 'Full crew on site at 7am — complete tear-off, new GAF Timberline HDZ, ice and water shield at all eaves and valleys, and full site cleanup done by 5pm.',
+    description: 'Full crew on site at 7am, complete tear-off, new GAF Timberline HDZ, ice and water shield at all eaves and valleys, and full site cleanup done by 5pm.',
     image: '/project-reroof-3.jpg',
     images: ['/project-reroof-3.jpg'],
     featured: false, tags: ['One Day Replace', 'GAF HDZ', 'Full Crew'],
@@ -639,4 +639,41 @@ export const testimonials: Testimonial[] = [
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
     projectType: 'Standing Seam Metal Roofing',
   },
+]
+
+export interface ServiceArea {
+  city: string
+  note: string
+  lat: number
+  lng: number
+}
+
+export const serviceAreas: ServiceArea[] = [
+  { city: 'Vaughan',       note: 'Company Headquarters', lat: 43.8361, lng: -79.4985 },
+  { city: 'Toronto',       note: 'Greater Toronto Area',  lat: 43.6532, lng: -79.3832 },
+  { city: 'Mississauga',   note: 'Peel Region',           lat: 43.5890, lng: -79.6441 },
+  { city: 'Brampton',      note: 'Peel Region',           lat: 43.6832, lng: -79.7666 },
+  { city: 'Markham',       note: 'York Region',           lat: 43.8561, lng: -79.3370 },
+  { city: 'Richmond Hill', note: 'York Region',           lat: 43.8828, lng: -79.4403 },
+  { city: 'Thornhill',     note: 'York Region',           lat: 43.8168, lng: -79.4164 },
+  { city: 'Woodbridge',    note: 'York Region',           lat: 43.7877, lng: -79.5962 },
+  { city: 'Concord',       note: 'York Region',           lat: 43.8128, lng: -79.4897 },
+  { city: 'King City',     note: 'York Region',           lat: 43.9284, lng: -79.5307 },
+  { city: 'Newmarket',     note: 'York Region',           lat: 44.0573, lng: -79.4608 },
+  { city: 'Aurora',        note: 'York Region',           lat: 44.0065, lng: -79.4502 },
+  { city: 'Oakville',      note: 'Halton Region',         lat: 43.4675, lng: -79.6877 },
+  { city: 'Burlington',    note: 'Halton Region',         lat: 43.3255, lng: -79.7990 },
+  { city: 'Milton',        note: 'Halton Region',         lat: 43.5183, lng: -79.8774 },
+  { city: 'Etobicoke',     note: 'West Toronto',          lat: 43.6205, lng: -79.5132 },
+  { city: 'North York',    note: 'Central Toronto',       lat: 43.7615, lng: -79.4111 },
+  { city: 'Scarborough',   note: 'East Toronto',          lat: 43.7731, lng: -79.2577 },
+  { city: 'Pickering',     note: 'Durham Region',         lat: 43.8384, lng: -79.0868 },
+  { city: 'Ajax',          note: 'Durham Region',         lat: 43.8509, lng: -79.0204 },
+  { city: 'Whitby',        note: 'Durham Region',         lat: 43.8975, lng: -78.9429 },
+  { city: 'Oshawa',        note: 'Durham Region',         lat: 43.8971, lng: -78.8658 },
+  { city: 'Stouffville',   note: 'York Region',           lat: 43.9699, lng: -79.2536 },
+  { city: 'Hamilton',      note: 'Hamilton',              lat: 43.2557, lng: -79.8711 },
+  { city: 'Barrie',        note: 'Simcoe County',         lat: 44.3894, lng: -79.6903 },
+  { city: 'Guelph',        note: 'Wellington County',     lat: 43.5448, lng: -80.2482 },
+  { city: 'Orangeville',   note: 'Dufferin County',       lat: 43.9193, lng: -80.0939 },
 ]

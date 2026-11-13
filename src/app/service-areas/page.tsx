@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, CheckCircle, Phone, Star, ChevronLeft, ChevronRight } from 'lucide-react'
-import { testimonials } from '@/data/mockData'
+import { testimonials, serviceAreas } from '@/data/mockData'
 
 const ServiceAreaMapFull = dynamic(() => import('@/components/ServiceAreaMapFull'), { ssr: false })
 
@@ -24,36 +24,6 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
     </motion.div>
   )
 }
-
-const serviceAreas = [
-  { city: 'Vaughan',       note: 'Company Headquarters', lat: 43.8361, lng: -79.4985 },
-  { city: 'Toronto',       note: 'Greater Toronto Area',  lat: 43.6532, lng: -79.3832 },
-  { city: 'Mississauga',   note: 'Peel Region',           lat: 43.5890, lng: -79.6441 },
-  { city: 'Brampton',      note: 'Peel Region',           lat: 43.6832, lng: -79.7666 },
-  { city: 'Markham',       note: 'York Region',           lat: 43.8561, lng: -79.3370 },
-  { city: 'Richmond Hill', note: 'York Region',           lat: 43.8828, lng: -79.4403 },
-  { city: 'Thornhill',     note: 'York Region',           lat: 43.8168, lng: -79.4164 },
-  { city: 'Woodbridge',    note: 'York Region',           lat: 43.7877, lng: -79.5962 },
-  { city: 'Concord',       note: 'York Region',           lat: 43.8128, lng: -79.4897 },
-  { city: 'King City',     note: 'York Region',           lat: 43.9284, lng: -79.5307 },
-  { city: 'Newmarket',     note: 'York Region',           lat: 44.0573, lng: -79.4608 },
-  { city: 'Aurora',        note: 'York Region',           lat: 44.0065, lng: -79.4502 },
-  { city: 'Oakville',      note: 'Halton Region',         lat: 43.4675, lng: -79.6877 },
-  { city: 'Burlington',    note: 'Halton Region',         lat: 43.3255, lng: -79.7990 },
-  { city: 'Milton',        note: 'Halton Region',         lat: 43.5183, lng: -79.8774 },
-  { city: 'Etobicoke',     note: 'West Toronto',          lat: 43.6205, lng: -79.5132 },
-  { city: 'North York',    note: 'Central Toronto',       lat: 43.7615, lng: -79.4111 },
-  { city: 'Scarborough',   note: 'East Toronto',          lat: 43.7731, lng: -79.2577 },
-  { city: 'Pickering',     note: 'Durham Region',         lat: 43.8384, lng: -79.0868 },
-  { city: 'Ajax',          note: 'Durham Region',         lat: 43.8509, lng: -79.0204 },
-  { city: 'Whitby',        note: 'Durham Region',         lat: 43.8975, lng: -78.9429 },
-  { city: 'Oshawa',        note: 'Durham Region',         lat: 43.8971, lng: -78.8658 },
-  { city: 'Stouffville',   note: 'York Region',           lat: 43.9699, lng: -79.2536 },
-  { city: 'Hamilton',      note: 'Hamilton',              lat: 43.2557, lng: -79.8711 },
-  { city: 'Barrie',        note: 'Simcoe County',         lat: 44.3894, lng: -79.6903 },
-  { city: 'Guelph',        note: 'Wellington County',     lat: 43.5448, lng: -80.2482 },
-  { city: 'Orangeville',   note: 'Dufferin County',       lat: 43.9193, lng: -80.0939 },
-]
 
 function ReviewCarousel() {
   const [current, setCurrent] = useState(0)
@@ -217,22 +187,17 @@ export default function ServiceAreasPage() {
 
           {/* Outside Service Area Map Section */}
           <FadeIn>
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-              {/* Map with circle overlay */}
-              <div className="relative aspect-square overflow-hidden max-w-lg mx-auto w-full">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d368220.96819368036!2d-79.49001659999999!3d43.81149389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sch!4v1793031022330!5m2!1sen!2sch"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'block', position: 'absolute', inset: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="Elite Roofing service area map"
+              {/* Aerial metal roof image */}
+              <div className="relative aspect-square overflow-hidden rounded-xl max-w-lg mx-auto w-full">
+                <Image
+                  src="/metal-roof-aerial.jpg"
+                  alt="Elite Roofing completed metal roof aerial view"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
-                {/* Circle overlay indicating service radius */}
-                <div className="absolute inset-[8%] rounded-full border-[3px] border-[#D0000F]/70 bg-[#D0000F]/10 pointer-events-none" />
               </div>
 
               {/* Text */}
@@ -244,96 +209,31 @@ export default function ServiceAreasPage() {
                   Located Outside Our Service Area?
                 </h3>
                 <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-3">
-                  Give us a call at{' '}
-                  <a href="tel:+19055550198" className="text-[#D0000F] font-semibold hover:underline">
-                    (905) 555-0198
-                  </a>{' '}
-                  to see if we can help. We often travel outside our typical service area by request.
+                  Give us a call to see if we can help. We often travel outside our typical service area by request.
                 </p>
                 <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-8">
                   You can also request a free estimate on our website and our team will be happy to follow up and confirm availability for your area.
                 </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300"
-                >
-                  Schedule an Estimate
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <a
+                    href="tel:+19055550198"
+                    className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#0f172a] whitespace-nowrap"
+                  >
+                    <Phone className="w-4 h-4" />
+                    (905) 555-0198
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300"
+                  >
+                    Schedule an Estimate
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
 
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* Hear From Our Clients */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <FadeIn className="text-center mb-12">
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-              Client Feedback
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
-              Hear From Our Clients
-            </h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-            {/* Left, sliding reviews */}
-            <FadeIn className="flex flex-col">
-              <ReviewCarousel />
-            </FadeIn>
-
-            {/* Right, stats + buttons */}
-            <FadeIn delay={0.1} className="flex flex-col justify-center">
-              <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
-                What Our Clients<br />Are Saying
-              </h3>
-
-              {/* Profile images + stars */}
-              <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
-                <div className="flex -space-x-3">
-                  {testimonials.slice(0, 3).map((t, i) => (
-                    <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
-                      <Image src={t.image} alt={t.name} fill sizes="44px" className="object-cover" />
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex gap-0.5 mb-1">
-                    {[1,2,3,4,5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
-                    ))}
-                  </div>
-                  <p className="font-sans text-sm font-semibold text-[#0f172a]">
-                    4.9 <span className="font-normal text-[#1e293b]">out of 5 across</span> 300 Google reviews
-                  </p>
-                </div>
-              </Link>
-
-              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
-                Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://customerreviews.google.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md"
-                >
-                  Leave a Google Review
-                </a>
-                <Link
-                  href="/testimonials"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
-                >
-                  See More Reviews
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
         </div>
       </section>
 
@@ -420,6 +320,76 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
+      {/* Hear From Our Clients */}
+      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+        <div className="max-w-7xl mx-auto">
+          <FadeIn className="text-center mb-12">
+            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
+              Client Feedback
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a]">
+              Hear From Our Clients
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+            {/* Left, sliding reviews */}
+            <FadeIn className="flex flex-col">
+              <ReviewCarousel />
+            </FadeIn>
+
+            {/* Right, stats + buttons */}
+            <FadeIn delay={0.1} className="flex flex-col justify-center">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-6 leading-snug">
+                What Our Clients<br />Are Saying
+              </h3>
+
+              {/* Profile images + stars */}
+              <Link href="/testimonials" className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity cursor-pointer">
+                <div className="flex -space-x-3">
+                  {testimonials.slice(0, 3).map((t, i) => (
+                    <div key={i} className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                      <Image src={t.image} alt={t.name} fill sizes="44px" className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <div className="flex gap-0.5 mb-1">
+                    {[1,2,3,4,5].map((i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                    ))}
+                  </div>
+                  <p className="font-sans text-sm font-semibold text-[#0f172a]">
+                    4.9 <span className="font-normal text-[#1e293b]">out of 5 across</span> 300 Google reviews
+                  </p>
+                </div>
+              </Link>
+
+              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed mb-8">
+                Hundreds of homeowners and businesses across Ontario have trusted Elite Roofing for their most important investment. Read what they have to say.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://customerreviews.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-colors duration-300 rounded-md"
+                >
+                  Leave a Google Review
+                </a>
+                <Link
+                  href="/testimonials"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
+                >
+                  See More Reviews
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
         <div className="max-w-3xl mx-auto text-center">
@@ -433,7 +403,7 @@ export default function ServiceAreasPage() {
               <span className="text-[#D0000F]">Top Rated Roofing Team</span>
             </h2>
             <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-              Free inspections. Transparent quotes. Expert installation. We serve Vaughan and surrounding areas — rooted in the community we work in every day.
+              Free inspections. Transparent quotes. Expert installation. We serve Vaughan and surrounding areas, rooted in the community we work in every day.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

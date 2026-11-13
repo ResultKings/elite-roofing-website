@@ -6,7 +6,10 @@ import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Star, Phone, ChevronDown, ChevronLeft, ChevronRight, Shield, Users, BadgeCheck, Award, MapPin } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import { services, testimonials, projects, type Service } from '@/data/mockData'
+import dynamic from 'next/dynamic'
+import { services, testimonials, projects, serviceAreas, type Service } from '@/data/mockData'
+
+const ServiceAreaMapFull = dynamic(() => import('@/components/ServiceAreaMapFull'), { ssr: false })
 
 // â"€â"€â"€ Animation helpers â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
@@ -281,7 +284,7 @@ function ServicesHighlightSection() {
 
           {/* Right: Image */}
           <FadeIn delay={0.1} className="h-full">
-            <div className="relative min-h-[420px] lg:h-full overflow-hidden">
+            <div className="relative min-h-[420px] lg:h-full overflow-hidden rounded-xl">
               <Image
                 src="/quality-section-aerial.webp"
                 alt="Elite Roofing aerial view of completed residential roof"
@@ -299,60 +302,72 @@ function ServicesHighlightSection() {
 }
 
 function StandardSection() {
+  const cards = [
+    {
+      icon: <Award className="w-7 h-7 text-white" />,
+      title: 'GAF Master Elite Certified',
+      desc: 'Only the top 2% of roofing contractors in North America earn this designation, guaranteeing manufacturer backed installation and the best warranty coverage available.',
+    },
+    {
+      icon: <Shield className="w-7 h-7 text-white" />,
+      title: '25-Year Written Warranty',
+      desc: 'Every project is backed by a comprehensive written workmanship warranty. We stand behind our work long after the last shingle is in place.',
+    },
+    {
+      icon: <BadgeCheck className="w-7 h-7 text-white" />,
+      title: 'Honest. Local. Reliable.',
+      desc: 'We are a locally owned Ontario company with no franchises and no middlemen, just a skilled local crew committed to doing the job right, every time.',
+    },
+  ]
+
   return (
-    <section className="relative min-h-[67vh] flex items-center overflow-hidden">
-      {/* Background image anchored right */}
+    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
+      {/* Background image with dark overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/standard-bg.webp"
-          alt="Elite Roofing craftsmanship"
+          src="/standard-section-aerial.webp"
+          alt="Elite Roofing completed residential roof"
           fill
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: '30% center' }}
         />
-        {/* White left side fading at 50% across */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white from-[40%] via-white/70 via-[55%] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/20" />
+        <div className="absolute inset-0 bg-[#0a1120]/80" />
       </div>
 
-      <div className="relative z-10 pl-4 md:pl-12 lg:pl-24 pr-4 md:pr-8 lg:pr-0 py-16 md:py-20 w-full">
-        <FadeIn className="max-w-full lg:max-w-[45%]">
-          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+        {/* Heading */}
+        <FadeIn className="text-center mb-14">
+          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/50 mb-4">
             The Standard
           </p>
-
-          <h2 className="font-display font-bold text-[clamp(2.4rem,4.2vw,5.2rem)] leading-[0.92] tracking-[-0.02em] mb-8">
-            <span className="text-[#0f172a]">We don&apos;t just fix roofs.</span><br />
-            <span className="text-[#D0000F]">We restore them.</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+            Why Choose Elite Roofing?
           </h2>
-
-          {/* Body text */}
-          <p className="font-sans text-[15px] text-[#374151] leading-relaxed mb-10 max-w-[85%]">
-            Our GAF Master Elite certification and 25 year warranty guarantee that premium results aren&apos;t a promise, they&apos;re our standard.
+          <p className="font-sans text-sm text-white/70 leading-relaxed max-w-2xl mx-auto">
+            We hold ourselves to a higher standard. From the first call to the final inspection, we deliver the expertise and care your home deserves.
           </p>
-
-          {/* Stats */}
-          <div className="flex flex-wrap items-start gap-8 lg:gap-14 pt-7 border-t border-[#0f172a]/10">
-            {[
-              { value: '2,500+', label: 'Roofs Completed' },
-              { value: '500+', label: 'Five Star Reviews' },
-              { value: '20+', label: 'Years in Business' },
-            ].map((stat, i) => (
-              <div key={stat.label} className="flex items-stretch">
-                {i > 0 && <div className="hidden lg:block w-px bg-[#0f172a]/15 mr-14 self-stretch" />}
-                <div>
-                  <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2.5rem)] text-[#D0000F] leading-none mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="font-sans text-[12px] text-[#0f172a]/50 tracking-widest uppercase">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </FadeIn>
+
+        {/* Feature cards */}
+        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6" delay={0.12}>
+          {cards.map((card) => (
+            <motion.div
+              key={card.title}
+              variants={fadeUp}
+              className="bg-white rounded-xl p-8 flex flex-col items-center text-center"
+            >
+              <div className="w-14 h-14 rounded-full bg-[#D0000F] flex items-center justify-center mb-5 flex-shrink-0">
+                {card.icon}
+              </div>
+              <h3 className="font-serif text-lg font-bold text-[#0f172a] mb-3 leading-tight">
+                {card.title}
+              </h3>
+              <p className="font-sans text-sm text-[#374151] leading-relaxed">
+                {card.desc}
+              </p>
+            </motion.div>
+          ))}
+        </Stagger>
       </div>
     </section>
   )
@@ -362,14 +377,14 @@ function StandardSection() {
 // â"€â"€â"€ Services â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const serviceDescriptions: Record<string, string> = {
-  'roof-replacement': 'A full roof replacement means starting fresh with premium materials selected for Ontario\'s climate. We handle complete tear-off, decking inspection and repair, ice and water barrier installation, and a new roofing system backed by a manufacturer\'s warranty — all completed by our GAF Master Elite certified crew.',
+  'roof-replacement': 'A full roof replacement means starting fresh with premium materials selected for Ontario\'s climate. We handle complete tear off, decking inspection and repair, ice and water barrier installation, and a new roofing system backed by a manufacturer warranty, all completed by our GAF Master Elite certified crew.',
   'roof-repair': 'Whether it\'s a handful of lifted shingles, a persistent leak around a chimney, or storm damage across multiple areas, our repair team diagnoses the root cause before touching a single nail. We\'ll give you an honest assessment, fix it right the first time, and document the work with photos.',
-  'storm-damage-restoration': 'After a major storm, acting quickly protects your home and your insurance claim. We perform a detailed damage assessment, provide full photo documentation, work directly with your adjuster, and restore your roof to pre-storm condition — often with little to no out-of-pocket cost through your policy.',
-  'gutter-systems': 'Properly functioning gutters are the first line of defence against foundation damage, basement flooding, and fascia rot. We install seamless aluminum gutters custom-fabricated on site, gutter guards to eliminate debris buildup, and complete downspout systems that move water well away from your home.',
-  'skylight-installation': 'A well-placed skylight transforms a dark room with natural light and can significantly improve ventilation. We install VELUX and other premium units with flashing systems that create a truly watertight seal — no more leaks, no condensation problems, just clean light and a beautiful finish.',
-  'metal-roofing': 'Standing seam and exposed-fastener metal roofing systems offer a 50+ year lifespan, superior wind and hail resistance, and outstanding energy efficiency. We install metal roofing on both residential and commercial properties across Ontario, with a full range of profiles and finishes.',
-  'flat-roofing': 'Flat and low-slope roofs require specialized systems designed to handle Ontario\'s freeze-thaw cycles and heavy snow loads. We install TPO, EPDM, and modified bitumen membranes with fully adhered details at every penetration, parapet, and drain to prevent the ponding and seam failures that cause most flat roof problems.',
-  'multi-family-roofing': 'Large multi-unit residential properties demand a roofing contractor with the capacity and coordination to minimize disruption to residents. We plan phased work schedules, maintain clear site access at all times, and deliver consistent workmanship across every unit — from townhouse complexes to mid-rise condominiums.',
+  'storm-damage-restoration': 'After a major storm, acting quickly protects your home and your insurance claim. We perform a detailed damage assessment, provide full photo documentation, work directly with your adjuster, and restore your roof to pre-storm condition, often with little to no out of pocket cost through your policy.',
+  'gutter-systems': 'Properly functioning gutters are the first line of defence against foundation damage, basement flooding, and fascia rot. We install seamless aluminum gutters custom fabricated on site, gutter guards to eliminate debris buildup, and complete downspout systems that move water well away from your home.',
+  'skylight-installation': 'A well placed skylight transforms a dark room with natural light and can significantly improve ventilation. We install VELUX and other premium units with flashing systems that create a truly watertight seal, no more leaks, no condensation problems, just clean light and a beautiful finish.',
+  'metal-roofing': 'Standing seam and exposed fastener metal roofing systems offer a 50+ year lifespan, superior wind and hail resistance, and outstanding energy efficiency. We install metal roofing on both residential and commercial properties across Ontario, with a full range of profiles and finishes.',
+  'flat-roofing': 'Flat and low slope roofs require specialized systems designed to handle Ontario\'s freeze thaw cycles and heavy snow loads. We install TPO, EPDM, and modified bitumen membranes with fully adhered details at every penetration, parapet, and drain to prevent the ponding and seam failures that cause most flat roof problems.',
+  'multi-family-roofing': 'Large multi-unit residential properties demand a roofing contractor with the capacity and coordination to minimize disruption to residents. We plan phased work schedules, maintain clear site access at all times, and deliver consistent workmanship across every unit, from townhouse complexes to mid-rise condominiums.',
 }
 
 function ServiceCard({ service, className = '' }: { service: Service; className?: string }) {
@@ -501,7 +516,7 @@ function TrustedLocalSection() {
 
           {/* Left: Image */}
           <FadeIn className="h-full">
-            <div className="relative min-h-[420px] lg:h-full overflow-hidden">
+            <div className="relative min-h-[420px] lg:h-full overflow-hidden rounded-xl">
               <Image
                 src="/residential-roofing.webp"
                 alt="Elite Roofing crew on a residential roof replacement"
@@ -543,60 +558,38 @@ function TrustedLocalSection() {
 // â"€â"€â"€ Process â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function ProcessSection() {
-  const steps = [
-    {
-      number: '01',
-      title: 'Free Estimate',
-      desc: 'We assess your roof at zero cost, documenting every issue with photographs and a detailed written report.',
-    },
-    {
-      number: '02',
-      title: 'Transparent Proposal',
-      desc: 'A clear, itemized quote with material options, timeline, and warranty terms. No pressure. No hidden fees.',
-    },
-    {
-      number: '03',
-      title: 'Expert Execution',
-      desc: 'Our master certified crew completes your project on schedule, with daily site clean-up and a final walkthrough.',
-    },
-  ]
-
   return (
-    <section className="relative px-4 md:px-8 lg:px-16 overflow-hidden py-20 md:py-28 lg:py-32">
-      <div className="absolute inset-0">
-        <Image
-          src="/process-bg.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-[#0a1120]/85" />
-      </div>
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <FadeIn className="mb-16">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-            How It Works
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3">
-            Simple. Transparent. Reliable.
-          </h2>
-        </FadeIn>
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-12" delay={0.12}>
-          {steps.map(step => (
-            <motion.div key={step.number} variants={fadeUp}>
-              <h3 className="font-serif text-2xl font-semibold text-white mb-4">{step.title}</h3>
-              <p className="font-sans text-sm text-white/45 leading-relaxed">{step.desc}</p>
-            </motion.div>
-          ))}
-        </Stagger>
+          {/* Left: Leaflet service area map */}
+          <FadeIn>
+            <div className="relative aspect-square overflow-hidden rounded-xl max-w-lg mx-auto w-full">
+              <ServiceAreaMapFull locations={serviceAreas} focusCity={null} />
+            </div>
+          </FadeIn>
 
-        <FadeIn className="mt-14 flex justify-center">
-          <Button href="/contact" variant="primary" size="lg">
-            Get Free Estimate
-          </Button>
-        </FadeIn>
+          {/* Right: Text */}
+          <FadeIn delay={0.1}>
+            <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
+              Service Area
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-6 leading-tight">
+              Proudly Serving Vaughan And Surrounding Areas
+            </h2>
+            <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-4">
+              Elite Roofing covers Vaughan, Toronto, and the Greater Toronto Area, including Richmond Hill, Markham, Brampton, Mississauga, Burlington, Oakville, and surrounding communities.
+            </p>
+            <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-8">
+              Our GAF Master Elite certified crews bring the same quality craftsmanship and care to every job, no matter where you are in the GTA.
+            </p>
+            <Button href="/service-areas" variant="primary" size="md">
+              See All Locations
+            </Button>
+          </FadeIn>
+
+        </div>
       </div>
     </section>
   )
@@ -872,7 +865,7 @@ function TestimonialCard({ t }: { t: { name: string; location: string; rating: n
           <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
         ))}
       </div>
-      <blockquote className="font-serif text-base md:text-[1.05rem] text-[#0f172a] leading-relaxed mb-6 flex-1 italic">
+      <blockquote className="font-sans text-sm text-[#374151] leading-relaxed mb-6 flex-1">
         &ldquo;{t.quote}&rdquo;
       </blockquote>
       <div className="flex items-center gap-3 pt-5 border-t border-[#f1f5f9]">

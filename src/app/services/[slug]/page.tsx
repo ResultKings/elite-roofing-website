@@ -289,7 +289,7 @@ const serviceWarrantyData: Record<string, WarrantyInfo> = {
     ],
   },
   'multi-family-roofing': {
-    heading: 'What Your Portfolio Warranty Covers',
+    heading: 'What Your Multi-Family Warranty Covers',
     description: 'Multi-family and condo installations by Elite Roofing are covered under a unified warranty structure across all buildings in your project.',
     footnote: 'Warranty certificates are issued per building and consolidated into a single portfolio package for the property manager or board.',
     cards: [
@@ -1141,6 +1141,92 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
+      {/* ── Our Guarantee (all service pages) ────────────────────────────────── */}
+      {(() => {
+        const wd = serviceWarrantyData[params.slug]
+        if (!wd) return null
+        return (
+          <section className="relative overflow-hidden py-24 md:py-32">
+            <div className="absolute inset-0">
+              <Image src="/warranty-bg.avif" alt="" fill className="object-cover object-center" />
+              <div className="absolute inset-0 bg-white/55" />
+            </div>
+            <div className="relative z-10 px-4 md:px-8 lg:px-16">
+              <div className="text-center mb-14 md:mb-18">
+                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-3 block">
+                  Our Guarantee
+                </span>
+                <h3 className="font-sans font-black text-[2rem] md:text-[2.8rem] lg:text-[3.2rem] text-[#0f172a] leading-tight">
+                  {wd.heading}
+                </h3>
+                <p className="font-sans text-sm text-[#1e293b] mt-5 max-w-xl mx-auto leading-relaxed">
+                  {wd.description}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
+                {wd.cards.map(({ label, duration, items }) => (
+                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#D0000F]/30">
+                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#D0000F]/20">
+                      <p className="font-sans text-xs font-semibold text-[#1e293b]">{label}</p>
+                      <span className="font-sans font-black text-xl text-[#D0000F]">{duration}</span>
+                    </div>
+                    <ul className="space-y-3">
+                      {items.map(item => (
+                        <li key={item} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
+                          <span className="font-sans text-sm font-medium text-[#0f172a] leading-snug">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center font-sans text-xs text-[#1e293b] mt-10 leading-relaxed max-w-2xl mx-auto">
+                {wd.footnote}
+              </p>
+            </div>
+          </section>
+        )
+      })()}
+
+      {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
+
+        {/* Right image — centred within the right portion */}
+        <div className="absolute inset-y-0 right-0 w-[60%]">
+          <Image
+            src={content.overviewImage ?? zigImg1}
+            alt={service.title}
+            fill
+            sizes="60vw"
+            className="object-cover"
+            style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : { objectPosition: 'center' }}
+          />
+          {/* Dark gradient on left edge of roofing image */}
+          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#041D35]/80 to-transparent pointer-events-none" />
+        </div>
+
+        {/* Left panel: solid white diagonal */}
+        <div
+          className="absolute inset-y-0 left-0 w-full md:w-[72%] lg:w-[62%] bg-white"
+          style={{ clipPath: 'polygon(0 0, 100% 0, 81% 100%, 0 100%)' }}
+        />
+
+        {/* Content — shifted right within the left panel area */}
+        <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
+          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
+            <div className="w-full max-w-[420px] md:max-w-[520px] lg:max-w-[580px]">
+              <h2 className="font-sans text-[1.95rem] md:text-[2.15rem] lg:text-[2.5rem] font-black text-[#0f172a] mb-5 leading-tight uppercase tracking-normal">
+                {content.tagline}
+              </h2>
+              <p className="font-sans text-[0.9375rem] text-[#374151] leading-relaxed">
+                {service.fullDescription}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
       <AnimatedProcessSection steps={sharedProcessData.steps} stepIcons={sharedProcessData.icons} />
 
@@ -1193,101 +1279,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
                 View Portfolio
               </Link>
-            </div>
-          </section>
-        )
-      })()}
-
-      {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
-
-        {/* Right image — centred within the right portion */}
-        <div className="absolute inset-y-0 right-0 w-[60%]">
-          <Image
-            src={content.overviewImage ?? zigImg1}
-            alt={service.title}
-            fill
-            sizes="60vw"
-            className="object-cover"
-            style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : { objectPosition: 'center' }}
-          />
-          {/* Dark gradient on left edge of roofing image */}
-          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#041D35]/80 to-transparent pointer-events-none" />
-        </div>
-
-        {/* Left panel: dark stripe background diagonal */}
-        <div
-          className="absolute inset-y-0 left-0 w-full md:w-[72%] lg:w-[62%]"
-          style={{ clipPath: 'polygon(0 0, 100% 0, 81% 100%, 0 100%)' }}
-        >
-          <Image
-            src="/stripe-bg.avif"
-            alt=""
-            fill
-            className="object-cover object-center"
-          />
-          {/* Overlay to deepen contrast and ensure readability */}
-          <div className="absolute inset-0 bg-[#041D35]/55" />
-        </div>
-
-        {/* Content — shifted right within the left panel area */}
-        <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
-          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
-            <div className="w-full max-w-[340px] md:max-w-[440px] lg:max-w-[480px]">
-              <h2 className="font-sans text-[1.7rem] md:text-[1.85rem] lg:text-[2.1rem] font-black text-white mb-5 leading-tight uppercase tracking-normal">
-                {content.tagline}
-              </h2>
-              <p className="font-sans text-sm text-white/80 leading-relaxed">
-                {service.fullDescription}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Our Guarantee (all service pages) ────────────────────────────────── */}
-      {(() => {
-        const wd = serviceWarrantyData[params.slug]
-        if (!wd) return null
-        return (
-          <section className="relative overflow-hidden py-24 md:py-32">
-            <div className="absolute inset-0">
-              <Image src="/warranty-bg.avif" alt="" fill className="object-cover object-center" />
-              <div className="absolute inset-0 bg-white/55" />
-            </div>
-            <div className="relative z-10 px-4 md:px-8 lg:px-16">
-              <div className="text-center mb-14 md:mb-18">
-                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-3 block">
-                  Our Guarantee
-                </span>
-                <h3 className="font-sans font-black text-[2rem] md:text-[2.8rem] lg:text-[3.2rem] text-[#0f172a] leading-tight">
-                  {wd.heading}
-                </h3>
-                <p className="font-sans text-sm text-[#1e293b] mt-5 max-w-xl mx-auto leading-relaxed">
-                  {wd.description}
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
-                {wd.cards.map(({ label, duration, items }) => (
-                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#D0000F]/30">
-                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#D0000F]/20">
-                      <p className="font-sans text-xs font-semibold text-[#1e293b]">{label}</p>
-                      <span className="font-sans font-black text-xl text-[#D0000F]">{duration}</span>
-                    </div>
-                    <ul className="space-y-3">
-                      {items.map(item => (
-                        <li key={item} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
-                          <span className="font-sans text-sm font-medium text-[#0f172a] leading-snug">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center font-sans text-xs text-[#1e293b] mt-10 leading-relaxed max-w-2xl mx-auto">
-                {wd.footnote}
-              </p>
             </div>
           </section>
         )

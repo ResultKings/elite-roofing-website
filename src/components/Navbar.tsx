@@ -304,7 +304,7 @@ export default function Navbar() {
                 <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
                     src="/service-residential-roofing.jpg"
-                    alt="Elite Roofing — Residential"
+                    alt="Elite Roofing Residential"
                     fill
                     sizes="288px"
                     className="object-cover"
