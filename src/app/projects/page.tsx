@@ -43,7 +43,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="p-5 border-t border-[#e7e5e4]">
           <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
-          <p className="font-sans text-xs text-\[#374151\] mb-3">{project.location} &middot; {project.year}</p>
+          <p className="font-sans text-xs text-\[#374151\] mb-3">{project.location}, {project.year}</p>
           <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{project.description}</p>
         </div>
       </div>
@@ -156,7 +156,7 @@ function ReviewCarousel() {
             </div>
             <div>
               <p className="font-sans text-sm font-semibold text-[#0f172a]">{r.name}</p>
-              <p className="font-sans text-[11px] text-\[#374151\]">{r.location} · {r.projectType}</p>
+              <p className="font-sans text-[11px] text-\[#374151\]">{r.location}, {r.projectType}</p>
             </div>
           </div>
         </motion.div>
@@ -389,7 +389,7 @@ export default function ProjectsPage() {
                       animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
                       exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
                       onClick={handleShowMore}
-                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-base font-semibold text-white transition-colors duration-200"
                     >
                       <span className="text-[8px]">▶</span>
                       Show More Projects
@@ -402,7 +402,7 @@ export default function ProjectsPage() {
                       animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
                       exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
                       onClick={handleSeeLess}
-                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
+                      className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-base font-semibold text-white transition-colors duration-200"
                     >
                       <span className="text-[8px]">▼</span>
                       See Less
@@ -450,7 +450,7 @@ export default function ProjectsPage() {
                     </div>
                     <Link
                       href={`/services/${slug}`}
-                      className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-sm font-semibold transition-colors duration-200 rounded-md"
+                      className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-200 rounded-md"
                     >
                       View {displayName}
                     </Link>
@@ -534,29 +534,26 @@ export default function ProjectsPage() {
         </section>
 
         {/* ── CTA ────────────────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-white/60 mb-5 block">
-              Get Started
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+        <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-[#D0000F] to-[#8b0000]">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-white mb-4 leading-tight">
               Every Project Starts With a Free Inspection
             </h2>
-            <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
+            <p className="font-sans text-base text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
               Take a look at our completed work across Ontario, then get in touch. We&apos;ll visit your property, assess your roof, and provide a detailed written proposal at no cost.
             </p>
-
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0d1f35] text-white font-sans text-base font-semibold hover:bg-[#152840] transition-colors duration-300 rounded-md whitespace-nowrap"
               >
-                Get Free Estimate
+                Get My Free Estimate <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:+19055550198"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0f172a] font-sans text-base font-semibold hover:bg-white/90 transition-colors duration-300 rounded-md whitespace-nowrap"
               >
+                <Phone className="w-4 h-4 text-[#D0000F]" />
                 (905) 555-0198
               </a>
             </div>

@@ -72,6 +72,21 @@ function Stagger({
   )
 }
 
+function useCarouselVisible(mobile: number, tablet: number, desktop: number) {
+  const [visible, setVisible] = useState(desktop)
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 768) setVisible(mobile)
+      else if (window.innerWidth < 1024) setVisible(tablet)
+      else setVisible(desktop)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [mobile, tablet, desktop])
+  return visible
+}
+
 // â"€â"€â"€ Hero â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const credentialItems = [
@@ -99,7 +114,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[#080d14]/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/75 via-transparent to-transparent" />
 
-      <div className="relative z-10 flex-1 pl-12 md:pl-24 lg:pl-40 w-full pt-28 md:pt-32 flex flex-col justify-center pb-24">
+      <div className="relative z-10 flex-1 px-6 sm:px-8 md:pl-24 md:pr-8 lg:pl-40 lg:pr-16 w-full pt-24 md:pt-32 flex flex-col justify-center pb-36 md:pb-28">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.1)}>
 
           {/* Display heading */}
@@ -107,14 +122,22 @@ function HeroSection() {
             <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white">
               Ontario Roofing Company
             </span>
-            <span className="block font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white">
-              You Can Trust
-            </span>
+            <div className="flex flex-wrap items-baseline gap-x-5">
+              <span className="font-display font-black uppercase text-[clamp(2rem,4.5vw,5.5rem)] text-white leading-[0.9]">
+                You Can Trust
+              </span>
+              <span
+                className="text-[#D0000F] leading-tight"
+                style={{ fontFamily: 'var(--font-dancing)', fontSize: 'clamp(2.2rem, 4.5vw, 5rem)' }}
+              >
+                Since 2004
+              </span>
+            </div>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-base md:text-lg text-white leading-relaxed mb-10 max-w-lg"
+            className="font-sans text-base md:text-lg text-white leading-relaxed mb-6 md:mb-10 max-w-lg"
           >
             Professional roofing company across Ontario. Licensed teams for residential, multifamily, and commercial roofing. Always completed with our guaranteed professional result.
           </motion.p>
@@ -164,17 +187,31 @@ function HeroSection() {
               <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
             </div>
           </motion.div>
+
+          {/* CTA buttons */}
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mt-7 md:mt-8">
+            <Button href="/contact" variant="primary" size="md">
+              Get Free Estimate
+            </Button>
+            <a
+              href="tel:+19055550198"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-white border border-white/40 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+            >
+              <Phone className="w-4 h-4" />
+              (905) 555-0198
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
       {/* Credentials bar */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-[#06090f]/70 backdrop-blur-sm border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-5">
-          <div className="flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-3 md:py-5">
+          <div className="grid grid-cols-2 md:flex md:items-center md:justify-between gap-2.5 md:gap-4">
             {credentialItems.map(({ label, Icon }, i) => (
-              <div key={i} className="flex items-center gap-2.5 flex-1 justify-center">
-                <Icon className="w-4 h-4 text-white/50 flex-shrink-0" />
-                <span className="font-sans text-xs font-bold tracking-wide text-white whitespace-nowrap">
+              <div key={i} className="flex items-center gap-2 md:gap-2.5 md:flex-1 justify-center">
+                <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-white/50 flex-shrink-0" />
+                <span className="font-sans text-[10px] md:text-xs font-bold tracking-wide text-white">
                   {label}
                 </span>
               </div>
@@ -255,7 +292,7 @@ function ServicesHighlightSection() {
           <FadeIn className="h-full">
             <div className="flex flex-col justify-between h-full py-4 lg:py-8">
               <div>
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-8 leading-tight">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-8 leading-tight">
                   Quality You Can Count On
                 </h2>
                 <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-6">
@@ -275,8 +312,8 @@ function ServicesHighlightSection() {
                 </div>
               </div>
               <div>
-                <Button href="/about" variant="primary" size="md">
-                  About Our Company
+                <Button href="/contact" variant="primary" size="md">
+                  Get Free Estimate
                 </Button>
               </div>
             </div>
@@ -302,72 +339,79 @@ function ServicesHighlightSection() {
 }
 
 function StandardSection() {
-  const cards = [
-    {
-      icon: <Award className="w-7 h-7 text-white" />,
-      title: 'GAF Master Elite Certified',
-      desc: 'Only the top 2% of roofing contractors in North America earn this designation, guaranteeing manufacturer backed installation and the best warranty coverage available.',
-    },
-    {
-      icon: <Shield className="w-7 h-7 text-white" />,
-      title: '25-Year Written Warranty',
-      desc: 'Every project is backed by a comprehensive written workmanship warranty. We stand behind our work long after the last shingle is in place.',
-    },
-    {
-      icon: <BadgeCheck className="w-7 h-7 text-white" />,
-      title: 'Honest. Local. Reliable.',
-      desc: 'We are a locally owned Ontario company with no franchises and no middlemen, just a skilled local crew committed to doing the job right, every time.',
-    },
+  const bulletPoints = [
+    { bold: 'GAF Master Elite Certified.', text: 'Only the top 2% of roofing contractors in North America earn this designation, guaranteeing manufacturer backed installation and the best warranty coverage available.' },
+    { bold: '25-Year Written Warranty.', text: 'Every project is backed by a comprehensive written workmanship warranty. We stand behind our work long after the last shingle is in place.' },
+    { bold: 'One point of contact.', text: 'The same person who gives your estimate supervises your job from start to finish.' },
+    { bold: 'Clean job site, every day.', text: 'We remove debris daily — not just at the end of the project.' },
+    { bold: 'Honest. Local. Reliable.', text: 'A locally owned Ontario company with no franchises and no middlemen, committed to doing the job right every time.' },
   ]
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
-      {/* Background image with dark overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/standard-section-aerial.webp"
-          alt="Elite Roofing completed residential roof"
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[#0a1120]/80" />
-      </div>
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#f1f5f9]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-        {/* Heading */}
-        <FadeIn className="text-center mb-14">
-          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/50 mb-4">
-            The Standard
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-            Why Choose Elite Roofing?
-          </h2>
-          <p className="font-sans text-sm text-white/70 leading-relaxed max-w-2xl mx-auto">
-            We hold ourselves to a higher standard. From the first call to the final inspection, we deliver the expertise and care your home deserves.
-          </p>
-        </FadeIn>
+          {/* Left: Text */}
+          <FadeIn>
+            <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#D0000F] mb-4">
+              Why Elite Roofing
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-6 leading-tight">
+              Why Choose Elite Roofing?
+            </h2>
+            <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-8">
+              We hold ourselves to a higher standard. From the first call to the final inspection, we deliver the expertise, honesty, and care your home deserves.
+            </p>
+            <ul className="space-y-4 mb-10">
+              {bulletPoints.map((point, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-[#D0000F] flex items-center justify-center">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="font-sans text-sm text-[#374151] leading-relaxed">
+                    <span className="font-semibold text-[#0f172a]">{point.bold}</span>{' '}{point.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <Button href="/about" variant="primary" size="md">
+              About Our Company
+            </Button>
+          </FadeIn>
 
-        {/* Feature cards */}
-        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6" delay={0.12}>
-          {cards.map((card) => (
-            <motion.div
-              key={card.title}
-              variants={fadeUp}
-              className="bg-white rounded-xl p-8 flex flex-col items-center text-center"
-            >
-              <div className="w-14 h-14 rounded-full bg-[#D0000F] flex items-center justify-center mb-5 flex-shrink-0">
-                {card.icon}
+          {/* Right: Image + Satisfaction card */}
+          <FadeIn delay={0.1} className="flex flex-col gap-4">
+            <div className="relative h-64 md:h-80 overflow-hidden rounded-xl">
+              <Image
+                src="/about-crew.jpg"
+                alt="Elite Roofing crew working on a residential roof"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            {/* 100% Satisfaction card */}
+            <div className="bg-[#0f172a] rounded-xl p-8 flex flex-col items-center text-center">
+              <div className="relative w-28 h-28 mb-6">
+                <svg viewBox="0 0 112 112" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="56" cy="56" r="50" stroke="#D0000F" strokeWidth="2" strokeDasharray="6 4" />
+                </svg>
+                <div className="absolute inset-4 rounded-full bg-[#1e293b] flex flex-col items-center justify-center">
+                  <span className="font-display text-xl font-bold uppercase text-white leading-none">100%</span>
+                  <span className="font-sans text-[9px] font-bold uppercase tracking-widest text-white/80 mt-0.5">Satisfaction</span>
+                </div>
               </div>
-              <h3 className="font-serif text-lg font-bold text-[#0f172a] mb-3 leading-tight">
-                {card.title}
-              </h3>
-              <p className="font-sans text-sm text-[#374151] leading-relaxed">
-                {card.desc}
+              <p className="font-serif text-lg italic text-white mb-3 leading-snug">
+                &ldquo;If you&apos;re not satisfied,<br />we&apos;re not finished!&rdquo;
               </p>
-            </motion.div>
-          ))}
-        </Stagger>
+              <p className="font-sans text-sm text-white/50">— The Elite Roofing Team</p>
+            </div>
+          </FadeIn>
+
+        </div>
       </div>
     </section>
   )
@@ -377,14 +421,14 @@ function StandardSection() {
 // â"€â"€â"€ Services â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 const serviceDescriptions: Record<string, string> = {
-  'roof-replacement': 'A full roof replacement means starting fresh with premium materials selected for Ontario\'s climate. We handle complete tear off, decking inspection and repair, ice and water barrier installation, and a new roofing system backed by a manufacturer warranty, all completed by our GAF Master Elite certified crew.',
-  'roof-repair': 'Whether it\'s a handful of lifted shingles, a persistent leak around a chimney, or storm damage across multiple areas, our repair team diagnoses the root cause before touching a single nail. We\'ll give you an honest assessment, fix it right the first time, and document the work with photos.',
-  'storm-damage-restoration': 'After a major storm, acting quickly protects your home and your insurance claim. We perform a detailed damage assessment, provide full photo documentation, work directly with your adjuster, and restore your roof to pre-storm condition, often with little to no out of pocket cost through your policy.',
-  'gutter-systems': 'Properly functioning gutters are the first line of defence against foundation damage, basement flooding, and fascia rot. We install seamless aluminum gutters custom fabricated on site, gutter guards to eliminate debris buildup, and complete downspout systems that move water well away from your home.',
-  'skylight-installation': 'A well placed skylight transforms a dark room with natural light and can significantly improve ventilation. We install VELUX and other premium units with flashing systems that create a truly watertight seal, no more leaks, no condensation problems, just clean light and a beautiful finish.',
-  'metal-roofing': 'Standing seam and exposed fastener metal roofing systems offer a 50+ year lifespan, superior wind and hail resistance, and outstanding energy efficiency. We install metal roofing on both residential and commercial properties across Ontario, with a full range of profiles and finishes.',
-  'flat-roofing': 'Flat and low slope roofs require specialized systems designed to handle Ontario\'s freeze thaw cycles and heavy snow loads. We install TPO, EPDM, and modified bitumen membranes with fully adhered details at every penetration, parapet, and drain to prevent the ponding and seam failures that cause most flat roof problems.',
-  'multi-family-roofing': 'Large multi-unit residential properties demand a roofing contractor with the capacity and coordination to minimize disruption to residents. We plan phased work schedules, maintain clear site access at all times, and deliver consistent workmanship across every unit, from townhouse complexes to mid-rise condominiums.',
+  'roof-replacement': 'Complete tear off, deck inspection, ice and water barrier, and a new GAF certified roofing system built for Ontario\'s climate, backed by a manufacturer warranty.',
+  'roof-repair': 'We diagnose the root cause before touching a nail, give you an honest assessment, fix it right the first time, and document the work with photos.',
+  'storm-damage-restoration': 'Full damage assessment, photo documentation, and direct coordination with your adjuster to restore your roof, often with little to no out-of-pocket cost.',
+  'gutter-systems': 'Seamless aluminum gutters custom-fabricated on site, gutter guards to stop debris, and downspout systems that move water well away from your foundation.',
+  'skylight-installation': 'VELUX and premium skylights installed with fully flashed, watertight seals. No leaks, no condensation, just clean natural light and a beautiful finish.',
+  'metal-roofing': 'Standing seam and exposed fastener systems with a 50+ year lifespan, superior wind and hail resistance, installed across Ontario for residential and commercial properties.',
+  'flat-roofing': 'TPO, EPDM, and modified bitumen membranes with fully adhered details at every penetration, parapet, and drain, built to handle Ontario\'s freeze thaw cycles.',
+  'multi-family-roofing': 'Phased scheduling, clear site access, and consistent workmanship across every unit, from townhouse complexes to mid rise condominiums with minimal disruption.',
 }
 
 function ServiceCard({ service, className = '' }: { service: Service; className?: string }) {
@@ -408,14 +452,14 @@ function ServiceCard({ service, className = '' }: { service: Service; className?
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-500" />
       </div>
 
-      {/* Default state: name + "+" at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex items-end justify-between group-hover:opacity-0 transition-opacity duration-300">
+      {/* Default state: desktop only — fades out on hover */}
+      <div className="hidden sm:flex absolute bottom-0 left-0 right-0 p-6 z-10 items-end justify-between group-hover:opacity-0 transition-opacity duration-300">
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">{service.title}</h3>
         <span className="font-sans text-2xl font-light text-white/70 leading-none pb-0.5">+</span>
       </div>
 
-      {/* Hover state: name + description + arrow */}
-      <div className="absolute inset-0 p-6 z-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {/* Full info: always visible on mobile, hover-reveal on desktop */}
+      <div className="absolute inset-0 p-6 z-10 flex flex-col justify-end sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">{service.title}</h3>
         <p className="font-sans text-sm text-white/80 leading-relaxed mb-5 line-clamp-4">{desc}</p>
         <span className="font-sans text-sm font-medium text-white inline-flex items-center gap-2">
@@ -451,8 +495,8 @@ function ServicesSection() {
           <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
             OUR SERVICES
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
-            What Can We Help You With?
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-[#0f172a] mb-5">
+            Complete Roofing Services For Ontario
           </h2>
           <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-2xl mx-auto">
             From a single shingle{' '}
@@ -531,7 +575,7 @@ function TrustedLocalSection() {
           <FadeIn delay={0.1} className="h-full">
             <div className="flex flex-col justify-between h-full py-4 lg:py-8">
               <div>
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-8 leading-tight">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-8 leading-tight">
                   Trusted Local Professionals
                 </h2>
                 <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-5">
@@ -575,7 +619,7 @@ function ProcessSection() {
             <span className="font-sans text-[11px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5 block">
               Service Area
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-6 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-6 leading-tight">
               Proudly Serving Vaughan And Surrounding Areas
             </h2>
             <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-4">
@@ -611,136 +655,84 @@ const HOME_PROJECT_SLUGS = [
 ]
 
 function ProjectsSection() {
-  const base = HOME_PROJECT_SLUGS
+  const featured = HOME_PROJECT_SLUGS
     .map(slug => projects.find(p => p.slug === slug))
-    .filter(Boolean) as typeof projects
-  const VISIBLE = 3
-  // Prepend last item + append clones so both left and right loops are seamless
-  const looped = [...base.slice(-1), ...base, ...base.slice(0, VISIBLE)]
-  const TOTAL = looped.length
-
-  const [pos, setPos] = useState(0)
-  const [instant, setInstant] = useState(false)
-  const [timerResetKey, setTimerResetKey] = useState(0)
-
-  const dotActive = pos % base.length
-
-  // Snap back to 0 when we reach the clone zone; reset timer after loop completes
-  useEffect(() => {
-    if (pos >= base.length) {
-      const id = setTimeout(() => {
-        setInstant(true)
-        setPos(0)
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          setInstant(false)
-          setTimerResetKey(k => k + 1)
-        }))
-      }, 580)
-      return () => clearTimeout(id)
-    }
-  }, [pos, base.length])
-
-  // Auto-advance, restarts on arrow/dot click and after each loop
-  useEffect(() => {
-    const id = setInterval(() => {
-      setPos(p => (p < base.length ? p + 1 : p))
-    }, 4200)
-    return () => clearInterval(id)
-  }, [timerResetKey, base.length])
-
-  const prev = () => {
-    setTimerResetKey(k => k + 1)
-    setInstant(false)
-    setPos(p => Math.max(0, p >= base.length ? base.length - 1 : p - 1))
-  }
-
-  const next = () => {
-    setTimerResetKey(k => k + 1)
-    setInstant(false)
-    setPos(p => (p < base.length ? p + 1 : p))
-  }
+    .filter(Boolean)
+    .slice(0, 5) as typeof projects
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
-      {/* Heading row with inline arrows */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-8 md:mb-10">
-        <div className="flex items-start justify-between gap-6">
-          <FadeIn>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-4">
-              Real Homes. Quality Work.
-            </h2>
-            <div className="w-20 h-px bg-[#0f172a]/20 mb-4" />
-            <p className="font-sans text-sm text-[#374151] leading-relaxed max-w-lg">
-              Explore some of our latest projects. We are proud to be a part of every homeowners journey.
-            </p>
-          </FadeIn>
-          <div className="flex items-center gap-2 flex-shrink-0 pt-1">
-            <button
-              onClick={prev}
-              aria-label="Previous project"
-              className="w-10 h-10 rounded-full border border-[#0f172a]/25 hover:border-[#D0000F] hover:text-[#D0000F] text-[#0f172a] flex items-center justify-center transition-colors duration-200"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={next}
-              aria-label="Next project"
-              className="w-10 h-10 rounded-full border border-[#0f172a]/25 hover:border-[#D0000F] hover:text-[#D0000F] text-[#0f172a] flex items-center justify-center transition-colors duration-200"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </div>
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <FadeIn className="text-center mb-10">
+          <p className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#D0000F] mb-4">
+            Recent Projects
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-4 leading-tight">
+            Real Homes. Quality Work.
+          </h2>
+          <p className="font-sans text-sm text-[#374151] leading-relaxed max-w-xl mx-auto">
+            Explore some of our latest projects. We are proud to be a part of every homeowner&apos;s journey.
+          </p>
+        </FadeIn>
 
-      {/* Full-width image carousel — section overflow-hidden clips partial cards */}
-      <div className="px-1">
-        <motion.div
-          className="flex"
-          style={{ width: `${TOTAL * 100 / VISIBLE}%` }}
-          animate={{ x: `-${(pos + 0.5) * (100 / TOTAL)}%` }}
-          transition={instant ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-        >
-          {looped.map((p, i) => (
-            <div
-              key={`${p.id}-${i}`}
-              style={{ width: `${100 / TOTAL}%` }}
-              className="flex-shrink-0 px-1.5 group"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Large left card */}
+          {featured[0] && (
+            <Link
+              href="/projects"
+              className="group relative block overflow-hidden rounded-xl min-h-[300px] md:min-h-[390px]"
             >
-              <Link href="/projects" className="relative block aspect-square overflow-hidden">
+              <Image
+                src={featured[0].image}
+                alt={featured[0].title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="font-sans text-sm font-semibold text-white leading-tight">{featured[0].title}</h3>
+                <p className="font-sans text-xs text-white/70 mt-1 uppercase tracking-wider flex items-center gap-1">
+                  <MapPin className="w-3 h-3 flex-shrink-0" />{featured[0].location}
+                </p>
+              </div>
+            </Link>
+          )}
+
+          {/* Right 2×2 grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {featured.slice(1, 5).map((p, i) => (
+              <Link
+                key={i}
+                href="/projects"
+                className="group relative block overflow-hidden rounded-xl h-[160px] md:h-[189px]"
+              >
                 <Image
                   src={p.image}
                   alt={p.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 34vw"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Hover tint */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
-                {/* Bottom gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-                {/* Text overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                  <h3 className="font-serif text-base md:text-xl font-bold text-white mb-2 leading-snug">{p.title}</h3>
-                  <div className="flex items-center gap-2.5">
-                    <span className="flex items-center gap-1 font-sans text-[11px] text-white/70 uppercase tracking-wider">
-                      <MapPin className="w-3 h-3 flex-shrink-0" />{p.location}
-                    </span>
-                    <span className="font-sans text-[11px] text-white/40">·</span>
-                    <span className="font-sans text-[11px] text-white/70 uppercase tracking-wider">{p.category}</span>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h3 className="font-sans text-xs font-semibold text-white leading-tight line-clamp-2">{p.title}</h3>
+                  <p className="font-sans text-[10px] text-white/70 mt-0.5 uppercase tracking-wider">{p.location}</p>
                 </div>
               </Link>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+            ))}
+          </div>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <FadeIn className="flex justify-center mt-10">
-          <Button href="/projects" variant="primary" size="md">
-            View Portfolio
-          </Button>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
+          >
+            View All Projects <ArrowRight className="w-4 h-4" />
+          </Link>
         </FadeIn>
       </div>
     </section>
@@ -859,7 +851,7 @@ const carouselReviews = [
 
 function TestimonialCard({ t }: { t: { name: string; location: string; rating: number; quote: string; image: string } }) {
   return (
-    <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300 rounded-xl">
+    <div className="bg-white p-8 flex flex-col hover:shadow-lg transition-shadow duration-300 rounded-xl border border-black/15">
       <div className="flex gap-0.5 mb-6">
         {Array.from({ length: t.rating }).map((_, i) => (
           <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
@@ -883,7 +875,7 @@ function TestimonialCard({ t }: { t: { name: string; location: string; rating: n
 
 function TestimonialsSection() {
   const base = carouselReviews
-  const VISIBLE = 3
+  const VISIBLE = useCarouselVisible(1, 2, 3)
   const looped = [...base, ...base.slice(0, VISIBLE)]
   const TOTAL = looped.length
 
@@ -925,13 +917,10 @@ function TestimonialsSection() {
   }
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-[#fafaf9]">
+    <section className="py-16 md:py-20 lg:py-24 bg-[#0f172a]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <FadeIn className="text-center mb-10">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-            Client Stories
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-white mb-5">
             What Our Clients Say
           </h2>
           <Link href="/testimonials" className="flex items-center justify-center gap-3 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
@@ -941,7 +930,7 @@ function TestimonialsSection() {
                 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&auto=format',
                 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&auto=format',
               ].map((src, i) => (
-                <div key={i} className={`relative w-8 h-8 rounded-full overflow-hidden border-2 border-[#fafaf9] shadow-sm flex-shrink-0${i > 0 ? ' -ml-2' : ''}`}>
+                <div key={i} className={`relative w-8 h-8 rounded-full overflow-hidden border-2 border-[#0f172a] shadow-sm flex-shrink-0${i > 0 ? ' -ml-2' : ''}`}>
                   <Image src={src} alt="Client" fill sizes="32px" className="object-cover" />
                 </div>
               ))}
@@ -951,7 +940,7 @@ function TestimonialsSection() {
                 <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
               ))}
             </div>
-            <p className="font-sans text-xs text-[#374151] tracking-wide">
+            <p className="font-sans text-xs text-white/60 tracking-wide">
               4.9 out of 5 across 300 Google reviews
             </p>
           </Link>
@@ -972,7 +961,7 @@ function TestimonialsSection() {
         <button
           onClick={prev}
           aria-label="Previous review"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-white/10 border border-white/20 shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-white flex items-center justify-center transition-colors duration-200"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -999,7 +988,7 @@ function TestimonialsSection() {
         <button
           onClick={next}
           aria-label="Next review"
-          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-[#f1f0ef] border border-[#c8c5bf] shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-[#0f172a] flex items-center justify-center transition-colors duration-200"
+          className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-md bg-white/10 border border-white/20 shadow-sm hover:bg-[#D0000F] hover:border-[#D0000F] hover:text-white text-white flex items-center justify-center transition-colors duration-200"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -1008,10 +997,66 @@ function TestimonialsSection() {
       <div className="flex justify-center mt-10">
         <Link
           href="/testimonials"
-          className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-sm font-semibold text-white transition-colors duration-200"
+          className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-base font-semibold text-white transition-colors duration-200"
         >
-          Show More Reviews
+          See More Reviews
         </Link>
+      </div>
+    </section>
+  )
+}
+
+// ─── Owner / Team Credibility ─────────────────────────────────────────────────
+
+function OwnerSection() {
+  return (
+    <section className="relative bg-white py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+      {/* Gray stripe — desktop only; looks odd when columns stack on mobile */}
+      <div className="hidden lg:block absolute inset-x-0 top-[22%] h-[56%] bg-[#f4f3f1]" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-10 items-center">
+
+          {/* Left: Text */}
+          <FadeIn>
+            <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f172a] mb-6 leading-tight">
+              Proudly Serving Our Community
+            </h2>
+            <p className="font-sans text-sm text-[#374151] leading-relaxed mb-6">
+              &ldquo;When we started Elite Roofing, we made each other a promise: never cut corners, always be straight with the customer, and treat every home like it was our own. That has not changed. Whether it is a small repair or a full tear-off, the same crew, the same standards, and the same accountability show up every time.&rdquo;
+            </p>
+            {/* Attribution + Tucker Scott signature side by side */}
+            <div className="flex flex-wrap items-center gap-5">
+              <p className="font-sans text-sm font-semibold text-[#0f172a]">
+                Tucker Scott, William Blake &amp; Andy Tipper{' '}
+                <span className="font-normal text-[#6b7280]">// Co-owners</span>
+              </p>
+              <div className="relative w-36 md:w-48 h-14 md:h-16 flex-shrink-0 opacity-70">
+                <Image
+                  src="/signature-tucker-scott.webp"
+                  alt="Tucker Scott signature"
+                  fill
+                  sizes="192px"
+                  className="object-contain object-left"
+                />
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Right: Circular photo — bigger, pulled up */}
+          <FadeIn delay={0.1} className="flex justify-center lg:justify-end lg:-mt-14">
+            <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[390px] md:h-[390px] lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden shadow-2xl">
+              <Image
+                src="/team-photo.jpg"
+                alt="Elite Roofing team on a completed roof"
+                fill
+                sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 390px, 450px"
+                className="object-cover object-top"
+              />
+            </div>
+          </FadeIn>
+
+        </div>
       </div>
     </section>
   )
@@ -1052,74 +1097,57 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <FadeIn className="text-center mb-10 lg:mb-14">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-            Common Questions
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-5">
-            Frequently Asked
+    <section id="faq" className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#f4f3f1]">
+      <div className="max-w-5xl mx-auto">
+        <FadeIn className="mb-10 lg:mb-14">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-[#0f172a] mb-0 leading-tight">
+            Frequently Asked Questions
           </h2>
         </FadeIn>
 
-        <div className="space-y-2">
+        <div>
           {homeFAQs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
-              <FadeIn key={i} delay={i * 0.05}>
-                <div
-                  className={[
-                    'border transition-colors duration-300',
-                    isOpen ? 'border-[#D0000F]/50' : 'border-[#e7e5e4] hover:border-[#D0000F]/30',
-                  ].join(' ')}
+              <div key={i} className="border-b border-dashed border-[#0f172a]/25 last:border-b-0">
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-center justify-between gap-6 py-5 text-left"
+                  aria-expanded={isOpen}
                 >
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="font-serif text-base md:text-lg font-semibold text-[#0f172a] leading-snug">
-                      {faq.question}
-                    </span>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="flex-shrink-0"
+                  <span className="font-display text-lg md:text-xl font-bold uppercase text-[#0f172a] tracking-wide leading-snug">
+                    {faq.question}
+                  </span>
+                  <span className="flex-shrink-0 text-[#D0000F] text-2xl font-bold leading-none w-6 text-center">
+                    {isOpen ? '−' : '+'}
+                  </span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="body"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="overflow-hidden"
                     >
-                      <ChevronDown className="w-5 h-5 text-[#D0000F]" />
-                    </motion.span>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="body"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-7 pb-6 border-t border-[#e7e5e4]">
-                          <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed pt-5">
-                            {faq.answer}
-                            {faq.link && (
-                              <> <Link href={faq.link.href} className="text-[#D0000F] hover:underline">{faq.link.text}</Link></>
-                            )}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </FadeIn>
+                      <p className="font-sans text-base md:text-lg text-[#374151] leading-relaxed pb-5">
+                        {faq.answer}
+                        {faq.link && (
+                          <> <Link href={faq.link.href} className="text-[#D0000F] hover:underline">{faq.link.text}</Link></>
+                        )}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             )
           })}
         </div>
 
-        <FadeIn className="mt-10 text-center">
-          <p className="font-sans text-sm text-\[#374151\] mb-4">Have a question not listed here?</p>
+        <FadeIn className="mt-10">
+          <p className="font-sans text-sm text-[#374151] mb-4">Have a question not listed here?</p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 font-sans text-sm font-medium text-[#D0000F] hover:text-[#A5000A] transition-colors"
@@ -1136,29 +1164,27 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
-      <div className="max-w-7xl mx-auto">
-        <FadeIn className="max-w-2xl mx-auto text-center">
-          <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
-            Get Started
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Protect Your Investment?
+    <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-[#D0000F] to-[#8b0000]">
+      <div className="max-w-4xl mx-auto text-center">
+        <FadeIn>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-white mb-4 leading-tight">
+            Ready for a Roof That Lasts?
           </h2>
-          <p className="font-sans text-base text-white/50 leading-relaxed mb-10">
-            Get a free, no obligation roof inspection from Ontario&apos;s most trusted
-            roofing specialists. We assess your roof, answer every question, and provide
-            a transparent written quote at no cost to you.
+          <p className="font-sans text-base text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Get a free, no-pressure estimate from Ontario&apos;s most trusted roofing specialists. We assess your roof, answer every question, and provide a transparent written quote at no cost to you.
           </p>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/contact" variant="primary" size="lg">
-              Get Free Estimate
-            </Button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0d1f35] text-white font-sans text-base font-semibold hover:bg-[#152840] transition-colors duration-300 rounded-md whitespace-nowrap"
+            >
+              Get My Free Estimate <ArrowRight className="w-4 h-4" />
+            </Link>
             <a
               href="tel:+19055550198"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0f172a] font-sans text-base font-semibold hover:bg-white/90 transition-colors duration-300 rounded-md whitespace-nowrap"
             >
+              <Phone className="w-4 h-4 text-[#D0000F]" />
               (905) 555-0198
             </a>
           </div>
@@ -1175,11 +1201,12 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ServicesSection />
-      <TrustedLocalSection />
-      <ProjectsSection />
-      <ServicesHighlightSection />
       <StandardSection />
+      <TrustedLocalSection />
+      <ServicesHighlightSection />
+      <ProjectsSection />
       <ProcessSection />
+      <OwnerSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

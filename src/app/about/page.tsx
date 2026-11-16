@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, CheckCircle, Award, Shield, Users, Clock, Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, CheckCircle, Award, Shield, Users, Clock, Star, ChevronLeft, ChevronRight, Phone } from 'lucide-react'
 import { testimonials } from '@/data/mockData'
 
 const fadeUp = {
@@ -206,7 +206,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
+      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12 lg:mb-16">
             <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
@@ -230,6 +230,49 @@ export default function AboutPage() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Owner / Team */}
+      <section className="relative bg-white py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 overflow-hidden">
+        <div className="hidden lg:block absolute inset-x-0 top-[22%] h-[56%] bg-[#f4f3f1]" />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-10 items-center">
+            <FadeIn>
+              <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f172a] mb-6 leading-tight">
+                Proudly Serving Our Community
+              </h2>
+              <p className="font-sans text-sm text-[#374151] leading-relaxed mb-6">
+                &ldquo;When we started Elite Roofing, we made each other a promise: never cut corners, always be straight with the customer, and treat every home like it was our own. That has not changed. Whether it is a small repair or a full tear-off, the same crew, the same standards, and the same accountability show up every time.&rdquo;
+              </p>
+              <div className="flex flex-wrap items-center gap-5">
+                <p className="font-sans text-sm font-semibold text-[#0f172a]">
+                  Tucker Scott, William Blake &amp; Andy Tipper{' '}
+                  <span className="font-normal text-[#6b7280]">// Co-owners</span>
+                </p>
+                <div className="relative w-36 md:w-48 h-14 md:h-16 flex-shrink-0 opacity-70">
+                  <Image
+                    src="/signature-tucker-scott.webp"
+                    alt="Tucker Scott signature"
+                    fill
+                    sizes="192px"
+                    className="object-contain object-left"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1} className="flex justify-center lg:justify-end lg:-mt-14">
+              <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[390px] md:h-[390px] lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden shadow-2xl">
+                <Image
+                  src="/team-photo.jpg"
+                  alt="Elite Roofing team on a completed roof"
+                  fill
+                  sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 390px, 450px"
+                  className="object-cover object-top"
+                />
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -381,29 +424,27 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-[#D0000F] to-[#8b0000]">
+        <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
-            <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-white/60 mb-5 block">
-              Get Started
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-white mb-4 leading-tight">
               Ready to Experience the Elite Difference?
             </h2>
-            <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-lg mx-auto">
-              Twenty years of work. Thousands of roofs. One standard. Book your free, no obligation estimate and see why homeowners across Vaughan and surrounding areas trust Elite Roofing.
+            <p className="font-sans text-base text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+              Twenty years of work. Thousands of roofs. One standard. Book your free, no-obligation estimate and see why homeowners across Vaughan and surrounding areas trust Elite Roofing.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0d1f35] text-white font-sans text-base font-semibold hover:bg-[#152840] transition-colors duration-300 rounded-md whitespace-nowrap"
               >
-                Get Free Estimate
+                Get My Free Estimate <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:+19055550198"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0f172a] font-sans text-base font-semibold hover:bg-white/90 transition-colors duration-300 rounded-md whitespace-nowrap"
               >
+                <Phone className="w-4 h-4 text-[#D0000F]" />
                 (905) 555-0198
               </a>
             </div>

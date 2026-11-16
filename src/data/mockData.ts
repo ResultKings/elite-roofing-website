@@ -206,8 +206,7 @@ export const projects: Project[] = [
     category: 'Residential',
     location: 'Oakville, ON',
     year: '2024',
-    description:
-      'Full re-roof of a large stone colonial home with premium charcoal metal tile panels and custom copper valley and dormer flashing.',
+    description: 'Re roof with charcoal metal tile and copper valley flashing.',
     image: '/project-res-2.webp',
     images: ['/project-res-2.webp'],
     featured: true,
@@ -221,8 +220,7 @@ export const projects: Project[] = [
     categories: ['Multi-Family Roofing'],
     location: 'Concord, ON',
     year: '2024',
-    description:
-      'Phased re-roofing of a 64-unit townhome complex across four buildings with GAF Timberline HDZ shingles and upgraded ventilation, minimal disruption to residents throughout.',
+    description: 'Re roof of 64 units across four buildings with GAF HDZ.',
     image: '/project-res-8.webp',
     images: ['/project-res-8.webp'],
     featured: true,
@@ -236,8 +234,7 @@ export const projects: Project[] = [
     categories: ['Residential', 'Roof Replacement'],
     location: 'Markham, ON',
     year: '2024',
-    description:
-      'Complete tear-off and replacement on a large two-storey home with GAF Timberline HDZ in Charcoal, full ice and water shield, and new seamless aluminum eavestroughs with leaf guards.',
+    description: 'GAF Timberline HDZ tear off with ice shield and new eavestroughs.',
     image: '/project-res-6.webp',
     images: ['/project-res-6.webp'],
     featured: true,
@@ -251,8 +248,7 @@ export const projects: Project[] = [
     categories: ['Residential', 'Flat Roofing'],
     location: 'Toronto, ON',
     year: '2024',
-    description:
-      'Low-slope TPO membrane on a contemporary home, paired with a standing seam metal entry canopy, clean integration with the building envelope and a 50-year finish warranty.',
+    description: 'Low slope TPO with standing seam metal canopy, 50 year warranty.',
     image: '/project-res-3.jpg',
     images: ['/project-res-3.jpg'],
     featured: false,
@@ -266,8 +262,7 @@ export const projects: Project[] = [
     categories: ['Residential', 'Roof Replacement'],
     location: 'Vaughan, ON',
     year: '2023',
-    description:
-      'Full tear-off and new GAF Timberline HDZ installation on a classic two-storey home, shown here mid-installation with new high-performance underlayment in place.',
+    description: 'Full tear off with GAF Timberline HDZ and new underlayment.',
     image: '/project-res-5.jpg',
     images: ['/project-res-5.jpg'],
     featured: false,
@@ -281,8 +276,7 @@ export const projects: Project[] = [
     categories: ['Residential', 'Roof Replacement'],
     location: 'Burlington, ON',
     year: '2023',
-    description:
-      'Insurance-documented full replacement after hail damage, GAF Timberline HDZ, three new Velux skylights, and a complete eavestrough overhaul, all finished within one week.',
+    description: 'Insurance hail replacement with GAF HDZ and new Velux skylights.',
     image: '/project-res-1.avif',
     images: ['/project-res-1.avif'],
     featured: false,
@@ -296,8 +290,7 @@ export const projects: Project[] = [
     categories: ['Residential', 'Gutter Systems'],
     location: 'Thornhill, ON',
     year: '2024',
-    description:
-      'Combined shingle and eavestrough upgrade, new architectural shingles, drip edge, and a full seamless aluminum gutter system with micro-mesh leaf guards across all rooflines.',
+    description: 'New shingles and aluminum gutters with micro mesh guards.',
     image: '/project-res-4.webp',
     images: ['/project-res-4.webp'],
     featured: false,
@@ -311,8 +304,7 @@ export const projects: Project[] = [
     categories: ['Multi-Family Roofing'],
     location: 'King City, ON',
     year: '2023',
-    description:
-      'Re-roofing of three attached craftsman homes with GAF Timberline HDZ in Pewter Gray, custom ridge caps, enhanced attic ventilation, and new cedar soffits to match the existing architecture.',
+    description: 'Three craftsman homes with GAF HDZ and new cedar soffits.',
     image: '/project-res-7.jpg',
     images: ['/project-res-7.jpg'],
     featured: false,
@@ -323,7 +315,7 @@ export const projects: Project[] = [
   {
     id: '16', slug: 'aurora-leak-flashing-repair', title: 'Shingle & Flashing Repair',
     category: 'Roof Repairs', location: 'Aurora, ON', year: '2024',
-    description: 'On-site diagnosis and repair of multiple leak points, failed step flashing, a cracked pipe boot, and lifted ridge caps, all resolved in a single visit with full documentation.',
+    description: 'Flashing failure, cracked pipe boot, and ridge caps fixed same day.',
     image: '/project-repair-aurora.webp',
     images: ['/project-repair-aurora.webp'],
     featured: false, tags: ['Leak Repair', 'Flashing', 'Chimney'],
@@ -331,7 +323,7 @@ export const projects: Project[] = [
   {
     id: '17', slug: 'newmarket-chimney-cap-seal', title: 'Chimney Cap & Step Flashing Repair',
     category: 'Roof Repairs', location: 'Newmarket, ON', year: '2024',
-    description: 'New galvanized chimney cap, re-installed step flashing, and full re-pointing of the surrounding brick on a split-level home. Leak source fully eliminated.',
+    description: 'Chimney cap, step flashing, and brick repointing. Leak eliminated.',
     image: '/project-repair-2.jpg',
     images: ['/project-repair-2.jpg'],
     featured: false, tags: ['Chimney', 'Flashing', 'Masonry Seal'],
@@ -339,7 +331,7 @@ export const projects: Project[] = [
   {
     id: '18', slug: 'barrie-shingle-valley-repair', title: 'Valley Repair & Shingle Replacement',
     category: 'Roof Repairs', location: 'Barrie, ON', year: '2023',
-    description: 'Ice dam damage repaired with new W-valley metal, a woven shingle overlay, and ice and water shield at the eaves. No leaks through two subsequent winters.',
+    description: 'New W valley metal, shingle overlay, and ice shield at the eaves.',
     image: '/project-repair-3.jpg',
     images: ['/project-repair-3.jpg'],
     featured: false, tags: ['Valley Repair', 'Ice Dam', 'Shingles'],
@@ -349,7 +341,7 @@ export const projects: Project[] = [
   {
     id: '19', slug: 'oshawa-hail-storm-restoration', title: 'Hail Damage Tear-Off & Replacement',
     category: 'Storm Damage Restoration', location: 'Oshawa, ON', year: '2024',
-    description: 'Full tear-off after widespread hail damage caused granule loss across all south-facing slopes. Insurance claim documented and approved; new GAF Timberline HDZ installed over a fully inspected deck.',
+    description: 'Full insurance tear off after hail with new GAF Timberline HDZ.',
     image: '/project-storm-1.webp',
     images: ['/project-storm-1.webp'],
     featured: false, tags: ['Hail Damage', 'Insurance Claim', 'Full Replacement'],
@@ -357,7 +349,7 @@ export const projects: Project[] = [
   {
     id: '20', slug: 'whitby-wind-damage-response', title: 'Wind Damage Restoration',
     category: 'Storm Damage Restoration', location: 'Whitby, ON', year: '2024',
-    description: 'Emergency tarp deployed the same evening after straight-line winds removed shingles across 40% of the roof. Full restoration with new underlayment and shingles completed within five days.',
+    description: 'Emergency tarp same evening; full restoration in five days.',
     image: '/project-storm-2.jpg',
     images: ['/project-storm-2.jpg'],
     featured: false, tags: ['Wind Damage', 'Emergency Tarp', 'Restoration'],
@@ -365,7 +357,7 @@ export const projects: Project[] = [
   {
     id: '21', slug: 'ajax-post-storm-rebuild', title: 'Post-Storm Deck & Shingle Rebuild',
     category: 'Storm Damage Restoration', location: 'Ajax, ON', year: '2023',
-    description: 'Tree impact caused structural damage to two roof sections. Full deck repair, new framing members, and complete re-roofing with architectural shingles, total rebuild covered by insurance.',
+    description: 'Tree impact repaired with full deck re roof, covered by insurance.',
     image: '/project-storm-3.webp',
     images: ['/project-storm-3.webp'],
     featured: false, tags: ['Tree Impact', 'Structural Repair', 'Insurance Claim'],
@@ -375,7 +367,7 @@ export const projects: Project[] = [
   {
     id: '22', slug: 'woodbridge-seamless-aluminum-install', title: 'Seamless Aluminum Eavestrough Install',
     category: 'Gutter Systems', location: 'Woodbridge, ON', year: '2024',
-    description: 'Old sectional gutters removed and replaced with new 5″ seamless aluminum eavestroughs in bronze finish, with new fascia wrap and downspout extensions routed away from the foundation.',
+    description: '5″ seamless bronze aluminum, new fascia wrap, and downspouts.',
     image: '/project-gutter-woodbridge.webp',
     images: ['/project-gutter-woodbridge.webp'],
     featured: false, tags: ['Seamless Gutters', 'Aluminum', 'Downspouts'],
@@ -383,7 +375,7 @@ export const projects: Project[] = [
   {
     id: '24', slug: 'stouffville-micro-mesh-guards', title: 'Micro-Mesh Gutter Guard Installation',
     category: 'Gutter Systems', location: 'Stouffville, ON', year: '2023',
-    description: 'MasterShield micro-mesh leaf guards installed across 320 linear feet on a heavily treed property, chronic seasonal clogging resolved, no more twice-yearly cleanouts.',
+    description: 'MasterShield micro mesh across 320 linear feet. Clogging eliminated.',
     image: '/project-gutter-stouffville.webp',
     images: ['/project-gutter-stouffville.webp'],
     featured: false, tags: ['Leaf Guards', 'Micro Mesh', 'MasterShield'],
@@ -391,9 +383,9 @@ export const projects: Project[] = [
 
   // ── Skylight Installation ──────────────────────────────────────────────────
   {
-    id: '25', slug: 'forest-hill-velux-skylight', title: 'Triple Skylight Installation',
+    id: '25', slug: 'forest-hill-velux-skylight', title: 'Multiple Skylight Installation',
     category: 'Skylight Installation', location: 'Toronto, ON', year: '2024',
-    description: 'Three large fixed skylights installed with full manufacturer step flashing, no exposed caulk, and a 10-year leak-free workmanship warranty.',
+    description: 'Three fixed skylights with step flashing and a 10 year warranty.',
     image: '/project-skylight-1.jpg',
     images: ['/project-skylight-1.jpg'],
     featured: false, tags: ['Velux', 'Triple Pane', 'Fixed Skylight'],
@@ -401,7 +393,7 @@ export const projects: Project[] = [
   {
     id: '26', slug: 'etobicoke-solar-tube-conversion', title: 'Velux Skylight Installation',
     category: 'Skylight Installation', location: 'Etobicoke, ON', year: '2024',
-    description: 'Three Velux fixed skylights installed in a shingle roof with full manufacturer step flashing, bringing natural light into interior rooms with a 10-year leak-free guarantee.',
+    description: 'Three Velux skylights with step flashing and a 10 year guarantee.',
     image: '/project-skylight-solar.jpg',
     images: ['/project-skylight-solar.jpg'],
     featured: false, tags: ['Solatube', 'Solar Tube', 'Daylighting'],
@@ -409,7 +401,7 @@ export const projects: Project[] = [
   {
     id: '27', slug: 'oakville-venting-skylight-pair', title: 'Solar-Powered Venting Skylights',
     category: 'Skylight Installation', location: 'Oakville, ON', year: '2023',
-    description: 'Two Velux VSS solar-powered venting skylights installed over the main living area, opens and closes by remote, with a rain sensor that closes automatically.',
+    description: 'Two solar venting skylights, remote operated with an auto rain sensor.',
     image: '/project-skylight-3.jpg',
     images: ['/project-skylight-3.jpg'],
     featured: false, tags: ['Velux VSS', 'Solar Powered', 'Rain Sensor'],
@@ -419,7 +411,7 @@ export const projects: Project[] = [
   {
     id: '31', slug: 'caledon-standing-seam-estate', title: 'Standing Seam Steel Roof',
     category: 'Metal Roofing', location: 'Caledon, ON', year: '2024',
-    description: '24-gauge Galvalume standing seam panels in charcoal grey with concealed clips, custom copper ridge caps and valley trim, and acoustic underlayment on a large estate property.',
+    description: 'Charcoal standing seam with concealed clips and copper caps.',
     image: '/project-metal-1.jpg',
     images: ['/project-metal-1.jpg'],
     featured: false, tags: ['Standing Seam', 'Steel', 'Custom Estate'],
@@ -427,7 +419,7 @@ export const projects: Project[] = [
   {
     id: '32', slug: 'nobleton-metal-shingle-conversion', title: 'Steel Shake Metal Shingle Re-Roof',
     category: 'Metal Roofing', location: 'Nobleton, ON', year: '2024',
-    description: 'Aged asphalt shingles replaced with a steel shake profile, classic look, 50-year finish warranty, Class A fire rating, and greatly improved snow and ice shedding.',
+    description: 'Steel shake, 50 year warranty, Class A fire rating, better ice shed.',
     image: '/project-metal-2.webp',
     images: ['/project-metal-2.webp'],
     featured: false, tags: ['Metal Shingles', 'Steel Shake', 'Conversion'],
@@ -435,7 +427,7 @@ export const projects: Project[] = [
   {
     id: '33', slug: 'schomberg-agricultural-metal', title: 'Agricultural Steel Roof Installation',
     category: 'Metal Roofing', location: 'Schomberg, ON', year: '2023',
-    description: 'Exposed fastener corrugated steel on a large agricultural building and workshop, high-rib galvanized panels over new purlins with thermal washers and translucent ridge vents.',
+    description: 'High rib corrugated steel over new purlins with thermal washers.',
     image: '/project-metal-3.jpg',
     images: ['/project-metal-3.jpg'],
     featured: false, tags: ['Agricultural', 'Corrugated Steel', 'Exposed Fastener'],
@@ -445,7 +437,7 @@ export const projects: Project[] = [
   {
     id: '34', slug: 'scarborough-tpo-addition', title: 'TPO Flat Roof on Rear Addition',
     category: 'Flat Roofing', location: 'Scarborough, ON', year: '2024',
-    description: 'Mechanically fastened 60-mil TPO with polyiso insulation on a new rear addition, internal drain, overflow scupper, and full air barrier continuity at the wall-to-roof junction.',
+    description: 'TPO with polyiso insulation, internal drain, and overflow scupper.',
     image: '/project-flat-tpo.jpg',
     images: ['/project-flat-tpo.jpg'],
     featured: false, tags: ['TPO Membrane', 'New Construction', 'Addition'],
@@ -453,7 +445,7 @@ export const projects: Project[] = [
   {
     id: '36', slug: 'burlington-flat-conversion', title: 'Flat Roof Conversion & Rooftop Terrace',
     category: 'Flat Roofing', location: 'Burlington, ON', year: '2023',
-    description: 'New 60-mil adhered TPO system on a renovated bungalow, with parapet cap flashing in zinc and a rooftop terrace area including equipment pads and a perimeter safety cable.',
+    description: 'Adhered TPO with zinc parapet flashing and rooftop safety cable.',
     image: '/project-flat-burlington.jpg',
     images: ['/project-flat-burlington.jpg'],
     featured: false, tags: ['TPO', 'Rooftop Terrace', 'Architectural'],
@@ -463,7 +455,7 @@ export const projects: Project[] = [
   {
     id: '38', slug: 'mississauga-condo-corporation', title: 'Condo Corporation Re-Roof',
     category: 'Multi-Family Roofing', location: 'Mississauga, ON', year: '2024',
-    description: 'Full re-roofing of a 14-building condo corporation through a six-month phased reserve fund program, consistent quality across every building with a single unified warranty.',
+    description: 'Fourteen buildings reroofed over six months with one warranty.',
     image: '/project-condo-reroof.jpg',
     images: ['/project-condo-reroof.jpg'],
     featured: false, tags: ['Condo Corp', 'Reserve Fund', 'Multi Building'],
@@ -473,7 +465,7 @@ export const projects: Project[] = [
   {
     id: '40', slug: 'vaughan-complete-tearoff', title: 'Complete Tear-Off & Replacement',
     category: 'Roof Replacement', location: 'Vaughan, ON', year: '2024',
-    description: 'Four layers of old shingles removed, two areas of deck rot repaired, then new GAF Timberline HDZ installed with upgraded ventilation and ice and water shield throughout.',
+    description: 'Stripped four layers, repaired deck rot, then GAF Timberline HDZ.',
     image: '/project-reroof-1.jpg',
     images: ['/project-reroof-1.jpg'],
     featured: false, tags: ['Full Tear Off', 'GAF System', 'Ventilation Upgrade'],
@@ -481,7 +473,7 @@ export const projects: Project[] = [
   {
     id: '41', slug: 'aurora-century-home-replacement', title: 'Century Home Roof Replacement',
     category: 'Roof Replacement', location: 'Aurora, ON', year: '2024',
-    description: 'Full replacement on a 1920s home with careful old-growth deck preservation, custom hip and valley work, and premium architectural shingles matched to the home\'s historic character.',
+    description: 'Heritage shingles matched, 1920s home, old growth deck saved.',
     image: '/project-reroof-2.jpg',
     images: ['/project-reroof-2.jpg'],
     featured: false, tags: ['Century Home', 'Architectural Shingles', 'Heritage'],
@@ -489,7 +481,7 @@ export const projects: Project[] = [
   {
     id: '42', slug: 'stouffville-family-replacement', title: 'One-Day Full Roof Replacement',
     category: 'Roof Replacement', location: 'Stouffville, ON', year: '2023',
-    description: 'Full crew on site at 7am, complete tear-off, new GAF Timberline HDZ, ice and water shield at all eaves and valleys, and full site cleanup done by 5pm.',
+    description: 'Full tear off, GAF Timberline HDZ, ice shield, and cleanup in one day.',
     image: '/project-reroof-3.jpg',
     images: ['/project-reroof-3.jpg'],
     featured: false, tags: ['One Day Replace', 'GAF HDZ', 'Full Crew'],

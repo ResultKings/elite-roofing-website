@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Lora, Inter, Barlow } from 'next/font/google'
+import { Lora, Inter, Barlow_Condensed, Dancing_Script } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -17,10 +17,17 @@ const inter = Inter({
   display: 'swap',
 })
 
-const barlow = Barlow({
+const barlow = Barlow_Condensed({
   subsets: ['latin'],
   weight: ['700', '800', '900'],
   variable: '--font-barlow',
+  display: 'swap',
+})
+
+const dancing = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-dancing',
   display: 'swap',
 })
 
@@ -88,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-CA" className={`${playfair.variable} ${inter.variable} ${barlow.variable}`}>
+    <html lang="en-CA" className={`${playfair.variable} ${inter.variable} ${barlow.variable} ${dancing.variable}`}>
       <body className="bg-[#fafaf9] text-[#0f172a] antialiased">
         <Navbar />
         <main>{children}</main>

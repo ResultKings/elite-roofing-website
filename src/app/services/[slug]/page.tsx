@@ -410,6 +410,139 @@ const serviceReviewsMap: Record<string, ServiceReview[]> = {
   ],
 }
 
+// ─── Per-Service Process Data ────────────────────────────────────────────────
+
+const serviceProcessSectionData: Record<string, { heading: string; intro: string; steps: { label: string; description: string }[]; processImage?: string }> = {
+  'residential-roofing': {
+    heading: 'Residential Roofing Process',
+    intro: 'Homeowners deserve to know exactly what will happen to their home, when it will happen, and what it will cost. Our process is designed to deliver that certainty at every step.',
+    steps: [
+      { label: 'Inspection & scope', description: 'We document every finding with photographs and present a written scope of work before any deposit is requested.' },
+      { label: 'Material selection', description: 'We walk you through shingle, underlayment, and ventilation options with pricing so you can choose with confidence.' },
+      { label: 'Installation', description: 'Our certified crew protects your property, removes the old roof, and installs the new system to manufacturer specification.' },
+      { label: 'Final walkthrough', description: 'We review the completed work with you, run a magnetic nail sweep, and deliver all warranty documentation before we leave.' },
+    ],
+  },
+  'commercial-roofing': {
+    heading: 'Commercial Roofing Process',
+    intro: 'Building owners want to know what is being replaced, how long it will take, what disruptions to expect, and what warranty coverage they will receive. Our process is built to answer those questions before work begins.',
+    steps: [
+      { label: 'Assessment & options', description: 'Evaluate the existing roof, moisture conditions, and replacement alternatives.' },
+      { label: 'Budget & planning', description: 'Provide clear scopes, sequencing, and scheduling recommendations.' },
+      { label: 'Installation', description: 'Self-performed crews install the system and document progress throughout the project.' },
+      { label: 'Warranty & closeout', description: 'Deliver manufacturer and workmanship documentation along with final project records.' },
+    ],
+  },
+  'roof-repair': {
+    processImage: '/process-roof-repair.jpg',
+    heading: 'Roof Repair Process',
+    intro: 'A proper repair starts with finding the real source of the problem, not just the symptom. We trace every leak to its root cause and document our findings before a single nail is driven.',
+    steps: [
+      { label: 'Inspection & diagnosis', description: 'We locate the source of every leak and document the full extent of damage in writing before quoting any repair.' },
+      { label: 'Transparent estimate', description: 'You receive an itemized written estimate covering exactly what will be repaired, what materials will be used, and the total cost.' },
+      { label: 'Repair work', description: 'Our certified crew completes the repair using manufacturer-approved materials, flashing, and sealants — no shortcuts.' },
+      { label: 'Verification', description: 'We test every repair before we leave and back all work with our written guarantee.' },
+    ],
+  },
+  'storm-damage-restoration': {
+    processImage: '/process-storm-damage.avif',
+    heading: 'Storm Damage Process',
+    intro: 'Storm damage moves fast. So do we. From emergency tarping to final inspection, our process keeps your home protected and your insurance claim fully supported at every stage.',
+    steps: [
+      { label: 'Emergency response', description: 'We deploy quickly, secure your home with professional-grade tarping, and document all damage before anything is disturbed.' },
+      { label: 'Insurance documentation', description: 'We provide a detailed written damage report with photographs — everything your insurer needs to process your claim.' },
+      { label: 'Restoration work', description: 'Once your claim is approved, we replace damaged materials to code using manufacturer-certified products and methods.' },
+      { label: 'Final inspection', description: 'We walk through the completed restoration with you and deliver all warranty paperwork before closing the file.' },
+    ],
+  },
+  'gutter-systems': {
+    processImage: '/process-gutter-systems.webp',
+    heading: 'Gutter Installation Process',
+    intro: 'A seamless gutter system starts with precise measurement and ends with a test under running water. Every step in between follows a process built to prevent the leaks and failures that plague cut-rate installations.',
+    steps: [
+      { label: 'Property assessment', description: 'We measure your roofline, evaluate drainage needs, and check fascia condition before recommending the right system.' },
+      { label: 'Custom fabrication', description: 'Your gutters are cut on-site to exact measurements, eliminating seams and the leaks that come with them.' },
+      { label: 'Installation', description: 'Gutters are pitched precisely, anchored to manufacturer specifications, and fitted with downspouts that route water away from your foundation.' },
+      { label: 'Testing & cleanup', description: 'We run water through every section before we leave, clean up all debris, and walk through the installation with you.' },
+    ],
+  },
+  'skylight-installation': {
+    processImage: '/process-skylight-installation.webp',
+    heading: 'Skylight Installation Process',
+    intro: 'A skylight that leaks is worse than no skylight at all. Our installation process puts waterproofing at the centre of every step — from framing to the final seal.',
+    steps: [
+      { label: 'Planning & sizing', description: "We assess your roof structure, recommend the right size and glazing option, and confirm the installation won't affect structural integrity." },
+      { label: 'Curb & framing', description: 'Proper framing and a fully waterproofed curb are installed before the skylight unit is ever set in place.' },
+      { label: 'Skylight placement', description: 'The unit is set, levelled, and flashed to manufacturer specification — the most critical step for a leak-free result.' },
+      { label: 'Finish & verification', description: 'Interior trim is finished, all flashing is sealed, and we verify the installation in wet conditions before signing off.' },
+    ],
+  },
+  'roof-inspection': {
+    heading: 'Inspection Process',
+    intro: 'A roof inspection is only as valuable as the report it produces. Our process delivers detailed written findings, accurate service-life estimates, and clear recommendations — with no upsell pressure attached.',
+    steps: [
+      { label: 'Initial walkthrough', description: 'We photograph and document every accessible surface, noting wear patterns, penetrations, and drainage conditions.' },
+      { label: 'Detailed analysis', description: 'Findings are assessed against industry standards and the roof\'s estimated remaining service life is calculated.' },
+      { label: 'Written report', description: 'You receive a detailed report with full photographic documentation within 24 hours of the inspection.' },
+      { label: 'Follow-up review', description: 'We walk you through the report, answer your questions honestly, and outline any repairs that make sense to address now.' },
+    ],
+  },
+  'metal-roofing': {
+    processImage: '/process-metal-roofing.jpg',
+    heading: 'Metal Roofing Process',
+    intro: 'Metal roofing done right demands precision at every stage — from the first material consultation to the last fastener. Our certified crew follows a defined process that eliminates the installation errors that cause failures down the road.',
+    steps: [
+      { label: 'Material consultation', description: 'We guide you through panel profiles, finish options, and warranty tiers so you can make an informed decision before any deposit is taken.' },
+      { label: 'Substrate preparation', description: 'The existing roofing is removed, the deck is inspected and repaired as needed, and an approved underlayment system is installed.' },
+      { label: 'Panel installation', description: 'Panels are cut, locked, and fastened to manufacturer specification — every seam, clip, and ridge cap done by our certified crew.' },
+      { label: 'Final inspection', description: 'We document the completed installation, register your manufacturer warranty, and walk through every detail of the finished roof with you.' },
+    ],
+  },
+  'flat-roofing': {
+    processImage: '/process-flat-roofing.webp',
+    heading: 'Flat Roofing Process',
+    intro: 'Flat roofing fails at the details — a missed termination, a poorly sloped drain, a heat weld done in the wrong conditions. Our process is built to eliminate those failure points on every project.',
+    steps: [
+      { label: 'System selection', description: 'We assess drainage conditions, membrane options, and insulation requirements before recommending the right system for your building.' },
+      { label: 'Surface preparation', description: 'The existing roof is removed or prepared to receive the new membrane, with attention to drain locations and parapet terminations.' },
+      { label: 'Membrane installation', description: 'The membrane is installed and heat-welded to specification, with all penetrations and flashings completed by certified technicians.' },
+      { label: 'Testing & closeout', description: 'We flood-test critical areas, perform a final inspection, and deliver manufacturer and workmanship warranties at project handover.' },
+    ],
+  },
+  'multi-family-roofing': {
+    processImage: '/process-multi-family-roofing.webp',
+    heading: 'Multi-Family Roofing Process',
+    intro: 'Replacing roofs across an occupied multi-unit property requires coordination, communication, and a phasing plan that works for residents and property managers alike. Our process delivers all three.',
+    steps: [
+      { label: 'Portfolio assessment', description: 'We inspect all units or buildings in scope and deliver a phased project plan aligned with your reserve fund timeline.' },
+      { label: 'Board presentation', description: 'We present directly to your condo board or property manager with a full scope, schedule, and warranty overview before work begins.' },
+      { label: 'Phased installation', description: 'Work is sequenced to minimize disruption to tenants, with daily site cleanup and progress updates at each phase.' },
+      { label: 'Unified handover', description: 'All buildings receive unified warranty documentation and a final project report covering every unit in the portfolio.' },
+    ],
+  },
+  'roof-replacement': {
+    processImage: '/process-roof-replacement.jpg',
+    heading: 'Replacement Process',
+    intro: 'Homeowners want to know what is being replaced, how long it will take, what disruptions to expect, and what warranty coverage they will receive. Our process is built to answer those questions before work begins.',
+    steps: [
+      { label: 'Assessment & scope', description: 'We inspect your roof, document all findings with photographs, and present a written scope before any deposit is requested.' },
+      { label: 'Material selection', description: 'We walk you through shingle, underlayment, and ventilation options with clear pricing so you can choose with confidence.' },
+      { label: 'Installation day', description: 'Your property is protected, the old roof is removed and disposed of, and the new system is installed to manufacturer specification.' },
+      { label: 'Final walkthrough', description: 'We perform a thorough inspection, run a magnetic nail sweep, and walk through the completed work with you before we leave.' },
+    ],
+  },
+  'roof-tarping': {
+    heading: 'Emergency Response Process',
+    intro: 'Emergency tarping is a race against weather. Our process prioritizes rapid deployment, thorough damage documentation, and professional anchoring — so your insurance claim is supported and your home is protected.',
+    steps: [
+      { label: 'Rapid deployment', description: 'We dispatch immediately, assess structural safety on arrival, and secure your home with heavy-duty commercial tarping before water causes further damage.' },
+      { label: 'Damage documentation', description: 'Every point of entry is photographed and recorded in a written report before we begin work — ready for your insurance claim.' },
+      { label: 'Temporary protection', description: 'Tarps are anchored with battens and mechanical fasteners rated for Ontario wind loads, not staples or tape.' },
+      { label: 'Repair planning', description: 'Before we leave, we provide a written assessment of the permanent repairs required and schedule your next steps.' },
+    ],
+  },
+}
+
 // ─── Get Started Section Data ─────────────────────────────────────────────────
 
 const serviceGetStartedData: Record<string, { heading: string; body: string[] }> = {
@@ -740,6 +873,51 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
   )
 }
 
+// ─── Process FAQ Accordion (reference style) ─────────────────────────────────
+
+function ProcessFAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  return (
+    <div>
+      {faqs.map((faq, i) => {
+        const isOpen = openIndex === i
+        return (
+          <div key={i} className="border-b border-dashed border-[#0f172a]/25 last:border-b-0">
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              className="w-full flex items-center justify-between gap-6 py-5 text-left"
+              aria-expanded={isOpen}
+            >
+              <span className="font-display text-lg md:text-xl font-bold uppercase text-[#0f172a] tracking-wide leading-snug">
+                {faq.question}
+              </span>
+              <span className="flex-shrink-0 text-[#D0000F] text-2xl font-bold leading-none w-6 text-center">
+                {isOpen ? '−' : '+'}
+              </span>
+            </button>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="body"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="overflow-hidden"
+                >
+                  <p className="font-sans text-lg text-[#374151] leading-relaxed pb-5">
+                    {faq.answer}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 // ─── Animated Process Section (all service pages) ─────────────────────────────
 
 function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; stepIcons: React.ElementType[] }) {
@@ -964,7 +1142,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
           <div ref={contactRef}>
             <Link
               href="/contact"
-              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-sm font-semibold transition-all duration-500 rounded-md ${
+              className={`inline-flex items-center gap-2 px-8 py-4 font-sans text-base font-semibold transition-all duration-500 rounded-md ${
                 contactActive
                   ? 'bg-[#D0000F] hover:bg-[#A5000A] text-white shadow-xl shadow-[#D0000F]/25'
                   : 'bg-white border-2 border-[#e2e8f0] text-[#0f172a]'
@@ -995,10 +1173,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const reviews = serviceReviewsMap[params.slug] ?? serviceReviewsMap['residential-roofing']
   const gsData = serviceGetStartedData[params.slug] ?? serviceGetStartedData['roof-replacement']
 
+  const bannerLabel = (
+    ['gutter-systems', 'skylight-installation'].includes(params.slug) ? 'Installation' :
+    ['roof-repair', 'storm-damage-restoration'].includes(params.slug) ? 'Repair' :
+    'Roofing Services'
+  )
+
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[280px] md:min-h-[360px] lg:min-h-[420px] flex items-center">
+      <section className="relative min-h-[247px] md:min-h-[299px] lg:min-h-[341px] flex flex-col">
         <div className="absolute inset-0">
           <Image
             src={content.heroImage}
@@ -1010,275 +1194,217 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             className="object-cover"
             style={content.heroImagePosition ? { objectPosition: content.heroImagePosition } : undefined}
           />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 flex pt-24 md:pt-28 lg:pt-32">
-          <div className="flex items-center gap-2 text-white font-sans text-sm font-bold tracking-widest uppercase">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
-            <span className="text-white/50">/</span>
-            <Link href="/#services" className="hover:text-white/70 transition-colors">Services</Link>
-            <span className="text-white/50">/</span>
-            <span className="text-white/80">{service.title}</span>
+        <div className="relative z-10 flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pt-24">
+          {/* Breadcrumbs — top of banner */}
+          <div className="pt-4 md:pt-6">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-white font-sans text-xs sm:text-sm font-bold tracking-wide sm:tracking-widest uppercase">
+              <Link href="/" className="hover:text-white/70 transition-colors whitespace-nowrap">Home</Link>
+              <span className="text-white/50">/</span>
+              <Link href="/#services" className="hover:text-white/70 transition-colors whitespace-nowrap">Services</Link>
+              <span className="text-white/50">/</span>
+              <span className="text-white/80 truncate max-w-[180px] sm:max-w-none">{service.title}</span>
+            </div>
+          </div>
+          {/* Spacer pushes label+title to bottom */}
+          <div className="flex-1" />
+          {/* Service label + title at bottom */}
+          <div className="pb-10 md:pb-12 lg:pb-14">
+            <p className="font-sans text-sm font-black tracking-[0.3em] uppercase text-[#D0000F] mb-3">{bannerLabel}</p>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase text-white leading-none tracking-tight">
+              {service.title}
+            </h1>
           </div>
         </div>
       </section>
 
       {/* ── Get Started ─────────────────────────────────────────────────────── */}
-      <section className="relative bg-[#f8f7f5]">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+      <section className="bg-white py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[38fr_62fr] gap-10 lg:gap-16 items-center">
             {/* Left: text content */}
-            <div className="pt-12 md:pt-14 lg:pt-16 pb-12 lg:pb-16">
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-6 leading-tight">
+            <div>
+              <h2 className="font-display text-3xl md:text-[2.4rem] lg:text-[2.6rem] xl:text-[3rem] font-bold uppercase text-[#0f172a] mb-6 leading-tight tracking-tight">
                 {gsData.heading}
               </h2>
-              <div className="w-24 h-px bg-[#D0000F] mb-8" />
+              <div className="w-20 h-1 bg-[#D0000F] mb-8" />
               {gsData.body.map((paragraph, idx) => (
-                <p key={idx} className="font-sans text-base text-[#0f172a] leading-relaxed mb-5 last:mb-0">
+                <p key={idx} className="font-sans text-base text-[#374151] leading-relaxed mb-5 last:mb-0">
                   {paragraph}
                 </p>
               ))}
-              <div className="mt-7 space-y-3">
-                {([
-                  { label: 'Licensed in Ontario', Icon: Shield },
-                  { label: '$5M Liability Insurance', Icon: BadgeCheck },
-                  { label: 'WSIB Covered', Icon: Users },
-                  { label: 'BBB Accredited Business', Icon: Award },
-                ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#0f172a]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-[#0f172a]" />
-                    </div>
-                    <span className="font-sans text-sm font-semibold text-[#0f172a]">{label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
-            {/* Right: form card — overlaps hero banner */}
-            <div className="relative z-10 pb-12 lg:pb-16 lg:-mt-24">
-              <div className="bg-white rounded-xl shadow-2xl p-8 lg:p-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#0f172a] mb-2">
-                  Let&apos;s Get Started!
-                </h3>
-                <Link href="/testimonials" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
-                  {/* Overlapping reviewer avatars */}
-                  <div className="flex -space-x-2 flex-shrink-0">
-                    {[
-                      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face',
-                      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&h=48&fit=crop&crop=face',
-                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=48&h=48&fit=crop&crop=face',
-                    ].map((src, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden relative flex-shrink-0">
-                        <Image src={src} alt="reviewer" fill sizes="32px" className="object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="flex gap-0.5 mb-0.5">
-                      {[1,2,3,4,5].map((i) => (
-                        <span key={i} className="text-[#f59e0b] text-sm leading-none">★</span>
-                      ))}
-                    </div>
-                    <p className="font-sans text-xs text-[#1e293b]">4.9 out of 5 · 300+ Google reviews</p>
-                  </div>
-                </Link>
-                <ServiceQuickForm serviceTitle={service.title} />
-              </div>
+            {/* Right: overview image — card style, not full-bleed */}
+            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: '9/8' }}>
+              <Image
+                src={content.overviewImage ?? content.heroImage}
+                alt={service.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 62vw"
+                className="object-cover"
+                style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : undefined}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── The Standard ─────────────────────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-28">
-          <div className="px-8 md:px-10 lg:px-14">
-            <div className="text-center mb-16">
-              <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-                Our Commitment
-              </span>
-              <h2 className="font-sans font-black text-[2rem] md:text-[2.6rem] text-[#0f172a] leading-tight mb-5">
-                The Standard
-              </h2>
-              <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed max-w-2xl mx-auto">
-                Every Elite Roofing crew operates under a defined set of standards, not suggestions. This is what you can expect from the moment the first truck arrives to the final walkthrough.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-              {([
-                {
-                  icon: BadgeCheck,
-                  heading: 'Certified Installers Only',
-                  body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
-                },
-                {
-                  icon: Wrench,
-                  heading: 'Worksite Discipline',
-                  body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
-                },
-                {
-                  icon: Layers,
-                  heading: 'No Material Substitutions',
-                  body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
-                },
-                {
-                  icon: Users,
-                  heading: 'One Point of Contact',
-                  body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
-                },
-              ] as { icon: React.ElementType; heading: string; body: string }[]).map((item, i) => {
-                const ItemIcon = item.icon
-                return (
-                  <div key={i} className="border-t-2 border-[#D0000F] pt-7">
-                    <div className="mb-4">
-                      <ItemIcon className="w-7 h-7 text-[#D0000F]" />
-                    </div>
-                    <h3 className="font-sans font-black text-[#0f172a] text-base mb-3 leading-snug">{item.heading}</h3>
-                    <p className="font-sans text-sm text-[#1e293b] leading-loose">{item.body}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-      {/* ── Our Guarantee (all service pages) ────────────────────────────────── */}
+      {/* ── Process + FAQ ────────────────────────────────────────────────────── */}
       {(() => {
-        const wd = serviceWarrantyData[params.slug]
-        if (!wd) return null
+        const pd = serviceProcessSectionData[params.slug]
+        if (!pd) return null
         return (
-          <section className="relative overflow-hidden py-24 md:py-32">
-            <div className="absolute inset-0">
-              <Image src="/warranty-bg.avif" alt="" fill className="object-cover object-center" />
-              <div className="absolute inset-0 bg-white/55" />
-            </div>
-            <div className="relative z-10 px-4 md:px-8 lg:px-16">
-              <div className="text-center mb-14 md:mb-18">
-                <span className="font-sans text-[13px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-3 block">
-                  Our Guarantee
-                </span>
-                <h3 className="font-sans font-black text-[2rem] md:text-[2.8rem] lg:text-[3.2rem] text-[#0f172a] leading-tight">
-                  {wd.heading}
-                </h3>
-                <p className="font-sans text-sm text-[#1e293b] mt-5 max-w-xl mx-auto leading-relaxed">
-                  {wd.description}
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
-                {wd.cards.map(({ label, duration, items }) => (
-                  <div key={label} className="bg-white rounded-2xl p-7 md:p-8 shadow-sm border border-[#D0000F]/30">
-                    <div className="flex items-start justify-between mb-5 pb-5 border-b border-[#D0000F]/20">
-                      <p className="font-sans text-xs font-semibold text-[#1e293b]">{label}</p>
-                      <span className="font-sans font-black text-xl text-[#D0000F]">{duration}</span>
-                    </div>
-                    <ul className="space-y-3">
-                      {items.map(item => (
-                        <li key={item} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
-                          <span className="font-sans text-sm font-medium text-[#0f172a] leading-snug">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+          <>
+            {/* Process: contained, image left, white card overlapping from right */}
+            <section className="bg-[#f4f3f1] py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] min-h-[460px] lg:min-h-[520px]">
+                  {/* Left: image */}
+                  <div className="relative min-h-[300px] lg:min-h-[520px]">
+                    <Image
+                      src={pd.processImage ?? zigImg1}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-cover"
+                    />
                   </div>
-                ))}
+                  {/* Right: white card overlapping image */}
+                  <div className="relative z-10 flex items-center py-10 lg:py-8 pl-8 md:pl-12 lg:-ml-28 lg:pl-0">
+                    <div className="bg-white shadow-2xl p-8 lg:p-12 w-full">
+                      <h2 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] font-bold uppercase text-[#0f172a] mb-5 leading-none tracking-tight">
+                        {pd.heading}
+                      </h2>
+                      <p className="font-sans text-sm font-semibold text-[#0f172a] leading-relaxed mb-7">
+                        {pd.intro}
+                      </p>
+                      <div className="space-y-4">
+                        {pd.steps.map(({ label, description }, i) => (
+                          <p key={i} className="font-sans text-sm text-[#374151] leading-relaxed">
+                            <span className="font-semibold text-[#0f172a]">{label}: </span>
+                            {description}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-center font-sans text-xs text-[#1e293b] mt-10 leading-relaxed max-w-2xl mx-auto">
-                {wd.footnote}
-              </p>
-            </div>
-          </section>
+            </section>
+
+            {/* FAQ accordion below */}
+            <section className="py-12 md:py-16 px-4 md:px-8 lg:px-16 bg-[#f4f3f1]">
+              <div className="max-w-5xl mx-auto">
+                <ProcessFAQAccordion faqs={content.faqs} />
+              </div>
+            </section>
+          </>
         )
       })()}
 
-      {/* ── Split Overview Banner ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[380px] md:min-h-[440px] lg:min-h-[500px]">
-
-        {/* Right image — centred within the right portion */}
-        <div className="absolute inset-y-0 right-0 w-[60%]">
-          <Image
-            src={content.overviewImage ?? zigImg1}
-            alt={service.title}
-            fill
-            sizes="60vw"
-            className="object-cover"
-            style={content.overviewImagePosition ? { objectPosition: content.overviewImagePosition } : { objectPosition: 'center' }}
-          />
-          {/* Dark gradient on left edge of roofing image */}
-          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#041D35]/80 to-transparent pointer-events-none" />
-        </div>
-
-        {/* Left panel: solid white diagonal */}
-        <div
-          className="absolute inset-y-0 left-0 w-full md:w-[72%] lg:w-[62%] bg-white"
-          style={{ clipPath: 'polygon(0 0, 100% 0, 81% 100%, 0 100%)' }}
-        />
-
-        {/* Content — shifted right within the left panel area */}
-        <div className="relative z-10 min-h-[380px] md:min-h-[440px] lg:min-h-[500px] flex items-center">
-          <div className="w-full md:w-[56%] lg:w-[54%] flex items-center justify-center pl-8 md:pl-10 lg:pl-14 pr-8 md:pr-6 lg:pr-4 py-10 md:py-14">
-            <div className="w-full max-w-[420px] md:max-w-[520px] lg:max-w-[580px]">
-              <h2 className="font-sans text-[1.95rem] md:text-[2.15rem] lg:text-[2.5rem] font-black text-[#0f172a] mb-5 leading-tight uppercase tracking-normal">
-                {content.tagline}
-              </h2>
-              <p className="font-sans text-[0.9375rem] text-[#374151] leading-relaxed">
-                {service.fullDescription}
-              </p>
-            </div>
+      {/* ── The Standard ─────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto bg-[#2d2b2b] px-10 md:px-14 lg:px-16 py-14 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {([
+              {
+                heading: 'Certified Installers Only',
+                body: 'Every crew member is background-checked, licensed, and trained under GAF Master Elite certification requirements. No subcontractors, no day-labour. The same faces from start to finish.',
+              },
+              {
+                heading: 'Worksite Discipline',
+                body: 'Landscaping is protected before work begins. Magnetic sweeps run twice daily. Every evening your property is left clean. Debris cleared, materials staged neatly, nothing left exposed to weather.',
+              },
+              {
+                heading: 'No Material Substitutions',
+                body: 'The materials quoted are the materials installed. We never swap to a cheaper product in the field. Every delivery is documented and available for your review on request.',
+              },
+              {
+                heading: 'One Point of Contact',
+                body: 'Your project manager is reachable by phone or text throughout the job. You know exactly what is happening and when. Not through a call centre, but through your own dedicated contact.',
+              },
+            ]).map((item, i) => (
+              <div
+                key={i}
+                className={`py-10 md:py-0 lg:px-10 ${i === 0 ? 'lg:pl-0' : 'border-t border-white/15 md:border-t-0 md:border-l md:border-white/15 lg:border-white/15'} ${i === 3 ? 'lg:pr-0' : ''}`}
+              >
+                <h3 className="font-display text-xl md:text-2xl lg:text-[1.6rem] font-bold uppercase text-white mb-4 leading-tight tracking-tight">
+                  {item.heading}
+                </h3>
+                <p className="font-sans text-sm text-white/65 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── How It Works: Our Proven Process (all service pages) ─────────────── */}
-      <AnimatedProcessSection steps={sharedProcessData.steps} stepIcons={sharedProcessData.icons} />
-
-      {/* ── Our Work (3-card grid) ────────────────────────────────────────────── */}
+      {/* ── Our Work ─────────────────────────────────────────────────────────── */}
       {(() => {
         const featuredSlugs = content.featuredProjects ?? []
         const featuredCards = featuredSlugs
           .map(slug => projects.find(p => p.slug === slug))
           .filter(Boolean) as typeof projects
         if (featuredCards.length === 0) return null
+        const [first, ...rest] = featuredCards
         return (
-          <section className="pt-16 md:pt-20 pb-28 md:pb-36 bg-[#fafaf9]">
-            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-10">
-              <div className="text-center">
-                <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-                  Our Work
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-                  {service.title} Projects
+          <section className="py-16 md:py-20 bg-[#fafaf9]">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+              <div className="text-center mb-10">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] tracking-tight">
+                  Featured {service.title} Projects
                 </h2>
               </div>
-            </div>
 
-            <div className="px-2 md:px-6 lg:px-10 mb-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {featuredCards.map((project) => (
-                  <Link key={project.id} href="/projects" className="overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-500 rounded-xl group block">
-                    <div className="relative aspect-[4/3] bg-[#0f172a] overflow-hidden rounded-t-xl">
+              {/* Layout: 1 big card left + 2 stacked right */}
+              <div className="grid grid-cols-1 lg:grid-cols-[58fr_42fr] gap-3 lg:gap-4 mb-10" style={{ minHeight: '520px' }}>
+                {/* Left: large card */}
+                <Link href="/projects" className="relative overflow-hidden rounded-xl group block min-h-[380px] lg:min-h-0">
+                  <Image
+                    src={first.image}
+                    alt={first.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-6 md:p-8">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold uppercase text-white leading-tight mb-1">{first.title}</h3>
+                    <p className="font-sans text-xs font-bold tracking-widest uppercase text-white/70">{first.location}</p>
+                  </div>
+                </Link>
+
+                {/* Right: 2 stacked smaller cards */}
+                <div className="grid grid-rows-2 gap-3 lg:gap-4 min-h-[320px] lg:min-h-0">
+                  {rest.slice(0, 2).map((project) => (
+                    <Link key={project.id} href="/projects" className="relative overflow-hidden rounded-xl group block min-h-[150px]">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(max-width: 1024px) 100vw, 42vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                    </div>
-                    <div className="p-5 border-t border-[#e7e5e4]">
-                      <h3 className="font-serif text-base font-semibold text-[#0f172a] mb-1 leading-snug">{project.title}</h3>
-                      <p className="font-sans text-xs text-[#0f172a] mb-3">{project.location} &middot; {project.year}</p>
-                      <p className="font-sans text-sm font-medium text-[#0f172a] leading-relaxed line-clamp-2">{project.description}</p>
-                    </div>
-                  </Link>
-                ))}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-5">
+                        <h3 className="font-display text-lg md:text-xl font-bold uppercase text-white leading-tight mb-1">{project.title}</h3>
+                        <p className="font-sans text-xs font-bold tracking-widest uppercase text-white/70">{project.location}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="flex justify-center">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
-                View Portfolio
-              </Link>
+              <div className="flex justify-center">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md">
+                  View All Projects <span aria-hidden>→</span>
+                </Link>
+              </div>
             </div>
           </section>
         )
@@ -1352,45 +1478,27 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-[#fafaf9]">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-[#1e293b] mb-4 block">
-              Questions & Answers
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a]">
-              Common Questions About {service.title}
-            </h2>
-          </div>
-          <FAQAccordion faqs={content.faqs} />
-        </div>
-      </section>
-
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 bg-[#0f172a]">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="font-sans text-[13px] font-medium tracking-[0.35em] uppercase text-white/60 mb-5 block">
-            Get Started
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+      <section className="py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-[#D0000F] to-[#8b0000]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-white mb-4 leading-tight">
             Ready to Discuss Your {service.title} Project?
           </h2>
-          <p className="font-sans text-sm text-white/55 leading-relaxed mb-10 max-w-xl mx-auto">
-            Elite Roofing provides a no pressure, no cost assessment of your roof. We document every finding, answer your questions honestly, and deliver a transparent written proposal.
+          <p className="font-sans text-base text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Elite Roofing provides a no-pressure, no-cost assessment of your roof. We document every finding, answer your questions honestly, and deliver a transparent written proposal.
           </p>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#D0000F] hover:bg-[#A5000A] text-white font-sans text-base font-semibold transition-colors duration-300 rounded-md"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0d1f35] text-white font-sans text-base font-semibold hover:bg-[#152840] transition-colors duration-300 rounded-md whitespace-nowrap"
             >
-              Get Free Estimate
+              Get My Free Estimate <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="tel:+19055550198"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0f172a] font-sans text-base font-semibold hover:bg-white/90 transition-colors duration-300 rounded-md whitespace-nowrap"
             >
+              <Phone className="w-4 h-4 text-[#D0000F]" />
               (905) 555-0198
             </a>
           </div>

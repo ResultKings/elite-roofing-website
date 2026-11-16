@@ -54,11 +54,6 @@ h6 {
   background: var(--color-accent-dark);
 }
 
-/* Text selection */
-::selection {
-  background-color: var(--color-accent);
-  color: #fff;
-}
 
 @layer components {
   .section-padding {

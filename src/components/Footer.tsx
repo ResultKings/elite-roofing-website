@@ -15,23 +15,20 @@ const roofingServices = [
 ]
 
 const quickLinks = [
-  { href: '/contact', label: 'Get Free Estimate' },
   { href: '/service-areas', label: 'Service Areas' },
   { href: '/service-areas#office-location', label: 'Office Location' },
   { href: '/about', label: 'About Us' },
-  { href: '/#services', label: 'All Services' },
   { href: '/#faq', label: 'FAQ' },
   { href: '/projects', label: 'Projects' },
   { href: '/testimonials', label: 'Testimonials' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f172a] text-white">
+    <footer className="bg-[#0d1f35] text-white">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {/* Column 1–2, Company */}
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -40,50 +37,50 @@ export default function Footer() {
                 alt="Elite Roofing"
                 width={280}
                 height={80}
-                className="h-20 w-auto object-contain"
+                className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="font-sans text-sm text-white/50 leading-relaxed mb-6">
+            <p className="font-sans text-sm text-white/50 leading-relaxed mb-5">
               Ontario&apos;s premier roofing specialist. Delivering master craftsmanship, premium
               materials, and lasting protection for homes and businesses since 2004.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 bg-white/5 hover:bg-[#D0000F]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/10 hover:bg-[#D0000F] flex items-center justify-center transition-colors duration-300 rounded"
               >
-                <Facebook className="w-4 h-4 text-white/40 hover:text-[#D0000F]" />
+                <Facebook className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 bg-white/5 hover:bg-[#D0000F]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/10 hover:bg-[#D0000F] flex items-center justify-center transition-colors duration-300 rounded"
               >
-                <Instagram className="w-4 h-4 text-white/40 hover:text-[#D0000F]" />
+                <Instagram className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-9 h-9 bg-white/5 hover:bg-[#D0000F]/20 flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 bg-white/10 hover:bg-[#D0000F] flex items-center justify-center transition-colors duration-300 rounded"
               >
-                <Youtube className="w-4 h-4 text-white/40 hover:text-[#D0000F]" />
+                <Youtube className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
 
           {/* Column 2, Roofing Services */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#D0000F] mb-6">
+            <h3 className="font-sans text-sm font-bold tracking-[0.2em] uppercase text-white mb-5">
               Roofing Services
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {roofingServices.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -100,10 +97,10 @@ export default function Footer() {
 
           {/* Column 4, Quick Links */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#D0000F] mb-6">
+            <h3 className="font-sans text-sm font-bold tracking-[0.2em] uppercase text-white mb-5">
               Quick Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -120,20 +117,18 @@ export default function Footer() {
 
           {/* Column 5, Contact Us */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.3em] uppercase text-[#D0000F] mb-6">
+            <h3 className="font-sans text-sm font-bold tracking-[0.2em] uppercase text-white mb-5">
               Contact Us
             </h3>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#D0000F] mt-0.5 flex-shrink-0" />
-                <span className="font-sans text-sm text-white/50 leading-relaxed">
-                  216 Rivermede Rd Unit 7, Vaughan,
-                  <br />
-                  ON L4K 3M6, Canada
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+                <span className="font-sans text-sm text-white/50 leading-snug">
+                  216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#D0000F] flex-shrink-0" />
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-white flex-shrink-0" />
                 <a
                   href="tel:+19055550198"
                   className="font-sans text-sm text-white/50 hover:text-[#D0000F] transition-colors"
@@ -141,8 +136,8 @@ export default function Footer() {
                   (905) 555-0198
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#D0000F] flex-shrink-0" />
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-white flex-shrink-0" />
                 <a
                   href="mailto:info@eliteroofingon.ca"
                   className="font-sans text-sm text-white/50 hover:text-[#D0000F] transition-colors"
@@ -152,11 +147,18 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6 pt-6 border-t border-white/10">
+            <div className="mt-4 pt-4 border-t border-white/10">
               <p className="font-sans text-xs text-white/30 uppercase tracking-wider mb-1">Hours</p>
-              <p className="font-sans text-sm text-white/50">Mon to Fri: 7:00 AM to 6:00 PM</p>
-              <p className="font-sans text-sm text-white/50">Sat: 8:00 AM to 3:00 PM</p>
+              <p className="font-sans text-sm text-white/50">Mon–Fri: 7:00 AM – 6:00 PM</p>
+              <p className="font-sans text-sm text-white/50">Sat: 8:00 AM – 3:00 PM</p>
             </div>
+
+            <Link
+              href="/contact"
+              className="mt-4 inline-flex items-center justify-center w-full px-5 py-2.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
+            >
+              Free Estimate
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -54,6 +54,14 @@ export default function ServiceAreaMapFull({
   locations: Location[]
   focusCity: { lat: number; lng: number } | null
 }) {
+  // Defer rendering until after mount so React Strict Mode's unmount/remount
+  // cycle creates a fresh MapContainer div each time, preventing Leaflet's
+  // "container already initialized" error.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+
+  if (!mounted) return <div style={{ height: '100%', width: '100%' }} />
+
   return (
     <MapContainer
       center={[43.72, -79.52]}

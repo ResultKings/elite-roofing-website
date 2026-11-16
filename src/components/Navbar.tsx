@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone, ChevronDown, MapPin } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
 type ServiceCategory = 'roofing' | 'repair'
 
@@ -45,7 +45,7 @@ const serviceLinks = [
 
 const navLinks = [
   { href: '/about', label: 'About Us' },
-  { href: '/service-areas', label: 'Areas Served' },
+  { href: '/service-areas', label: 'Service Areas' },
   { href: '/projects', label: 'Projects' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/contact', label: 'Contact Us' },
@@ -57,6 +57,7 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState<ServiceCategory>('roofing')
+  const [navHovered, setNavHovered] = useState(false)
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const pathname = usePathname()
 
@@ -83,41 +84,47 @@ export default function Navbar() {
   }
 
   const scheduleClose = () => {
-    closeTimeout.current = setTimeout(() => setServicesOpen(false), 120)
+    closeTimeout.current = setTimeout(() => setServicesOpen(false), 150)
   }
 
-  const isTransparent = !scrolled && pathname === '/' && !mobileOpen && !servicesOpen
+  const closeServices = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current)
+    setServicesOpen(false)
+  }
+
+  const isTransparent = !scrolled && pathname === '/' && !mobileOpen && !servicesOpen && !navHovered
   const isServicesActive = pathname.startsWith('/services')
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+      <header
         className={[
-          'fixed top-0 left-0 right-0 z-[1001] transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-[1001]',
+          servicesOpen ? '' : 'transition-all duration-500',
           isTransparent
-            ? 'bg-transparent'
+            ? 'bg-[#06090f]/50 backdrop-blur-sm'
             : 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]',
         ].join(' ')}
+        onMouseEnter={() => setNavHovered(true)}
+        onMouseLeave={() => { scheduleClose(); setNavHovered(false) }}
       >
         <div className="w-full px-4 md:px-8">
-          <div className="flex items-center h-24">
+          <div className="flex items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 ml-10 lg:ml-24 xl:ml-36">
+            <Link href="/" className="flex-shrink-0 ml-0 lg:ml-28 xl:ml-44">
               <Image
                 src="/elite-roofing-logo-new.webp"
                 alt="Elite Roofing"
                 width={280}
                 height={80}
-                className="h-20 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 priority
               />
             </Link>
 
             {/* Desktop Nav — centred in remaining space */}
             <nav className="hidden lg:flex flex-1 items-center justify-center gap-5 xl:gap-7">
+              <div className="flex items-center gap-5 xl:gap-7" onMouseEnter={closeServices}>
               {navLinks.slice(0, 2).map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -138,12 +145,12 @@ export default function Navbar() {
                   </Link>
                 )
               })}
+              </div>
 
               {/* Services dropdown trigger */}
               <div
                 className="relative"
                 onMouseEnter={openServices}
-                onMouseLeave={scheduleClose}
               >
                 <button
                   className={[
@@ -160,6 +167,7 @@ export default function Navbar() {
                 </button>
               </div>
 
+              <div className="flex items-center gap-5 xl:gap-7" onMouseEnter={closeServices}>
               {navLinks.slice(2).map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -180,25 +188,28 @@ export default function Navbar() {
                   </Link>
                 )
               })}
+              </div>
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-5 flex-shrink-0 mr-6 lg:mr-14 xl:mr-20">
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0 mr-6 lg:mr-14 xl:mr-20" onMouseEnter={closeServices}>
               <a
                 href="tel:+19055550198"
                 className={[
-                  'flex items-center gap-2 font-sans text-[15px] font-bold tracking-[0.08em] uppercase transition-colors duration-300 whitespace-nowrap',
-                  isTransparent ? 'text-white hover:text-[#D0000F]' : 'text-[#0f172a] hover:text-[#D0000F]',
+                  'flex items-center gap-2 px-4 py-2 font-sans text-sm font-semibold transition-all duration-300 whitespace-nowrap rounded-md border',
+                  isTransparent
+                    ? 'text-white border-white/40 hover:border-white hover:bg-white/10'
+                    : 'text-[#0f172a] border-[#d1d5db] hover:border-[#D0000F] hover:text-[#D0000F]',
                 ].join(' ')}
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className={`w-4 h-4 flex-shrink-0 ${isTransparent ? 'text-white/80' : 'text-[#D0000F]'}`} />
                 (905) 555-0198
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2.5 bg-[#D0000F] text-white font-sans text-sm font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md whitespace-nowrap"
+                className="inline-flex items-center px-6 py-2 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md whitespace-nowrap"
               >
-                Schedule an Estimate
+                Free Estimate
               </Link>
             </div>
 
@@ -215,17 +226,17 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mega Menu Dropdown — fixed, full width */}
       <AnimatePresence>
         {servicesOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.18 }}
-            className="fixed top-20 left-0 right-0 z-[1000] bg-white shadow-2xl border-t border-[#e7e5e4] hidden lg:block"
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.08 }}
+            className="fixed top-16 left-0 right-0 z-[1000] bg-white shadow-2xl border-t border-[#e7e5e4] hidden lg:block"
             onMouseEnter={openServices}
             onMouseLeave={scheduleClose}
           >
@@ -249,7 +260,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Middle column — service links */}
+              {/* Service links */}
               <div className="flex-1 px-10 min-h-[180px]">
                 {activeCategory === 'roofing' && (
                   <div className="grid grid-cols-2 gap-x-8 gap-y-1">
@@ -271,61 +282,30 @@ export default function Navbar() {
                 )}
 
                 {activeCategory === 'repair' && (
-                  <div className="flex flex-col gap-5">
+                  <div className="grid grid-cols-2 gap-x-8">
                     {repairSections.map((section) => (
                       <div key={section.title}>
                         <p className="font-sans text-[10px] font-black tracking-[0.25em] uppercase text-[#D0000F] mb-2">
                           {section.title}
                         </p>
-                        <div className="flex flex-col gap-0">
-                          {section.links.map((link) => (
-                            <Link
-                              key={link.href}
-                              href={link.href}
-                              className={[
-                                'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
-                                pathname === link.href
-                                  ? 'text-[#D0000F]'
-                                  : 'text-[#0f172a] hover:text-[#D0000F]',
-                              ].join(' ')}
-                            >
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
+                        {section.links.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className={[
+                              'block py-2.5 font-sans text-sm font-medium tracking-wide border-b border-[#f1ede8] transition-colors duration-200',
+                              pathname === link.href
+                                ? 'text-[#D0000F]'
+                                : 'text-[#0f172a] hover:text-[#D0000F]',
+                            ].join(' ')}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
                       </div>
                     ))}
                   </div>
                 )}
-              </div>
-
-              {/* Right column — featured image + info */}
-              <div className="w-64 xl:w-72 flex-shrink-0 flex flex-col">
-                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm">
-                  <Image
-                    src="/service-residential-roofing.jpg"
-                    alt="Elite Roofing Residential"
-                    fill
-                    sizes="288px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="mt-4 flex flex-col gap-2">
-                  <p className="font-sans text-xs font-semibold text-[#0f172a] leading-snug">
-                    Providing Excellent Roofing Services In Ontario Since 2004.
-                  </p>
-                  <a
-                    href="https://www.google.com/maps/place/216+Rivermede+Rd+Unit+7,+Vaughan,+ON+L4K+3M6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-1.5 text-[#1e293b] hover:text-[#D0000F] transition-colors duration-200"
-                  >
-                    <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-                    <span className="font-sans text-xs leading-snug">
-                      216 Rivermede Rd Unit 7, Vaughan, ON L4K 3M6
-                    </span>
-                  </a>
-                </div>
               </div>
 
             </div>
@@ -341,7 +321,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed inset-0 z-40 bg-[#0f172a] pt-20 px-6 flex flex-col overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#0f172a] pt-16 px-6 flex flex-col overflow-y-auto"
           >
             <nav className="flex flex-col gap-1 mt-8">
               {navLinks.map((link, i) => {
@@ -425,7 +405,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-sm font-medium hover:bg-[#0a2a4a] transition-colors rounded-md"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-base font-semibold hover:bg-[#0a2a4a] transition-colors rounded-md"
               >
                 Get Free Estimate
               </Link>
