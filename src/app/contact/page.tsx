@@ -105,7 +105,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
 
             {/* Left: Contact Details */}
-            <div className="lg:col-span-2 space-y-10">
+            <div className="lg:col-span-2 space-y-10 order-2 lg:order-1">
 
               <FadeIn>
                 <h2 className="font-serif text-2xl font-semibold text-[#0f172a] mb-8">
@@ -186,7 +186,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Form */}
-            <FadeIn className="lg:col-span-3 lg:pt-8" delay={0.05}>
+            <FadeIn className="lg:col-span-3 lg:pt-8 order-1 lg:order-2" delay={0.05}>
               <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm">
                 <div className="mb-10">
                   <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-5">
