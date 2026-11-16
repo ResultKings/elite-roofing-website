@@ -620,7 +620,7 @@ function ProcessSection() {
               Service Area
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-6 leading-tight">
-              Proudly Serving Vaughan And Surrounding Areas
+              Based in Vaughan, Serving Surrounding Areas
             </h2>
             <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-4">
               Elite Roofing covers Vaughan, Toronto, and the Greater Toronto Area, including Richmond Hill, Markham, Brampton, Mississauga, Burlington, Oakville, and surrounding communities.
@@ -1029,7 +1029,7 @@ function OwnerSection() {
             <div className="flex flex-wrap items-center gap-5">
               <p className="font-sans text-sm font-semibold text-[#0f172a]">
                 Tucker Scott, William Blake &amp; Andy Tipper{' '}
-                <span className="font-normal text-[#6b7280]">// Co-owners</span>
+                <span className="font-normal text-[#6b7280]">{'// Co-owners'}</span>
               </p>
               <div className="relative w-36 md:w-48 h-14 md:h-16 flex-shrink-0 opacity-70">
                 <Image

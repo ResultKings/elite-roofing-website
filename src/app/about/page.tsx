@@ -249,7 +249,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap items-center gap-5">
                 <p className="font-sans text-sm font-semibold text-[#0f172a]">
                   Tucker Scott, William Blake &amp; Andy Tipper{' '}
-                  <span className="font-normal text-[#6b7280]">// Co-owners</span>
+                  <span className="font-normal text-[#6b7280]">{'// Co-owners'}</span>
                 </p>
                 <div className="relative w-36 md:w-48 h-14 md:h-16 flex-shrink-0 opacity-70">
                   <Image
