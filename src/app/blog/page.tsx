@@ -122,6 +122,7 @@ export default function BlogPage() {
                   alt={featured.title}
                   fill
                   priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-5 left-5">
@@ -145,7 +146,7 @@ export default function BlogPage() {
 
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative w-9 h-9 rounded-full overflow-hidden bg-[#e7e5e4] flex-shrink-0">
-                    <Image src={featured.authorImage} alt={featured.author} fill className="object-cover" />
+                    <Image src={featured.authorImage} alt={featured.author} fill sizes="36px" className="object-cover" />
                   </div>
                   <div>
                     <p className="font-sans text-xs font-semibold text-[#0f172a]">{featured.author}</p>
@@ -202,6 +203,7 @@ export default function BlogPage() {
                       src={post.image}
                       alt={post.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
@@ -223,7 +225,7 @@ export default function BlogPage() {
                     <div className="flex items-center justify-between pt-4 border-t border-[#e7e5e4]">
                       <div className="flex items-center gap-3">
                         <div className="relative w-7 h-7 rounded-full overflow-hidden bg-[#e7e5e4] flex-shrink-0">
-                          <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
+                          <Image src={post.authorImage} alt={post.author} fill sizes="28px" className="object-cover" />
                         </div>
                         <span className="font-sans text-xs text-[#1e293b]">{post.author.split(' ')[0]}</span>
                       </div>

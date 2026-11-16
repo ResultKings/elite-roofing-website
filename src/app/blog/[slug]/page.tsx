@@ -99,7 +99,7 @@ export default function BlogPostPage({ params }: PageProps) {
             <div className="flex flex-wrap items-center gap-5">
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10 rounded-full overflow-hidden bg-[#e7e5e4] flex-shrink-0">
-                  <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
+                  <Image src={post.authorImage} alt={post.author} fill sizes="40px" className="object-cover" />
                 </div>
                 <div>
                   <p className="font-sans text-sm font-semibold text-white leading-none">{post.author}</p>
@@ -125,6 +125,7 @@ export default function BlogPostPage({ params }: PageProps) {
             alt={post.title}
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/30 via-transparent to-transparent" />
@@ -192,7 +193,7 @@ export default function BlogPostPage({ params }: PageProps) {
           <div className="mt-12 p-6 md:p-8 bg-white border border-[#e7e5e4]">
             <div className="flex items-start gap-5">
               <div className="relative w-16 h-16 rounded-full overflow-hidden bg-[#e7e5e4] flex-shrink-0">
-                <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
+                <Image src={post.authorImage} alt={post.author} fill sizes="64px" className="object-cover" />
               </div>
               <div>
                 <p className="font-sans text-[10px] font-semibold tracking-[0.3em] uppercase text-[#D0000F] mb-1">
@@ -264,6 +265,7 @@ export default function BlogPostPage({ params }: PageProps) {
                       src={related.image}
                       alt={related.title}
                       fill
+                      sizes="112px"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

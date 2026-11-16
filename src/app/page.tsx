@@ -105,6 +105,7 @@ function HeroSection() {
           muted
           loop
           playsInline
+          poster="/quality-section-aerial.webp"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
