@@ -1,9 +1,55 @@
 'use client'
 
-import { useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
+import { useEffect, useRef, useState } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+
+function GestureHandler() {
+  const map = useMap()
+  const [showHint, setShowHint] = useState(false)
+  const hintTimer = useRef<ReturnType<typeof setTimeout>>()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (!window.matchMedia('(pointer: coarse)').matches) return
+
+    const container = map.getContainer()
+    map.dragging.disable()
+
+    const onTouchStart = (e: TouchEvent) => {
+      clearTimeout(hintTimer.current)
+      if (e.touches.length >= 2) {
+        map.dragging.enable()
+      } else {
+        map.dragging.disable()
+        setShowHint(true)
+        hintTimer.current = setTimeout(() => setShowHint(false), 1500)
+      }
+    }
+    const onTouchEnd = (e: TouchEvent) => {
+      if (e.touches.length < 2) map.dragging.disable()
+    }
+
+    container.addEventListener('touchstart', onTouchStart, { passive: true })
+    container.addEventListener('touchend', onTouchEnd, { passive: true })
+    container.addEventListener('touchcancel', onTouchEnd, { passive: true })
+    return () => {
+      container.removeEventListener('touchstart', onTouchStart)
+      container.removeEventListener('touchend', onTouchEnd)
+      container.removeEventListener('touchcancel', onTouchEnd)
+    }
+  }, [map])
+
+  if (!showHint) return null
+  return (
+    <div style={{ position: 'absolute', inset: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+      <div style={{ background: 'rgba(0,0,0,0.65)', color: 'white', fontSize: '14px', fontFamily: 'Inter, sans-serif', fontWeight: 600, padding: '10px 20px', borderRadius: '8px' }}>
+        Use two fingers to move the map
+      </div>
+    </div>
+  )
+}
 
 // Fix Leaflet's default marker icons when bundled with webpack/Next.js
 function fixLeafletIcons() {
@@ -62,6 +108,7 @@ export default function ServiceAreaMap() {
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       />
 
+      <GestureHandler />
       {/* Zoom controls in bottom-right corner */}
       <ZoomControl position="bottomright" />
 

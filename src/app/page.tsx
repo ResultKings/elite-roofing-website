@@ -170,22 +170,17 @@ function HeroSection() {
               </div>
             </Link>
 
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
-
-            {/* Stat 1 */}
-            <div>
-              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,500+</div>
-              <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
-
-            {/* Stat 2 */}
-            <div>
-              <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">20+</div>
-              <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
+            {/* Stats grouped — always side by side */}
+            <div className="flex items-center gap-6">
+              <div>
+                <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,500+</div>
+                <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-white/20" />
+              <div>
+                <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">20+</div>
+                <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
+              </div>
             </div>
           </motion.div>
 
@@ -196,7 +191,7 @@ function HeroSection() {
             </Button>
             <a
               href="tel:+19055550198"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-white border border-white/40 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-white border border-white/40 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
             >
               <Phone className="w-4 h-4" />
               (905) 555-0198
@@ -559,21 +554,8 @@ function TrustedLocalSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
 
-          {/* Left: Image */}
-          <FadeIn className="h-full">
-            <div className="relative min-h-[420px] lg:h-full overflow-hidden rounded-xl">
-              <Image
-                src="/residential-roofing.webp"
-                alt="Elite Roofing crew on a residential roof replacement"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </FadeIn>
-
-          {/* Right: Text */}
-          <FadeIn delay={0.1} className="h-full">
+          {/* Text — first on mobile, right on desktop */}
+          <FadeIn delay={0.1} className="h-full order-1 lg:order-2">
             <div className="flex flex-col justify-between h-full py-4 lg:py-8">
               <div>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#0f172a] mb-8 leading-tight">
@@ -591,6 +573,19 @@ function TrustedLocalSection() {
                   Get Free Estimate
                 </Button>
               </div>
+            </div>
+          </FadeIn>
+
+          {/* Image — below button on mobile, left on desktop */}
+          <FadeIn className="h-full order-2 lg:order-1">
+            <div className="relative min-h-[420px] lg:h-full overflow-hidden rounded-xl">
+              <Image
+                src="/residential-roofing.webp"
+                alt="Elite Roofing crew on a residential roof replacement"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </FadeIn>
 
