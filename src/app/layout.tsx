@@ -80,6 +80,10 @@ export const metadata: Metadata = {
       "Ontario's premier roofing specialist. Master craftsmanship, premium materials, lasting protection.",
     images: ['https://elite-roofing-website-mu.vercel.app/og-image.webp'],
   },
+  icons: {
+    icon: '/favicon-er.webp',
+    apple: '/favicon-er.webp',
+  },
   robots: {
     index: true,
     follow: true,
