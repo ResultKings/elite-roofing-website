@@ -186,12 +186,12 @@ function HeroSection() {
 
           {/* CTA buttons */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mt-7 md:mt-8">
-            <Button href="/contact" variant="primary" size="md">
+            <Button href="/contact" variant="primary" size="md" className="w-full sm:w-auto">
               Get Free Estimate
             </Button>
             <a
               href="tel:+19055550198"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-white border border-white/40 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent text-white border border-white/40 hover:border-white hover:bg-white/5 font-sans text-base font-semibold transition-all duration-300 rounded-md whitespace-nowrap"
             >
               <Phone className="w-4 h-4" />
               (905) 555-0198

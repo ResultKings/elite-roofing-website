@@ -405,7 +405,7 @@ export default function Navbar() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#041D35] text-white font-sans text-base font-semibold hover:bg-[#0a2a4a] transition-colors rounded-md"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors rounded-md"
               >
                 Get Free Estimate
               </Link>
