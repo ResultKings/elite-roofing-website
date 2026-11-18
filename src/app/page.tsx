@@ -138,9 +138,9 @@ function HeroSection() {
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-base md:text-lg text-white leading-relaxed mb-6 md:mb-10 max-w-lg"
+            className="font-sans text-base md:text-lg text-white font-bold leading-relaxed mb-6 md:mb-10 max-w-lg"
           >
-            Professional roofing company across Ontario. Licensed teams for residential, multifamily, and commercial roofing. Always completed with our guaranteed professional result.
+            Professional roofing company providing roofing services across Ontario. Licensed for residential, multi-family, and commercial roofing. Every roof is always completed with our guaranteed professional result.
           </motion.p>
 
           {/* Social proof + stats row */}
