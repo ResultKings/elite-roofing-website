@@ -90,12 +90,15 @@ const SERVICE_AREAS = [
 ]
 
 export default function ServiceAreaMap() {
+  const mapKey = useRef(`service-area-map-${Math.random()}`)
+
   useEffect(() => {
     fixLeafletIcons()
   }, [])
 
   return (
     <MapContainer
+      key={mapKey.current}
       center={[43.58, -79.60]}
       zoom={10}
       zoomControl={false}

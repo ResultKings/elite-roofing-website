@@ -103,6 +103,7 @@ export default function ServiceAreaMapFull({
   // Defer rendering until after mount so React Strict Mode's unmount/remount
   // cycle creates a fresh MapContainer div each time, preventing Leaflet's
   // "container already initialized" error.
+  const mapKey = useRef(`service-area-map-full-${Math.random()}`)
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
 
@@ -110,6 +111,7 @@ export default function ServiceAreaMapFull({
 
   return (
     <MapContainer
+      key={mapKey.current}
       center={[43.72, -79.52]}
       zoom={9}
       zoomControl={false}
