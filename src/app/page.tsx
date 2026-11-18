@@ -129,7 +129,7 @@ function HeroSection() {
               </span>
               <span
                 className="text-[#D0000F] leading-tight"
-                style={{ fontFamily: 'var(--font-dancing)', fontSize: 'clamp(2.2rem, 4.5vw, 5rem)' }}
+                style={{ fontFamily: 'var(--font-dancing)', fontSize: 'clamp(1.7rem, 3.5vw, 3.8rem)' }}
               >
                 Since 2004
               </span>
@@ -164,8 +164,8 @@ function HeroSection() {
                     <Star key={i} className="w-3 h-3 fill-[#f59e0b] text-[#f59e0b]" />
                   ))}
                 </div>
-                <span className="font-sans text-xs text-white/70">
-                  <span className="text-white font-semibold">4.9</span> on Google
+                <span className="font-sans text-sm font-bold text-white/80">
+                  <span className="text-white font-extrabold">4.9</span> on Google
                 </span>
               </div>
             </Link>
@@ -173,13 +173,13 @@ function HeroSection() {
             {/* Stats grouped — always side by side */}
             <div className="flex items-center gap-6">
               <div>
-                <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">2,500+</div>
-                <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Roofs Completed</div>
+                <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2rem)] text-white leading-none">2,500+</div>
+                <div className="font-sans text-[11px] font-bold text-white/60 tracking-widest uppercase mt-1">Roofs Completed</div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-white/20" />
               <div>
-                <div className="font-display font-black text-[clamp(1.2rem,2vw,1.8rem)] text-white leading-none">20+</div>
-                <div className="font-sans text-[10px] text-white/50 tracking-widest uppercase mt-1">Years in Business</div>
+                <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2rem)] text-white leading-none">20+</div>
+                <div className="font-sans text-[11px] font-bold text-white/60 tracking-widest uppercase mt-1">Years in Business</div>
               </div>
             </div>
           </motion.div>
