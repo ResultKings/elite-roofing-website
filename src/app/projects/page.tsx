@@ -209,14 +209,14 @@ export default function ProjectsPage() {
   }
 
   const handleSeeLess = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      seeLessBtnRef.current?.scrollIntoView({ behavior: 'instant', block: 'center' })
+    }
     setVisibleCount(c => {
       const next = Math.max(c - BATCH, INITIAL_COUNT)
       if (next <= INITIAL_COUNT) setCollapsingMode(false)
       return next
     })
-    setTimeout(() => {
-      seeLessBtnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }, 300)
   }
 
   const selectCategory = useCallback((cat: Category) => {
