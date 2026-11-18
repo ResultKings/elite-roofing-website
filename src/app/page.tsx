@@ -164,7 +164,7 @@ function HeroSection() {
                     <Star key={i} className="w-3 h-3 fill-[#f59e0b] text-[#f59e0b]" />
                   ))}
                 </div>
-                <span className="font-sans text-sm font-bold text-white/80">
+                <span className="font-sans text-base font-bold text-white">
                   <span className="text-white font-extrabold">4.9</span> on Google
                 </span>
               </div>
@@ -173,13 +173,13 @@ function HeroSection() {
             {/* Stats grouped — always side by side */}
             <div className="flex items-center gap-6">
               <div>
-                <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2rem)] text-white leading-none">2,500+</div>
-                <div className="font-sans text-[11px] font-bold text-white/60 tracking-widest uppercase mt-1">Roofs Completed</div>
+                <div className="font-display font-black text-[clamp(1.5rem,2.4vw,2.2rem)] text-white leading-none">2,500+</div>
+                <div className="font-sans text-[12px] font-bold text-white tracking-widest uppercase mt-1">Roofs Completed</div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-white/20" />
               <div>
-                <div className="font-display font-black text-[clamp(1.4rem,2.2vw,2rem)] text-white leading-none">20+</div>
-                <div className="font-sans text-[11px] font-bold text-white/60 tracking-widest uppercase mt-1">Years in Business</div>
+                <div className="font-display font-black text-[clamp(1.5rem,2.4vw,2.2rem)] text-white leading-none">20+</div>
+                <div className="font-sans text-[12px] font-bold text-white tracking-widest uppercase mt-1">Years in Business</div>
               </div>
             </div>
           </motion.div>
