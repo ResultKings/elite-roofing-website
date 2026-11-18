@@ -294,8 +294,8 @@ function ServicesHighlightSection() {
                 <p className="font-sans text-sm font-medium text-[#374151] leading-relaxed mb-6">
                   As your full service roofing contractor, we work only with top quality materials and manufacturer certified installation methods to deliver results that protect your home for decades. We are proud to be Ontario&apos;s number one provider of:
                 </p>
-                <div className="flex flex-wrap gap-x-2 gap-y-1 mb-10">
-                  {serviceLinks.map((s) => (
+                <div className="flex flex-wrap gap-x-0 gap-y-1 mb-10">
+                  {serviceLinks.map((s, i) => (
                     <span key={s.href} className="font-sans text-sm font-medium">
                       <Link
                         href={s.href}
@@ -303,6 +303,7 @@ function ServicesHighlightSection() {
                       >
                         {s.label}
                       </Link>
+                      {i < serviceLinks.length - 1 && <span className="text-[#374151] mr-2">,</span>}
                     </span>
                   ))}
                 </div>
