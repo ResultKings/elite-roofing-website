@@ -190,6 +190,7 @@ export default function ProjectsPage() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT)
   const [collapsingMode, setCollapsingMode] = useState(false)
   const filterBarRef = useRef<HTMLDivElement>(null)
+  const seeLessBtnRef = useRef<HTMLDivElement>(null)
 
   const filtered = activeCategory === 'All'
     ? projects
@@ -213,6 +214,9 @@ export default function ProjectsPage() {
       if (next <= INITIAL_COUNT) setCollapsingMode(false)
       return next
     })
+    setTimeout(() => {
+      seeLessBtnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 300)
   }
 
   const selectCategory = useCallback((cat: Category) => {
@@ -380,7 +384,7 @@ export default function ProjectsPage() {
 
             {/* Show More / See Less button */}
             {isAll && (
-              <div className="flex justify-center mt-10">
+              <div className="flex justify-center mt-10" ref={seeLessBtnRef}>
                 <AnimatePresence mode="wait">
                   {showMoreBtn && (
                     <motion.button

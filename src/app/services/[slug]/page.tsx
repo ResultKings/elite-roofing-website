@@ -1261,8 +1261,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section className="bg-[#f4f3f1] py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16">
               <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] min-h-[460px] lg:min-h-[520px]">
-                  {/* Left: image */}
-                  <div className="relative min-h-[300px] lg:min-h-[520px] rounded-xl overflow-hidden">
+                  {/* Left: image — below text on mobile */}
+                  <div className="relative min-h-[300px] lg:min-h-[520px] rounded-xl overflow-hidden order-2 lg:order-1">
                     <Image
                       src={pd.processImage ?? zigImg1}
                       alt={service.title}
@@ -1271,8 +1271,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                       className="object-cover"
                     />
                   </div>
-                  {/* Right: white card overlapping image */}
-                  <div className="relative z-10 flex items-center py-10 lg:py-8 pl-8 md:pl-12 lg:-ml-28 lg:pl-0">
+                  {/* Right: white card overlapping image — above image on mobile */}
+                  <div className="relative z-10 flex items-center py-10 lg:py-8 order-1 lg:order-2 lg:-ml-28">
                     <div className="bg-white shadow-2xl p-8 lg:p-12 w-full rounded-xl">
                       <h2 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] font-bold uppercase text-[#0f172a] mb-5 leading-none tracking-tight">
                         {pd.heading}
