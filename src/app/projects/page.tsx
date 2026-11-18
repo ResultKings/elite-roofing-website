@@ -189,6 +189,7 @@ export default function ProjectsPage() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT)
   const [collapsingMode, setCollapsingMode] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const filterBarRef = useRef<HTMLDivElement>(null)
   const seeLessBtnRef = useRef<HTMLDivElement>(null)
 
@@ -209,9 +210,6 @@ export default function ProjectsPage() {
   }
 
   const handleSeeLess = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      seeLessBtnRef.current?.scrollIntoView({ behavior: 'instant', block: 'center' })
-    }
     setVisibleCount(c => {
       const next = Math.max(c - BATCH, INITIAL_COUNT)
       if (next <= INITIAL_COUNT) setCollapsingMode(false)
@@ -224,6 +222,13 @@ export default function ProjectsPage() {
     setOpenDropdown(null)
     setVisibleCount(INITIAL_COUNT)
     setCollapsingMode(false)
+  }, [])
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
   useEffect(() => {
@@ -370,7 +375,7 @@ export default function ProjectsPage() {
                   key="extra-cards"
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }}
-                  exit={{ height: 0, opacity: 0, transition: { duration: 0.25 } }}
+                  exit={{ height: 0, opacity: 0, transition: { duration: isMobile ? 0 : 0.25 } }}
                   className="overflow-hidden"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
@@ -409,7 +414,7 @@ export default function ProjectsPage() {
                       className="inline-flex items-center gap-3 px-8 py-3 bg-[#D0000F] hover:bg-[#A5000A] rounded-md font-sans text-base font-semibold text-white transition-colors duration-200"
                     >
                       <span className="text-[8px]">▼</span>
-                      See Less
+                      Show less
                     </motion.button>
                   )}
                 </AnimatePresence>
