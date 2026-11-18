@@ -1122,7 +1122,7 @@ function AnimatedProcessSection({ steps, stepIcons }: { steps: ProcessStep[]; st
           {steps.map((step, i) => (
             <div key={i} className="flex gap-6">
               <div className="flex flex-col items-center">
-                <div className="w-10 h-10 bg-[#041D35] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-[#041D35] flex items-center justify-center flex-shrink-0 rounded-lg">
                   <span className="font-sans text-[10px] font-bold text-white tracking-wider">{step.num}</span>
                 </div>
                 {i < steps.length - 1 && (
@@ -1262,7 +1262,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] min-h-[460px] lg:min-h-[520px]">
                   {/* Left: image */}
-                  <div className="relative min-h-[300px] lg:min-h-[520px]">
+                  <div className="relative min-h-[300px] lg:min-h-[520px] rounded-xl overflow-hidden">
                     <Image
                       src={pd.processImage ?? zigImg1}
                       alt={service.title}
@@ -1273,7 +1273,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   </div>
                   {/* Right: white card overlapping image */}
                   <div className="relative z-10 flex items-center py-10 lg:py-8 pl-8 md:pl-12 lg:-ml-28 lg:pl-0">
-                    <div className="bg-white shadow-2xl p-8 lg:p-12 w-full">
+                    <div className="bg-white shadow-2xl p-8 lg:p-12 w-full rounded-xl">
                       <h2 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] font-bold uppercase text-[#0f172a] mb-5 leading-none tracking-tight">
                         {pd.heading}
                       </h2>
@@ -1306,7 +1306,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* ── The Standard ─────────────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 px-4 md:px-8 lg:px-16">
-        <div className="max-w-7xl mx-auto bg-[#2d2b2b] px-10 md:px-14 lg:px-16 py-14 md:py-16">
+        <div className="max-w-7xl mx-auto bg-[#2d2b2b] px-10 md:px-14 lg:px-16 py-14 md:py-16 rounded-2xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {([
               {

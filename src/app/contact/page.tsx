@@ -115,7 +115,7 @@ export default function ContactPage() {
                 <div className="space-y-7">
                   {contactDetails.map(({ icon: Icon, label, value, href, note }) => (
                     <div key={label} className="flex items-start gap-4 group">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#D0000F]/20 transition-colors duration-300">
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#D0000F]/20 transition-colors duration-300 rounded-lg">
                         <Icon className="w-4 h-4 text-[#D0000F]" />
                       </div>
                       <div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
 
               {/* Why Elite Roofing â€" light, cohesive styling */}
               <FadeIn delay={0.15}>
-                <div className="bg-slate-50 border border-[#e7e5e4] p-6">
+                <div className="bg-slate-50 border border-[#e7e5e4] p-6 rounded-xl">
                   <p className="font-sans text-[10px] font-semibold tracking-[0.35em] uppercase text-[#1e293b] mb-5">
                     Why Elite Roofing
                   </p>
@@ -187,7 +187,7 @@ export default function ContactPage() {
 
             {/* Right: Form */}
             <FadeIn className="lg:col-span-3 lg:pt-8 order-1 lg:order-2" delay={0.05}>
-              <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm">
+              <div className="bg-white border border-[#e7e5e4] p-8 md:p-12 shadow-sm rounded-xl">
                 <div className="mb-10">
                   <h2 className="font-serif text-3xl font-bold text-[#0f172a] mb-5">
                     Request a Free Estimate

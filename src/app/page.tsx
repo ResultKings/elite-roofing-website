@@ -945,7 +945,7 @@ function TestimonialsSection() {
               href="https://customerreviews.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#f59e0b] text-[#0f172a] font-sans text-base font-semibold hover:bg-[#d97706] transition-all duration-300 rounded-md"
             >
               Leave a Google Review
             </a>

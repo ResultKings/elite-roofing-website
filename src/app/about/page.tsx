@@ -219,8 +219,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v, i) => (
               <FadeIn key={v.title} delay={i * 0.08}>
-                <div className="bg-white border border-[#e7e5e4] p-8 flex gap-5 hover:border-[#D0000F]/40 hover:shadow-md transition-all duration-300">
-                  <div className="w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="bg-white border border-[#e7e5e4] p-8 flex gap-5 hover:border-[#D0000F]/40 hover:shadow-md transition-all duration-300 rounded-xl">
+                  <div className="w-10 h-10 bg-[#D0000F]/10 flex items-center justify-center flex-shrink-0 mt-0.5 rounded-lg">
                     <v.icon className="w-5 h-5 text-[#D0000F]" />
                   </div>
                   <div>

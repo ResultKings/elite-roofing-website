@@ -224,7 +224,7 @@ export default function ServiceAreasPage() {
                   </a>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D0000F] text-white font-sans text-base font-semibold hover:bg-[#A5000A] transition-colors duration-300 rounded-md"
                   >
                     Schedule an Estimate
                     <ArrowRight className="w-4 h-4" />
