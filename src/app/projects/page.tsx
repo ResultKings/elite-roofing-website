@@ -192,6 +192,7 @@ export default function ProjectsPage() {
   const [isMobile, setIsMobile] = useState(false)
   const filterBarRef = useRef<HTMLDivElement>(null)
   const seeLessBtnRef = useRef<HTMLDivElement>(null)
+  const justCollapsed = useRef(false)
 
   const filtered = activeCategory === 'All'
     ? projects
@@ -210,6 +211,7 @@ export default function ProjectsPage() {
   }
 
   const handleSeeLess = () => {
+    if (isMobile) justCollapsed.current = true
     setVisibleCount(c => {
       const next = Math.max(c - BATCH, INITIAL_COUNT)
       if (next <= INITIAL_COUNT) setCollapsingMode(false)
@@ -230,6 +232,14 @@ export default function ProjectsPage() {
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
+
+  // After DOM updates following a "Show less" collapse on mobile,
+  // scroll to the button (now at its new, higher position on the page).
+  useEffect(() => {
+    if (!justCollapsed.current) return
+    justCollapsed.current = false
+    seeLessBtnRef.current?.scrollIntoView({ behavior: 'instant', block: 'center' })
+  }, [visibleCount])
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
